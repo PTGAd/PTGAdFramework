@@ -1,0 +1,6 @@
+framework module Pods_PTGAdDemo {
+  umbrella header "Pods-PTGAdDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
