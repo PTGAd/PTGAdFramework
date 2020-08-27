@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,12 +18,20 @@
 		589213E524D7263000AA9B51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 589213E424D7263000AA9B51 /* Foundation.framework */; };
 		589213E724D7263A00AA9B51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 589213E624D7263A00AA9B51 /* CoreGraphics.framework */; };
 		589213E924D7264600AA9B51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 589213E824D7264600AA9B51 /* UIKit.framework */; };
+		58C145D024F404B800EFAC24 /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C145CA24F400E100EFAC24 /* PTGAdSDK.framework */; };
 		58C145D124F404B800EFAC24 /* PTGAdSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58C145CA24F400E100EFAC24 /* PTGAdSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		84C19D4D24F69DC000B1FAE9 /* PTGAdFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84C19D4C24F69DC000B1FAE9 /* PTGAdFramework.podspec */; };
-		84C19D5324F6A8BE00B1FAE9 /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C19D5224F6A8BD00B1FAE9 /* PTGAdSDK.framework */; };
-		84C19D5924F7459900B1FAE9 /* PTGAdFramework.podspec的副本 in Resources */ = {isa = PBXBuildFile; fileRef = 84C19D5824F7459900B1FAE9 /* PTGAdFramework.podspec的副本 */; };
-		84C19D5B24F745A400B1FAE9 /* PTGAdFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84C19D5A24F745A400B1FAE9 /* PTGAdFramework.podspec */; };
-		84C19D5D24F747A200B1FAE9 /* Bytedance-UnionAD.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84C19D5C24F747A200B1FAE9 /* Bytedance-UnionAD.podspec */; };
+		8421F18D24F7BB0F000C4876 /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8421F18C24F7BB0E000C4876 /* PTGAdSDK.framework */; };
+		8421F18F24F7BB5D000C4876 /* PTGBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8421F18E24F7BB5D000C4876 /* PTGBundle.bundle */; };
+		8434243524F63DA800F0ABB5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243024F63C4B00F0ABB5 /* libz.tbd */; };
+		8434243624F63DB700F0ABB5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242624F63C1900F0ABB5 /* AdSupport.framework */; };
+		8434243724F63DBD00F0ABB5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434241C24F63BA800F0ABB5 /* CoreMedia.framework */; };
+		8434243824F63DC300F0ABB5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242224F63C0B00F0ABB5 /* CoreTelephony.framework */; };
+		8434243924F63DC900F0ABB5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434241E24F63BCA00F0ABB5 /* CoreLocation.framework */; };
+		8434243B24F63DD000F0ABB5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */; };
+		8434243C24F63DD700F0ABB5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434241A24F63B9D00F0ABB5 /* MobileCoreServices.framework */; };
+		8434243D24F63DDD00F0ABB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242824F63C2500F0ABB5 /* CoreMotion.framework */; };
+		8434243E24F63DE600F0ABB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242424F63C1300F0ABB5 /* SystemConfiguration.framework */; };
+		8434244024F63DEC00F0ABB5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243F24F63DEC00F0ABB5 /* WebKit.framework */; };
 		84E7AA5124F5F9710089F534 /* NativeExpressAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7AA4F24F5F9710089F534 /* NativeExpressAdViewController.m */; };
 		84E7AA5224F5F9710089F534 /* NativeExpressAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AA5024F5F9710089F534 /* NativeExpressAdViewController.xib */; };
 		84E7AA5824F632700089F534 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AA5724F632700089F534 /* Splash.png */; };
@@ -85,11 +93,25 @@
 		58C145CA24F400E100EFAC24 /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = "<group>"; };
 		5E2D53ABBB8D6A3AA78F14F3 /* Pods-PTGAdDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGAdDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6B2155196765476F3F2E2AC5 /* Pods_PTGAdDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PTGAdDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84C19D4C24F69DC000B1FAE9 /* PTGAdFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PTGAdFramework.podspec; sourceTree = "<group>"; };
-		84C19D5224F6A8BD00B1FAE9 /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTGAdSDK.framework; path = ../../../PTGAdFramework/Frameworks/PTGAdSDK.framework; sourceTree = "<group>"; };
-		84C19D5824F7459900B1FAE9 /* PTGAdFramework.podspec的副本 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "PTGAdFramework.podspec的副本"; sourceTree = "<group>"; };
-		84C19D5A24F745A400B1FAE9 /* PTGAdFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PTGAdFramework.podspec; path = ../../../../../PTGAdFramework/PTGAdFramework.podspec; sourceTree = "<group>"; };
-		84C19D5C24F747A200B1FAE9 /* Bytedance-UnionAD.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Bytedance-UnionAD.podspec"; sourceTree = "<group>"; };
+		8421F18C24F7BB0E000C4876 /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = "<group>"; };
+		8421F18E24F7BB5D000C4876 /* PTGBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PTGBundle.bundle; sourceTree = "<group>"; };
+		8434241824F63B9300F0ABB5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8434241A24F63B9D00F0ABB5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		8434241C24F63BA800F0ABB5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8434241E24F63BCA00F0ABB5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		8434242024F63BD400F0ABB5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8434242224F63C0B00F0ABB5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		8434242424F63C1300F0ABB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8434242624F63C1900F0ABB5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		8434242824F63C2500F0ABB5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		8434242A24F63C2C00F0ABB5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		8434242C24F63C3400F0ABB5 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		8434242E24F63C4000F0ABB5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		8434243024F63C4B00F0ABB5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8434243224F63C5600F0ABB5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8434243324F63D0200F0ABB5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		8434243F24F63DEC00F0ABB5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		84E7AA4E24F5F9710089F534 /* NativeExpressAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeExpressAdViewController.h; sourceTree = "<group>"; };
 		84E7AA4F24F5F9710089F534 /* NativeExpressAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeExpressAdViewController.m; sourceTree = "<group>"; };
 		84E7AA5024F5F9710089F534 /* NativeExpressAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeExpressAdViewController.xib; sourceTree = "<group>"; };
@@ -101,9 +123,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8421F18D24F7BB0F000C4876 /* PTGAdSDK.framework in Frameworks */,
+				8434244024F63DEC00F0ABB5 /* WebKit.framework in Frameworks */,
+				8434243E24F63DE600F0ABB5 /* SystemConfiguration.framework in Frameworks */,
+				8434243D24F63DDD00F0ABB5 /* CoreMotion.framework in Frameworks */,
+				8434243C24F63DD700F0ABB5 /* MobileCoreServices.framework in Frameworks */,
+				8434243B24F63DD000F0ABB5 /* MediaPlayer.framework in Frameworks */,
+				8434243924F63DC900F0ABB5 /* CoreLocation.framework in Frameworks */,
+				8434243824F63DC300F0ABB5 /* CoreTelephony.framework in Frameworks */,
+				8434243724F63DBD00F0ABB5 /* CoreMedia.framework in Frameworks */,
+				8434243624F63DB700F0ABB5 /* AdSupport.framework in Frameworks */,
+				8434243524F63DA800F0ABB5 /* libz.tbd in Frameworks */,
+				58C145D024F404B800EFAC24 /* PTGAdSDK.framework in Frameworks */,
 				589213E924D7264600AA9B51 /* UIKit.framework in Frameworks */,
 				589213E724D7263A00AA9B51 /* CoreGraphics.framework in Frameworks */,
-				84C19D5324F6A8BE00B1FAE9 /* PTGAdSDK.framework in Frameworks */,
 				589213E524D7263000AA9B51 /* Foundation.framework in Frameworks */,
 				96D5CF93EFE1BC25063BEB67 /* Pods_PTGAdDemo.framework in Frameworks */,
 			);
@@ -153,10 +186,6 @@
 			children = (
 				589213A624D7194D00AA9B51 /* AppDelegate.h */,
 				589213A724D7194D00AA9B51 /* AppDelegate.m */,
-				84C19D5A24F745A400B1FAE9 /* PTGAdFramework.podspec */,
-				84C19D5824F7459900B1FAE9 /* PTGAdFramework.podspec的副本 */,
-				84C19D4C24F69DC000B1FAE9 /* PTGAdFramework.podspec */,
-				84C19D5C24F747A200B1FAE9 /* Bytedance-UnionAD.podspec */,
 				589213AC24D7194D00AA9B51 /* ViewController.h */,
 				589213AD24D7194D00AA9B51 /* ViewController.m */,
 				589213AF24D7194D00AA9B51 /* Main.storyboard */,
@@ -193,7 +222,25 @@
 		589213DB24D7246600AA9B51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84C19D5224F6A8BD00B1FAE9 /* PTGAdSDK.framework */,
+				8421F18E24F7BB5D000C4876 /* PTGBundle.bundle */,
+				8421F18C24F7BB0E000C4876 /* PTGAdSDK.framework */,
+				8434243F24F63DEC00F0ABB5 /* WebKit.framework */,
+				8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */,
+				8434243324F63D0200F0ABB5 /* ImageIO.framework */,
+				8434243224F63C5600F0ABB5 /* libsqlite3.tbd */,
+				8434243024F63C4B00F0ABB5 /* libz.tbd */,
+				8434242E24F63C4000F0ABB5 /* libc++.tbd */,
+				8434242C24F63C3400F0ABB5 /* libresolv.9.tbd */,
+				8434242A24F63C2C00F0ABB5 /* Accelerate.framework */,
+				8434242824F63C2500F0ABB5 /* CoreMotion.framework */,
+				8434242624F63C1900F0ABB5 /* AdSupport.framework */,
+				8434242424F63C1300F0ABB5 /* SystemConfiguration.framework */,
+				8434242224F63C0B00F0ABB5 /* CoreTelephony.framework */,
+				8434242024F63BD400F0ABB5 /* AVFoundation.framework */,
+				8434241E24F63BCA00F0ABB5 /* CoreLocation.framework */,
+				8434241C24F63BA800F0ABB5 /* CoreMedia.framework */,
+				8434241A24F63B9D00F0ABB5 /* MobileCoreServices.framework */,
+				8434241824F63B9300F0ABB5 /* StoreKit.framework */,
 				58C145CA24F400E100EFAC24 /* PTGAdSDK.framework */,
 				589213E824D7264600AA9B51 /* UIKit.framework */,
 				589213E624D7263A00AA9B51 /* CoreGraphics.framework */,
@@ -317,14 +364,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84C19D5B24F745A400B1FAE9 /* PTGAdFramework.podspec in Resources */,
-				84C19D5924F7459900B1FAE9 /* PTGAdFramework.podspec的副本 in Resources */,
-				84C19D4D24F69DC000B1FAE9 /* PTGAdFramework.podspec in Resources */,
 				589213B624D7194F00AA9B51 /* LaunchScreen.storyboard in Resources */,
 				84E7AA5824F632700089F534 /* Splash.png in Resources */,
 				84E7AA5224F5F9710089F534 /* NativeExpressAdViewController.xib in Resources */,
+				8421F18F24F7BB5D000C4876 /* PTGBundle.bundle in Resources */,
 				589213B324D7194F00AA9B51 /* Assets.xcassets in Resources */,
-				84C19D5D24F747A200B1FAE9 /* Bytedance-UnionAD.podspec in Resources */,
 				589213B124D7194D00AA9B51 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
