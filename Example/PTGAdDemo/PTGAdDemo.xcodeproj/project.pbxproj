@@ -32,6 +32,7 @@
 		8434243D24F63DDD00F0ABB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242824F63C2500F0ABB5 /* CoreMotion.framework */; };
 		8434243E24F63DE600F0ABB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242424F63C1300F0ABB5 /* SystemConfiguration.framework */; };
 		8434244024F63DEC00F0ABB5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243F24F63DEC00F0ABB5 /* WebKit.framework */; };
+		84527B4624F8AA2B00BDCC32 /* PTGAdFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84527B4524F8AA2A00BDCC32 /* PTGAdFramework.podspec */; };
 		84E7AA5124F5F9710089F534 /* NativeExpressAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7AA4F24F5F9710089F534 /* NativeExpressAdViewController.m */; };
 		84E7AA5224F5F9710089F534 /* NativeExpressAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AA5024F5F9710089F534 /* NativeExpressAdViewController.xib */; };
 		84E7AA5824F632700089F534 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AA5724F632700089F534 /* Splash.png */; };
@@ -112,6 +113,7 @@
 		8434243324F63D0200F0ABB5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8434243F24F63DEC00F0ABB5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		84527B4524F8AA2A00BDCC32 /* PTGAdFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PTGAdFramework.podspec; path = ../../../PTGAdFramework.podspec; sourceTree = "<group>"; };
 		84E7AA4E24F5F9710089F534 /* NativeExpressAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeExpressAdViewController.h; sourceTree = "<group>"; };
 		84E7AA4F24F5F9710089F534 /* NativeExpressAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeExpressAdViewController.m; sourceTree = "<group>"; };
 		84E7AA5024F5F9710089F534 /* NativeExpressAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeExpressAdViewController.xib; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				589213AC24D7194D00AA9B51 /* ViewController.h */,
 				589213AD24D7194D00AA9B51 /* ViewController.m */,
 				589213AF24D7194D00AA9B51 /* Main.storyboard */,
+				84527B4524F8AA2A00BDCC32 /* PTGAdFramework.podspec */,
 				84E7AA4E24F5F9710089F534 /* NativeExpressAdViewController.h */,
 				84E7AA4F24F5F9710089F534 /* NativeExpressAdViewController.m */,
 				84E7AA5024F5F9710089F534 /* NativeExpressAdViewController.xib */,
@@ -370,6 +373,7 @@
 				8421F18F24F7BB5D000C4876 /* PTGBundle.bundle in Resources */,
 				589213B324D7194F00AA9B51 /* Assets.xcassets in Resources */,
 				589213B124D7194D00AA9B51 /* Main.storyboard in Resources */,
+				84527B4624F8AA2B00BDCC32 /* PTGAdFramework.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

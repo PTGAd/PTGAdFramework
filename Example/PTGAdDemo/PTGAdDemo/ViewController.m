@@ -66,8 +66,6 @@
     
     
     
-   
-    
     UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 80)];
     bottomView.backgroundColor = [UIColor whiteColor];
     
@@ -76,11 +74,11 @@
     logo.frame = CGRectMake(0, 0, 311, 47);
     logo.center = bottomView.center;
     [bottomView addSubview:logo];
-    
-    
+
     self.nativeExpressAd = [[PTGSplashA alloc] initWithPlacementId:@"989" bottomView:bottomView];
     self.nativeExpressAd.delegate = self;
     self.nativeExpressAd.hideSkipButton = false;
+    
     
 //    UIWindow *fK = [[UIApplication sharedApplication] keyWindow];
 //    self.nativeExpressAd.keyWindow = fK;
@@ -107,6 +105,9 @@
 
 - (void)splashAdDidLoad:(NSObject *)splashAd{
     
+}
+- (void)splashAdDidCloseOtherController:(NSObject *)splashAd{
+    NSLog(@"走了");
 }
 
 @end

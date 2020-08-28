@@ -6,6 +6,6 @@ target 'PTGAdDemo' do
   use_frameworks!
   # Pods for PTGAdDemo
 #  pod 'PTGAdFramework', '1.0.0'
-#  pod 'Bytedance-UnionAD', '3.1.0.9'
-#   pod  'lottie-ios_Oc', '0.0.1'
+  pod 'Bytedance-UnionAD', '3.1.0.9'
+   pod  'lottie-ios_Oc', '0.0.1'
 end

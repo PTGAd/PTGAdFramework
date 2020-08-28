@@ -36,7 +36,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)splashAdFailToPresent:(NSObject *)splashAd withError:(NSError *)error;
 
 
-
+/**
+ *  此方法在splash详情广告即将关闭时调用
+ */
+- (void)splashAdDidCloseOtherController:(NSObject *)splashAd;
 
 
 
@@ -68,15 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL hideSkipButton;
 
 
-/**
- *  开屏广告的背景图片
- *  可以设置背景图片作为开屏加载时的默认背景
- */
-@property (nonatomic, strong) UIImage *backgroundImage;
 
-//@property (nonatomic, assign) UIView *bottomView;
 
-//- (instancetype)initWithPlacementId:(NSString *)placementId;
 
 - (instancetype)initWithPlacementId:(NSString *)placementId bottomView :(UIView *)bottomView;
 

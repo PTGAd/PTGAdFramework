@@ -12,8 +12,6 @@
 #import "NativeExpressAdViewController.h"
 
 
-
-#import <BUAdSDK/BUAdSDKManager.h>
 #define KScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define KScreenWidth  [[UIScreen mainScreen] bounds].size.width
 #define kDevice_Is_iPhoneX (((int)((KScreenHeight/KScreenWidth)*100) == 216)?YES:NO)
