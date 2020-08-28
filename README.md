@@ -12,6 +12,7 @@
 直接下载并解压缩 SDK 框架，然后将以下框架导入您的 Xcode 项目中：
 
 *   PTGAdSDK.framework
+*   PTGBundle.bundle 
 导入完成后，请确保 Build Phases > Copy Bundle Resources 中有 
 
 
@@ -43,7 +44,7 @@
 *  ImageIO.framework
 #####  cocopods命令(推荐)
 ```
-pod  'PTGAdFramework', '1.0.1'//
+pod  'PTGAdFramework', '1.0.1'//暂时未上线 必选 可先选framework 包方式
 pod  'Bytedance-UnionAD', '3.1.0.9'
 pod  'GDTMobSDK', '4.11.10'
 ```
@@ -199,7 +200,7 @@ self.splashAd.bottomView = bottomView;
 @end
 
 ```
-##### 实现开屏广告事件
+##### 开屏广告事件回调
 PTGSplashAdDelegate 中的每个方法都是可选方法，因此您只需实现所需的方法即可。以下示例实现了每个方法并将消息记录到控制台：
 ```
 - (void)splashAdSuccessPresentScreen:(NSObject *)splashAd {
@@ -255,7 +256,7 @@ PTGSplashAdDelegate 中的每个方法都是可选方法，因此您只需实现
 ##### 广告事件
 通过使用 PTGNativeExpressAdDelegete，您可以监听广告生命周期事件，例如，广告何时加载、用户何时离开应用等。
 
-##### 实现广告事件
+##### 广告事件回调
 PTGNativeExpressAdDelegete 中的每个方法都是可选方法，因此您只需实现所需的方法即可。以下示例实现了每个方法，并将消息记录到控制台：
 
 ```
