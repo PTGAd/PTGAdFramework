@@ -5,7 +5,7 @@ target 'PTGAdDemo' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   # Pods for PTGAdDemo
-#  pod 'GDTMobSDK', '4.11.10'
+  pod 'PTGAdFramework', '1.0.0'
 #  pod 'Bytedance-UnionAD', '3.1.0.9'
 #   pod  'lottie-ios_Oc', '0.0.1'
 end
