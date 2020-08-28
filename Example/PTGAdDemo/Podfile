@@ -6,5 +6,5 @@ target 'PTGAdDemo' do
   use_frameworks!
   # Pods for PTGAdDemo
   pod 'GDTMobSDK', '4.11.10'
- pod 'Bytedance-UnionAD', '3.1.0.9'9'
+ pod 'Bytedance-UnionAD', '3.1.0.9'
 end

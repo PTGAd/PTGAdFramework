@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,7 +21,6 @@
 		58C145D024F404B800EFAC24 /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C145CA24F400E100EFAC24 /* PTGAdSDK.framework */; };
 		58C145D124F404B800EFAC24 /* PTGAdSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58C145CA24F400E100EFAC24 /* PTGAdSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		842A3C1024F8F3D300E20A40 /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842A3C0E24F8F3D300E20A40 /* PTGAdSDK.framework */; };
-		842A3C1124F8F3D300E20A40 /* PTGBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 842A3C0F24F8F3D300E20A40 /* PTGBundle.bundle */; };
 		8434243524F63DA800F0ABB5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243024F63C4B00F0ABB5 /* libz.tbd */; };
 		8434243624F63DB700F0ABB5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242624F63C1900F0ABB5 /* AdSupport.framework */; };
 		8434243724F63DBD00F0ABB5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434241C24F63BA800F0ABB5 /* CoreMedia.framework */; };
@@ -35,6 +34,9 @@
 		84E7AA5124F5F9710089F534 /* NativeExpressAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7AA4F24F5F9710089F534 /* NativeExpressAdViewController.m */; };
 		84E7AA5224F5F9710089F534 /* NativeExpressAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AA5024F5F9710089F534 /* NativeExpressAdViewController.xib */; };
 		84E7AA5824F632700089F534 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AA5724F632700089F534 /* Splash.png */; };
+		84FC4FC824F906620013B668 /* PTGAdFramework.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84FC4FC724F906620013B668 /* PTGAdFramework.podspec */; };
+		84FC4FD024F908000013B668 /* PTGAdSDK.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84FC4FCF24F908000013B668 /* PTGAdSDK.podspec */; };
+		84FC4FD224F909430013B668 /* Bytedance-UnionAD.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 84FC4FD124F909430013B668 /* Bytedance-UnionAD.podspec */; };
 		96D5CF93EFE1BC25063BEB67 /* Pods_PTGAdDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2155196765476F3F2E2AC5 /* Pods_PTGAdDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -94,7 +96,6 @@
 		5E2D53ABBB8D6A3AA78F14F3 /* Pods-PTGAdDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGAdDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6B2155196765476F3F2E2AC5 /* Pods_PTGAdDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PTGAdDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		842A3C0E24F8F3D300E20A40 /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTGAdSDK.framework; path = ../../../Frameworks/PTGAdSDK.framework; sourceTree = "<group>"; };
-		842A3C0F24F8F3D300E20A40 /* PTGBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PTGBundle.bundle; path = ../../../Frameworks/PTGBundle.bundle; sourceTree = "<group>"; };
 		8434241824F63B9300F0ABB5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8434241A24F63B9D00F0ABB5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8434241C24F63BA800F0ABB5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -116,6 +117,9 @@
 		84E7AA4F24F5F9710089F534 /* NativeExpressAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeExpressAdViewController.m; sourceTree = "<group>"; };
 		84E7AA5024F5F9710089F534 /* NativeExpressAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeExpressAdViewController.xib; sourceTree = "<group>"; };
 		84E7AA5724F632700089F534 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = Assets.xcassets/SplashLogo.imageset/Splash.png; sourceTree = "<group>"; };
+		84FC4FC724F906620013B668 /* PTGAdFramework.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PTGAdFramework.podspec; path = ../../../PTGAdFramework.podspec; sourceTree = "<group>"; };
+		84FC4FCF24F908000013B668 /* PTGAdSDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PTGAdSDK.podspec; path = ../../../../SDk/PTGAdSDK.podspec; sourceTree = "<group>"; };
+		84FC4FD124F909430013B668 /* Bytedance-UnionAD.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Bytedance-UnionAD.podspec"; path = "../../../../../广告sdk/Bytedance-UnionAD-master/Bytedance-UnionAD.podspec"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,9 @@
 			children = (
 				589213A724D7194D00AA9B51 /* AppDelegate.m */,
 				589213A624D7194D00AA9B51 /* AppDelegate.h */,
+				84FC4FCF24F908000013B668 /* PTGAdSDK.podspec */,
+				84FC4FD124F909430013B668 /* Bytedance-UnionAD.podspec */,
+				84FC4FC724F906620013B668 /* PTGAdFramework.podspec */,
 				589213AC24D7194D00AA9B51 /* ViewController.h */,
 				589213AD24D7194D00AA9B51 /* ViewController.m */,
 				589213AF24D7194D00AA9B51 /* Main.storyboard */,
@@ -223,7 +230,6 @@
 			isa = PBXGroup;
 			children = (
 				842A3C0E24F8F3D300E20A40 /* PTGAdSDK.framework */,
-				842A3C0F24F8F3D300E20A40 /* PTGBundle.bundle */,
 				8434243F24F63DEC00F0ABB5 /* WebKit.framework */,
 				8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */,
 				8434243324F63D0200F0ABB5 /* ImageIO.framework */,
@@ -271,6 +277,7 @@
 				589213A024D7194D00AA9B51 /* Frameworks */,
 				589213A124D7194D00AA9B51 /* Resources */,
 				589213EC24D7272200AA9B51 /* Embed Frameworks */,
+				052DD2DE251C5177433F9D41 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -367,9 +374,11 @@
 				589213B624D7194F00AA9B51 /* LaunchScreen.storyboard in Resources */,
 				84E7AA5824F632700089F534 /* Splash.png in Resources */,
 				84E7AA5224F5F9710089F534 /* NativeExpressAdViewController.xib in Resources */,
-				842A3C1124F8F3D300E20A40 /* PTGBundle.bundle in Resources */,
 				589213B324D7194F00AA9B51 /* Assets.xcassets in Resources */,
 				589213B124D7194D00AA9B51 /* Main.storyboard in Resources */,
+				84FC4FD024F908000013B668 /* PTGAdSDK.podspec in Resources */,
+				84FC4FD224F909430013B668 /* Bytedance-UnionAD.podspec in Resources */,
+				84FC4FC824F906620013B668 /* PTGAdFramework.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +399,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		052DD2DE251C5177433F9D41 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		21DC812167A62052E7B57368 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
