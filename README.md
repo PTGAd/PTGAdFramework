@@ -43,7 +43,7 @@
 *  ImageIO.framework
 #####  cocopods命令(推荐)
 ```
-pod  'PTGAdFramework', '1.0.0'//暂时未上线 必选 可先选framework 包方式
+pod  'PTGAdFramework', '1.0.1'//
 pod  'Bytedance-UnionAD', '3.1.0.9'
 pod  'GDTMobSDK', '4.11.10'
 ```
