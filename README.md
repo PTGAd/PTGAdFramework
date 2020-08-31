@@ -1,4 +1,3 @@
-# PTGAdFramework
 @[toc]
 ### 入门指南
 本指南适用于希望借助 PTGAdSDK 通过 iOS 应用获利。
@@ -44,7 +43,7 @@
 *  ImageIO.framework
 #####  cocopods命令(推荐)
 ```
-pod  'PTGAdFramework', '1.0.1'//暂时未上线 必选 可先选framework 包方式
+pod  'PTGAdFramework', '1.0.0'//暂时未上线 必选 可先选framework 包方式
 pod  'Bytedance-UnionAD', '3.1.0.9'
 pod  'GDTMobSDK', '4.11.10'
 ```
@@ -87,12 +86,16 @@ pod  'GDTMobSDK', '4.11.10'
 加载广告之前，请先使用 PTGAdSDK 应用 ID 进行初始化，此操作仅需执行一次，最好是在应用启动时执行。
 
 ##### 初始化
+SDK 为接⼊⽅提供了开屏⼴告，开屏⼴告建议为⽤户在进⼊ App 时展示的全屏⼴告。开屏⼴告为⼀个
+View，宽⾼默认为 match_parent,注意开屏⼴告 view：width >=70%屏幕宽；height >=50%屏幕⾼ ，
+否则会影响计费。
 ```
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+//Ptg后台创建的媒体⼴告位ID AppKey
+//Ptg后台创建的媒体⼴告位密钥 appSecret
   [PTGAdSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp" success:^(BOOL result) {
         //初始化成功以后进行开屏页面的加载
     }];
@@ -200,7 +203,7 @@ self.splashAd.bottomView = bottomView;
 @end
 
 ```
-##### 开屏广告事件回调
+##### 实现开屏广告事件
 PTGSplashAdDelegate 中的每个方法都是可选方法，因此您只需实现所需的方法即可。以下示例实现了每个方法并将消息记录到控制台：
 ```
 - (void)splashAdSuccessPresentScreen:(NSObject *)splashAd {
@@ -220,6 +223,12 @@ PTGSplashAdDelegate 中的每个方法都是可选方法，因此您只需实现
 - (void)splashAdClosed:(NSObject *)splashAd {
     // 广告关闭
     NSLog(@"txAdSplashDidDismissScreen");
+}
+
+- (void)splashAdDidCloseOtherController:(NSObject *)splashAd{
+/**
+ *  此方法在splash详情广告即将关闭时调用
+ */
 }
 ```
 ### 信息流广告
@@ -256,7 +265,7 @@ PTGSplashAdDelegate 中的每个方法都是可选方法，因此您只需实现
 ##### 广告事件
 通过使用 PTGNativeExpressAdDelegete，您可以监听广告生命周期事件，例如，广告何时加载、用户何时离开应用等。
 
-##### 广告事件回调
+##### 实现广告事件
 PTGNativeExpressAdDelegete 中的每个方法都是可选方法，因此您只需实现所需的方法即可。以下示例实现了每个方法，并将消息记录到控制台：
 
 ```
