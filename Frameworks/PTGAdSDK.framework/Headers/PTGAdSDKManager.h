@@ -75,7 +75,7 @@ typedef void (^SuccessCallBack)(BOOL result);
 
 - (NSMutableDictionary *)_requestPtgApiUrlData:(NSString *)consumerSlotId;
 - (NSString *)_getPtgApiUrl;
-
+- (UIImage *)imagebundlePath:(NSString *)name;
 
 @end
 

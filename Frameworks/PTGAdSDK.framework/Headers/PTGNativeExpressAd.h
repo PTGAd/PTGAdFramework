@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+typedef void (^SuccessCallBack)(BOOL result);
+
 @protocol PTGNativeExpressAdDelegete <NSObject>
 
 @optional
@@ -59,6 +62,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (nonatomic, strong) id<PTGAggregationExtensionProtocol> adManager;
+/**
+*  SuccessDataCallBack
+*  数据成功回调 bool  true 是成功  false 失败
+*  controller
+*/
+
+@property(nonatomic, copy)SuccessCallBack sucess;
 
 /**
 *  渲染方法
