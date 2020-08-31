@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 
-typedef void (^SuccessCallBack)(BOOL result);
+typedef void (^DataCorrection)(BOOL result,NSArray * _Nonnull views);
 
 @protocol PTGNativeExpressAdDelegete <NSObject>
 
@@ -63,12 +63,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) id<PTGAggregationExtensionProtocol> adManager;
 /**
-*  SuccessDataCallBack
-*  数据成功回调 bool  true 是成功  false 失败
-*  controller
+*  DataCorrection (BOOL result,NSArray * _Nonnull views);
+*  数据成功回调 result  true 是成功  false 失败
+ 
+*  views 成功以后的数据源
 */
 
-@property(nonatomic, copy)SuccessCallBack sucess;
+@property(nonatomic, copy)DataCorrection sucess;
 
 /**
 *  渲染方法

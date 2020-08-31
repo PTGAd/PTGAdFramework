@@ -39,7 +39,7 @@ Pod::Spec.new do |spec|
     spec.libraries = 'c++', 'resolv', 'z', 'sqlite3'
     spec.vendored_frameworks =  'Frameworks/PTGAdSDK.framework'
     
-    spec.resources = "Frameworks/PTGBundle.bundle"
+    spec.resources = "Frameworks/PTGAdSDK.bundle"
 
     valid_archs = ['armv7', 'armv7s', 'x86_64', 'arm64']
     spec.xcconfig = {
