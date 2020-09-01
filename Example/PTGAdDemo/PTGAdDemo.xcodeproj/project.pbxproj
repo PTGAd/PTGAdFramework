@@ -184,8 +184,8 @@
 		589213A524D7194D00AA9B51 /* PTGAdDemo */ = {
 			isa = PBXGroup;
 			children = (
-				589213A724D7194D00AA9B51 /* AppDelegate.m */,
 				589213A624D7194D00AA9B51 /* AppDelegate.h */,
+				589213A724D7194D00AA9B51 /* AppDelegate.m */,
 				589213AC24D7194D00AA9B51 /* ViewController.h */,
 				589213AD24D7194D00AA9B51 /* ViewController.m */,
 				589213AF24D7194D00AA9B51 /* Main.storyboard */,

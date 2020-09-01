@@ -23,6 +23,7 @@ FOUNDATION_EXPORT const unsigned char PTGAdSDKVersionString[];
 #import "PTGNativeExpressAd.h"
 #import "PTGAdSDKManager.h"
 #import "PTGSplashA.h"
+#import "PTGAdvertising.h"
 
 
 //#endif

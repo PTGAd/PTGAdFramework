@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "PTGAdvertising.h"
+NS_ASSUME_NONNULL_BEGIN
 
-
-typedef void (^DataCorrection)(BOOL result,NSArray * _Nonnull views);
+typedef void (^DataCorrection)(BOOL result,NSArray * views);
 
 @protocol PTGNativeExpressAdDelegete <NSObject>
 
@@ -18,36 +19,35 @@ typedef void (^DataCorrection)(BOOL result,NSArray * _Nonnull views);
 /**
  * 原生模板广告点击回调
  */
-- (void)nativeExpressAdViewClicked:(UIView *_Nonnull)nativeExpressAdView;
+- (void)nativeExpressAdViewClicked:(UIView *)nativeExpressAdView;
 
 /**
  * 原生模板广告被关闭
  */
-- (void)nativeExpressAdViewClosed:(UIView *_Nonnull)nativeExpressAdView;
+- (void)nativeExpressAdViewClosed:(UIView *)nativeExpressAdView;
 /**
  * 拉取原生模板广告成功
  */
-- (void)nativeExpressAdSuccessToLoad:(NSObject *_Nullable)nativeExpressAd views:(NSArray<__kindof UIView *> *_Nonnull)views;
+- (void)nativeExpressAdSuccessToLoad:(NSObject *)nativeExpressAd views:(NSArray<__kindof UIView *> *)views;
 
 /**
  * 拉取原生模板广告失败
  */
-- (void)nativeExpressAdFailToLoad:(NSObject *_Nonnull)nativeExpressAd error:(NSError *_Nullable)error;
+- (void)nativeExpressAdFailToLoad:(NSObject *)nativeExpressAd error:(NSError *)error;
 
 /**
  * 原生模板广告渲染成功, 此时的 nativeExpressAdView.size.height 根据 size.width 完成了动态更新。
  */
-- (void)nativeExpressAdViewRenderSuccess:(UIView *_Nonnull)nativeExpressAdView;
+- (void)nativeExpressAdViewRenderSuccess:(UIView *)nativeExpressAdView;
 
 
 
 
 @end
 
-NS_ASSUME_NONNULL_BEGIN
 @protocol PTGAggregationExtensionProtocol;
 
-@interface PTGNativeExpressAd : NSObject
+@interface PTGNativeExpressAd : PTGAdvertising
 
 
 
@@ -62,14 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (nonatomic, strong) id<PTGAggregationExtensionProtocol> adManager;
-/**
-*  DataCorrection (BOOL result,NSArray * _Nonnull views);
-*  数据成功回调 result  true 是成功  false 失败
- 
-*  views 成功以后的数据源
-*/
 
-@property(nonatomic, copy)DataCorrection sucess;
 
 /**
 *  渲染方法
@@ -78,14 +71,26 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (void)render:(id)obj controller:(UIViewController *)controller;
 
+
 /**
-*  暂时作废
+*  DataCorrection (BOOL result,NSArray *  views);
+*  数据成功回调 result  true 是成功  false 失败
+*  views
+ */
+- (void)dataCorrectionHandler:(DataCorrection)correction;
+
+/**
+*  二次加载的时候使用
+*
 */
+- (void)loadAdData;
 
-//- (void)loadAd:(NSInteger)count;
-
-
-
+/**
+**
+*  非对外
+*
+*/
+- (void)nativeDidLoadRefreshfailure;
 @end
 
 NS_ASSUME_NONNULL_END

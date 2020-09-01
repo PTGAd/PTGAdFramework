@@ -33,14 +33,7 @@
     [self addBackgroundImage];
     
     
-//    #if DEBUG
-//        // Whether to open log. default is none.
-//    [BUAdSDKManager setLoglevel:BUAdSDKLogLevelDebug];
-//
-//    #endif
-//    [BUAdSDKManager setIsPaidApp:NO];
-//
-    
+
     
     
     [PTGAdSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp" success:^(BOOL result) {

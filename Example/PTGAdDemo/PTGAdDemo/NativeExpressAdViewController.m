@@ -7,9 +7,10 @@
 //
 
 #import "NativeExpressAdViewController.h"
-
 #import <PTGAdSDK/PTGAdSDK.h>
 
+//#import "GDTAppDelegate.h"
+//#import "NativeExpressAdConfigView.h"
 
 
 @interface NativeExpressAdViewController ()<UITableViewDelegate,UITableViewDataSource,PTGNativeExpressAdDelegete>
@@ -78,6 +79,8 @@ static NSInteger ADVTYPE_COUNT = 7;
 //    self.changAdvStyleButton.hidden = true;
     
     self.placementIdTextField.placeholder = @"457";
+//    self.placementIdTextField.placeholder = @"100014";
+    self.expressAdViews = [NSMutableArray array];
     [self refreshViewWithNewPosID];
 }
 
@@ -99,6 +102,8 @@ static NSInteger ADVTYPE_COUNT = 7;
                                                                 style:UIAlertActionStyleDefault
                                                               handler:^(UIAlertAction * _Nonnull action) {
             self.placementIdTextField.placeholder = advTypePosIDArray[i];
+            //
+            [self clearData];
             [self refreshViewWithNewPosID];
         }];
         [self.advStyleAlertController addAction:advTypeAction];
@@ -109,7 +114,15 @@ static NSInteger ADVTYPE_COUNT = 7;
         [self clickBackToMainView];
     }];
 }
+- (void)clearData {
+    //placementId 变化清楚数据 从新初始化
+    //如果有多样式需求 测试用 正常一个id就行
+    //
+    self.expressAdViews  = [NSMutableArray array];
+    
+    self.nativeExpressAd = nil;
 
+}
 - (void)clickBackToMainView {
     NSArray *arrayViews = [UIApplication sharedApplication].keyWindow.subviews;
     UIView *backToMainView = [[UIView alloc] init];
@@ -134,9 +147,15 @@ static NSInteger ADVTYPE_COUNT = 7;
     
     self.adCountSliderValue = 1;
     NSString *placementId = self.placementIdTextField.text.length > 0? self.placementIdTextField.text: self.placementIdTextField.placeholder;
-    self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId adSize:CGSizeMake(self.view.frame.size.width , 0)];
-    self.nativeExpressAd.delegate = self;
     
+    if (self.nativeExpressAd == nil) {
+        self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId adSize:CGSizeMake(self.view.frame.size.width , 0)];
+        self.nativeExpressAd.delegate = self;
+          [self.nativeExpressAd dataCorrectionHandler:^(BOOL result, NSArray * _Nonnull views) {
+          }];
+    }
+     [self.nativeExpressAd loadAdData];
+  
     
 }
 
@@ -168,10 +187,9 @@ static NSInteger ADVTYPE_COUNT = 7;
 /**
  * 拉取广告成功的回调
  */
-- (void)nativeExpressAdSuccessToLoad:(NSObject *)nativeExpressAd views:(NSArray<__kindof UIView *> *)views
-{
-    NSLog(@"%s",__FUNCTION__);
-    self.expressAdViews = [NSMutableArray arrayWithArray:views];
+- (void)nativeExpressAdSuccessToLoad:(NSObject *)nativeExpressAd views:(NSArray<__kindof UIView *> *)views{
+    [self.expressAdViews addObjectsFromArray:views];
+//    self.expressAdViews = [NSMutableArray arrayWithArray:views];
     if (self.expressAdViews.count) {
         [self.expressAdViews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [self.nativeExpressAd render:obj controller:self];
@@ -182,45 +200,38 @@ static NSInteger ADVTYPE_COUNT = 7;
     
     [self.tableView reloadData];
 }
+- (void)nativeExpressAdFailToLoad:(NSObject *)nativeExpressAd error:(NSError *)error{
+    
+//    self.expressAdViews = [NSMutableArray array];
+    [self.tableView reloadData];
 
-/**
- * 拉取广告失败的回调
- */
-- (void)nativeExpressAdRenderFail:(UIView *)nativeExpressAdView
-{
-    NSLog(@"%s",__FUNCTION__);
 }
 
 
 
 - (void)nativeExpressAdViewClicked:(UIView *)nativeExpressAdView
 {
-    NSLog(@"%s",__FUNCTION__);
 }
 
 - (void)nativeExpressAdViewClosed:(UIView *)nativeExpressAdView
 {
-    NSLog(@"%s",__FUNCTION__);
     [self.expressAdViews removeObject:nativeExpressAdView];
     [self.tableView reloadData];
 }
 
+- (void)nativeExpressAdViewExposure:(UIView *)nativeExpressAdView
+{
+}
+
+ 
 
 - (void)nativeExpressAdViewDidDismissScreen:(UIView *)nativeExpressAdView
 {
-    NSLog(@"%s",__FUNCTION__);
     [self.expressAdViews removeObject:nativeExpressAdView];
     [self.tableView reloadData];
 }
 - (void)nativeExpressAdViewRenderSuccess:(UIView *)nativeExpressAdView{
     [self.tableView reloadData];
-}
-/**
- * 详解:当点击应用下载或者广告调用系统程序打开时调用
- */
-- (void)nativeExpressAdViewApplicationWillEnterBackground:(UIView *)nativeExpressAdView
-{
-    NSLog(@"--------%s-------",__FUNCTION__);
 }
 
 #pragma mark - UITableViewDelegate

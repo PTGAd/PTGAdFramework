@@ -13,7 +13,7 @@
 //#import <PTGAdSDK/PTGAggregationExtensionProtocol.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@class PTGSplashAdConfiguration;
+@class PTGSplashAdConfiguration,PTGSlotBiddings,PTGConfigModel,PTGSlotBidding;
 @protocol PTGAggregationExtensionProtocol;
 
 typedef void (^SuccessCallBack)(BOOL result);
@@ -76,7 +76,10 @@ typedef void (^SuccessCallBack)(BOOL result);
 - (NSMutableDictionary *)_requestPtgApiUrlData:(NSString *)consumerSlotId;
 - (NSString *)_getPtgApiUrl;
 - (UIImage *)imagebundlePath:(NSString *)name;
+- (PTGSlotBiddings *)consumerSlotId:(NSString *)slotId;
 
+- (PTGSlotBidding *)getSlotBiddingWithSlotModel:(NSString *)slotId slotModels:(NSArray *)models;
+- (PTGConfigModel *)getConfigModel;
 @end
 
 NS_ASSUME_NONNULL_END

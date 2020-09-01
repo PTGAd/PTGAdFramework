@@ -82,6 +82,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)loadAd;
 
+
+
+/**
+*   非对外
+*/
+- (void)splashAdDidLoadRefreshfailure;
+
 @end
 
 NS_ASSUME_NONNULL_END
