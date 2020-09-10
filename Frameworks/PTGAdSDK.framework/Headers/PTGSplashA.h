@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
+#import "PTGAdvertising.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 
@@ -48,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol PTGAggregationExtensionProtocol;
 
 
-@interface PTGSplashA : NSObject
+@interface PTGSplashA : PTGAdvertising
 
 
 @property (nonatomic, strong) id<PTGAggregationExtensionProtocol > adManager;
@@ -83,11 +85,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)loadAd;
 
 
-
-/**
-*   非对外
-*/
-- (void)splashAdDidLoadRefreshfailure;
 
 @end
 

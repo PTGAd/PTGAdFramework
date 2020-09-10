@@ -20,7 +20,6 @@
 		589213E924D7264600AA9B51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 589213E824D7264600AA9B51 /* UIKit.framework */; };
 		58C145D024F404B800EFAC24 /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58C145CA24F400E100EFAC24 /* PTGAdSDK.framework */; };
 		58C145D124F404B800EFAC24 /* PTGAdSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58C145CA24F400E100EFAC24 /* PTGAdSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		842A3C1024F8F3D300E20A40 /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 842A3C0E24F8F3D300E20A40 /* PTGAdSDK.framework */; };
 		8434243524F63DA800F0ABB5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243024F63C4B00F0ABB5 /* libz.tbd */; };
 		8434243624F63DB700F0ABB5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242624F63C1900F0ABB5 /* AdSupport.framework */; };
 		8434243724F63DBD00F0ABB5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434241C24F63BA800F0ABB5 /* CoreMedia.framework */; };
@@ -31,7 +30,7 @@
 		8434243D24F63DDD00F0ABB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242824F63C2500F0ABB5 /* CoreMotion.framework */; };
 		8434243E24F63DE600F0ABB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242424F63C1300F0ABB5 /* SystemConfiguration.framework */; };
 		8434244024F63DEC00F0ABB5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243F24F63DEC00F0ABB5 /* WebKit.framework */; };
-		84899F6D24FCDFA500A58DAE /* PTGAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84899F6C24FCDFA500A58DAE /* PTGAdSDK.bundle */; };
+		84D4AB4F250A155600C9E21A /* PTGAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84D4AB4E250A155600C9E21A /* PTGAdSDK.bundle */; };
 		84E7AA5124F5F9710089F534 /* NativeExpressAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E7AA4F24F5F9710089F534 /* NativeExpressAdViewController.m */; };
 		84E7AA5224F5F9710089F534 /* NativeExpressAdViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AA5024F5F9710089F534 /* NativeExpressAdViewController.xib */; };
 		84E7AA5824F632700089F534 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AA5724F632700089F534 /* Splash.png */; };
@@ -93,7 +92,6 @@
 		58C145CA24F400E100EFAC24 /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = "<group>"; };
 		5E2D53ABBB8D6A3AA78F14F3 /* Pods-PTGAdDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGAdDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6B2155196765476F3F2E2AC5 /* Pods_PTGAdDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PTGAdDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		842A3C0E24F8F3D300E20A40 /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PTGAdSDK.framework; path = ../../../Frameworks/PTGAdSDK.framework; sourceTree = "<group>"; };
 		8434241824F63B9300F0ABB5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		8434241A24F63B9D00F0ABB5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		8434241C24F63BA800F0ABB5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -111,7 +109,7 @@
 		8434243324F63D0200F0ABB5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		8434243F24F63DEC00F0ABB5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		84899F6C24FCDFA500A58DAE /* PTGAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PTGAdSDK.bundle; sourceTree = "<group>"; };
+		84D4AB4E250A155600C9E21A /* PTGAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PTGAdSDK.bundle; sourceTree = "<group>"; };
 		84E7AA4E24F5F9710089F534 /* NativeExpressAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativeExpressAdViewController.h; sourceTree = "<group>"; };
 		84E7AA4F24F5F9710089F534 /* NativeExpressAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeExpressAdViewController.m; sourceTree = "<group>"; };
 		84E7AA5024F5F9710089F534 /* NativeExpressAdViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NativeExpressAdViewController.xib; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				842A3C1024F8F3D300E20A40 /* PTGAdSDK.framework in Frameworks */,
 				8434244024F63DEC00F0ABB5 /* WebKit.framework in Frameworks */,
 				8434243E24F63DE600F0ABB5 /* SystemConfiguration.framework in Frameworks */,
 				8434243D24F63DDD00F0ABB5 /* CoreMotion.framework in Frameworks */,
@@ -222,8 +219,7 @@
 		589213DB24D7246600AA9B51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84899F6C24FCDFA500A58DAE /* PTGAdSDK.bundle */,
-				842A3C0E24F8F3D300E20A40 /* PTGAdSDK.framework */,
+				84D4AB4E250A155600C9E21A /* PTGAdSDK.bundle */,
 				8434243F24F63DEC00F0ABB5 /* WebKit.framework */,
 				8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */,
 				8434243324F63D0200F0ABB5 /* ImageIO.framework */,
@@ -271,7 +267,7 @@
 				589213A024D7194D00AA9B51 /* Frameworks */,
 				589213A124D7194D00AA9B51 /* Resources */,
 				589213EC24D7272200AA9B51 /* Embed Frameworks */,
-				052DD2DE251C5177433F9D41 /* [CP] Copy Pods Resources */,
+				1E37326ED8C4DEFAAC5D2E78 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -366,11 +362,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				589213B624D7194F00AA9B51 /* LaunchScreen.storyboard in Resources */,
+				84D4AB4F250A155600C9E21A /* PTGAdSDK.bundle in Resources */,
 				84E7AA5824F632700089F534 /* Splash.png in Resources */,
 				84E7AA5224F5F9710089F534 /* NativeExpressAdViewController.xib in Resources */,
 				589213B324D7194F00AA9B51 /* Assets.xcassets in Resources */,
 				589213B124D7194D00AA9B51 /* Main.storyboard in Resources */,
-				84899F6D24FCDFA500A58DAE /* PTGAdSDK.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +387,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		052DD2DE251C5177433F9D41 /* [CP] Copy Pods Resources */ = {
+		1E37326ED8C4DEFAAC5D2E78 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -624,7 +620,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -656,7 +651,6 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

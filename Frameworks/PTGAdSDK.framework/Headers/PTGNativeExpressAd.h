@@ -40,7 +40,11 @@ typedef void (^DataCorrection)(BOOL result,NSArray * views);
  */
 - (void)nativeExpressAdViewRenderSuccess:(UIView *)nativeExpressAdView;
 
-
+/**
+ * 原生模板广告关闭PTGNativeExpressAd-->nativeExpress
+ * 用处不大 可忽略
+ */
+- (void)nativeExpressAdViewNationClosed:(NSObject *)nativeExpress;
 
 
 @end
@@ -80,17 +84,14 @@ typedef void (^DataCorrection)(BOOL result,NSArray * views);
 - (void)dataCorrectionHandler:(DataCorrection)correction;
 
 /**
-*  二次加载的时候使用
+*
+*  数据加载的时候使用
 *
 */
 - (void)loadAdData;
 
-/**
-**
-*  非对外
-*
-*/
-- (void)nativeDidLoadRefreshfailure;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

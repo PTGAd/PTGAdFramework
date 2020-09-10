@@ -152,6 +152,8 @@ static NSInteger ADVTYPE_COUNT = 7;
         self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId adSize:CGSizeMake(self.view.frame.size.width , 0)];
         self.nativeExpressAd.delegate = self;
           [self.nativeExpressAd dataCorrectionHandler:^(BOOL result, NSArray * _Nonnull views) {
+              
+              
           }];
     }
      [self.nativeExpressAd loadAdData];
@@ -161,7 +163,6 @@ static NSInteger ADVTYPE_COUNT = 7;
 
 
 - (IBAction)refreshButton:(id)sender {
-    NSString *placementId = self.placementIdTextField.text.length > 0? self.placementIdTextField.text: self.placementIdTextField.placeholder;
     [self refreshViewWithNewPosID];
 }
 
@@ -202,7 +203,7 @@ static NSInteger ADVTYPE_COUNT = 7;
 }
 - (void)nativeExpressAdFailToLoad:(NSObject *)nativeExpressAd error:(NSError *)error{
     
-//    self.expressAdViews = [NSMutableArray array];
+    self.expressAdViews = [NSMutableArray array];
     [self.tableView reloadData];
 
 }

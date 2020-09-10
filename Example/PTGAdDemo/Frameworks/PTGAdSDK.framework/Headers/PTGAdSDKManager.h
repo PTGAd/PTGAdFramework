@@ -20,13 +20,14 @@ typedef void (^SuccessCallBack)(BOOL result);
 
 @interface PTGAdSDKManager : NSObject
 
-@property (nonatomic ,assign) NSInteger type;
-
-@property (nonatomic ,strong) NSString *REQUESTID;
-
 
 + (instancetype)sharedInstance;
-
+/**
+*  属性 isPenPTG
+*  详解：是否开启媒体PTG
+*  默认属性Yes
+*/
++ (void)setIsOPenPTG:(BOOL)openPTG;
 
 /**
 *  构造方法 getSDkVersion
@@ -41,7 +42,6 @@ typedef void (^SuccessCallBack)(BOOL result);
 *
 */
 
-
 + (NSString *)getSDkVersion;
 
 /**
@@ -50,35 +50,19 @@ typedef void (^SuccessCallBack)(BOOL result);
  *       adSize - 广告展示的宽高
  */
 
-
 + (void)setAppKey:(NSString *)appKey appSecret:(NSString *)appSecret success:(SuccessCallBack)success;
-
 
 
 
 /**
 *   以下私有方法  非对外
 */
-
-
-+ (void)showSplashAD:(PTGSplashAdConfiguration *)configuration;
-
 + (void)testUseAd:(NSInteger)index;
-- (void)showAdInWindow:(UIWindow *)window withBottomView:(UIView *)bottomView skipView:(UIView *)skipView;
-
-+ (void)showSplashFlow:(PTGSplashAdConfiguration *)configuration ;
 - (void)loadAd;//TODO 后续加上数字返回几个定义 + 接口支持
-
-- (void)concurrent:(NSString *)slotId delegateObjc:(id)delegateObjc;
-
-- (void)concurrent:(NSString *)slotId delegateObjc:(id)delegateObjc size :(CGSize)adSize;
-
 - (NSMutableDictionary *)_requestPtgApiUrlData:(NSString *)consumerSlotId;
 - (NSString *)_getPtgApiUrl;
 - (UIImage *)imagebundlePath:(NSString *)name;
 - (PTGSlotBiddings *)consumerSlotId:(NSString *)slotId;
-
-- (PTGSlotBidding *)getSlotBiddingWithSlotModel:(NSString *)slotId slotModels:(NSArray *)models;
 - (PTGConfigModel *)getConfigModel;
 @end
 
