@@ -27,7 +27,7 @@ typedef void (^SuccessCallBack)(BOOL result);
 *  详解：是否开启媒体PTG
 *  默认属性Yes
 */
-+ (void)setIsOPenPTG:(BOOL)openPTG;
+//+ (void)setIsOPenPTG:(BOOL)openPTG;
 
 /**
 *  构造方法 getSDkVersion
