@@ -1,3 +1,4 @@
+
 @[toc]
 ### 入门指南
 本指南适用于希望借助 PTGAdSDK 通过 iOS 应用获利。
@@ -43,7 +44,7 @@
 *  ImageIO.framework
 #####  cocopods命令(推荐)
 ```
-pod  'PTGAdFramework', '1.0.0'//暂时未上线 必选 可先选framework 包方式
+pod  'PTGAdFramework'
 pod  'Bytedance-UnionAD', '3.1.0.9'
 pod  'GDTMobSDK', '4.11.10'
 ```
@@ -251,8 +252,13 @@ PTGSplashAdDelegate 中的每个方法都是可选方法，因此您只需实现
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId adSize:CGSizeMake(self.view.frame.size.width , 0)];
-
+if (self.nativeExpressAd == nil) {
+        self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId adSize:CGSizeMake(self.view.frame.size.width , 0)];
+        self.nativeExpressAd.delegate = self;
+          [self.nativeExpressAd dataCorrectionHandler:^(BOOL result, NSArray * _Nonnull views) {
+          }];//数据成功回调 可以不用
+    }
+     [self.nativeExpressAd loadAdData];//数据加载
 }
 
 @end
