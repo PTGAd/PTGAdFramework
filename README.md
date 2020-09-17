@@ -1,4 +1,5 @@
 
+
 @[toc]
 ### 入门指南
 本指南适用于希望借助 PTGAdSDK 通过 iOS 应用获利。
@@ -8,6 +9,13 @@
 *   定位到 iOS 9.0 或更高版本
 *   创建PTGAdSDK 帐号并注册应用'
 #### 导入 SDK
+#####  cocopods命令(推荐)
+```
+pod 'PTGAdFramework', '~> 1.1.2'
+pod  'Bytedance-UnionAD', '3.2.5.1'
+pod  'GDTMobSDK', '4.11.11'
+```
+
 ##### 手动导入 SDK
 直接下载并解压缩 SDK 框架，然后将以下框架导入您的 Xcode 项目中：
 
@@ -42,12 +50,7 @@
 *  libc++.tbd
 *  libsqlite3.tbd
 *  ImageIO.framework
-#####  cocopods命令(推荐)
-```
-pod  'PTGAdFramework'
-pod  'Bytedance-UnionAD', '3.1.0.9'
-pod  'GDTMobSDK', '4.11.10'
-```
+
 #### 全局配置
 ##### 应用传输安全
 
@@ -66,14 +69,53 @@ pod  'GDTMobSDK', '4.11.10'
 
 ```
 ##### 关于 iOS 14 AppTrackingTransparency
+ iOS 14 开始，在应用调用 [App Tracking Transparency](https://developer.apple.com/documentation/apptrackingtransparency) framework 向用户请求应用跟踪权限之前，IDFA 将不可用。如果应用没有向用户发出请求，则 IDFA 将自动清零，这可能会导致广告收入出现重大损失。因为用户必须授权IDFA。
 
-在 iOS 14 设备上，建议您在应用启动时调用 apple 提供的 AppTrackingTransparency 方案，获取用户的 IDFA 授权，以便PTGAdSDK提供更精准的广告投放和收入优化
+本指南概述了支持 iOS 14 所需的更改。
 
+###### 请求 App Tracking Transparency 权限以访问 IDFA
+
+应用开发者可以控制请求 App Tracking Transparency 框架来申请跟踪权限的时机。
+
+要显示用于访问 IDFA 的 App Tracking Transparency 授权请求，请更新 Info.plist 以添加 NSUserTrackingUsageDescription 键，值为描述应用如何使用 IDFA 的自定义消息。 以下是示例描述文字：
 ```
 <key>NSUserTrackingUsageDescription</key>
 <string>需要获取您设备的广告标识符，以为您提供更好的广告体验</string>
 ```
-*   [具体设置详见文章](https://www.jianshu.com/p/3002aeef5e8f）
+要显示授权请求对话框，请调用 [requestTrackingAuthorizationWithCompletionHandler:](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/3547037-requesttrackingauthorization)。 我们建议您在授权回调之后再加载广告，以便如果用户允许跟踪权限，则 SDK 可以在广告请求中使用 IDFA，示例代码如下：
+```
+
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <AdSupport/AdSupport.h>
+
+...
+
+- (void)requestIDFA {
+    [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+        // 授权结束，开始加载广告。注意：这不是主线程！
+        // [self loadAd];
+    }];
+}
+```
+
+启用 SKAdNetwork 来跟踪转化
+Apple 提供了 SKAdNetwork 用于进行转化跟踪，这意味着如果 Network SDK 支持 SKAdNetwork，那么即使 IDFA 不可用，也可以归因广告应用安装。
+
+要启用此功能，您需要在 Info.plist 中添加 SKAdNetworkItems 键，并为各个 Network 添加对应的 SKAdNetworkIdentifier 键值对。为此，你需要查看下面的指南并更新
+将 SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
+```
+<key>SKAdNetworkItems</key>
+  <array>
+    <dict>
+      <key>SKAdNetworkIdentifier</key>
+      <string>238da6jt44.skadnetwork</string>
+    </dict>
+    <dict>
+      <key>SKAdNetworkIdentifier</key>
+      <string>22mmun2rn5.skadnetwork</string>
+    </dict>
+  </array>
+```
 
 权限请求窗口调用方法：requestTrackingAuthorization(completionHandler:)
 ##### 添加 -ObjC
