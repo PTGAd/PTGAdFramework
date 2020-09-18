@@ -1,5 +1,6 @@
 
 
+
 @[toc]
 ### 入门指南
 本指南适用于希望借助 PTGAdSDK 通过 iOS 应用获利。
@@ -102,7 +103,7 @@ pod  'GDTMobSDK', '4.11.11'
 Apple 提供了 SKAdNetwork 用于进行转化跟踪，这意味着如果 Network SDK 支持 SKAdNetwork，那么即使 IDFA 不可用，也可以归因广告应用安装。
 
 要启用此功能，您需要在 Info.plist 中添加 SKAdNetworkItems 键，并为各个 Network 添加对应的 SKAdNetworkIdentifier 键值对。为此，你需要查看下面的指南并更新
-将 SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
+对于Bytedance-UnionA 在3.2.5.0以上的版本需要：将 SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
 ```
 <key>SKAdNetworkItems</key>
   <array>
