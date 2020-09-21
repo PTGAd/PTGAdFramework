@@ -12,4 +12,7 @@
 #import "PTGAdSDKManager.h"
 #import "PTGSplashA.h"
 #import "PTGAdvertising.h"
+#import "PTGInterstitialAd.h"
+#import "PTGBannerView.h"
+#import "PTGRewardedVideoAd.h"
 #endif /* PTGAdSDK_h */
