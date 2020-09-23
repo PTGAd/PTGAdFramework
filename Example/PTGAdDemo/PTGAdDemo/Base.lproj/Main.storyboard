@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DnL-aa-8AM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DnL-aa-8AM">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,41 +20,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-Is-3RU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ED2-Is-3RU">
                                 <rect key="frame" x="16" y="100" width="92" height="30"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <state key="normal" title="常规开屏广告">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" systemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="cumtomClick:" destination="whP-gf-Uak" eventType="touchUpInside" id="3UK-tz-pfW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltx-iw-Ml0">
-                                <rect key="frame" x="16" y="138" width="92" height="30"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltx-iw-Ml0">
+                                <rect key="frame" x="16" y="145" width="92" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <state key="normal" title="信息流">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" systemColor="darkTextColor"/>
                                 </state>
                                 <connections>
                                     <action selector="btn18Click:" destination="whP-gf-Uak" eventType="touchUpInside" id="qDl-zd-9OZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Maa-iC-cgp">
+                                <rect key="frame" x="16" y="190" width="92" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <state key="normal" title="插屏">
+                                    <color key="titleColor" systemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn17Click:" destination="whP-gf-Uak" eventType="touchUpInside" id="vel-du-Utt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8f-z8-AH4">
+                                <rect key="frame" x="16" y="235" width="92" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <state key="normal" title="横幅">
+                                    <color key="titleColor" systemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn16Click:" destination="whP-gf-Uak" eventType="touchUpInside" id="iNG-2X-Eg2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QLJ-qA-k16">
+                                <rect key="frame" x="16" y="280" width="92" height="30"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <state key="normal" title="激励视频">
+                                    <color key="titleColor" systemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="btn15Click:" destination="whP-gf-Uak" eventType="touchUpInside" id="Shb-sN-nPM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ltx-iw-Ml0" firstAttribute="top" secondItem="ED2-Is-3RU" secondAttribute="bottom" constant="8" id="N1p-35-bbQ"/>
+                            <constraint firstItem="QLJ-qA-k16" firstAttribute="top" secondItem="B8f-z8-AH4" secondAttribute="bottom" constant="15" id="9eB-Bj-bnt"/>
+                            <constraint firstItem="B8f-z8-AH4" firstAttribute="top" secondItem="Maa-iC-cgp" secondAttribute="bottom" constant="15" id="BgK-em-WA9"/>
+                            <constraint firstItem="QLJ-qA-k16" firstAttribute="centerX" secondItem="B8f-z8-AH4" secondAttribute="centerX" id="BzG-0G-C5D"/>
+                            <constraint firstItem="B8f-z8-AH4" firstAttribute="leading" secondItem="Maa-iC-cgp" secondAttribute="leading" id="CH3-h1-PJS"/>
+                            <constraint firstItem="Maa-iC-cgp" firstAttribute="height" secondItem="ltx-iw-Ml0" secondAttribute="height" id="Dq9-oE-wHO"/>
+                            <constraint firstItem="Maa-iC-cgp" firstAttribute="width" secondItem="ltx-iw-Ml0" secondAttribute="width" id="FO4-vp-uS4"/>
+                            <constraint firstItem="Maa-iC-cgp" firstAttribute="centerX" secondItem="ltx-iw-Ml0" secondAttribute="centerX" id="Idt-WI-Eb2"/>
+                            <constraint firstItem="ltx-iw-Ml0" firstAttribute="top" secondItem="ED2-Is-3RU" secondAttribute="bottom" constant="15" id="N1p-35-bbQ"/>
+                            <constraint firstItem="B8f-z8-AH4" firstAttribute="width" secondItem="Maa-iC-cgp" secondAttribute="width" id="R2S-9D-wJE"/>
+                            <constraint firstItem="QLJ-qA-k16" firstAttribute="height" secondItem="B8f-z8-AH4" secondAttribute="height" id="R5x-Ij-ndn"/>
+                            <constraint firstItem="B8f-z8-AH4" firstAttribute="height" secondItem="Maa-iC-cgp" secondAttribute="height" id="WDN-vO-Coa"/>
+                            <constraint firstItem="Maa-iC-cgp" firstAttribute="top" secondItem="ltx-iw-Ml0" secondAttribute="bottom" constant="15" id="WdJ-Br-yBC"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ltx-iw-Ml0" secondAttribute="trailing" constant="20" symbolic="YES" id="bvr-oh-A4D"/>
                             <constraint firstItem="ltx-iw-Ml0" firstAttribute="height" secondItem="ED2-Is-3RU" secondAttribute="height" id="c4Y-qb-OB4"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ED2-Is-3RU" secondAttribute="trailing" constant="20" symbolic="YES" id="eqD-HJ-n6L"/>
                             <constraint firstItem="ED2-Is-3RU" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="56" id="l8p-eH-B9v"/>
                             <constraint firstItem="ED2-Is-3RU" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="16" id="lwg-1V-2gF"/>
+                            <constraint firstItem="QLJ-qA-k16" firstAttribute="width" secondItem="B8f-z8-AH4" secondAttribute="width" id="rht-a5-qDS"/>
                             <constraint firstItem="ltx-iw-Ml0" firstAttribute="width" secondItem="ED2-Is-3RU" secondAttribute="width" id="vm1-mR-nzg"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="B8f-z8-AH4" secondAttribute="trailing" constant="20" symbolic="YES" id="yWD-ij-u7l"/>
                             <constraint firstItem="ltx-iw-Ml0" firstAttribute="leading" secondItem="ED2-Is-3RU" secondAttribute="leading" id="yl2-df-8EA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6er-su-u7D"/>
                     <connections>
+                        <outlet property="btn15" destination="QLJ-qA-k16" id="hCu-qo-QwA"/>
+                        <outlet property="btn16" destination="B8f-z8-AH4" id="efN-Mf-ue3"/>
+                        <outlet property="btn17" destination="Maa-iC-cgp" id="MOg-No-iAm"/>
                         <outlet property="btn18" destination="ltx-iw-Ml0" id="eHu-cG-cXG"/>
                     </connections>
                 </viewController>
@@ -77,4 +125,24 @@
             <point key="canvasLocation" x="516" y="6"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

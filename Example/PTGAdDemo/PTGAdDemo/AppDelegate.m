@@ -10,7 +10,7 @@
 #import <PTGAdSDK/PTGAdSDK.h>
 #import "ViewController.h"
 #import "NativeExpressAdViewController.h"
-
+//#import "AFNetworking.h"
 
 #define KScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define KScreenWidth  [[UIScreen mainScreen] bounds].size.width
@@ -30,12 +30,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-//    [self addBackgroundImage];
+    [self addBackgroundImage];
+    
+    
+    [PTGAdSDKManager getSDkVersion];
     
     
 
-    
-    
     [PTGAdSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp" success:^(BOOL result) {
         if (result) {
             [self showSplash:1];
@@ -70,7 +71,6 @@
 - (void)clearBackView{
     dispatch_async(dispatch_get_main_queue(), ^{
        // UI更新代码
-        NSLog(@"删除view");
         [self.backImageView removeFromSuperview];
 
     });
