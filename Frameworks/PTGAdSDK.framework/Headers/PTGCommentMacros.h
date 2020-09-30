@@ -32,6 +32,29 @@ typedef NS_ENUM(NSInteger, PTGProposalSize) {
 
 #define XReal(value) ((value)/375.0f*[UIScreen mainScreen].bounds.size.width)
 
+
+#define XH_OverIPhoneX  ([UIScreen mainScreen].bounds.size.height >= 812)
+#define XH_ScreenH    [UIScreen mainScreen].bounds.size.height
+#define XH_ScreenW    [UIScreen mainScreen].bounds.size.width
+
+/** Progress颜色 */
+#define RoundProgressColor  [UIColor whiteColor]
+/** 背景色 */
+#define BackgroundColor [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:0.4]
+/** 字体颜色 */
+#define FontColor  [UIColor whiteColor]
+
+#define SkipTitle  NSLocalizedString(@"跳过",nil)
+/** 倒计时单位 */
+#define DurationUnit @"S"
+
+#define XH_IPHONEX  ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+#define XH_IPHONEXR    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) : NO)
+#define XH_IPHONEXSMAX    ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) : NO)
+#define XH_FULLSCREEN ((XH_IPHONEX || XH_IPHONEXR || XH_IPHONEXSMAX) ? YES : NO)
+
+
+
 #define mainColor PTG_RGB(0xff, 0x63, 0x5c)
 #define unValidColor PTG_RGB(0xd7, 0xd7, 0xd7)
 #define titleBGColor PTG_RGB(73, 15, 15)
@@ -53,7 +76,7 @@ typedef NS_ENUM(NSInteger, PTGProposalSize) {
 
 #define PTG_Log(frmt, ...)   \
 do {                                                      \
-NSLog(@"【BUAdDemo】%@", [NSString stringWithFormat:frmt,##__VA_ARGS__]);  \
+NSLog(@"【PTGAdDemo】%@", [NSString stringWithFormat:frmt,##__VA_ARGS__]);  \
 } while(0)
 
 #ifndef PTGNativeAdTranslateKey
