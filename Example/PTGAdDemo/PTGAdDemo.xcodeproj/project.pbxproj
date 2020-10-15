@@ -15,19 +15,6 @@
 		589213B924D7194F00AA9B51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 589213B824D7194F00AA9B51 /* main.m */; };
 		589213C324D7195000AA9B51 /* PTGAdDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 589213C224D7195000AA9B51 /* PTGAdDemoTests.m */; };
 		589213CE24D7195000AA9B51 /* PTGAdDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 589213CD24D7195000AA9B51 /* PTGAdDemoUITests.m */; };
-		589213E524D7263000AA9B51 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 589213E424D7263000AA9B51 /* Foundation.framework */; };
-		589213E724D7263A00AA9B51 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 589213E624D7263A00AA9B51 /* CoreGraphics.framework */; };
-		589213E924D7264600AA9B51 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 589213E824D7264600AA9B51 /* UIKit.framework */; };
-		8434243524F63DA800F0ABB5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243024F63C4B00F0ABB5 /* libz.tbd */; };
-		8434243624F63DB700F0ABB5 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242624F63C1900F0ABB5 /* AdSupport.framework */; };
-		8434243724F63DBD00F0ABB5 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434241C24F63BA800F0ABB5 /* CoreMedia.framework */; };
-		8434243824F63DC300F0ABB5 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242224F63C0B00F0ABB5 /* CoreTelephony.framework */; };
-		8434243924F63DC900F0ABB5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434241E24F63BCA00F0ABB5 /* CoreLocation.framework */; };
-		8434243B24F63DD000F0ABB5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */; };
-		8434243C24F63DD700F0ABB5 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434241A24F63B9D00F0ABB5 /* MobileCoreServices.framework */; };
-		8434243D24F63DDD00F0ABB5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242824F63C2500F0ABB5 /* CoreMotion.framework */; };
-		8434243E24F63DE600F0ABB5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434242424F63C1300F0ABB5 /* SystemConfiguration.framework */; };
-		8434244024F63DEC00F0ABB5 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8434243F24F63DEC00F0ABB5 /* WebKit.framework */; };
 		845CE740251A1D0800CA3F05 /* PTGNormalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 845CE73C251A1D0800CA3F05 /* PTGNormalButton.m */; };
 		847416F12518A6550090F892 /* PTGBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847416E42518A6550090F892 /* PTGBaseViewController.m */; };
 		847416F22518A6550090F892 /* PTGRewardVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847416E52518A6550090F892 /* PTGRewardVideoViewController.xib */; };
@@ -89,28 +76,8 @@
 		589213C924D7195000AA9B51 /* PTGAdDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PTGAdDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		589213CD24D7195000AA9B51 /* PTGAdDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGAdDemoUITests.m; sourceTree = "<group>"; };
 		589213CF24D7195000AA9B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		589213E424D7263000AA9B51 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		589213E624D7263A00AA9B51 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		589213E824D7264600AA9B51 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5E2D53ABBB8D6A3AA78F14F3 /* Pods-PTGAdDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGAdDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		6B2155196765476F3F2E2AC5 /* Pods_PTGAdDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PTGAdDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8434241824F63B9300F0ABB5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		8434241A24F63B9D00F0ABB5 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		8434241C24F63BA800F0ABB5 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
-		8434241E24F63BCA00F0ABB5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		8434242024F63BD400F0ABB5 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		8434242224F63C0B00F0ABB5 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		8434242424F63C1300F0ABB5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		8434242624F63C1900F0ABB5 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
-		8434242824F63C2500F0ABB5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		8434242A24F63C2C00F0ABB5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		8434242C24F63C3400F0ABB5 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
-		8434242E24F63C4000F0ABB5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		8434243024F63C4B00F0ABB5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		8434243224F63C5600F0ABB5 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		8434243324F63D0200F0ABB5 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
-		8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		8434243F24F63DEC00F0ABB5 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		845CE73C251A1D0800CA3F05 /* PTGNormalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGNormalButton.m; sourceTree = "<group>"; };
 		845CE73D251A1D0800CA3F05 /* PTGNormalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGNormalButton.h; sourceTree = "<group>"; };
 		845CE73F251A1D0800CA3F05 /* PTGMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGMacros.h; sourceTree = "<group>"; };
@@ -135,19 +102,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8434244024F63DEC00F0ABB5 /* WebKit.framework in Frameworks */,
-				8434243E24F63DE600F0ABB5 /* SystemConfiguration.framework in Frameworks */,
-				8434243D24F63DDD00F0ABB5 /* CoreMotion.framework in Frameworks */,
-				8434243C24F63DD700F0ABB5 /* MobileCoreServices.framework in Frameworks */,
-				8434243B24F63DD000F0ABB5 /* MediaPlayer.framework in Frameworks */,
-				8434243924F63DC900F0ABB5 /* CoreLocation.framework in Frameworks */,
-				8434243824F63DC300F0ABB5 /* CoreTelephony.framework in Frameworks */,
-				8434243724F63DBD00F0ABB5 /* CoreMedia.framework in Frameworks */,
-				8434243624F63DB700F0ABB5 /* AdSupport.framework in Frameworks */,
-				8434243524F63DA800F0ABB5 /* libz.tbd in Frameworks */,
-				589213E924D7264600AA9B51 /* UIKit.framework in Frameworks */,
-				589213E724D7263A00AA9B51 /* CoreGraphics.framework in Frameworks */,
-				589213E524D7263000AA9B51 /* Foundation.framework in Frameworks */,
 				96D5CF93EFE1BC25063BEB67 /* Pods_PTGAdDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,26 +186,6 @@
 		589213DB24D7246600AA9B51 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8434243F24F63DEC00F0ABB5 /* WebKit.framework */,
-				8434243A24F63DD000F0ABB5 /* MediaPlayer.framework */,
-				8434243324F63D0200F0ABB5 /* ImageIO.framework */,
-				8434243224F63C5600F0ABB5 /* libsqlite3.tbd */,
-				8434243024F63C4B00F0ABB5 /* libz.tbd */,
-				8434242E24F63C4000F0ABB5 /* libc++.tbd */,
-				8434242C24F63C3400F0ABB5 /* libresolv.9.tbd */,
-				8434242A24F63C2C00F0ABB5 /* Accelerate.framework */,
-				8434242824F63C2500F0ABB5 /* CoreMotion.framework */,
-				8434242624F63C1900F0ABB5 /* AdSupport.framework */,
-				8434242424F63C1300F0ABB5 /* SystemConfiguration.framework */,
-				8434242224F63C0B00F0ABB5 /* CoreTelephony.framework */,
-				8434242024F63BD400F0ABB5 /* AVFoundation.framework */,
-				8434241E24F63BCA00F0ABB5 /* CoreLocation.framework */,
-				8434241C24F63BA800F0ABB5 /* CoreMedia.framework */,
-				8434241A24F63B9D00F0ABB5 /* MobileCoreServices.framework */,
-				8434241824F63B9300F0ABB5 /* StoreKit.framework */,
-				589213E824D7264600AA9B51 /* UIKit.framework */,
-				589213E624D7263A00AA9B51 /* CoreGraphics.framework */,
-				589213E424D7263000AA9B51 /* Foundation.framework */,
 				6B2155196765476F3F2E2AC5 /* Pods_PTGAdDemo.framework */,
 			);
 			path = Frameworks;
@@ -667,12 +601,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Pods/PTGAdFramework/Frameworks",
 				);
 				INFOPLIST_FILE = PTGAdDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/GDTMobSDK/lib\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -699,12 +638,17 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
+					"$(PROJECT_DIR)/Pods/PTGAdFramework/Frameworks",
 				);
 				INFOPLIST_FILE = PTGAdDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/GDTMobSDK/lib\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
