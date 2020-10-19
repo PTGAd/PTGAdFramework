@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "PTGAdvertising.h"
+#import <PTGAdSDK/PTGAdvertising.h>
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol PTGInterstitialAdDelegate;

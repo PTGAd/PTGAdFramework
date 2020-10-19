@@ -7,7 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "PTGAdvertising.h"
+//#import "PTGAdvertising.h"
+#import <PTGAdSDK/PTGAdvertising.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

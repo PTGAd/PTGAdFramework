@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "PTGCommentMacros.h"
+#import <PTGAdSDK/PTGCommentMacros.h>
 NS_ASSUME_NONNULL_BEGIN
 @class PTGBannerView;
 
