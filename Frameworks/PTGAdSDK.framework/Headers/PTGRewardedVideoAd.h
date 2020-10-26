@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <PTGAdSDK/PTGAdvertising.h>
+#import "PTGAdvertising.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -65,6 +65,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param rewardedVideoAd NSObject 实例
  */
 - (void)rewardVideoAdDidPlayFinish:(NSObject *)rewardedVideoAd;
+
+
+/**
+ 视频广告播放达到激励条件回调
+
+ @param rewardedVideoAd GDTRewardVideoAd 实例
+ */
+- (void)rewardVideoAdDidRewardEffective:(NSObject *)rewardedVideoAd;
 
 @end
 
