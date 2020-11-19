@@ -12,6 +12,8 @@
 
 //#import <PTGAdSDK/PTGAggregationExtensionProtocol.h>
 
+#define PTGAdSKDManagerInstance    [PTGAdSDKManager sharedInstance]
+
 NS_ASSUME_NONNULL_BEGIN
 @class PTGSplashAdConfiguration,PTGSlotBiddings,PTGConfigModel,PTGSlotBidding;
 @protocol PTGAggregationExtensionProtocol;
@@ -20,6 +22,7 @@ typedef void (^SuccessCallBack)(BOOL result);
 
 @interface PTGAdSDKManager : NSObject
 
+@property (nonatomic, readonly, copy) NSString *appKey;
 
 + (instancetype)sharedInstance;
 /**
