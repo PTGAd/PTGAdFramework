@@ -53,7 +53,8 @@
 - (PTGBannerView *)bannerView
 {
     if (!_bannerView) {
-        CGRect rect = {CGPointMake(0, 0), CGSizeMake(375, 60)};
+//        CGRect rect = {CGPointMake(0, 0), CGSizeMake(375, 60)};
+        CGRect rect = {CGPointMake(0, 0), CGSizeMake(375, 375/2)};
         _bannerView = [[PTGBannerView alloc]
                        initWithFrame:rect
                        placementId:self.placementIdText.text.length > 0 ? self.placementIdText.text: self.placementIdText.placeholder

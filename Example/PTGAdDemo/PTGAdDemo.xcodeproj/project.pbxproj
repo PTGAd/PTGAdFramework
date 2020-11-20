@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3177AD1E55E905B3B60A3CB3 /* libPods-PTGAdDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 887B3BEB1A0F27F46A371FC3 /* libPods-PTGAdDemo.a */; };
 		589213A824D7194D00AA9B51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 589213A724D7194D00AA9B51 /* AppDelegate.m */; };
 		589213AE24D7194D00AA9B51 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 589213AD24D7194D00AA9B51 /* ViewController.m */; };
 		589213B124D7194D00AA9B51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 589213AF24D7194D00AA9B51 /* Main.storyboard */; };
@@ -25,7 +26,6 @@
 		847416F72518A6550090F892 /* PTGInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847416EF2518A6550090F892 /* PTGInterstitialViewController.m */; };
 		847416F82518A6550090F892 /* NativeExpressAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847416F02518A6550090F892 /* NativeExpressAdViewController.m */; };
 		84E7AA5824F632700089F534 /* Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E7AA5724F632700089F534 /* Splash.png */; };
-		96D5CF93EFE1BC25063BEB67 /* Pods_PTGAdDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B2155196765476F3F2E2AC5 /* Pods_PTGAdDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,6 @@
 		589213CD24D7195000AA9B51 /* PTGAdDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGAdDemoUITests.m; sourceTree = "<group>"; };
 		589213CF24D7195000AA9B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E2D53ABBB8D6A3AA78F14F3 /* Pods-PTGAdDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGAdDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		6B2155196765476F3F2E2AC5 /* Pods_PTGAdDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PTGAdDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		845CE73C251A1D0800CA3F05 /* PTGNormalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGNormalButton.m; sourceTree = "<group>"; };
 		845CE73D251A1D0800CA3F05 /* PTGNormalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGNormalButton.h; sourceTree = "<group>"; };
 		845CE73F251A1D0800CA3F05 /* PTGMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGMacros.h; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		847416EF2518A6550090F892 /* PTGInterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGInterstitialViewController.m; sourceTree = "<group>"; };
 		847416F02518A6550090F892 /* NativeExpressAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NativeExpressAdViewController.m; sourceTree = "<group>"; };
 		84E7AA5724F632700089F534 /* Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Splash.png; path = Assets.xcassets/SplashLogo.imageset/Splash.png; sourceTree = "<group>"; };
+		887B3BEB1A0F27F46A371FC3 /* libPods-PTGAdDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PTGAdDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96D5CF93EFE1BC25063BEB67 /* Pods_PTGAdDemo.framework in Frameworks */,
+				3177AD1E55E905B3B60A3CB3 /* libPods-PTGAdDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,12 +126,12 @@
 		5892139A24D7194D00AA9B51 = {
 			isa = PBXGroup;
 			children = (
-				589213DB24D7246600AA9B51 /* Frameworks */,
 				589213A524D7194D00AA9B51 /* PTGAdDemo */,
 				589213C124D7195000AA9B51 /* PTGAdDemoTests */,
 				589213CC24D7195000AA9B51 /* PTGAdDemoUITests */,
 				589213A424D7194D00AA9B51 /* Products */,
 				BC400D573F98C62D4C29488A /* Pods */,
+				9B0342E9FCD384D58D9AADC2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,14 +183,6 @@
 			path = PTGAdDemoUITests;
 			sourceTree = "<group>";
 		};
-		589213DB24D7246600AA9B51 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6B2155196765476F3F2E2AC5 /* Pods_PTGAdDemo.framework */,
-			);
-			path = Frameworks;
-			sourceTree = "<group>";
-		};
 		845CE73B251A1D0800CA3F05 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +220,14 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		9B0342E9FCD384D58D9AADC2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				887B3BEB1A0F27F46A371FC3 /* libPods-PTGAdDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BC400D573F98C62D4C29488A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,7 +249,7 @@
 				589213A024D7194D00AA9B51 /* Frameworks */,
 				589213A124D7194D00AA9B51 /* Resources */,
 				589213EC24D7272200AA9B51 /* Embed Frameworks */,
-				1E37326ED8C4DEFAAC5D2E78 /* [CP] Copy Pods Resources */,
+				81275792B01F519E66395DF6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,7 +302,7 @@
 		5892139B24D7194D00AA9B51 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = ptg;
 				TargetAttributes = {
 					589213A224D7194D00AA9B51 = {
@@ -370,23 +370,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E37326ED8C4DEFAAC5D2E78 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		21DC812167A62052E7B57368 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -407,6 +390,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81275792B01F519E66395DF6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTGAdDemo/Pods-PTGAdDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -505,6 +505,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -563,6 +564,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -601,7 +603,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Pods/PTGAdFramework/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PTGAdDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -638,7 +640,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Pods/PTGAdFramework/Frameworks",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PTGAdDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

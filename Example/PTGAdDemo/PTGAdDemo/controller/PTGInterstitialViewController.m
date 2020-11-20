@@ -26,6 +26,7 @@
        
        NSArray *sizeAry = @[@(PTGProposalSize_Interstitial600_400), @(PTGProposalSize_Interstitial600_600), @(PTGProposalSize_Interstitial600_900)];
        NSArray *stringAry = @[@"600:400", @"600:600", @"600:900"];
+    
        NSInteger count = sizeAry.count;
        CGFloat widht = size.width;
        CGFloat height = size.height;
@@ -58,7 +59,13 @@
 
 
 - (void)loadAndShowWithBUProposalSize:(PTGProposalSize)proposalSize {
-    self.interstitialAd = [[PTGInterstitialAd alloc] initWithPlacementId:@"650" size:proposalSize];
+    NSString *plameId = @"650";
+    if (proposalSize == PTGProposalSize_Interstitial600_600) {
+        plameId = @"651";
+    }else if (proposalSize == PTGProposalSize_Interstitial600_900){
+        plameId = @"652";
+    }
+    self.interstitialAd = [[PTGInterstitialAd alloc] initWithPlacementId:plameId size:proposalSize];
     self.interstitialAd.delegate = self;
     [self.interstitialAd loadAdData];
 }
@@ -79,7 +86,7 @@
     [self.interstitialAd showRootViewController:self.navigationController];
 }
 - (void)interstitialAd:(NSObject *)interstitialAd didFailWithError:(NSError *)error {
-    NSLog(@"error code : %ld , error message : %@",(long)error.code,error.description);
+//    NSLog(@"error code : %ld , error message : %@",(long)error.code,error.description);
 }
 
 
