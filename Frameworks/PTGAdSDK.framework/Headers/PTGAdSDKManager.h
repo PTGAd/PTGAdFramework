@@ -24,6 +24,7 @@ typedef void (^SuccessCallBack)(BOOL result);
 
 @property (nonatomic, readonly, copy) NSString *appKey;
 
+
 + (instancetype)sharedInstance;
 /**
 *  属性 isPenPTG
