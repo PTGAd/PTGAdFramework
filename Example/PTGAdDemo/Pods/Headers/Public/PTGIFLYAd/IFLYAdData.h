@@ -1,0 +1,1 @@
+../../../PTGIFLYAd/PTGIFLYAd/Classes/IFLYAdData.h
