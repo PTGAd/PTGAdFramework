@@ -65,7 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (nonatomic, strong) UIWindow *keyWindow;
-@property (nonatomic, strong) UIViewController *rootViewController;
 
 /**
  Whether hide skip button, default NO.
