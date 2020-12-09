@@ -9,19 +9,15 @@
 #ifndef PTGAdSDK_h
 #define PTGAdSDK_h
 
-#import <PTGAdSDK/PTGNativeExpressAd.h>
-#import <PTGAdSDK/PTGAdSDKManager.h>
-#import <PTGAdSDK/PTGSplashA.h>
-#import <PTGAdSDK/PTGAdvertising.h>
-#import <PTGAdSDK/PTGInterstitialAd.h>
-#import <PTGAdSDK/PTGBannerView.h>
-#import <PTGAdSDK/PTGRewardedVideoAd.h>
+#import "PTGNativeExpressAd.h"
+#import "PTGAdSDKManager.h"
+#import "PTGSplashA.h"
+#import "PTGAdvertising.h"
+#import "PTGInterstitialAd.h"
+#import "PTGBannerView.h"
+#import "PTGRewardedVideoAd.h"
 
-//#import "PTGNativeExpressAd.h"
-//#import "PTGAdSDKManager.h"
-//#import "PTGSplashA.h"
-//#import "PTGAdvertising.h"
-//#import "PTGInterstitialAd.h"
-//#import "PTGBannerView.h"
-//#import "PTGRewardedVideoAd.h"
+//#import <PTGAdSDK/PTGAdSDKManager.h>
+//#import <PTGAdSDK/PTGSplashAdConfiguration.h>
+
 #endif /* PTGAdSDK_h */

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "PTGAdvertising.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^DataCorrection)(BOOL result,NSArray * views);
@@ -46,14 +47,9 @@ typedef void (^DataCorrection)(BOOL result,NSArray * views);
  */
 - (void)nativeExpressAdViewNationClosed:(NSObject *)nativeExpress;
 
-
 @end
 
-@protocol PTGAggregationExtensionProtocol;
-
 @interface PTGNativeExpressAd : PTGAdvertising
-
-
 
 - (instancetype)initWithPlacementId:(NSString *)placementId adSize:(CGSize)size;
 /**
@@ -64,17 +60,12 @@ typedef void (^DataCorrection)(BOOL result,NSArray * views);
 //拆分
 @property (nonatomic, weak) id<PTGNativeExpressAdDelegete> delegate;
 
-
-@property (nonatomic, strong) id<PTGAggregationExtensionProtocol> adManager;
-
-
 /**
 *  渲染方法
 *  详解：obj - view
 *  controller 
 */
 - (void)render:(id)obj controller:(UIViewController *)controller;
-
 
 /**
 *  DataCorrection (BOOL result,NSArray *  views);
@@ -89,8 +80,6 @@ typedef void (^DataCorrection)(BOOL result,NSArray * views);
 *
 */
 - (void)loadAdData;
-
-
 
 @end
 

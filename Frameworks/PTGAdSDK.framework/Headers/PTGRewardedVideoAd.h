@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-
 /**
  广告数据加载成功回调
 
@@ -35,7 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param rewardedVideoAd NSObject 实例
  */
 - (void)rewardVideoAdWillVisible:(NSObject *)rewardedVideoAd;
-
 
 /**
  视频播放页关闭回调
@@ -86,13 +84,11 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (instancetype)initWithPlacementId:(NSString *)placementId;
 
-
 /**
  Display interstitial ad.
  @param rootViewController : root view controller for displaying ad.
  */
 - (void)showRootViewController:(UIViewController *)rootViewController;
-
 
 /**
 *
