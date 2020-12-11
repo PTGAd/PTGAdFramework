@@ -42,7 +42,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)nativeExpressBannerAdViewDidClose:(UIView *)bannerAdView;
 
 @end
+
+
 @interface PTGBannerView : UIView
+
 @property (nonatomic, weak, nullable) id<PTGExpressBannerViewDelegate> delegate;
 
 /**
@@ -54,7 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithFrame:(CGRect)frame
                   placementId:(NSString *)placementId
                viewController:(UIViewController *)viewController;
-
 
 /**
  *  拉取并展示广告

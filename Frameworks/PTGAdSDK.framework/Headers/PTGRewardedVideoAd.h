@@ -14,7 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-
 /**
  广告数据加载成功回调
 
@@ -76,6 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
 @interface PTGRewardedVideoAd : PTGAdvertising
 
 @property (nonatomic, weak) id <PTGRewardedVideoAdDelegate> delegate;
@@ -86,13 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (instancetype)initWithPlacementId:(NSString *)placementId;
 
-
 /**
  Display interstitial ad.
  @param rootViewController : root view controller for displaying ad.
  */
 - (void)showRootViewController:(UIViewController *)rootViewController;
-
 
 /**
 *
