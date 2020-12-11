@@ -1,13 +1,13 @@
 //
-//  PTGMacros.h
+//  PTGCommentMacros.h
 //  BUAdSDKDemo
 //
 //  Created by su on 2020/09/14.
 //  Copyright © 2018年 bytedance. All rights reserved.
 //
 
-#ifndef PTGMacros_h
-#define PTGMacros_h
+#ifndef PTGCommentMacros_h
+#define PTGCommentMacros_h
 
 /**
  Get the view with the best results by using the predefined size in pixels.
@@ -74,14 +74,13 @@ typedef NS_ENUM(NSInteger, PTGProposalSize) {
 #define TopMargin        (PTGiPhoneX? 24: 0)
 #define BottomMargin     (PTGiPhoneX? 40: 0)      // 状态栏高度
 
+#define PTG_Log(frmt, ...)   \
+do {                                                      \
+NSLog(@"【PTGAdDemo】%@", [NSString stringWithFormat:frmt,##__VA_ARGS__]);  \
+} while(0)
+
 #ifndef PTGNativeAdTranslateKey
 #define PTGNativeAdTranslateKey @"bu_nativeAd"
 #endif
 
-#define KScreenHeight [[UIScreen mainScreen] bounds].size.height
-#define KScreenWidth  [[UIScreen mainScreen] bounds].size.width
-#define kDevice_Is_iPhoneX (((int)((KScreenHeight/KScreenWidth)*100) == 216)?YES:NO)
-#define KScreenIphoneXH (kDevice_Is_iPhoneX?24:0)
-#define KScreenIphoneXHTab (kDevice_Is_iPhoneX?34:0)
-
-#endif /* PTGMacros_h */
+#endif /* PTGCommentMacros_h */

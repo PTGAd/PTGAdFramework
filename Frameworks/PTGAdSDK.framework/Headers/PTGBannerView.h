@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)nativeExpressBannerAdViewRenderSuccess:(UIView *)bannerAdView;
 
+
 /**
  This method is called when bannerAdView is clicked.
  */
@@ -41,9 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)nativeExpressBannerAdViewDidClose:(UIView *)bannerAdView;
 
 @end
-
 @interface PTGBannerView : UIView
-
 @property (nonatomic, weak, nullable) id<PTGExpressBannerViewDelegate> delegate;
 
 /**
@@ -68,5 +67,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)adverDidLoadRefreshfailure;
 
 @end
+
+
+
+
 
 NS_ASSUME_NONNULL_END
