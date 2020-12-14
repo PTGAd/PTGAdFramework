@@ -54,7 +54,12 @@ typedef void (^DataCorrection)(BOOL result,NSArray * views);
 
 @interface PTGNativeExpressAd : PTGAdvertising
 
-- (instancetype)initWithPlacementId:(NSString *)placementId adSize:(CGSize)size;
+/**
+ *  重要参数，不可省略
+ *  详解：type
+ *  DrawAd视频流 type=5； 普通视频流type=1
+ */
+- (instancetype)initWithPlacementId:(NSString *)placementId type:(NSInteger)type adSize:(CGSize)size;
 /**
  *  构造方法
  *  详解：placementId - 广告位 ID

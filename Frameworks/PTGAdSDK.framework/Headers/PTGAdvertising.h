@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 //
 @property (nonatomic, copy) NSString *placementId;
 @property (nonatomic, assign) CGSize adSize;
-@property (nonatomic, assign) NSInteger type;//暂时 0 是 开屏 1 信息流 2 插屏 3 横幅 4.激励视频
+@property (nonatomic, assign) NSInteger type;//暂时 0 是 开屏 1 信息流 2 插屏 3 横幅 4.激励视频 5.Draw
 
 @property (nonatomic, assign) PTGProposalSize expectSize;
 
