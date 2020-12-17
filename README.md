@@ -11,9 +11,9 @@
 #### 导入 SDK
 #####  cocopods命令(推荐)
 ```
-pod 'PTGAdFramework', '~> 1.3.2'
-pod  'Bytedance-UnionAD', '3.2.6.2'
-pod  'GDTMobSDK', '4.11.11'
+pod 'PTGAdFramework', '~> 1.3.9'
+pod  'Bytedance-UnionAD', '3.3.6.1'
+pod  'GDTMobSDK', '4.12.1'
 ```
 
 ##### 手动导入 SDK
@@ -119,7 +119,7 @@ Apple 提供了 SKAdNetwork 用于进行转化跟踪，这意味着如果 Networ
 
 将 -ObjC 链接器标记添加到项目的 Build Settings 下的 Other Linker Flags 中：
 
-[图片上传失败...(image-72369a-1600678492534)]
+![image-20201217172314376](/Users/admin/Library/Application Support/typora-user-images/image-20201217172314376.png)
 
 
 ### 集合SDK的初始化
@@ -271,11 +271,11 @@ PTGSplashAdDelegate 中的每个方法都是可选方法，因此您只需实现
  */
 }
 ```
-### 信息流广告
+### 信息流广告和Draw信息流广告
 信息流广告是通过平台原本就有的界面组件向用户呈现的广告素材资源。这种广告使用您在构建布局时已经采用的同类视图进行展示，而且能以和周围视觉设计相称的形式呈现，让用户有浑然一体的使用体验。从代码编写的角度来说，这意味着当信息流广告加载时，由应用负责展示它们了。
 本指南向您介绍如何将信息流广告集成到 iOS 应用中。
 ##### 创建广告
-信息流广告通过 PTGNativeExpressAd 类加载，要使用此对象，第一步是对其实例化并设置其广告单元 ID。例如，以下示例演示了如何在 UIViewController 的 viewDidLoad 方法中创建 PTGNativeExpressAd：
+信息流广告和Draw信息流广告通过 PTGNativeExpressAd 类加载，要使用此对象，第一步是对其实例化并设置其广告单元 ID。例如，以下示例演示了如何在 UIViewController 的 viewDidLoad 方法中创建 PTGNativeExpressAd：
 
 ```
 @import PTGNativeExpressAd;
@@ -292,7 +292,8 @@ PTGSplashAdDelegate 中的每个方法都是可选方法，因此您只需实现
 - (void)viewDidLoad {
     [super viewDidLoad];
 if (self.nativeExpressAd == nil) {
-        self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId adSize:CGSizeMake(self.view.frame.size.width , 0)];
+// 信息流广告type=1；Draw信息流广告type=5；
+        self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId type:5 adSize:CGSizeMake(self.view.frame.size.width , 0)];
         self.nativeExpressAd.delegate = self;
           [self.nativeExpressAd dataCorrectionHandler:^(BOOL result, NSArray * _Nonnull views) {
           }];//数据成功回调 可以不用
