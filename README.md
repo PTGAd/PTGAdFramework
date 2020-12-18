@@ -11,10 +11,11 @@
 #### 导入 SDK
 #####  cocopods命令(推荐)
 ```
-pod 'PTGAdFramework', '~> 1.3.9'
-pod  'Bytedance-UnionAD', '3.3.6.1'
+pod 'PTGAdFramework', '~> 1.4.1'
+pod  'Bytedance-UnionAD', '3.2.6.2'
 pod  'GDTMobSDK', '4.12.1'
 ```
+###### 注意：推荐使用'Bytedance-UnionAD', '3.2.6.2'这个版本的库，使用其他版本可能会造成崩溃问题
 
 ##### 手动导入 SDK
 直接下载并解压缩 SDK 框架，然后将以下框架导入您的 Xcode 项目中：

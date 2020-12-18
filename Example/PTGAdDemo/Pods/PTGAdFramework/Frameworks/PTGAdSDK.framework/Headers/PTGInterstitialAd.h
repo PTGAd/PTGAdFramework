@@ -10,34 +10,9 @@
 #import "PTGAdvertising.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@protocol PTGInterstitialAdDelegate;
-@interface PTGInterstitialAd : PTGAdvertising
 
-@property (nonatomic, weak, nullable) id<PTGInterstitialAdDelegate> delegate;
-
-/**
- Initializes interstitial ad.
- @param placementId : The unique identifier of interstitial ad.
- @param expectSize : custom size, default 600px * 400px
- @return PTGInterstitialAd
- */
-- (instancetype)initWithPlacementId:(NSString *)placementId size:(PTGProposalSize)expectSize;
-
-
-/**
- Display interstitial ad.
- @param rootViewController : root view controller for displaying ad.
- */
-- (void)showRootViewController:(UIViewController *)rootViewController;
-
-
-/**
- Load interstitial ad datas.
- */
-- (void)loadAdData;
-
-@end
 @protocol PTGInterstitialAdDelegate <NSObject>
+
 @optional
 /**
  This method is called when interstitial ad material loaded successfully.
@@ -64,6 +39,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)interstitialAdDidClose:(NSObject *)interstitialAd;
 
+@end
+
+
+@protocol PTGInterstitialAdDelegate;
+
+@interface PTGInterstitialAd : PTGAdvertising
+
+@property (nonatomic, weak, nullable) id<PTGInterstitialAdDelegate> delegate;
+
+/**
+ Initializes interstitial ad.
+ @param placementId : The unique identifier of interstitial ad.
+ @param expectSize : custom size, default 600px * 400px
+ @return PTGInterstitialAd
+ */
+- (instancetype)initWithPlacementId:(NSString *)placementId size:(PTGProposalSize)expectSize;
+
+
+/**
+ Display interstitial ad.
+ @param rootViewController : root view controller for displaying ad.
+ */
+- (void)showRootViewController:(UIViewController *)rootViewController;
+
+
+/**
+ Load interstitial ad datas.
+ */
+- (void)loadAdData;
 
 @end
+
 NS_ASSUME_NONNULL_END

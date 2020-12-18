@@ -43,37 +43,28 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)splashAdDidCloseOtherController:(NSObject *)splashAd;
 
-
-
-
 @end
-@protocol PTGAggregationExtensionProtocol;
 
+
+@protocol PTGAggregationExtensionProtocol;
 
 @interface PTGSplashA : PTGAdvertising
 
-
-@property (nonatomic, strong) id<PTGAggregationExtensionProtocol > adManager;
-
+@property (nonatomic, strong) id<PTGAggregationExtensionProtocol> adManager;
 
 /**
  *  委托对象
  */
 @property (nonatomic, weak) id<PTGSplashAdDelegate> delegate;
-
-@property (nonatomic, strong,readonly) UIView *bottomView;
-
-
+@property (nonatomic, strong, readonly) UIView *bottomView;
 @property (nonatomic, strong) UIWindow *keyWindow;
+@property (nonatomic, strong) UIViewController *rootViewController;
 
 /**
  Whether hide skip button, default NO.
  If you hide the skip button, you need to customize the countdown.
  */
 @property (nonatomic, assign) BOOL hideSkipButton;
-
-
-
 
 
 - (instancetype)initWithPlacementId:(NSString *)placementId bottomView :(UIView *)bottomView;
@@ -83,8 +74,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  详解：广告素材及广告图片拉取成功后会回调splashAdDidLoad方法，当拉取失败时会回调splashAdFailToPresent方法
  */
 - (void)loadAd;
-
-
 
 @end
 

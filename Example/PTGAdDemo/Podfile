@@ -4,9 +4,9 @@
 target 'PTGAdDemo' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   # Pods for PTGAdDemo
-#  pod 'GDTMobSDK', '4.11.11'
+#  pod 'GDTMobSDK', '4.12.1'
 #  pod 'Bytedance-UnionAD', '3.2.6.2'
-  pod 'PTGAdFramework', '1.2.7'
+  pod 'PTGAdFramework', '1.4.1'
   pod 'PTGIFLYAd'
 end
 post_install do |installer|
