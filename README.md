@@ -11,7 +11,7 @@
 #### 导入 SDK
 #####  cocopods命令(推荐)
 ```
-pod 'PTGAdFramework', '~> 1.4.1'
+pod 'PTGAdFramework', '~> 1.4.2'
 pod  'Bytedance-UnionAD', '3.2.6.2'
 pod  'GDTMobSDK', '4.12.1'
 ```
