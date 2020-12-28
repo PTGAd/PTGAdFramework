@@ -147,7 +147,8 @@ static NSInteger ADVTYPE_COUNT = 7;
     NSString *placementId = self.placementIdTextField.text.length > 0? self.placementIdTextField.text: self.placementIdTextField.placeholder;
     
     if (self.nativeExpressAd == nil) {
-        self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId adSize:CGSizeMake(self.view.frame.size.width , 0)];
+        self.nativeExpressAd =  [[PTGNativeExpressAd alloc] initWithPlacementId:placementId type:1 adSize:CGSizeMake(self.view.frame.size.width , 0)];
+//        self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId adSize:CGSizeMake(self.view.frame.size.width , 0)];
         self.nativeExpressAd.delegate = self;
 //        [self.nativeExpressAd dataCorrectionHandler:^(BOOL result, NSArray * _Nonnull views) {
 //        }];

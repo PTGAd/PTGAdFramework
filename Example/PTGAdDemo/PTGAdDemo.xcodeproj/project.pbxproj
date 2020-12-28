@@ -203,19 +203,19 @@
 		847416E32518A6550090F892 /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				847416E42518A6550090F892 /* PTGBaseViewController.m */,
-				847416E52518A6550090F892 /* PTGRewardVideoViewController.xib */,
-				847416E62518A6550090F892 /* PTGRewardVideoViewController.h */,
-				847416E72518A6550090F892 /* PTGBannerViewController.h */,
-				847416E82518A6550090F892 /* PTGBannerViewController.xib */,
 				847416E92518A6550090F892 /* NativeExpressAdViewController.h */,
-				847416EA2518A6550090F892 /* PTGInterstitialViewController.h */,
-				847416EB2518A6550090F892 /* PTGBaseViewController.h */,
-				847416EC2518A6550090F892 /* PTGBannerViewController.m */,
-				847416ED2518A6550090F892 /* PTGRewardVideoViewController.m */,
-				847416EE2518A6550090F892 /* NativeExpressAdViewController.xib */,
-				847416EF2518A6550090F892 /* PTGInterstitialViewController.m */,
 				847416F02518A6550090F892 /* NativeExpressAdViewController.m */,
+				847416EE2518A6550090F892 /* NativeExpressAdViewController.xib */,
+				847416E72518A6550090F892 /* PTGBannerViewController.h */,
+				847416EC2518A6550090F892 /* PTGBannerViewController.m */,
+				847416E82518A6550090F892 /* PTGBannerViewController.xib */,
+				847416EB2518A6550090F892 /* PTGBaseViewController.h */,
+				847416E42518A6550090F892 /* PTGBaseViewController.m */,
+				847416EA2518A6550090F892 /* PTGInterstitialViewController.h */,
+				847416EF2518A6550090F892 /* PTGInterstitialViewController.m */,
+				847416E62518A6550090F892 /* PTGRewardVideoViewController.h */,
+				847416ED2518A6550090F892 /* PTGRewardVideoViewController.m */,
+				847416E52518A6550090F892 /* PTGRewardVideoViewController.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
