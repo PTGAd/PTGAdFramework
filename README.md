@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '~> 1.4.4'
+pod 'PTGAdFramework', '~> 1.5.0'
 pod 'Ads-CN', '3.4.2.8'      # 需要使用穿山甲广告能力的添加此项
 pod 'GDTMobSDK', '4.12.3'    # 需要使用广点通广告能力的添加此项
 ```
