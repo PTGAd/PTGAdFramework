@@ -1,0 +1,1 @@
+../../../CocoaDebug/Sources/LeaksFinder/UIApplication+_LeaksFinder.h

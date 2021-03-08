@@ -1,0 +1,1 @@
+../../../GDTMobSDK/lib/GDTServerSideVerificationOptions.h

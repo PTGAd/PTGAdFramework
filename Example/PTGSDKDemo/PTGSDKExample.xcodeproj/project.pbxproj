@@ -1,0 +1,718 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26D7FCFC3166AC1B777D56ED /* libPods-PTGSDKExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CDFD2D64C2E7E9193E1B7 /* libPods-PTGSDKExample.a */; };
+		84282B9525DE330E00D8F7A3 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84282B9425DE330E00D8F7A3 /* File.swift */; };
+		8468F74925DE589800EE0BA6 /* PTGNativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8468F74825DE589800EE0BA6 /* PTGNativeViewController.m */; };
+		847563DF25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847563DE25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m */; };
+		8475643D25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475643C25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m */; };
+		8475644325CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475644225CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m */; };
+		8475645325CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475645225CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m */; };
+		8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475645825CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m */; };
+		8488F9F625F4BA08002BFA68 /* PTGAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8488F9F525F4BA08002BFA68 /* PTGAdSDK.bundle */; };
+		84BA430925F5B9CA00FE1FAE /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8488F99625F4A453002BFA68 /* PTGAdSDK.framework */; };
+		84C24F9325CD40BB00398052 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C24F9225CD40BB00398052 /* AppDelegate.m */; };
+		84C24F9E25CD40BE00398052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C24F9D25CD40BE00398052 /* Assets.xcassets */; };
+		84C24FA125CD40BE00398052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C24F9F25CD40BE00398052 /* LaunchScreen.storyboard */; };
+		84C24FA425CD40BE00398052 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C24FA325CD40BE00398052 /* main.m */; };
+		84C24FAE25CD40BF00398052 /* PTGSDKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C24FAD25CD40BF00398052 /* PTGSDKDemoTests.m */; };
+		84C24FB925CD40BF00398052 /* PTGSDKDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C24FB825CD40BF00398052 /* PTGSDKDemoUITests.m */; };
+		84C2501525CD45AC00398052 /* PTGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C2501425CD45AC00398052 /* PTGViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		84C24FAA25CD40BF00398052 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C24F8625CD40BB00398052 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84C24F8D25CD40BB00398052;
+			remoteInfo = PTGSDKDemo;
+		};
+		84C24FB525CD40BF00398052 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84C24F8625CD40BB00398052 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 84C24F8D25CD40BB00398052;
+			remoteInfo = PTGSDKDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3D5CDFD2D64C2E7E9193E1B7 /* libPods-PTGSDKExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PTGSDKExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84282B9425DE330E00D8F7A3 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		84282B9925DE335D00D8F7A3 /* PTGSDKDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTGSDKDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		8468F74725DE589700EE0BA6 /* PTGNativeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeViewController.h; sourceTree = "<group>"; };
+		8468F74825DE589800EE0BA6 /* PTGNativeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeViewController.m; sourceTree = "<group>"; };
+		847563DD25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressFeedViewController.h; sourceTree = "<group>"; };
+		847563DE25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressFeedViewController.m; sourceTree = "<group>"; };
+		8475643B25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressDrawViewController.h; sourceTree = "<group>"; };
+		8475643C25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressDrawViewController.m; sourceTree = "<group>"; };
+		8475644125CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressBannerViewController.h; sourceTree = "<group>"; };
+		8475644225CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressBannerViewController.m; sourceTree = "<group>"; };
+		8475645125CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressInterstitialAdViewController.h; sourceTree = "<group>"; };
+		8475645225CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressInterstitialAdViewController.m; sourceTree = "<group>"; };
+		8475645725CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressRewardVideoAdViewController.h; sourceTree = "<group>"; };
+		8475645825CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressRewardVideoAdViewController.m; sourceTree = "<group>"; };
+		8488F99625F4A453002BFA68 /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = "<group>"; };
+		8488F9DA25F4AB2B002BFA68 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
+		8488F9F525F4BA08002BFA68 /* PTGAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PTGAdSDK.bundle; sourceTree = "<group>"; };
+		84C24F8E25CD40BB00398052 /* PTGSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PTGSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C24F9125CD40BB00398052 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		84C24F9225CD40BB00398052 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84C24F9D25CD40BE00398052 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		84C24FA025CD40BE00398052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		84C24FA225CD40BE00398052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C24FA325CD40BE00398052 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		84C24FA925CD40BF00398052 /* PTGSDKExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PTGSDKExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C24FAD25CD40BF00398052 /* PTGSDKDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGSDKDemoTests.m; sourceTree = "<group>"; };
+		84C24FAF25CD40BF00398052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C24FB425CD40BF00398052 /* PTGSDKExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PTGSDKExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		84C24FB825CD40BF00398052 /* PTGSDKDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGSDKDemoUITests.m; sourceTree = "<group>"; };
+		84C24FBA25CD40BF00398052 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84C2501325CD45AC00398052 /* PTGViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGViewController.h; sourceTree = "<group>"; };
+		84C2501425CD45AC00398052 /* PTGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGViewController.m; sourceTree = "<group>"; };
+		84C2505C25CD555E00398052 /* PTGAdSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88C7ED657FFBD418DFC72A92 /* Pods-PTGSDKExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKExample.release.xcconfig"; path = "Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample.release.xcconfig"; sourceTree = "<group>"; };
+		E0F0E99CFD47BC49FECAE2AE /* Pods-PTGSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E11500246BC28529989B0B32 /* Pods-PTGSDKExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKExample.debug.xcconfig"; path = "Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample.debug.xcconfig"; sourceTree = "<group>"; };
+		ECCFCEB100DECED7864ED883 /* Pods-PTGSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		84C24F8B25CD40BB00398052 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84BA430925F5B9CA00FE1FAE /* PTGAdSDK.framework in Frameworks */,
+				26D7FCFC3166AC1B777D56ED /* libPods-PTGSDKExample.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C24FA625CD40BF00398052 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C24FB125CD40BF00398052 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0CC070BBB15C27C3FC62A4A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8488F9DA25F4AB2B002BFA68 /* libresolv.9.tbd */,
+				84C2505C25CD555E00398052 /* PTGAdSDK.framework */,
+				3D5CDFD2D64C2E7E9193E1B7 /* libPods-PTGSDKExample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		847563E625CF968400AECEA7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84C2501325CD45AC00398052 /* PTGViewController.h */,
+				84C2501425CD45AC00398052 /* PTGViewController.m */,
+				847563DD25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.h */,
+				847563DE25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m */,
+				8475643B25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.h */,
+				8475643C25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m */,
+				8475644125CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.h */,
+				8475644225CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m */,
+				8475645125CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.h */,
+				8475645225CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m */,
+				8475645725CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.h */,
+				8475645825CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m */,
+				8468F74725DE589700EE0BA6 /* PTGNativeViewController.h */,
+				8468F74825DE589800EE0BA6 /* PTGNativeViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		84C24F8525CD40BB00398052 = {
+			isa = PBXGroup;
+			children = (
+				84C24F9025CD40BB00398052 /* PTGSDKDemo */,
+				84C24FAC25CD40BF00398052 /* PTGSDKDemoTests */,
+				84C24FB725CD40BF00398052 /* PTGSDKDemoUITests */,
+				84C24F8F25CD40BB00398052 /* Products */,
+				8AA38FF45D9D9230EC186DD0 /* Pods */,
+				0CC070BBB15C27C3FC62A4A6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		84C24F8F25CD40BB00398052 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				84C24F8E25CD40BB00398052 /* PTGSDKExample.app */,
+				84C24FA925CD40BF00398052 /* PTGSDKExampleTests.xctest */,
+				84C24FB425CD40BF00398052 /* PTGSDKExampleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		84C24F9025CD40BB00398052 /* PTGSDKDemo */ = {
+			isa = PBXGroup;
+			children = (
+				8488F9F525F4BA08002BFA68 /* PTGAdSDK.bundle */,
+				8488F99625F4A453002BFA68 /* PTGAdSDK.framework */,
+				84282B9925DE335D00D8F7A3 /* PTGSDKDemo-Bridging-Header.h */,
+				84C24F9125CD40BB00398052 /* AppDelegate.h */,
+				84C24F9225CD40BB00398052 /* AppDelegate.m */,
+				84282B9425DE330E00D8F7A3 /* File.swift */,
+				847563E625CF968400AECEA7 /* ViewController */,
+				84C24F9D25CD40BE00398052 /* Assets.xcassets */,
+				84C24F9F25CD40BE00398052 /* LaunchScreen.storyboard */,
+				84C24FA225CD40BE00398052 /* Info.plist */,
+				84C24FA325CD40BE00398052 /* main.m */,
+			);
+			path = PTGSDKDemo;
+			sourceTree = "<group>";
+		};
+		84C24FAC25CD40BF00398052 /* PTGSDKDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				84C24FAD25CD40BF00398052 /* PTGSDKDemoTests.m */,
+				84C24FAF25CD40BF00398052 /* Info.plist */,
+			);
+			path = PTGSDKDemoTests;
+			sourceTree = "<group>";
+		};
+		84C24FB725CD40BF00398052 /* PTGSDKDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				84C24FB825CD40BF00398052 /* PTGSDKDemoUITests.m */,
+				84C24FBA25CD40BF00398052 /* Info.plist */,
+			);
+			path = PTGSDKDemoUITests;
+			sourceTree = "<group>";
+		};
+		8AA38FF45D9D9230EC186DD0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0F0E99CFD47BC49FECAE2AE /* Pods-PTGSDKDemo.debug.xcconfig */,
+				ECCFCEB100DECED7864ED883 /* Pods-PTGSDKDemo.release.xcconfig */,
+				E11500246BC28529989B0B32 /* Pods-PTGSDKExample.debug.xcconfig */,
+				88C7ED657FFBD418DFC72A92 /* Pods-PTGSDKExample.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		84C24F8D25CD40BB00398052 /* PTGSDKExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C24FBD25CD40BF00398052 /* Build configuration list for PBXNativeTarget "PTGSDKExample" */;
+			buildPhases = (
+				7A5D07972555F823F1F30379 /* [CP] Check Pods Manifest.lock */,
+				84C24F8A25CD40BB00398052 /* Sources */,
+				84C24F8B25CD40BB00398052 /* Frameworks */,
+				84C24F8C25CD40BB00398052 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PTGSDKExample;
+			productName = PTGSDKDemo;
+			productReference = 84C24F8E25CD40BB00398052 /* PTGSDKExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		84C24FA825CD40BF00398052 /* PTGSDKExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C24FC025CD40BF00398052 /* Build configuration list for PBXNativeTarget "PTGSDKExampleTests" */;
+			buildPhases = (
+				84C24FA525CD40BF00398052 /* Sources */,
+				84C24FA625CD40BF00398052 /* Frameworks */,
+				84C24FA725CD40BF00398052 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84C24FAB25CD40BF00398052 /* PBXTargetDependency */,
+			);
+			name = PTGSDKExampleTests;
+			productName = PTGSDKDemoTests;
+			productReference = 84C24FA925CD40BF00398052 /* PTGSDKExampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		84C24FB325CD40BF00398052 /* PTGSDKExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84C24FC325CD40BF00398052 /* Build configuration list for PBXNativeTarget "PTGSDKExampleUITests" */;
+			buildPhases = (
+				84C24FB025CD40BF00398052 /* Sources */,
+				84C24FB125CD40BF00398052 /* Frameworks */,
+				84C24FB225CD40BF00398052 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				84C24FB625CD40BF00398052 /* PBXTargetDependency */,
+			);
+			name = PTGSDKExampleUITests;
+			productName = PTGSDKDemoUITests;
+			productReference = 84C24FB425CD40BF00398052 /* PTGSDKExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		84C24F8625CD40BB00398052 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					84C24F8D25CD40BB00398052 = {
+						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
+					};
+					84C24FA825CD40BF00398052 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 84C24F8D25CD40BB00398052;
+					};
+					84C24FB325CD40BF00398052 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 84C24F8D25CD40BB00398052;
+					};
+				};
+			};
+			buildConfigurationList = 84C24F8925CD40BB00398052 /* Build configuration list for PBXProject "PTGSDKExample" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 84C24F8525CD40BB00398052;
+			productRefGroup = 84C24F8F25CD40BB00398052 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				84C24F8D25CD40BB00398052 /* PTGSDKExample */,
+				84C24FA825CD40BF00398052 /* PTGSDKExampleTests */,
+				84C24FB325CD40BF00398052 /* PTGSDKExampleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		84C24F8C25CD40BB00398052 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C24FA125CD40BE00398052 /* LaunchScreen.storyboard in Resources */,
+				8488F9F625F4BA08002BFA68 /* PTGAdSDK.bundle in Resources */,
+				84C24F9E25CD40BE00398052 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C24FA725CD40BF00398052 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C24FB225CD40BF00398052 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7A5D07972555F823F1F30379 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PTGSDKExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		84C24F8A25CD40BB00398052 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847563DF25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m in Sources */,
+				84C2501525CD45AC00398052 /* PTGViewController.m in Sources */,
+				8468F74925DE589800EE0BA6 /* PTGNativeViewController.m in Sources */,
+				8475644325CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m in Sources */,
+				84C24F9325CD40BB00398052 /* AppDelegate.m in Sources */,
+				84C24FA425CD40BE00398052 /* main.m in Sources */,
+				8475645325CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m in Sources */,
+				8475643D25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m in Sources */,
+				84282B9525DE330E00D8F7A3 /* File.swift in Sources */,
+				8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C24FA525CD40BF00398052 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C24FAE25CD40BF00398052 /* PTGSDKDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84C24FB025CD40BF00398052 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84C24FB925CD40BF00398052 /* PTGSDKDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		84C24FAB25CD40BF00398052 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84C24F8D25CD40BB00398052 /* PTGSDKExample */;
+			targetProxy = 84C24FAA25CD40BF00398052 /* PBXContainerItemProxy */;
+		};
+		84C24FB625CD40BF00398052 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 84C24F8D25CD40BB00398052 /* PTGSDKExample */;
+			targetProxy = 84C24FB525CD40BF00398052 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		84C24F9F25CD40BE00398052 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84C24FA025CD40BE00398052 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		84C24FBB25CD40BF00398052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		84C24FBC25CD40BF00398052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		84C24FBE25CD40BF00398052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E11500246BC28529989B0B32 /* Pods-PTGSDKExample.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5SRZ3HM32;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PTGSDKDemo",
+				);
+				INFOPLIST_FILE = PTGSDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bmlchina.driver1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PTGSDKDemo/PTGSDKDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = NO;
+			};
+			name = Debug;
+		};
+		84C24FBF25CD40BF00398052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88C7ED657FFBD418DFC72A92 /* Pods-PTGSDKExample.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5SRZ3HM32;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PTGSDKDemo",
+				);
+				INFOPLIST_FILE = PTGSDKDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bmlchina.driver1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PTGSDKDemo/PTGSDKDemo-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_WORKSPACE = NO;
+			};
+			name = Release;
+		};
+		84C24FC125CD40BF00398052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5SRZ3HM32;
+				INFOPLIST_FILE = PTGSDKDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fancy.PTGSDKDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PTGSDKExample.app/PTGSDKExample";
+			};
+			name = Debug;
+		};
+		84C24FC225CD40BF00398052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5SRZ3HM32;
+				INFOPLIST_FILE = PTGSDKDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fancy.PTGSDKDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PTGSDKExample.app/PTGSDKExample";
+			};
+			name = Release;
+		};
+		84C24FC425CD40BF00398052 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5SRZ3HM32;
+				INFOPLIST_FILE = PTGSDKDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fancy.PTGSDKDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PTGSDKDemo;
+			};
+			name = Debug;
+		};
+		84C24FC525CD40BF00398052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X5SRZ3HM32;
+				INFOPLIST_FILE = PTGSDKDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fancy.PTGSDKDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PTGSDKDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		84C24F8925CD40BB00398052 /* Build configuration list for PBXProject "PTGSDKExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C24FBB25CD40BF00398052 /* Debug */,
+				84C24FBC25CD40BF00398052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C24FBD25CD40BF00398052 /* Build configuration list for PBXNativeTarget "PTGSDKExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C24FBE25CD40BF00398052 /* Debug */,
+				84C24FBF25CD40BF00398052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C24FC025CD40BF00398052 /* Build configuration list for PBXNativeTarget "PTGSDKExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C24FC125CD40BF00398052 /* Debug */,
+				84C24FC225CD40BF00398052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		84C24FC325CD40BF00398052 /* Build configuration list for PBXNativeTarget "PTGSDKExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84C24FC425CD40BF00398052 /* Debug */,
+				84C24FC525CD40BF00398052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 84C24F8625CD40BB00398052 /* Project object */;
+}

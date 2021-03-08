@@ -1,107 +1,74 @@
+# iOS 广告SDK接入文档
 
+## **前提条件**
 
-@[toc]
-### 入门指南
-本指南适用于希望借助 PTGAdSDK 通过 iOS 应用获利。
-要展示广告和赚取收入，第一步是将移动广告 SDK 集成到应用中。集成 SDK 后，您可以选择一种广告样式，
-#### 前提条件
-*   使用 Xcode 11.0 或更高版本
-*   定位到 iOS 9.0 或更高版本
-*   创建PTGAdSDK 帐号并注册应用'
-#### 导入 SDK
-#####  cocopods命令(推荐)
+* 推荐Xcode 12及以上版本
+
+* 支持iOS 9.0或更高版本
+
+## 导入 SDK
+
+使用CocoaPods导入SDK
+
+```shell
+pod 'PTGAdFramework', '~> 1.4.4'
+pod 'Ads-CN', '3.4.2.8'      # 需要使用穿山甲广告能力的添加此项
+pod 'GDTMobSDK', '4.12.3'    # 需要使用广点通广告能力的添加此项
 ```
-pod 'PTGAdFramework', '~> 1.4.3'
-pod  'Bytedance-UnionAD', '3.2.6.2'
-pod  'GDTMobSDK', '4.12.1'
-```
-###### 注意：推荐使用'Bytedance-UnionAD', '3.2.6.2'这个版本的库，使用其他版本可能会造成崩溃问题
 
-##### 手动导入 SDK
-直接下载并解压缩 SDK 框架，然后将以下框架导入您的 Xcode 项目中：
+## 全局配置
 
-*   PTGAdSDK.framework
-*   PTGBundle.bundle 
-导入完成后，请确保 Build Phases > Copy Bundle Resources 中有 
-
-
-###### 需要添加其它 Framework
-
-点击 Build Phases > Link Binary With Libraries，添加下面所需的 Framework:
-
-*   libz.tbd
-*   libbz2.tbd
-*   libxml2.tbd
-*   AdSupport.framework
-*   CoreMedia.framework
-*   CoreTelephony.framework
-*   CoreLocation.framework
-*   MediaPlay.framework
-*   MobileCoreServices.framework
-*   CoreMotion.framework
-*   SystemConfiguration.framework
-*   WebKit.framework
-###### 头条还需要添加依赖库：
-
-*  libresolv.9.tbd
-*  MobileCoreServices.framework
-*  MediaPlayer.framework
-*  CoreMotion.framework
-*  Accelerate.framework
-*  libc++.tbd
-*  libsqlite3.tbd
-*  ImageIO.framework
-
-#### 全局配置
-##### 应用传输安全
+**应用传输安全**
 
 应用传输安全(ATS) 是 iOS 9 中引入的隐私设置功能。默认情况下，系统会为新应用启用该功能，并强制实施安全连接。为确保您的广告不受 ATS 影响，请执行以下操作：
 
 在您的应用的 Info.plist 文件中，添加 NSAllowsArbitraryLoads 以停用 ATS 限制。
-```
+
+```xml
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
     <true/>
 </dict>
-
 ```
-##### 关于 iOS 14 AppTrackingTransparency
- iOS 14 开始，在应用调用 [App Tracking Transparency](https://developer.apple.com/documentation/apptrackingtransparency) framework 向用户请求应用跟踪权限之前，IDFA 将不可用。如果应用没有向用户发出请求，则 IDFA 将自动清零，这可能会导致广告收入出现重大损失。因为用户必须授权IDFA。
 
-本指南概述了支持 iOS 14 所需的更改。
+**iOS 14 AppTrackingTransparency**
 
-###### 请求 App Tracking Transparency 权限以访问 IDFA
+iOS 14 开始，在应用调用 App Tracking Transparency framework 向用户请求应用跟踪权限之前，IDFA 将不可用。如果应用没有向用户发出请求，则 IDFA 将自动清零，这可能会导致广告收入出现重大损失。因为用户必须授权IDFA。
 
-应用开发者可以控制请求 App Tracking Transparency 框架来申请跟踪权限的时机。
+应用开发者可以控制请求 App Tracking Transparency 框架来申请跟踪权限的时机。
 
 要显示用于访问 IDFA 的 App Tracking Transparency 授权请求，请更新 Info.plist 以添加 NSUserTrackingUsageDescription 键，值为描述应用如何使用 IDFA 的自定义消息。 以下是示例描述文字：
-```
+
+```xml
 <key>NSUserTrackingUsageDescription</key>
 <string>需要获取您设备的广告标识符，以为您提供更好的广告体验</string>
 ```
-要显示授权请求对话框，请调用 [requestTrackingAuthorizationWithCompletionHandler:](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/3547037-requesttrackingauthorization)。 我们建议您在授权回调之后再加载广告，以便如果用户允许跟踪权限，则 SDK 可以在广告请求中使用 IDFA，示例代码如下：
-```
 
+要显示授权请求对话框，请调用 [requestTrackingAuthorizationWithCompletionHandler:](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/3547037-requesttrackingauthorization)。 我们建议您在授权回调之后再加载广告，以便如果用户允许跟踪权限，则 SDK 可以在广告请求中使用 IDFA，示例代码如下：
+
+```objective-c
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 #import <AdSupport/AdSupport.h>
-
-...
-
 - (void)requestIDFA {
-    [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-        // 授权结束，开始加载广告。注意：这不是主线程！
-        // [self loadAd];
-    }];
+       if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                // 加载广告
+            });
+        }];
+    } else {
+        
+    }
 }
 ```
 
-启用 SKAdNetwork 来跟踪转化
-Apple 提供了 SKAdNetwork 用于进行转化跟踪，这意味着如果 Network SDK 支持 SKAdNetwork，那么即使 IDFA 不可用，也可以归因广告应用安装。
+SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在保持用户隐私的同时衡量广告活动。 使用 Apple 的 SKAdNetwork 后，即使 IDFA 不可用，广告网络也可以正确获得应用安装的归因结果。 访问 https://developer.apple.com/documentation/storekit/skadnetwork 了解更多信息。
 
-要启用此功能，您需要在 Info.plist 中添加 SKAdNetworkItems 键，并为各个 Network 添加对应的 SKAdNetworkIdentifier 键值对。为此，你需要查看下面的指南并更新
-对于Bytedance-UnionA 在3.2.5.0以上的版本需要：将 SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
-```
+1. 应用编译环境升级至 `Xcode 12.0 及以上版本`
+2. 将 SKAdNetwork ID 添加到 info.plist 中，以保证 `SKAdNetwork` 的正确运行
+
+```xml
 <key>SKAdNetworkItems</key>
   <array>
     <dict>
@@ -115,652 +82,685 @@ Apple 提供了 SKAdNetwork 用于进行转化跟踪，这意味着如果 Networ
   </array>
 ```
 
-权限请求窗口调用方法：requestTrackingAuthorization(completionHandler:)
-##### 添加 -ObjC
+## SDK初始化
 
-将 -ObjC 链接器标记添加到项目的 Build Settings 下的 Other Linker Flags 中：
-
-![image-20201217172314376](/Users/admin/Library/Application Support/typora-user-images/image-20201217172314376.png)
-
-
-### 集合SDK的初始化
 加载广告之前，请先使用 PTGAdSDK 应用 ID 进行初始化，此操作仅需执行一次，最好是在应用启动时执行。
 
-##### 初始化
-SDK 为接⼊⽅提供了开屏⼴告，开屏⼴告建议为⽤户在进⼊ App 时展示的全屏⼴告。开屏⼴告为⼀个
-View，宽⾼默认为 match_parent,注意开屏⼴告 view：width >=70%屏幕宽；height >=50%屏幕⾼ ，
-否则会影响计费。
-```
+```objective-c
+#import <PTGAdSDK/PTGAdSDK.h>
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//Ptg后台创建的媒体⼴告位ID AppKey
-//Ptg后台创建的媒体⼴告位密钥 appSecret
-  [PTGAdSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp" success:^(BOOL result) {
-        //初始化成功以后进行开屏页面的加载
+    /// 获取PTGAdSDK版本号
+		NSString *sdkVersion = [PTGAdSDKManager getSDKVersion];
+		
+    /// appKey  Ptg后台创建的媒体⼴告位ID
+    /// appSecret Ptg后台创建的媒体⼴告位密钥
+    [PTGSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp" 
+    completion:^(BOOL result,NSError *error) {
+        if (result) {
+						/// 初始化成功后，进行开屏广告的加载
+        }
     }];
     return YES;
 }
 
 @end
-
-```
-##### 设置日志是否开启
-```
-[PTGAdSDKManager setLogEnable:false];
-```
-##### 获取PTGAdSDK版本号
-```
-NSString *sdkVersion = [PTGAdSDKManager getSDKVersion];
 ```
 
-现已导入移动广告 SDK 并完成了初始化，您可以实现广告了。PTGAdSDK 提供了多种广告样式，您可以从中选择最适合您应用的样式。
-
-###  开屏广告
+## 开屏广告
 
 开屏广告用于当用户进入您的应用展示，一般会展示 5 秒（部分可以跳过），倒计时结束会自动关闭。与插屏广告不同，开屏广告可以轻松地展示应用品牌（Logo 和名称），以便用户了解他们看到广告的环境。
 
-本指南向您介绍如何将 PTGAdSDK 开屏广告集成到 iOS 应用中。
+### 开屏广告加载
 
-##### 前提条件
+初始化开屏广告对象，使用开屏广告id加载广告。
 
-[导入 PTGAdSDK.framework]
-##### 创建开屏广告
+以下示例演示了如何在 AppDelegate 的 application:didFinishLaunchingWithOptions: 方法中创建并请求开屏广告。
 
-开屏广告由 PTGAdSDK 对象来请求和展示。要使用此对象，第一步是对其实例化并设置其广告单元 ID。例如，以下示例演示了如何在 AppDelegate 的 application:didFinishLaunchingWithOptions: 方法中创建：
-
-```
+```objective-c
+#import <PTGAdSDK/PTGAdSDK.h>
 
 @interface AppDelegate () <PTGSplashAdDelegate>
-@property (nonatomic, strong) PTGSplashA *splashAd;
+@property (nonatomic, strong) PTGSplashAd *splashAd;
 @end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Init TaurusXAds
-    ...
-
-    // Init SplashAd
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 80)];
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:PTGViewController.new];
+    [self.window makeKeyAndVisible];
+    /// 获取sdk version
+    NSString *version = [PTGSDKManager getSDKVersion];
     
-    UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SplashLogo"]];
-    logo.accessibilityIdentifier = @"splash_logo";
-    logo.frame = CGRectMake(0, 0, 311, 47);
-    logo.center = bottomView.center;
-    [bottomView addSubview:logo];
-    self.nativeExpressAd = [[PTGSplashA alloc] initWithPlacementId:@"989" bottomView:bottomView];
-    self.nativeExpressAd.delegate = self;
-    self.nativeExpressAd.hideSkipButton = false;
-    [self.nativeExpressAd loadAd];
-
-    return YES;
-}
-@end
-
-```
-
-##### 底部区域设置
-部分 Network 可以设置开屏广告底部展示的内容。
-```
-// 设置开屏底部显示的内容
-UILabel *bottomView = [[UILabel alloc] initWithFrame:CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width, 50)];
-bottomView.backgroundColor = UIColor.whiteColor;
-bottomView.text = @"App Name";
-self.splashAd.bottomView = bottomView;
-
-```
-
-##### 隐藏设置
-如果你想控制开屏中控制跳过按钮的隐藏，可以在 SplashAd 对象上调用 hideSkipButton: 方法。如果不调用，默认显示。
-##### 展示广告
-开屏广告加载完毕后会自动展示。
-##### 广告事件
-通过使用 PTGSplashAdDelegate，您可以监听广告生命周期事件，例如，广告何时关闭、用户何时离开应用等。
-##### 注册开屏广告事件
-要注册开屏广告事件，请将 PTGSplashA 上的 delegate 属性设置为实现 PTGSplashAdDelegate 协议的对象。一般情况下，实现开屏广告的类也充当代理类，在这种情况下，可将 delegate 属性设为 self，如下所示：
-```
-@interface AppDelegate () <PTGSplashAdDelegate>
-
-@property (nonatomic, strong) PTGSplashA *splashAd;
-
-@end
-
-@implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-
-    // Init 注册
-    ...
-    // Init SplashAd
-    ...
-    self.splashAd.delegate = self;
+    /// appKey  Ptg后台创建的媒体⼴告位ID
+    /// appSecret Ptg后台创建的媒体⼴告位密钥
+    [PTGSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp"
+    completion:^(BOOL result,NSError *error) {
+        if (result) {
+            [self.splashAd loadAd];
+        }
+    }];
 
     return YES;
 }
 
+#pragma mark - get -
+- (PTGSplashAd *)splashAd {
+    if (!_splashAd) {
+        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 80)];
+        UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SplashLogo"]];
+        logo.accessibilityIdentifier = @"splash_logo";
+        logo.frame = CGRectMake(0, 0, 311, 47);
+        logo.center = bottomView.center;
+        [bottomView addSubview:logo];
+        
+        _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900000228"];
+        _splashAd.delegate = self;
+        _splashAd.rootViewController = [UIApplication sharedApplication].windows.firstObject.rootViewController;
+        _splashAd.bottomView = bottomView;
+    }
+    return _splashAd;
+}
 @end
-
 ```
-##### 实现开屏广告事件
-PTGSplashAdDelegate 中的每个方法都是可选方法，因此您只需实现所需的方法即可。以下示例实现了每个方法并将消息记录到控制台：
+
+### 开屏广告事件
+
+设置开屏广告的delegate，delegate遵守并实现PTGSplashAdDelegate，可以监听广告的生命周期事件。
+
+```objective-c
+	#pragma mark - PTGSplashAdDelegate -
+/// 开屏加载成功
+- (void)ptg_splashAdDidLoad:(PTGSplashAd *)splashAd {
+    NSLog(@"开屏广告%s",__func__);
+}
+
+/// 开屏加载失败
+- (void)ptg_splashAd:(PTGSplashAd *)splashAd didFailWithError:(NSError *)error {
+    NSLog(@"开屏广告%s",__func__);
+}
+
+/// 开屏广告被点击了
+- (void)ptg_splashAdDidClick:(PTGSplashAd *)splashAd {
+    NSLog(@"开屏广告%s",__func__);
+}
+
+/// 开屏广告关闭了
+- (void)ptg_splashAdDidClose:(PTGSplashAd *)splashAd {
+    NSLog(@"开屏广告%s",__func__);
+}
+
+/// 开屏广告详情页面关闭的回调
+- (void)ptg_splashAdDidCloseOtherController:(PTGSplashAd *)splashAd {
+    NSLog(@"开屏广告%s",__func__);
+}
+ 
+///  开屏广告将要展示
+- (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd {
+    NSLog(@"开屏广告%s",__func__);
+}
 ```
-- (void)splashAdSuccessPresentScreen:(NSObject *)splashAd {
-    // 加载成功
-    // 获取加载成功的 LineItem 信息
-}
 
-- (void)splashAdFailToPresent:(NSObject *)splashAd withError:(NSError *)error {
-    // 加载失败，error 为错误信息
-}
+## 信息流广告
 
+信息流广告是通过平台原本就有的界面组件向用户呈现的广告素材资源。这种广告使用您在构建布局时已经采用的同类视图进行展示，而且能以和周围视觉设计相称的形式呈现，让用户有浑然一体的使用体验。从代码编写的角度来说，这意味着当信息流广告加载时，由应用负责展示它们了。 本指南向您介绍如何将信息流广告集成到 iOS 应用中。
 
-- (void)splashAdClicked:(NSObject *)splashAd{
-    // 广告点击
-}
+### 信息流广告加载
 
-- (void)splashAdClosed:(NSObject *)splashAd {
-    // 广告关闭
-    NSLog(@"txAdSplashDidDismissScreen");
-}
+信息流广告有两种类型 draw信息流及普通信息流，draw信息流与普通信息流的广告id不能混用，必须在后台创建对应的广告id，信息流广告通过PTGNativeExpressAdManager对象来加载信息流广告。以下示例演示了如何在 UIViewController 的 viewDidLoad 方法中创建 并请求信息流广告。
 
-- (void)splashAdDidCloseOtherController:(NSObject *)splashAd{
-/**
- *  此方法在splash详情广告即将关闭时调用
- */
-}
-```
-### 信息流广告和Draw信息流广告
-信息流广告是通过平台原本就有的界面组件向用户呈现的广告素材资源。这种广告使用您在构建布局时已经采用的同类视图进行展示，而且能以和周围视觉设计相称的形式呈现，让用户有浑然一体的使用体验。从代码编写的角度来说，这意味着当信息流广告加载时，由应用负责展示它们了。
-本指南向您介绍如何将信息流广告集成到 iOS 应用中。
-##### 创建广告
-信息流广告和Draw信息流广告通过 PTGNativeExpressAd 类加载，要使用此对象，第一步是对其实例化并设置其广告单元 ID。例如，以下示例演示了如何在 UIViewController 的 viewDidLoad 方法中创建 PTGNativeExpressAd：
+普通信息流：
 
-```
-@import PTGNativeExpressAd;
-@import UIKit;
+```objective-c
+#import <PTGAdSDK/PTGAdSDK.h>
+@interface PTGNativeExpressFeedViewController ()<PTGNativeExpressAdDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@interface ViewController ()
-
-@property(nonatomic, strong) PTGNativeExpressAd *nativeExpressAd;
+@property(nonatomic,strong)PTGNativeExpressAdManager *manager;
+@property(nonatomic,strong)UIButton *loadButton;
+@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSArray<PTGNativeExpressAd *> *ads;
 
 @end
-
-@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-if (self.nativeExpressAd == nil) {
-// 信息流广告type=1；Draw信息流广告type=5；
-        self.nativeExpressAd = [[PTGNativeExpressAd alloc] initWithPlacementId:placementId type:5 adSize:CGSizeMake(self.view.frame.size.width , 0)];
-        self.nativeExpressAd.delegate = self;
-          [self.nativeExpressAd dataCorrectionHandler:^(BOOL result, NSArray * _Nonnull views) {
-          }];//数据成功回调 可以不用
-    }
-     [self.nativeExpressAd loadAdData];//数据加载
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    [self.manager loadAd];
 }
+
+#pragma mark - get -
+- (PTGNativeExpressAdManager *)manager {
+    if (!_manager) { 
+      /// 普通信息流广告高度设置为0 广告渲染成功后，获取广告视图的实际高度
+        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000231"
+                                                                     type:PTGNativeExpressAdTypeFeed
+                                                                   adSize:CGSizeMake(self.view.bounds.size.width - 40, 0)];
+        _manager.delegate = self;
+    }
+    return _manager;
+}
+```
+
+draw信息流：
+
+```objective-c
+#import <PTGAdSDK/PTGAdSDK.h>
+
+@interface PTGNativeExpressDrawViewController ()<PTGNativeExpressAdDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+
+@property(nonatomic,strong)PTGNativeExpressAdManager *manager;
+@property(nonatomic,strong)UIButton *loadButton;
+@property(nonatomic,strong)UICollectionView *collectionView;
+@property(nonatomic,strong)NSArray<PTGNativeExpressAd *> *ads;
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    [self.manager loadAd];
+}
+
+- (PTGNativeExpressAdManager *)manager {
+    if (!_manager) {
+      /// draw 信息流 adSize传入屏幕的size
+        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000233" type:PTGNativeExpressAdTypeDraw adSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height)];
+        _manager.delegate = self;
+    }
+    return _manager;
+}
+@end
+```
+
+### 信息流广告事件
+
+设置信息流广告的delegate，delegate遵守并实现PTGNativeExpressAdDelegate，可以监听广告的生命周期事件。
+
+在信息流广告加载成功后会返回PTGNativeExpressAd的广告对象，调用PTGNativeExpressAd对象的render方法，并设置PTGNativeExpressAd的controller，调用PTGNativeExpressAd的render方法后，在渲染成功的方法中刷新数据，详情见以下示例代码
+
+```objective-c
+#pragma mark - PTGNativeExpressAdDelegate -
+/// 原生模版广告获取成功
+/// @param manager 广告管理类
+/// @param ads 广告数组 一般只会有一条广告数据 使用数组预留扩展
+- (void)ptg_nativeExpressAdSuccessToLoad:(PTGNativeExpressAdManager *)manager ads:(NSArray<__kindof PTGNativeExpressAd *> *)ads {
+    NSLog(@"信息流广告获取成功，%@",ads);
+    [ads enumerateObjectsUsingBlock:^(__kindof PTGNativeExpressAd * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj render];
+        [obj setController:self];
+    }];
+    NSMutableArray *arrM = self.ads ? self.ads.mutableCopy : [NSMutableArray new];
+    [arrM addObjectsFromArray:ads];
+    self.ads = arrM.copy;
+}
+
+/// 原生模版广告获取失败
+/// @param manager 广告管理类
+/// @param error 错误信息
+- (void)ptg_nativeExpressAdFailToLoad:(PTGNativeExpressAdManager *)manager error:(NSError *_Nullable)error {
+    NSLog(@"信息流广告加载失败，%@",error);
+}
+
+/// 原生模版渲染成功
+/// @param nativeExpressAd 渲染成功的模板广告
+- (void)ptg_nativeExpressAdRenderSuccess:(PTGNativeExpressAd *)nativeExpressAd {
+    NSLog(@"信息流广告渲染成功，%@",nativeExpressAd);
+    [self.collectionView reloadData];
+}
+
+/// 原生模版渲染失败
+/// @param nativeExpressAd 渲染失败的模板广告
+/// @param error 渲染过程中的错误
+- (void)ptg_nativeExpressAdRenderFail:(PTGNativeExpressAd *)nativeExpressAd error:(NSError *_Nullable)error {
+    NSLog(@"信息流广告渲染失败，%@",error);
+    NSMutableArray *arrM = self.ads.mutableCopy;
+    [arrM containsObject:nativeExpressAd] ? [arrM removeObject:nativeExpressAd] : nil;
+    [self.collectionView reloadData];
+}
+
+/// 原生模板将要显示
+/// @param nativeExpressAd 要显示的模板广告
+- (void)ptg_nativeExpressAdWillShow:(PTGNativeExpressAd *)nativeExpressAd {
+    NSLog(@"信息流广告曝光");
+}
+
+/// 原生模板将被点击了
+/// @param nativeExpressAd  被点击的模板广告
+- (void)ptg_nativeExpressAdDidClick:(PTGNativeExpressAd *)nativeExpressAd {
+    NSLog(@"信息流广告被点击");
+}
+
+///  原生模板广告被关闭了
+/// @param nativeExpressAd 要关闭的模板广告
+- (void)ptg_nativeExpressAdViewClosed:(PTGNativeExpressAd *)nativeExpressAd {
+    NSLog(@"信息流广告将要被关闭");
+}
+
+/// 原生模板广告将要展示详情页
+/// @param nativeExpressAd  广告
+- (void)ptg_nativeExpressAdWillPresentScreen:(PTGNativeExpressAd *)nativeExpressAd {
+    NSLog(@"信息流广告展示详情页");
+}
+
+/// 原生模板广告将要关闭详情页
+/// @param nativeExpressAd 广告
+- (void)ptg_nativeExpressAdVDidCloseOtherController:(PTGNativeExpressAd *)nativeExpressAd {
+    NSLog(@"信息流广告详情页被关闭");
+}
+
+```
+
+## banner广告
+
+Banner广告：是在内容底部或顶部显示的小条形广告。支持的广告位宽高比：2:1、3:2、6:5、30:13、20:3、4:1、6.4:1、345:194共8个尺寸，开发者按照展示场景进行勾选。创建好的尺寸不支持修改。
+
+### banner广告加载
+
+banner广告加载示例：
+
+```objective-c
+#import <PTGAdSDK/PTGAdSDK.h>
+
+@interface PTGNativeExpressBannerViewController ()<PTGNativeExpressBannerAdDelegate>
+
+@property(nonatomic,strong)PTGNativeExpressBannerAd *bannerAd;
 
 @end
 
-```
-##### 注意事项
+@implementation PTGNativeExpressBannerViewController
 
-建议高度给0 ,保证自适应布局
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.bannerAd loadAd];
+}
 
-##### 广告事件
-通过使用 PTGNativeExpressAdDelegete，您可以监听广告生命周期事件，例如，广告何时加载、用户何时离开应用等。
-
-##### 实现广告事件
-PTGNativeExpressAdDelegete 中的每个方法都是可选方法，因此您只需实现所需的方法即可。以下示例实现了每个方法，并将消息记录到控制台：
-
-```
-- (void)nativeExpressAdSuccessToLoad:(NSObject *_Nullable)nativeExpressAd views:(NSArray<__kindof UIView *> *_Nonnull)views{
-    // 加载成功
-    // 获取加载成功的 LineItem 信息
-  //这里做渲染操作
- NSLog(@"%s",__FUNCTION__);
-    self.expressAdViews = [NSMutableArray arrayWithArray:views];
-    if (self.expressAdViews.count) {
-        [self.expressAdViews enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [self.nativeExpressAd render:obj controller:self];
-           
-        }];
+- (PTGNativeExpressBannerAd *)bannerAd {
+    if (!_bannerAd) {
+        _bannerAd = [[PTGNativeExpressBannerAd alloc] initWithPlacementId:@"900000229" size:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width / 2.0)];
+        _bannerAd.delegate = self;
+        _bannerAd.rootViewController = self;
     }
-    [self.tableView reloadData];
+    return _bannerAd;
 }
 
-- (void)nativeExpressAdFailToLoad:(NSObject *_Nonnull)nativeExpressAd error:(NSError *_Nullable)error {
-    // 加载失败，error 为错误信息
-}
-
-- (void)nativeExpressAdViewRenderSuccess:(UIView *_Nonnull)nativeExpressAdView{
-  //这里做渲染成功
-//进行刷新
-
-}
-- (void)nativeExpressAdViewClicked:(UIView *_Nonnull)nativeExpressAdView{
-    // 广告点击
-    NSLog(@"nativeExpressAdViewClicked");
-}
-
-- (void)nativeExpressAdViewClosed:(UIView *_Nonnull)nativeExpressAdView {
-    // 广告关闭
-}
+@end
 ```
 
+### Banner广告事件
 
-###   插屏广告
+设置banner广告的delegate，delegate遵守并实现PTGNativeExpressBannerAdDelegate，可以监听广告的生命周期事件。
+
+在banner广告加载成功后， 调用PTGNativeExpressBannerAd对象的showAdFromView:(UIView *)view frame:(CGRect)frame方法，传入需要展示广告的视图，以及广告视图的frame，进行banner广告的展示。PTGNativeExpressBannerAd对象的realSize属性，用于设置banner广告的size，代码示例如下:
+
+```objective-c
+#pragma mark - PTGNativeExpressBannerAdDelegate -
+///  广告加载成功
+///  在此方法中调用 showAdFromView:frame 方法
+- (void)ptg_nativeExpressBannerAdDidLoad:(PTGNativeExpressBannerAd *)bannerAd {
+    NSLog(@"横幅广告加载成功%@,",bannerAd);
+    [bannerAd showAdFromView:self.view frame:(CGRect){{0,200},bannerAd.realSize}];
+}
+
+/// 广告加载失败
+- (void)ptg_nativeExpressBannerAd:(PTGNativeExpressBannerAd *)bannerAd didLoadFailWithError:(NSError *_Nullable)error {
+    NSLog(@"横幅广告加载失败%@,",error);
+}
+
+/// 广告将要曝光
+- (void)ptg_nativeExpressBannerAdWillBecomVisible:(PTGNativeExpressBannerAd *)bannerAd {
+    NSLog(@"横幅广告曝光%@,",bannerAd);
+}
+
+/// 广告被点击
+- (void)ptg_nativeExpressBannerAdDidClick:(PTGNativeExpressBannerAd *)bannerAd {
+    NSLog(@"横幅广告被点击%@,",bannerAd);
+}
+ 
+/// 广告被关闭
+- (void)ptg_nativeExpressBannerAdClosed:(PTGNativeExpressBannerAd *)bannerAd {
+    NSLog(@"横幅广告被关闭%@,",bannerAd);
+}
+
+/// 广告详情页给关闭
+- (void)ptg_nativeExpressBannerAdViewDidCloseOtherController:(PTGNativeExpressBannerAd *)bannerAd {
+    NSLog(@"横幅广告详情页被关闭%@,",bannerAd);
+}
+
+```
+
+## 插屏广告
 
 插屏广告是移动广告的一种常见形式，在应用流程中弹出，当应用展示插屏广告时，用户可以选择点击广告，访问其目标网址，也可以将其关闭并返回应用。在应用执行流程的自然停顿点，适合投放这类广告。
 
-插屏广告 - PTGInterstitialAd
-广告请求示例：
+### 插屏广告加载
 
-```source-objc
-@interface PTGInterstitialAd : NSObject
+插屏广告加载示例：
 
-/**
- 代理回调
-*/
-@property (nonatomic, weak) id<PTGInterstitialAdDelegate> delegate;
-/**
- Initializes interstitial ad.
- @param placementId : The unique identifier of interstitial ad.
- @param expectSize : custom size, default 600px * 400px
- @return PTGInterstitialAd
- */
-- (instancetype)initWithPlacementId:(NSString *)placementId size:(PTGProposalSize)expectSize;
+```objective-c
+#import <PTGAdSDK/PTGAdSDK.h>
 
+@interface PTGNativeExpressInterstitialAdViewController ()<PTGNativeExpressInterstitialAdDelegate>
 
-/**
- Display interstitial ad.
- @param rootViewController : root view controller for displaying ad.
- */
-- (void)showRootViewController:(UIViewController *)rootViewController;
-
-
-/**
- Load interstitial ad datas.
- */
-- (void)loadAdData;
+@property(nonatomic,strong)PTGNativeExpressInterstitialAd *interstitialAd;
 @end
 
-```
+@implementation PTGNativeExpressInterstitialAdViewController
 
-插屏广告代理回调 - PTGInterstitialAdDelegate
-```source-objc
-
-@protocol PTGInterstitialAdDelegate <NSObject>
-@optional
-/**
- This method is called when interstitial ad material loaded successfully.
- 加载成功以后记得调取showRootViewController
- */
-- (void)interstitialAdDidLoad:(NSObject *)interstitialAd;
-
-/**
- This method is called when interstitial ad material failed to load.
- @param error : the reason of error
- */
-- (void)interstitialAd:(NSObject *)interstitialAd didFailWithError:(NSError * _Nullable)error;
-/**
- This method is called when interstitial ad is clicked.
- */
-- (void)interstitialAdDidClick:(NSObject *)interstitialAd;
-/**
- This method is called when interstitial ad slot will be showing.
- */
-- (void)interstitialAdWillVisible:(NSObject  *)interstitialAd;
-
-/**
- This method is called when interstitial ad is closed.
- */
-- (void)interstitialAdDidClose:(NSObject *)interstitialAd;
-
-@end
-
-
-```
-
-
-插屏代码示例：
-
-```
-PTGProposalSize尺寸：
-PTGProposalSize_Interstitial600_400,
-PTGProposalSize_Interstitial600_600,
-PTGProposalSize_Interstitial600_900,
-```
-
-```
-#import <PTGAdSDK.h>
-- (void)loadAndShowWithBUProposalSize:(PTGProposalSize)proposalSize {
-    self.interstitialAd = [[PTGInterstitialAd alloc] initWithPlacementId:@"650" size:proposalSize];
-    self.interstitialAd.delegate = self;
-    [self.interstitialAd loadAdData];
+- (void)viewDidLoad {
+    [super viewDidLoad];
+     [self.interstitialAd loadAd];
 }
 
-#pragma mark - PTGInterstitialAdDelegate
-/**
- IntertitialAd请求成功回调
-
- @param interstitialAd 插屏广告实例对象
-*/
-- (void)interstitialAdDidLoad:(NSObject *)interstitialAd {
-    [self.interstitialAd showRootViewController:self.navigationController];
-}
-/**
- interstitialAd请求失败回调
-
- @param interstitialAd 插屏广告实例对象
- @param error 失败原因
-*/
-- (void)interstitialAd:(NSObject *)interstitialAd didFailWithError:(NSError *)error {
-//内存回收
-   NSLog(@"error code : %ld , error message : %@",(long)error.code,error.description);
-    _intertitialAd = nil;
-
-}
-/**
-关闭回调
- @param interstitialAd 插屏广告实例对象
-*/
-- (void)interstitialAdDidClose:(NSObject *)interstitialAd {
-    // 内存回收
-    _intertitialAd = nil;
-}
-```
-
-###  Banner横幅广告 
-
-Banner广告(横幅广告)位于app顶部、中部、底部任意一处，横向贯穿整个app页面；当用户与app互动时，Banner广告会停留在屏幕上，并可在一段时间后自动刷新。
-
-
-横幅广告 - PTGBannerView：
-
-```source-objc
-@interface PTGBannerView : UIView
-
-/**
- 广告生命周期代理
-*/
-@property (nonatomic, weak) id<PTGExpressBannerViewDelegate> delegate;
-
-/**
- *  构造方法
- *  详解：frame - banner 展示的位置和大小
- *       placementId - 广告位 ID
- *       viewController - 视图控制器
- */
-- (instancetype)initWithFrame:(CGRect)frame
-                  placementId:(NSString *)placementId
-               viewController:(UIViewController *)viewController;
-
-/**
- *  拉取并展示广告
- */
-- (void)loadAdData;
-
-@end
-```
-
-横幅广告 - PTGExpressBannerViewDelegate
-
-```source-objc
-@protocol PTGExpressBannerViewDelegate <NSObject>
-
-/**
- This method is called when bannerAdView ad slot loaded successfully.
- @param bannerAdView : view for bannerAdView
- */
-- (void)nativeExpressBannerAdViewDidLoad:(UIView *)bannerAdView;
-
-/**
- This method is called when bannerAdView ad slot failed to load.
- @param error : the reason of error
- */
-- (void)nativeExpressBannerAdView:(UIView *)bannerAdView didLoadFailWithError:(NSError *_Nullable)error;
-
-/**
- This method is called when rendering a nativeExpressAdView successed.
- */
-- (void)nativeExpressBannerAdViewRenderSuccess:(UIView *)bannerAdView;
-
-
-/**
- This method is called when bannerAdView is clicked.
- */
-- (void)nativeExpressBannerAdViewDidClick:(UIView *)bannerAdView;
-
-/**
- This method is called when  closed.
- */
-- (void)nativeExpressBannerAdViewDidClose:(UIView *)bannerAdView;
-
-@end
-```
-
-请求横幅广告请求示例：
-
-```source-objc
-#import <PTGAdSDK.h>
-@property (nonatomic, strong) PTGBannerView *bannerView;
-
-- (PTGBannerView *)bannerView
-{
-    if (!_bannerView) {
-        CGRect rect = {CGPointMake(0, 0), CGSizeMake(375, 60)};
-        _bannerView = [[PTGBannerView alloc]
-                       initWithFrame:rect
-                       placementId:self.placementIdText.text.length > 0 ? self.placementIdText.text: self.placementIdText.placeholder
-                       viewController:self];
-        _bannerView.accessibilityIdentifier = @"banner_ad";
-        _bannerView.delegate = self;
+- (PTGNativeExpressInterstitialAd *)interstitialAd {
+    if (!_interstitialAd) {
+        _interstitialAd = [[PTGNativeExpressInterstitialAd alloc] initWithPlacementId:@"900000230"];
+        _interstitialAd.adSize = CGSizeMake(300, 300);
+        _interstitialAd.delegate = self;
     }
-    return _bannerView;
+    return _interstitialAd;
 }
-- (IBAction)loadAdAndShow:(id)sender {
-    if (self.bannerView.superview) {
-        [self.bannerView removeFromSuperview];
-        self.bannerView = nil;
+@end
+```
+
+### 插屏广告事件
+
+设置插屏广告的delegate，delegate遵守并实现PTGNativeExpressInterstitialAdDelegate，可以监听广告的生命周期事件。
+
+在插屏广告加载成功后，调用PTGNativeExpressInterstitialA实例的showAdFromRootViewController方法，展示插屏广告，
+
+代码示例如下：
+
+```objective-c
+#pragma mark - PTGNativeExpressInterstitialAdDelegate -
+- (void)ptg_nativeExpresInterstitialAdDidLoad:(PTGNativeExpressInterstitialAd *)interstitialAd {
+    NSLog(@"插屏广告加载成功%@",interstitialAd);
+    [interstitialAd showAdFromRootViewController:self];
+}
+
+- (void)ptg_nativeExpresInterstitialAd:(PTGNativeExpressInterstitialAd *)interstitialAd didFailWithError:(NSError * __nullable)error {
+    NSLog(@"插屏广告加载失败%@",error);
+}
+
+- (void)ptg_nativeExpresInterstitialAdWillVisible:(PTGNativeExpressInterstitialAd *)interstitialAd {
+    NSLog(@"插屏广告曝光%@",interstitialAd);
+}
+
+- (void)ptg_nativeExpresInterstitialAdDidClick:(PTGNativeExpressInterstitialAd *)interstitialAd {
+    NSLog(@"插屏广告被点击%@",interstitialAd);
+}
+
+- (void)ptg_nativeExpresInterstitialAdDidClose:(PTGNativeExpressInterstitialAd *)interstitialAd {
+    NSLog(@"插屏广告被关闭%@",interstitialAd);
+}
+
+- (void)ptg_nativeExpresInterstitialAdDidCloseOtherController:(PTGNativeExpressInterstitialAd *)interstitialAd {
+    NSLog(@"插屏广告详情页被关闭%@",interstitialAd);
+}
+
+- (void)ptg_nativeExpresInterstitialAdDisplayFail:(PTGNativeExpressInterstitialAd *)interstitialAd error:(NSError *)error {
+    NSLog(@"插屏广告展示失败%@",interstitialAd);
+}
+```
+
+## 激励广告
+
+激励广告将短视频融入到APP场景当中，用户观看短视频广告后可以给予一些应用内奖励。常出现在游戏的复活、任务等位置，或者网服类APP的一些增值服务场景。
+
+### 激励广告加载
+
+激励广告加载示例：
+
+```objective-c
+#import <PTGAdSDK/PTGAdSDK.h>
+
+@interface PTGNativeExpressRewardVideoAdViewController ()<PTGRewardVideoDelegate>
+
+@property(nonatomic,strong)PTGNativeExpressRewardVideoAd *rewardVideoAd;
+
+@end
+
+@implementation PTGNativeExpressRewardVideoAdViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.rewardVideoAd loadAd];
+}
+
+- (PTGNativeExpressRewardVideoAd *)rewardVideoAd {
+    if (!_rewardVideoAd) {
+        _rewardVideoAd = [[PTGNativeExpressRewardVideoAd alloc] initWithPlacementId:@"900000232"];
+        _rewardVideoAd.delegate = self;
     }
-    [self.view addSubview:self.bannerView];
-    [self.bannerView loadAdData];
+    return _rewardVideoAd;
 }
-
-// 代理回调
-#pragma mark - PTGExpressBannerViewDelegate
-/**
- 广告获取成功
-
- @param bannerView banner实例
- */
-- (void)nativeExpressBannerAdViewDidLoad:(UIView *)bannerAdView{
-
-}
-
-/**
- 广告拉取失败
-
- @param bannerView banner实例
- @param errorModel 错误描述
- */
-- (void)nativeExpressBannerAdView:(UIView *)bannerAdView didLoadFailWithError:(NSError *_Nullable)error{
-    NSLog(@"nativeExpressBannerAdView:%@, %@",errorModel.errorDescription, errorModel.errorDetailDict);
-    [_bannerView removeFromSuperview];
-    _bannerView = nil;
-}
-
-/**
- 广告点击
-
- @param bannerView 广告实例
- */
-- (void)nativeExpressBannerAdViewDidClick:(UIView *)bannerAdView{
-
-}
-
-/**
- 广告关闭
-
- @param bannerView 广告实例
- */
-- (void)nativeExpressBannerAdViewDidClose:(UIView *)bannerAdView{
-    _bannerView = nil;
-}
-
-/**
- 广告展示
-
- @param bannerView 广告实例
- */
-- (void)nativeExpressBannerAdViewRenderSuccess:(UIView *)bannerAdView{
-
-}
-```
-
-### 激励视频广告 
-
-将短视频融入到APP场景当中，用户观看短视频广告后可以给予一些应用内奖励。常出现在游戏的复活、任务等位置，或者网服类APP的一些增值服务场景。
-
-广告请求示例：
-
-
-```source-objc
-@interface PTGRewardedVideoAd : NSObject
-
-/**
-构造方法
-@param placementId 广告位ID
-
-/**
-*
-*  数据加载的时候使用
-*
-*/
-- (void)loadAdData;
-*/
-- (instancetype)initWithPlacementId:(NSString *)placementId;
-/**
-在合适的时间进行展示视频 （用户自己控制）
- Display interstitial ad.
- @param rootViewController : root view controller for displaying ad.
- */
-- (void)showRootViewController:(UIViewController *)rootViewController;
-
-
 @end
 
 ```
 
-激励视频广告代理回调 - PTGRewardedVideoAdDelegate
+### 激励广告事件
 
-```source-objc
-@protocol PTGRewardedVideoAdDelegate <NSObject>
+设置激励广告的delegate，delegate遵守并实现PTGRewardVideoDelegate，可以监听广告的生命周期事件。
 
-/**
- 广告数据加载成功回调
+在激励广告加载成功后，调用PTGNativeExpressRewardVideoAd实例的showAdFromRootViewController方法，展示激励广告，
 
- @param rewardedVideoAd NSObject 实例
- */
-- (void)rewardVideoAdDidLoad:(NSObject *)rewardedVideoAd;
+```objective-c
+#pragma makr - PTGRewardVideoDelegate -
+/// 激励广告加载成功
+/// 在此方法中调用showAdFromRootViewController 展示激励广告
+- (void)ptg_rewardVideoAdDidLoad:(PTGNativeExpressRewardVideoAd *)rewardVideoAd {
+    NSLog(@"激励广告加载成功%@",rewardVideoAd);
+    [rewardVideoAd showAdFromRootViewController:self];
+}
 
-///**
-// 视频数据下载成功回调，已经下载过的视频会直接回调
-//
-// @param rewardedVideoAd NSObject 实例
-// */
-- (void)rewardVideoAdVideoDidLoad:(NSObject *)rewardedVideoAd;
+/// 激励广告失败 加载失败 播放失败 渲染失败
+- (void)ptg_rewardVideoAd:(PTGNativeExpressRewardVideoAd *)rewardVideoAd didFailWithError:(NSError *)error {
+    NSLog(@"激励广告加载失败%@",error);
+}
 
-/**
- 视频播放页即将展示回调
+/// 激励广告将要展示
+- (void)ptg_rewardVideoAdWillVisible:(PTGNativeExpressRewardVideoAd *)rewardVideoAd {
+    NSLog(@"激励广告将要展示%@",rewardVideoAd);
+}
 
- @param rewardedVideoAd NSObject 实例
- */
-- (void)rewardVideoAdWillVisible:(NSObject *)rewardedVideoAd;
+/// 激励广告曝光
+- (void)ptg_rewardVideoAdDidExposed:(PTGNativeExpressRewardVideoAd *)rewardVideoAd {
+    NSLog(@"激励广告曝光%@",rewardVideoAd);
+}
 
+/// 激励广告关闭
+- (void)ptg_rewardVideoAdDidClose:(PTGNativeExpressRewardVideoAd *)rewardVideoAd {
+    NSLog(@"激励广告关闭%@",rewardVideoAd);
+}
 
-/**
- 视频播放页关闭回调
+/// 激励广告被点击
+- (void)ptg_rewardVideoAdDidClicked:(PTGNativeExpressRewardVideoAd *)rewardVideoAd {
+    NSLog(@"激励广告被点击%@",rewardVideoAd);
+}
 
- @param rewardedVideoAd NSObject 实例
- */
-- (void)rewardVideoAdDidClose:(NSObject *)rewardedVideoAd;
+/// 激励广告播放完成
+- (void)ptg_rewardVideoAdDidPlayFinish:(PTGNativeExpressRewardVideoAd *)rewardVideoAd {
+    NSLog(@"激励广告播放完成%@",rewardVideoAd);
+}
 
-/**
- 视频广告信息点击回调
+- (void)ptg_rewardVideoAdDidRewardEffective:(PTGNativeExpressRewardVideoAd *)rewardedVideoAd {
+    NSLog(@"激励广告达到激励条件%@",rewardedVideoAd);
+}
+```
 
- @param rewardedVideoAd NSObject 实例
- */
-- (void)rewardVideoAdDidClicked:(NSObject *)rewardedVideoAd;
+## 个性化模板广告
 
-/**
- 视频广告各种错误信息回调
+### 个性化模板广告加载
 
- @param rewardedVideoAd NSObject 实例
- @param error 具体错误信息
- */
-- (void)rewardVideoAd:(NSObject *)rewardedVideoAd didFailWithError:(NSError *)error;
+个性化模板广告的加载示例：
 
-/**
- 视频广告视频播放完成
+```objective-c
+#import "PTGNativeViewController.h"
+#import <PTGAdSDK/PTGAdSDK.h>
 
- @param rewardedVideoAd NSObject 实例
- */
-- (void)rewardVideoAdDidPlayFinish:(NSObject *)rewardedVideoAd;
+@interface PTGNativeViewController ()<PTGNativeAdDelegate,PTGNativeAdViewDelegate>
+
+@property(nonatomic,strong)PTGNativeAd *nativeAd;
+@property(nonatomic,strong)UIButton *loadButton;
 
 @end
 
+@implementation PTGNativeViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor]; 
+    
+  // 设置个性化模板广告的渲染类型
+  self.nativeAd.type = PTGNativeAdTypeTextFlip;         // 文字上下滚动
+  //  self.nativeAd.type = PTGNativeAdTypeTextScroll;   // 文字左右滚动
+  //  self.nativeAd.type = PTGNativeAdTypeBrandCard;    // 浮窗广告 左图右文
+}
+
+- (PTGNativeAd *)nativeAd {
+    if (!_nativeAd) {
+        _nativeAd = [[PTGNativeAd alloc] initWithPlacementId:@"460"];
+        _nativeAd.delegate = self;
+    }
+    return _nativeAd;
+}
+@end
 ```
 
-激励视频代码示例：
+### 个性化模板广告事件
 
-```source-objc
-#import <PTGAdSDK.h>
+设置个性化模板广告 的delegate，delegate遵守并实现PTGNativeAdDelegate，可以监听广告的加载事件。
 
-- (void)loadRewardvodAd{
-    // 1、初始化激励视频广告
- self.rewardVideoAd = [[PTGRewardedVideoAd alloc] initWithPlacementId:placementId];
-    self.rewardVideoAd.delegate = self;
-    // 2、加载激励视频广告
-    [self.rewardVideoAd loadAdData];
+在PTGNativeAdDelegate的 ptg_nativeAdDidLoad：view：方法中，将广告添加到需要展示的视图上，并设置PTGNativeAdView实例对象的viewController，delegate对象，调用render 方法。可以监听PTGNativeAdView的广告事件
+
+```objective-c
+#pragma mark - PTGNativeAdDelegate -
+- (void)ptg_nativeAdDidLoad:(PTGNativeAd *)nativeAd view:(PTGNativeAdView *)adView {
+    adView.viewController = self;
+    adView.delegate = self;
+    [adView render];
+    [self.view addSubview:adView];
+		
+    adView.frame = CGRectMake(100, 100, 200, 20);
+    NSLog(@"个性化模板广告加载成功，%s",__func__);
+}
+
+- (void)ptg_nativeAd:(PTGNativeAd *)nativeAd didFailWithError:(NSError *)error {
+    NSLog(@"个性化模板广告加载失败，%s",__func__);
 }
 
 /**
- 激励视频广告准备好被播放
-
- @param rewardvodAd 广告实例
+ 广告曝光回调
+ 
  */
-- (void)rewardVideoAdDidLoad:(NSObject *)rewardedVideoAd{
-    //
-    NSLog(@"%s",__FUNCTION__);
-
-       self.statusLabel.text = [NSString stringWithFormat:@" 广告数据加载成功"];
-//在这里可以进行视频的加载 用户也可以在其他时机进行展示
+- (void)ptg_nativeAdViewWillExpose:(PTGNativeAdView *)adView {
+    NSLog(@"个性化模板广告曝光，%s",__func__);
 }
 
 /**
- 视频播放页关闭回调
-
- @param rewardvodAd 广告实例
+ 广告点击回调
  */
-- (void)rewardVideoAdDidClose:(NSObject *)rewardedVideoAd;
+- (void)ptg_nativeAdViewDidClick:(PTGNativeAdView *)adView {
+    NSLog(@"个性化模板广告点击，%s",__func__);
+}
 
-    // 4、广告内存回收
-    rewardedVideoAd = nil;
+
+/**
+ 广告详情页关闭回调
+ */
+- (void)ptg_nativeAdDetailViewClosed:(PTGNativeAdView *)adView {
+    NSLog(@"个性化模板广告详情页关闭，%s",__func__);
 }
 
 /**
- 视频广告请求失败回调
-
- @param rewardedVideoAd 广告实例
- @param error 具体错误信息
+ 广告详情页面即将展示回调
+ 
  */
-- (void)rewardVideoAd:(NSObject *)rewardedVideoAd didFailWithError:(NSError *)error;
-*)errorModel{
-    // 4、广告内存回收
-    rewardedVideoAd = nil;
+- (void)ptg_nativeAdDetailViewWillPresentScreen:(PTGNativeAdView *)adView {
+    NSLog(@"个性化模板广告详情页展示，%s",__func__);
 }
 ```
+
+## 互动广告
+
+互动广告提供了交互广告的场景，用户与界面交互后，可以展示广告。
+
+### 互动广告加载
+
+互动广告加载示例：
+
+```objective-c
+#import "PTGViewController.h"
+#import <PTGAdSDK/PTGAdSDK.h>
+
+@interface PTGViewController ()<PTGInteractiveAdDelegate>
+
+@property(nonatomic,strong)NSArray<UIButton *> *buttons;
+@property(nonatomic,strong)PTGSplashAd *splashAd;
+@property(nonatomic,strong)PTGInteractiveAd *interactiveAd;
+
+@end
+
+@implementation PTGViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+// 打开互动广告场景
+  [self.interactiveAd openAdPage];
+}
+
+- (PTGInteractiveAd *)interactiveAd {
+    if (!_interactiveAd) {
+        _interactiveAd = [[PTGInteractiveAd alloc] initWithPlacementId:@"460"];
+        _interactiveAd.delegate = self;
+        _interactiveAd.viewController = self;
+    }
+    return _interactiveAd;
+}
+@end
+```
+
+### 互动广告事件
+
+设置互动广告的delegate，delegate对象遵守并实现PTGInteractiveAdDelegate，可以监听互动广告的事件。
+
+```objective-c
+#pragma mark - PTGInteractiveAdDelegate -
+///  广告加载成功 广告场景内的广告加载成功
+- (void)ptg_interactiveAdDidLoad:(PTGInteractiveAd *)interactiveAd {
+    NSLog(@"互动广告加载成功%s",__func__);
+}
+
+/// 广告加载失败 广告场景内的广告加载失败
+- (void)ptg_interactiveAd:(PTGInteractiveAd *)interactiveAd didLoadFailWithError:(NSError *_Nullable)error {
+    NSLog(@"互动广告加载失败%s",__func__);
+}
+
+/// 广告将要曝光 广告场景内的广告将要展示
+- (void)ptg_interactiveAdWillBecomVisible:(PTGInteractiveAd *)interactiveAd {
+    NSLog(@"互动广告展示%s",__func__);
+}
+
+/// 广告被点击  广告场景内的广告被点击
+- (void)ptg_interactiveAdDidClick:(PTGInteractiveAd *)interactiveAd {
+    NSLog(@"互动广告被点击%s",__func__);
+}
+ 
+/// 广告被关闭 广告场景内的广告被关闭
+- (void)ptg_interactiveAdClosed:(PTGInteractiveAd *)interactiveAd {
+    NSLog(@"互动广告被关闭%s",__func__);
+}
+
+/// 广告详情页给关闭 广告场景内的广告详情页被关闭
+- (void)ptg_interactiveAdViewDidCloseOtherController:(PTGInteractiveAd *)interactiveAd {
+    NSLog(@"互动广告详情页被关闭%s",__func__);
+}
+
+///  互动广告页面关闭 广告场景被关闭
+- (void)ptg_interactiveAdClosedAdPage:(PTGInteractiveAd *)interactiveAd  {
+    NSLog(@"互动广告场景被关闭%s",__func__);
+}
+
+```
+

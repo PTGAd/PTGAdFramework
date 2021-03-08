@@ -1,1 +1,0 @@
-../../../PTGIFLYAd/PTGIFLYAd/Classes/IFLYAdTool.h

@@ -1,0 +1,1 @@
+../../../CocoaDebug/Sources/LeaksFinder/UITabBarController+_LeaksFinder.h
