@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// [必选]原生模板广告渲染
 - (void)render;
 
-/// 视频模板广告时长，单位 ms
+/// 视频模板广告时长，单位 ms 
 - (CGFloat)videoDuration;
 
 /// 视频模板广告已播放时长，单位 ms

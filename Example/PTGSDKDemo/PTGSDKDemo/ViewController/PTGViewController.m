@@ -16,11 +16,20 @@
 #import "PTGNativeViewController.h"
 
 
-@interface PTGViewController ()<PTGSplashAdDelegate,PTGInteractiveAdDelegate>
+@interface PTGViewController ()
+<
+PTGSplashAdDelegate,
+PTGInteractiveAdDelegate,
+PTGNativeExpressFullscreenVideoAdDelegate,
+UITableViewDelegate,
+UITableViewDataSource
+>
 
-@property(nonatomic,strong)NSArray<UIButton *> *buttons;
+@property(nonatomic,strong)NSArray<NSString *> *items;
 @property(nonatomic,strong)PTGSplashAd *splashAd;
 @property(nonatomic,strong)PTGInteractiveAd *interactiveAd;
+@property(nonatomic,strong)PTGNativeExpressFullscreenVideoAd *fullscreenVideoAd;
+@property(nonatomic,strong)UITableView *tableView;
 
 @end
 
@@ -28,49 +37,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.items = @[@"开屏",@"信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"文字链上下滚动",@"文字链左右滚动",@"浮窗",@"互动",@"全屏视频"];
     [self addChildViewsAndLayout];
 }
 
 - (void)addChildViewsAndLayout {
     
-    CGFloat gap = 20;
-    CGFloat width = 150;
-    CGFloat height = 30;
-    CGFloat topMargin = (self.view.bounds.size.height - (gap + height) * self.buttons.count - gap) / 2.0;
-    [self.buttons enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self.view addSubview:obj];
-        [obj mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.view).offset(topMargin + idx * (gap + height));
-            make.left.equalTo(self.view).offset(50);
-            make.size.mas_equalTo(CGSizeMake(width, height));
-        }];
+    [self.view addSubview:self.tableView];
+    
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
     }];
-}
-
-#pragma mark - action -
-- (void)buttonClicked:(UIButton *)sender {
-    UIViewController *viewController = nil;
-    if (sender.tag == 0) {
-        [self.splashAd loadAd];
-    } else if(sender.tag == 1) {
-        viewController = [[PTGNativeExpressFeedViewController alloc] init];
-    } else if(sender.tag == 2) {
-        viewController = [[PTGNativeExpressDrawViewController alloc] init];
-    } else if(sender.tag == 3) {
-        viewController = [[PTGNativeExpressBannerViewController alloc] init];
-    } else if(sender.tag == 4) {
-        viewController = [[PTGNativeExpressInterstitialAdViewController alloc] init];
-    } else if (sender.tag == 5) {
-        viewController = [[PTGNativeExpressRewardVideoAdViewController alloc] init];
-    } else if (sender.tag == 6 || sender.tag == 7 || sender.tag == 8) {
-        PTGNativeViewController *vc = [[PTGNativeViewController alloc] init];
-        vc.type = sender.tag;
-        viewController = vc;
-    } else {
-        // 互动广告打开广告场景
-        [self.interactiveAd openAdPage];
-    }
-    viewController ? [self.navigationController pushViewController:viewController animated:YES] : nil;
 }
 
 #pragma mark - PTGSplashAdDelegate -
@@ -140,12 +117,100 @@
     NSLog(@"互动广告场景被关闭%s",__func__);
 }
 
+#pragma mark - PTGNativeExpressFullscreenVideoAdDelegate -
+/// 广告加载成功
+/// @param fullscreenVideoAd 广告实例对象
+- (void)ptg_nativeExpressFullscreenVideoAdDidLoad:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
+    [fullscreenVideoAd showAdFromRootViewController:self];
+}
+
+/// 广告加载实例
+/// @param fullscreenVideoAd 广告实例
+/// @param error 错误
+- (void)ptg_nativeExpressFullscreenVideoAd:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error {
+    
+}
+
+/// 全屏视频广告已经展示
+/// @param fullscreenVideoAd 实例对象
+- (void)ptg_nativeExpressFullscreenVideoAdDidVisible:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
+    
+}
+
+/// 全屏视频广告点击
+/// @param fullscreenVideoAd 实例对象
+- (void)ptg_nativeExpressFullscreenVideoAdDidClick:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
+    
+}
+
+///全屏视频广告关闭
+/// @param fullscreenVideoAd 实例对象
+- (void)ptg_nativeExpressFullscreenVideoAdDidClose:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
+    
+}
+
+/// 全屏视频广告详情页关闭
+/// @param fullscreenVideoAd 实例对象
+- (void)ptg_nativeExpressFullscreenVideoAdDidCloseOtherController:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
+    
+}
+
+///  全屏视频广告播放失败
+- (void)ptg_nativeExpressFullscreenVideoAdDidPlayFinish:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error {
+    
+}
+
+#pragma mark - UITableViewDelegate,UITableViewDataSourc -
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.items.count;;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(UITableViewCell.class) forIndexPath:indexPath];
+    cell.textLabel.text = self.items[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIViewController *viewController = nil;
+    if (indexPath.row == 0) {
+        [self.splashAd loadAd];
+    } else if(indexPath.row == 1) {
+        viewController = [[PTGNativeExpressFeedViewController alloc] init];
+    } else if(indexPath.row == 2) {
+        viewController = [[PTGNativeExpressDrawViewController alloc] init];
+    } else if(indexPath.row == 3) {
+        viewController = [[PTGNativeExpressBannerViewController alloc] init];
+    } else if(indexPath.row == 4) {
+        viewController = [[PTGNativeExpressInterstitialAdViewController alloc] init];
+    } else if (indexPath.row == 5) {
+        viewController = [[PTGNativeExpressRewardVideoAdViewController alloc] init];
+    } else if (indexPath.row == 6 || indexPath.row == 7 || indexPath.row == 8) {
+        PTGNativeViewController *vc = [[PTGNativeViewController alloc] init];
+        vc.type = indexPath.row;
+        viewController = vc;
+    } else if (indexPath.row == 7){
+        // 互动广告打开广告场景
+        [self.interactiveAd openAdPage];
+    } else {
+        [self.fullscreenVideoAd loadAd];
+    }
+    viewController ? [self.navigationController pushViewController:viewController animated:YES] : nil;
+}
+
 #pragma mark - get -
 - (PTGSplashAd *)splashAd {
     if (!_splashAd) {
+        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 80)];
+        UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SplashLogo"]];
+        logo.accessibilityIdentifier = @"splash_logo";
+        logo.frame = CGRectMake(0, 0, 311, 47);
+        logo.center = bottomView.center;
+        [bottomView addSubview:logo];
         _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900000228"];
         _splashAd.delegate = self;
         _splashAd.rootViewController = self;
+        _splashAd.bottomView = bottomView;
     }
     return _splashAd;
 }
@@ -159,21 +224,26 @@
     return _interactiveAd;
 }
 
-- (NSArray *)buttons {
-    if (!_buttons) {
-        NSMutableArray *buttonsM = [[NSMutableArray alloc] init];
-        [@[@"开屏",@"信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"文字链上下滚动",@"文字链左右滚动",@"浮窗",@"互动"] enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-            [button setTitle:obj forState:UIControlStateNormal];
-            [button setBackgroundColor:UIColor.lightGrayColor];
-            button.titleLabel.font = [UIFont systemFontOfSize:15];
-            [button addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-            button.tag = idx;
-            [buttonsM addObject:button];
-        }];
-        _buttons = buttonsM.copy;
+- (PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd  {
+    if (!_fullscreenVideoAd) {
+        _fullscreenVideoAd = [[PTGNativeExpressFullscreenVideoAd alloc] initWithPlacementId:@"900000338"];
+        _fullscreenVideoAd.delegate = self;
     }
-    return _buttons;
+    return _fullscreenVideoAd;
 }
+
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.backgroundColor = [UIColor lightGrayColor];
+        [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:NSStringFromClass(UITableViewCell.class)];
+    }
+    return _tableView;
+}
+
 
 @end
