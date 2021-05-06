@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '~> 1.5.1'
+pod 'PTGAdFramework', '~> 1.5.2'
 pod 'Ads-CN', '3.4.2.8'      # 需要使用穿山甲广告能力的添加此项
 pod 'GDTMobSDK', '4.12.3'    # 需要使用广点通广告能力的添加此项
 pod 'FancyAd','1.0.0'        # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持 
@@ -765,11 +765,11 @@ banner广告加载示例：
 
 ```
 
-### 全屏视频广告
+## 全屏视频广告
 
 全屏视频广告提供了全屏播放的视频广告，在播放广告中 ，用户可以选择退出广告。
 
-#### 全屏视频广告加载
+### 全屏视频广告加载
 
 ```objective-c
 #import "PTGViewController.h"
@@ -846,4 +846,34 @@ banner广告加载示例：
     
 }
 
+```
+
+## SchmemLink 加载广告
+
+### schemeLink规则
+
+不关注广告事件，通过schmemLink 的形式加载广告。支持插屏及互动广告
+
+scheme：fancympsdk
+
+host：loadAd
+
+例：fancympsdk://loadAd?type=互动&slotid=广告位id&width=广告位宽&height=广告位高
+
+参数定义
+
+type ：1，互动 2，插屏  必须参数
+
+slotId：广告id    必须参数
+
+width ：广告位宽 非必须 插屏使用
+
+height： 广告位高 非必须 插屏使用
+
+### schemeLink示例：
+
+```objective-c
+NSString *urlString = @"fancympsdk://loadAd?slotId=900000245&type=1";
+urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 ```
