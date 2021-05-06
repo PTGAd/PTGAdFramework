@@ -56,7 +56,6 @@
     cell.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     PTGNativeExpressAd *ad = self.ads[indexPath.row];
-    ad.origin = CGPointMake(20,0);
     [ad displayAdToView:cell.contentView];
     return cell;
 }
@@ -141,7 +140,7 @@
     if (!_manager) { //  457 900000231
         _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000231"
                                                                      type:PTGNativeExpressAdTypeFeed
-                                                                   adSize:CGSizeMake(self.view.bounds.size.width - 40, 0)];
+                                                                   adSize:CGSizeMake(self.view.bounds.size.width, 0)];
         _manager.delegate = self;
     }
     return _manager;

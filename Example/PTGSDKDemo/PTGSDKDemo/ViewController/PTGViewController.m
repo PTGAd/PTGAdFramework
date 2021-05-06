@@ -14,6 +14,7 @@
 #import "PTGNativeExpressInterstitialAdViewController.h"
 #import "PTGNativeExpressRewardVideoAdViewController.h"
 #import "PTGNativeViewController.h"
+#import "PTGOpenURLViewController.h"
 
 
 @interface PTGViewController ()
@@ -37,7 +38,7 @@ UITableViewDataSource
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.items = @[@"开屏",@"信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"文字链上下滚动",@"文字链左右滚动",@"浮窗",@"互动",@"全屏视频"];
+    self.items = @[@"开屏",@"信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"文字链上下滚动",@"文字链左右滚动",@"浮窗",@"互动",@"全屏视频",@"openURL"];
     [self addChildViewsAndLayout];
 }
 
@@ -75,7 +76,7 @@ UITableViewDataSource
 - (void)ptg_splashAdDidCloseOtherController:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
 }
- 
+
 ///  开屏广告将要展示
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
@@ -101,7 +102,7 @@ UITableViewDataSource
 - (void)ptg_interactiveAdDidClick:(PTGInteractiveAd *)interactiveAd {
     NSLog(@"互动广告被点击%s",__func__);
 }
- 
+
 /// 广告被关闭 广告场景内的广告被关闭
 - (void)ptg_interactiveAdClosed:(PTGInteractiveAd *)interactiveAd {
     NSLog(@"互动广告被关闭%s",__func__);
@@ -189,11 +190,18 @@ UITableViewDataSource
         PTGNativeViewController *vc = [[PTGNativeViewController alloc] init];
         vc.type = indexPath.row;
         viewController = vc;
-    } else if (indexPath.row == 7){
+    } else if (indexPath.row == 9){
         // 互动广告打开广告场景
         [self.interactiveAd openAdPage];
-    } else {
+    } else if (indexPath.row == 10) {
         [self.fullscreenVideoAd loadAd];
+    } else {
+        viewController = [[PTGOpenURLViewController alloc] init];
+        //fancympsdk://register?appKey=dsfdsf&appSecret=appSecret
+//        NSString *urlString = @"fancympsdk://register?params={\"appKey\":\"dsfdsf\",\"appSecret\:\"fdsfds\"}";
+//        45227 1r8hOksXStGASHrp
+        //        NSURL *url = [NSURL URLWithString:@"https://sdfdsfsd"];
+        //        [[UIApplication sharedApplication] openURL:url];
     }
     viewController ? [self.navigationController pushViewController:viewController animated:YES] : nil;
 }
