@@ -4,6 +4,10 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		5XHHzJBXqo1HzF4GfMopV2ihKP8=
+		</data>
 		<key>Headers/PTGAdSDK.h</key>
 		<data>
 		QV8SCkqF2AtXLQY6VpyfYevEhSI=
@@ -26,7 +30,7 @@
 		</data>
 		<key>Headers/PTGNativeExpressAd.h</key>
 		<data>
-		2zByJcVMrJggxasJhCG2PWVkfO8=
+		HvYZ+7qBJ9YC2+1sdrnOeV/lInM=
 		</data>
 		<key>Headers/PTGNativeExpressAdManager.h</key>
 		<data>
@@ -126,11 +130,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2zByJcVMrJggxasJhCG2PWVkfO8=
+			HvYZ+7qBJ9YC2+1sdrnOeV/lInM=
 			</data>
 			<key>hash2</key>
 			<data>
-			wpnE6/gRe3Hv0DwcnZuG1mI7sdDDqwOoFTkzofYl+jc=
+			Vi5d9KJGqL9+HuT5XdV3e/uW242It+PsY3Kng/7+Slo=
 			</data>
 		</dict>
 		<key>Headers/PTGNativeExpressAdManager.h</key>

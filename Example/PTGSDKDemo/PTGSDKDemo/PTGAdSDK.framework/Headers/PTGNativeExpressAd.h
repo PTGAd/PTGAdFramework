@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 广告的高度 需要在广告渲染成功后调用才能获取到正确的高度
 - (CGFloat)adHeight;
 
+- (void)darwUnregisterView;
+
 @end
 
 NS_ASSUME_NONNULL_END
