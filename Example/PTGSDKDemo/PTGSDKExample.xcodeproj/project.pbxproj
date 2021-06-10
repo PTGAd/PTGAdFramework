@@ -562,7 +562,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bmlchina.driver1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bmlchina.driver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PTGSDKDemo/PTGSDKDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -592,7 +592,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.bmlchina.driver1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bmlchina.driver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PTGSDKDemo/PTGSDKDemo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
