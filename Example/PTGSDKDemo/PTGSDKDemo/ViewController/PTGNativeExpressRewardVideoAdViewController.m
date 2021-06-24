@@ -83,7 +83,7 @@
 #pragma mark - get -
 - (PTGNativeExpressRewardVideoAd *)rewardVideoAd {
     if (!_rewardVideoAd) {
-        _rewardVideoAd = [[PTGNativeExpressRewardVideoAd alloc] initWithPlacementId:@"900000232"];
+        _rewardVideoAd = [[PTGNativeExpressRewardVideoAd alloc] initWithPlacementId:@"900000400"];
         _rewardVideoAd.delegate = self;
     }
     return _rewardVideoAd;

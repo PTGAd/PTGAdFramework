@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    
     UITextView *textView = [[UITextView alloc] init];
     textView.text = @"fancympsdk://loadAd?slotId=900000245&type=1";
     textView.frame = CGRectMake(20, 100, self.view.bounds.size.width - 40, 100);

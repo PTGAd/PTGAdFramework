@@ -9,6 +9,26 @@
 #import <Masonry/Masonry.h>
 #import <PTGAdSDK/PTGAdSDK.h>
 
+@interface PTGCollectionViewCell : UICollectionViewCell
+
+@property(nonatomic,strong)PTGNativeExpressAd *ad;
+
+@end
+
+@implementation PTGCollectionViewCell
+
+- (void)displayAd:(PTGNativeExpressAd *)ad {
+    self.ad = ad;
+    [ad displayAdToView:self.contentView];
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    [self.ad darwUnregisterView];
+}
+
+@end
+
 @interface PTGNativeExpressDrawViewController ()<PTGNativeExpressAdDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property(nonatomic,strong)PTGNativeExpressAdManager *manager;
@@ -23,6 +43,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
+    self.navigationController.navigationBar.hidden = YES;
     [self addChildViewsAndLayout];
 }
 
@@ -52,9 +73,9 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(UICollectionViewCell.class) forIndexPath:indexPath];
+    PTGCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(PTGCollectionViewCell.class) forIndexPath:indexPath];
     PTGNativeExpressAd *ad = self.ads[indexPath.item];
-    [ad displayAdToView:cell.contentView];
+    [cell displayAd:ad];
     return cell;
 }
 
@@ -131,7 +152,7 @@
 #pragma mark - get -
 - (PTGNativeExpressAdManager *)manager {
     if (!_manager) {
-        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000233" type:PTGNativeExpressAdTypeDraw adSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height)];
+        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000401" type:PTGNativeExpressAdTypeDraw adSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height)];
         _manager.delegate = self;
     }
     return _manager;
@@ -160,9 +181,12 @@
         _collectionView.dataSource = self;
         _collectionView.backgroundColor = [UIColor lightGrayColor];
         _collectionView.pagingEnabled = YES;
-        [_collectionView registerClass:UICollectionViewCell.class forCellWithReuseIdentifier:NSStringFromClass(UICollectionViewCell.class)];
+        [_collectionView registerClass:PTGCollectionViewCell.class forCellWithReuseIdentifier:NSStringFromClass(PTGCollectionViewCell.class)];
     }
     return _collectionView;
 }
 
 @end
+
+
+

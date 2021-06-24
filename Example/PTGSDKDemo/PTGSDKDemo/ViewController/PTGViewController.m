@@ -123,42 +123,43 @@ UITableViewDataSource
 /// @param fullscreenVideoAd 广告实例对象
 - (void)ptg_nativeExpressFullscreenVideoAdDidLoad:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
     [fullscreenVideoAd showAdFromRootViewController:self];
+    NSLog(@"全屏视频广告加载成功");
 }
 
 /// 广告加载实例
 /// @param fullscreenVideoAd 广告实例
 /// @param error 错误
 - (void)ptg_nativeExpressFullscreenVideoAd:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error {
-    
+    NSLog(@"全屏视频广告加载失败,%@",error);
 }
 
 /// 全屏视频广告已经展示
 /// @param fullscreenVideoAd 实例对象
 - (void)ptg_nativeExpressFullscreenVideoAdDidVisible:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    
+    NSLog(@"全屏视频广告展示");
 }
 
 /// 全屏视频广告点击
 /// @param fullscreenVideoAd 实例对象
 - (void)ptg_nativeExpressFullscreenVideoAdDidClick:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    
+    NSLog(@"全屏视频广告点击");
 }
 
 ///全屏视频广告关闭
 /// @param fullscreenVideoAd 实例对象
 - (void)ptg_nativeExpressFullscreenVideoAdDidClose:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    
+    NSLog(@"全屏视频广告关闭");
 }
 
 /// 全屏视频广告详情页关闭
 /// @param fullscreenVideoAd 实例对象
 - (void)ptg_nativeExpressFullscreenVideoAdDidCloseOtherController:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    
+    NSLog(@"全屏视频广告详情页关闭");
 }
 
 ///  全屏视频广告播放失败
 - (void)ptg_nativeExpressFullscreenVideoAdDidPlayFinish:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error {
-    
+    NSLog(@"全屏视频广告播放失败");
 }
 
 #pragma mark - UITableViewDelegate,UITableViewDataSourc -
@@ -197,11 +198,6 @@ UITableViewDataSource
         [self.fullscreenVideoAd loadAd];
     } else {
         viewController = [[PTGOpenURLViewController alloc] init];
-        //fancympsdk://register?appKey=dsfdsf&appSecret=appSecret
-//        NSString *urlString = @"fancympsdk://register?params={\"appKey\":\"dsfdsf\",\"appSecret\:\"fdsfds\"}";
-//        45227 1r8hOksXStGASHrp
-        //        NSURL *url = [NSURL URLWithString:@"https://sdfdsfsd"];
-        //        [[UIApplication sharedApplication] openURL:url];
     }
     viewController ? [self.navigationController pushViewController:viewController animated:YES] : nil;
 }
@@ -210,12 +206,14 @@ UITableViewDataSource
 - (PTGSplashAd *)splashAd {
     if (!_splashAd) {
         UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 80)];
+        bottomView.backgroundColor = [UIColor whiteColor];
         UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SplashLogo"]];
         logo.accessibilityIdentifier = @"splash_logo";
         logo.frame = CGRectMake(0, 0, 311, 47);
         logo.center = bottomView.center;
         [bottomView addSubview:logo];
-        _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900000228"];
+        
+        _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900000397"];
         _splashAd.delegate = self;
         _splashAd.rootViewController = self;
         _splashAd.bottomView = bottomView;
@@ -225,7 +223,7 @@ UITableViewDataSource
 
 - (PTGInteractiveAd *)interactiveAd {
     if (!_interactiveAd) {
-        _interactiveAd = [[PTGInteractiveAd alloc] initWithPlacementId:@"900000245"];
+        _interactiveAd = [[PTGInteractiveAd alloc] initWithPlacementId:@"900000405"];
         _interactiveAd.delegate = self;
         _interactiveAd.viewController = self;
     }
@@ -234,7 +232,7 @@ UITableViewDataSource
 
 - (PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd  {
     if (!_fullscreenVideoAd) {
-        _fullscreenVideoAd = [[PTGNativeExpressFullscreenVideoAd alloc] initWithPlacementId:@"900000338"];
+        _fullscreenVideoAd = [[PTGNativeExpressFullscreenVideoAd alloc] initWithPlacementId:@"900000402"];
         _fullscreenVideoAd.delegate = self;
     }
     return _fullscreenVideoAd;
@@ -247,7 +245,7 @@ UITableViewDataSource
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.backgroundColor = [UIColor lightGrayColor];
+        _tableView.backgroundColor = [UIColor whiteColor];
         [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:NSStringFromClass(UITableViewCell.class)];
     }
     return _tableView;

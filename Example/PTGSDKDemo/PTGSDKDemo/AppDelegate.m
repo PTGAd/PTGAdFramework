@@ -8,6 +8,8 @@
 #import "AppDelegate.h"
 #import "PTGViewController.h"
 #import <PTGAdSDK/PTGAdSDK.h>
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <AdSupport/AdSupport.h>
 
 @interface AppDelegate ()<PTGSplashAdDelegate>
 
@@ -19,6 +21,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -27,12 +30,28 @@
     
     /// appKey  Ptg后台创建的媒体⼴告位ID
     /// appSecret Ptg后台创建的媒体⼴告位密钥
-    //  45227 1r8hOksXStGASHrp
-    [PTGSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp" completion:^(BOOL result,NSError *error) {
+    //  45227 1r8hOksXStGASHrp com.bmlchina.driver
+    [PTGSDKManager setAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8" completion:^(BOOL result,NSError *error) {
         if (result) {
             [self.splashAd loadAd];
         }
     }];
+    
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            
+            if ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) {
+                NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+                NSLog(@"开启了%@",idfa);
+            } else {
+                NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+                NSLog(@"关闭了%@",idfa);
+            }
+        }];
+    } else {
+        // Fallback on earlier versions
+    }
+ 
 
     return YES;
 }
@@ -77,13 +96,16 @@
         logo.frame = CGRectMake(0, 0, 311, 47);
         logo.center = bottomView.center;
         [bottomView addSubview:logo];
+        bottomView.backgroundColor = [UIColor whiteColor];
+//        bottomView.backgroundColor = [UIColor whiteColor];
         
-        _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900000228"];
+        _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900000397"];
         _splashAd.delegate = self;
         _splashAd.rootViewController = [UIApplication sharedApplication].windows.firstObject.rootViewController;
         _splashAd.bottomView = bottomView;
     }
     return _splashAd;
 }
+
 
 @end

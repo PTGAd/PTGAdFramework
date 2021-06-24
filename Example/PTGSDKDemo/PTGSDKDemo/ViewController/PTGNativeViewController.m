@@ -31,11 +31,17 @@
     }];
     
     if (self.type == 6) {
+        self.nativeAd = [[PTGNativeAd alloc] initWithPlacementId:@"900000403"];
+        self.nativeAd.delegate = self;
         self.nativeAd.type = PTGNativeAdTypeTextFlip;
     } else if (self.type == 7) {
+        self.nativeAd = [[PTGNativeAd alloc] initWithPlacementId:@"900000403"];
+        self.nativeAd.delegate = self;
         self.nativeAd.type = PTGNativeAdTypeTextScroll;
     } else if (self.type == 8) {
         // 此种类型的广告不允许修改视图大小
+        self.nativeAd = [[PTGNativeAd alloc] initWithPlacementId:@"900000404"];
+        self.nativeAd.delegate = self;
         self.nativeAd.type = PTGNativeAdTypeBrandCard;
     }
 }
@@ -96,13 +102,7 @@
 
 
 #pragma mark - get - 
-- (PTGNativeAd *)nativeAd {
-    if (!_nativeAd) {
-        _nativeAd = [[PTGNativeAd alloc] initWithPlacementId:@"460"];
-        _nativeAd.delegate = self;
-    }
-    return _nativeAd;
-}
+
 
 - (UIButton *)loadButton {
     if (!_loadButton) {

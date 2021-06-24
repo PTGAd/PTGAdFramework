@@ -101,6 +101,7 @@
     NSLog(@"信息流广告渲染失败，%@",error);
     NSMutableArray *arrM = self.ads.mutableCopy;
     [arrM containsObject:nativeExpressAd] ? [arrM removeObject:nativeExpressAd] : nil;
+    self.ads = arrM.copy;
     [self.tableView reloadData];
 }
 
@@ -119,6 +120,10 @@
 ///  原生模板广告被关闭了
 /// @param nativeExpressAd 要关闭的模板广告
 - (void)ptg_nativeExpressAdViewClosed:(PTGNativeExpressAd *)nativeExpressAd {
+    NSMutableArray *arrM = self.ads.mutableCopy;
+    [arrM containsObject:nativeExpressAd] ? [arrM removeObject:nativeExpressAd] : nil;
+    self.ads = arrM.copy;
+    [self.tableView reloadData];
     NSLog(@"信息流广告将要被关闭");
 }
 
@@ -138,7 +143,7 @@
 #pragma mark - get -
 - (PTGNativeExpressAdManager *)manager {
     if (!_manager) { //  457 900000231
-        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000231"
+        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000399"
                                                                      type:PTGNativeExpressAdTypeFeed
                                                                    adSize:CGSizeMake(self.view.bounds.size.width, 0)];
         _manager.delegate = self;

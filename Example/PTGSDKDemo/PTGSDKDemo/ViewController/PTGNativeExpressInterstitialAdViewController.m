@@ -72,8 +72,8 @@
 #pragma mark - get -
 - (PTGNativeExpressInterstitialAd *)interstitialAd {
     if (!_interstitialAd) {
-        _interstitialAd = [[PTGNativeExpressInterstitialAd alloc] initWithPlacementId:@"900000230"];
-        _interstitialAd.adSize = CGSizeMake(300, 300);
+        _interstitialAd = [[PTGNativeExpressInterstitialAd alloc] initWithPlacementId:@"900000398"];
+        _interstitialAd.adSize = CGSizeMake(200, 300);
         _interstitialAd.delegate = self;
     }
     return _interstitialAd;
