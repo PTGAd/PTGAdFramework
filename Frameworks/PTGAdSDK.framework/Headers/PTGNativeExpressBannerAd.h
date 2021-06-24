@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///  初始化 
 /// @param placementId 广告id
-/// 支持的广告位宽高比：2:1、3:2、6:5、30:13、20:3、4:1、6.4:1、345:194共8个尺寸，开发者按照展示场景进行勾选。创建好的尺寸不支持修改
+/// 支持的广告位宽高比：2:1、3:2、6:5、30:13、20:3、4:1、6.4:1、345:194、161 : 70共9个尺寸，开发者按照展示场景进行勾选。创建好的尺寸不支持修改
 - (instancetype)initWithPlacementId:(nonnull NSString *)placementId size:(CGSize)size NS_DESIGNATED_INITIALIZER;
 
 /// 加载广告
