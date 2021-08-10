@@ -23,9 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 开屏广告关闭了
 - (void)ptg_splashAdDidClose:(PTGSplashAd *)splashAd;
-
-/// 开屏广告详情页面关闭的回调
-- (void)ptg_splashAdDidCloseOtherController:(PTGSplashAd *)splashAd;
  
 ///  开屏广告将要展示
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd;
@@ -36,9 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// buttomView  底部视图 可为空
 @property(nonatomic,strong)UIView *bottomView;
-
-/// 超时时间 默认3秒
-@property(nonatomic,assign)NSTimeInterval timeout;
 
 /// 是否隐藏跳过按钮 默认NO
 @property(nonatomic,assign)BOOL hideSkipButton;
