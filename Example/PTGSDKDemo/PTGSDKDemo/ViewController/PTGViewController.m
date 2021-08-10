@@ -72,11 +72,6 @@ UITableViewDataSource
     NSLog(@"开屏广告%s",__func__);
 }
 
-/// 开屏广告详情页面关闭的回调
-- (void)ptg_splashAdDidCloseOtherController:(PTGSplashAd *)splashAd {
-    NSLog(@"开屏广告%s",__func__);
-}
-
 ///  开屏广告将要展示
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
