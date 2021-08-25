@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)getSDKVersion;
 
++ (NSString *)getDeviceIdentifier;
+
 
 /// 请求广告前必须调用此方法设置appKey appSecret
 /// @param appKey 平台上申请的appKey
