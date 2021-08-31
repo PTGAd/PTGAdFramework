@@ -3,11 +3,11 @@
 platform :ios, '9.0'
 
 target 'PTGSDKExample' do
-#  pod 'Ads-CN', '3.6.1.7'
-#  pod 'GDTMobSDK','4.12.80'
-#  pod 'FancyAd','1.0.1'
-#  pod 'KSAdSDK','3.3.9.3'
-#  pod 'PTGJAdSDK','1.2.0'      #
-#  pod 'Masonry'
-#  pod 'CocoaDebug','1.6.3'
+  pod 'Ads-CN-Beta', '3.9.0.3'
+  pod 'GDTMobSDK', '4.13.01'
+  pod 'FancyAd','1.0.1'
+  pod 'KSAdSDK', '3.3.13'
+  pod 'PTGJAdSDK','1.2.0'      #
+  pod 'Masonry'
+  pod 'CocoaDebug','1.6.3'
 end
