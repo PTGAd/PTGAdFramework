@@ -12,8 +12,8 @@
 
 ```shell
 pod 'PTGAdFramework', '1.6.2'
-pod 'Ads-CN-Beta', '3.9.0.3'      # 需要使用穿山甲广告能力的添加此项
-pod 'GDTMobSDK', '4.13.01'    # 需要使用广点通广告能力的添加此项
+pod 'Ads-CN', '4.3.0.3'      # 需要使用穿山甲广告能力的添加此项
+pod 'GDTMobSDK', '4.13.01'   # 需要使用广点通广告能力的添加此项
 pod 'FancyAd','1.0.1'        # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持 
 pod 'KSAdSDK', '3.3.13'      # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
 pod 'PTGJAdSDK','1.2.0'      # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持
