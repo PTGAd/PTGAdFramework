@@ -273,6 +273,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/Manager.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/Network.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/NetworkCell.xib"
+  install_resource "${PODS_ROOT}/FancyAd/Frameworks/FancyAdSDK.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard"
@@ -451,6 +452,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/Manager.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/Network.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/NetworkCell.xib"
+  install_resource "${PODS_ROOT}/FancyAd/Frameworks/FancyAdSDK.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

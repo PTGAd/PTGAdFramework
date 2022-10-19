@@ -175,3 +175,4 @@ ${PODS_ROOT}/CocoaDebug/Sources/Resources/Logs.storyboard
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/Manager.storyboard
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/Network.storyboard
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/NetworkCell.xib
+${PODS_ROOT}/FancyAd/Frameworks/FancyAdSDK.bundle

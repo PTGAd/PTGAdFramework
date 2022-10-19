@@ -16,6 +16,14 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+    <key>LSApplicationQueriesSchemes</key>
+        <array>
+            <string>alipays</string>
+            <string>ctrip</string>
+            <string>dianping</string>
+            <string>eleme</string>
+            <string>taobao</string>
+        </array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

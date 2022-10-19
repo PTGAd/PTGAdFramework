@@ -5,7 +5,7 @@ platform :ios, '9.0'
 target 'PTGSDKExample' do
 #  pod 'Ads-CN-Beta', '4.8.0.3'
 #  pod 'GDTMobSDK', '4.13.01'
-#  pod 'FancyAd','1.0.1'
+#  pod 'FancyAd','1.0.3'
 #  pod 'KSAdSDK', '3.3.13'
 #  pod 'PTGJAdSDK','1.2.0'      #
 #  pod 'Masonry'
