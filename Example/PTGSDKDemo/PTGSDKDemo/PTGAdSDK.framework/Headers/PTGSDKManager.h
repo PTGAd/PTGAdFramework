@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)getDeviceIdentifier;
 
+/// 依赖fancy api  可选传递此参数
++ (void)setAdIdentifier:(NSString *)identifier;
+
 
 /// 请求广告前必须调用此方法设置appKey appSecret
 /// @param appKey 平台上申请的appKey
