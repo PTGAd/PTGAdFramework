@@ -59,6 +59,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 加载广告
 - (void)loadAd;
 
+/// 展示广告
+- (void)showAdWithViewController:(UIViewController *)viewController;
+
 @end
 
 NS_ASSUME_NONNULL_END
