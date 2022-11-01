@@ -60,6 +60,7 @@
 /// 开屏加载成功
 - (void)ptg_splashAdDidLoad:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
+    [splashAd showAdWithViewController:self.window.rootViewController];
 }
 
 /// 开屏加载失败
