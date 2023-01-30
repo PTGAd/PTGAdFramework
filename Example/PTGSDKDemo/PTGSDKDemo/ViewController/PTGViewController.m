@@ -15,7 +15,7 @@
 #import "PTGNativeExpressRewardVideoAdViewController.h"
 #import "PTGNativeViewController.h"
 #import "PTGOpenURLViewController.h"
-
+#import <CoreLocation/CoreLocation.h>
 
 @interface PTGViewController ()
 <
@@ -31,6 +31,7 @@ UITableViewDataSource
 @property(nonatomic,strong)PTGInteractiveAd *interactiveAd;
 @property(nonatomic,strong)PTGNativeExpressFullscreenVideoAd *fullscreenVideoAd;
 @property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)CLLocationManager *manager;
 
 @end
 
@@ -38,6 +39,9 @@ UITableViewDataSource
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.manager = [[CLLocationManager alloc] init];
+    [self.manager requestAlwaysAuthorization];
+    [self.manager requestWhenInUseAuthorization];
     self.items = @[@"开屏",@"信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"文字链上下滚动",@"文字链左右滚动",@"浮窗",@"互动",@"全屏视频",@"openURL"];
     [self addChildViewsAndLayout];
 }
