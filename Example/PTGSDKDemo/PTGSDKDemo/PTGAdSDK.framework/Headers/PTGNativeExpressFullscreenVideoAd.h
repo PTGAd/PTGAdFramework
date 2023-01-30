@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PTGSourceAdType.h"
 @class PTGNativeExpressFullscreenVideoAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -57,6 +58,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 代理对象
 @property(nonatomic,weak)id<PTGNativeExpressFullscreenVideoAdDelegate> delegate;
+
+/// 消耗方类型
+@property(nonatomic,assign)PTGAdSourceType sourceType;
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;

@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PTGSourceAdType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置广告的origin
 @property(nonatomic,assign)CGPoint origin;
 
+/// 消耗方类型
+@property(nonatomic,assign)PTGAdSourceType sourceType;
 
 /// [必选]原生模板广告渲染
 - (void)render;

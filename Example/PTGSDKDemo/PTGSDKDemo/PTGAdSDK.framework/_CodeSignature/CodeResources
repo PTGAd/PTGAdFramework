@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/PTGAdSDK.h</key>
 		<data>
-		QV8SCkqF2AtXLQY6VpyfYevEhSI=
+		b+dzUtFpI8YwqJ9lxxgFjhhdgX4=
 		</data>
 		<key>Headers/PTGInteractiveAd.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Headers/PTGNativeExpressAd.h</key>
 		<data>
-		HvYZ+7qBJ9YC2+1sdrnOeV/lInM=
+		lb8miwLB80S2riNpRnxrv/e4o10=
 		</data>
 		<key>Headers/PTGNativeExpressAdManager.h</key>
 		<data>
@@ -34,27 +34,31 @@
 		</data>
 		<key>Headers/PTGNativeExpressBannerAd.h</key>
 		<data>
-		4u53ZkTEq7xYAlbtVYdq+I5qRYs=
+		dZf/q5G0jo8TbVO2yt6ts9hkVKw=
 		</data>
 		<key>Headers/PTGNativeExpressFullscreenVideoAd.h</key>
 		<data>
-		evewjZOVXSFrYa05y5kLb35X32o=
+		CSdQscXJ7OMxGzsM4nfGBXXM4fc=
 		</data>
 		<key>Headers/PTGNativeExpressInterstitialAd.h</key>
 		<data>
-		7NQ2DTNLaKfQDw32VtsBxYxeE4g=
+		FFXUuUo97TmZyf3VMl3BdvCmgT4=
 		</data>
 		<key>Headers/PTGNativeExpressRewardVideoAd.h</key>
 		<data>
-		iK+u2rCKx0TPPUZoZZfBOnEf+pE=
+		SgdNZwPzsI0IGVKJGJEHGEEprZs=
 		</data>
 		<key>Headers/PTGSDKManager.h</key>
 		<data>
 		JY/1DQN4wi2pKEd68sz7GJfdFtU=
 		</data>
+		<key>Headers/PTGSourceAdType.h</key>
+		<data>
+		N55AhpiwxLEZ+rOxFF6C024dMkw=
+		</data>
 		<key>Headers/PTGSplashAd.h</key>
 		<data>
-		WiLjwOQBUX4vnVJaMNceOg/qaDQ=
+		Y6tvg0yQJ7aue3//pKxG18XVnMo=
 		</data>
 		<key>Info.plist</key>
 		<data>
@@ -71,11 +75,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QV8SCkqF2AtXLQY6VpyfYevEhSI=
+			b+dzUtFpI8YwqJ9lxxgFjhhdgX4=
 			</data>
 			<key>hash2</key>
 			<data>
-			OIiK08ajN6OT+R2u4X+lUik+SMabw+rnAV/Z8dnIBy4=
+			W808Qv4o4/yzNganCSYUov6+len+hXIJXTaFnIMePMU=
 			</data>
 		</dict>
 		<key>Headers/PTGInteractiveAd.h</key>
@@ -126,11 +130,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HvYZ+7qBJ9YC2+1sdrnOeV/lInM=
+			lb8miwLB80S2riNpRnxrv/e4o10=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vi5d9KJGqL9+HuT5XdV3e/uW242It+PsY3Kng/7+Slo=
+			KoqY82G39AU59+a8rtHlBs9uKfXPqhlwTpIZVmPe85Q=
 			</data>
 		</dict>
 		<key>Headers/PTGNativeExpressAdManager.h</key>
@@ -148,44 +152,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4u53ZkTEq7xYAlbtVYdq+I5qRYs=
+			dZf/q5G0jo8TbVO2yt6ts9hkVKw=
 			</data>
 			<key>hash2</key>
 			<data>
-			PFs1nlKD3PkjaIDDeTvvr0LMz/goSNT1Lzn7hQUVzUo=
+			Al3KyZ0avK4OuDWWhkKdjt0pBYy64Yd+ML7DGze467g=
 			</data>
 		</dict>
 		<key>Headers/PTGNativeExpressFullscreenVideoAd.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			evewjZOVXSFrYa05y5kLb35X32o=
+			CSdQscXJ7OMxGzsM4nfGBXXM4fc=
 			</data>
 			<key>hash2</key>
 			<data>
-			bT23+FIQ/qfbj7Ld8YYoWBtazYRkqWF+WuolLQZb0ic=
+			exfsj9WjAxsoHasZzW/rbaxr2mQ7uch1P0E4tPniIgg=
 			</data>
 		</dict>
 		<key>Headers/PTGNativeExpressInterstitialAd.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			7NQ2DTNLaKfQDw32VtsBxYxeE4g=
+			FFXUuUo97TmZyf3VMl3BdvCmgT4=
 			</data>
 			<key>hash2</key>
 			<data>
-			oMc1T5m5leERYaA+GOH11Hk+Y1xMDm47zq8BX6iwAhg=
+			D4e4pak0Bao3Zz10A7aLE6u3Hv51/ny2s38qspZdXAQ=
 			</data>
 		</dict>
 		<key>Headers/PTGNativeExpressRewardVideoAd.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			iK+u2rCKx0TPPUZoZZfBOnEf+pE=
+			SgdNZwPzsI0IGVKJGJEHGEEprZs=
 			</data>
 			<key>hash2</key>
 			<data>
-			JQE/F4xpUo5CyBfRS/DmU6dJevshgED9cFDoVzIwe+g=
+			j1F7UrQOa5zuvTVJ2C5Y2P4J8SXBHSFqo2xTbNR5h7A=
 			</data>
 		</dict>
 		<key>Headers/PTGSDKManager.h</key>
@@ -199,15 +203,26 @@
 			KzII7CGtwWPnuA/u7LsX/Y4XLd/RMuvYf7k3QS3oDkQ=
 			</data>
 		</dict>
+		<key>Headers/PTGSourceAdType.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			N55AhpiwxLEZ+rOxFF6C024dMkw=
+			</data>
+			<key>hash2</key>
+			<data>
+			3e6k40nPhperSyBBJY/vJgkhdLtjVcK8W0c2KnLw2hk=
+			</data>
+		</dict>
 		<key>Headers/PTGSplashAd.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WiLjwOQBUX4vnVJaMNceOg/qaDQ=
+			Y6tvg0yQJ7aue3//pKxG18XVnMo=
 			</data>
 			<key>hash2</key>
 			<data>
-			vBTjACJe5xP/KMPx3prgPV1E1HNJAp2lkonYxQ7XSX8=
+			kC1yHfU/COZrA1oJWXchF8gqYG7K1Svbyurk/ggm9GA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

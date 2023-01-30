@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PTGSourceAdType.h"
 @class PTGNativeExpressBannerAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -47,6 +48,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 【必选参数】根控制器 一般为当前控制器
 @property(nonatomic,weak)UIViewController *rootViewController;
+
+/// 消耗方类型
+@property(nonatomic,assign)PTGAdSourceType sourceType;
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;

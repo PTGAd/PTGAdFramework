@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PTGSourceAdType.h"
 @class PTGSplashAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -45,6 +46,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 开屏广告代理
 @property(nonatomic,weak)id<PTGSplashAdDelegate> delegate;
+
+/// 消耗方类型
+@property(nonatomic,assign)PTGAdSourceType sourceType;
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
