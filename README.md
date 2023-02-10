@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.0.3'
+pod 'PTGAdFramework', '2.0.4'
 pod 'Ads-CN-Beta', '4.8.0.3'                  # 需要使用穿山甲广告能力的添加此项
 pod 'GDTMobSDK', '4.14.10'  				  # 需要使用广点通广告能力的添加此项
 pod 'FancyAd','1.0.6'       				  # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持 
