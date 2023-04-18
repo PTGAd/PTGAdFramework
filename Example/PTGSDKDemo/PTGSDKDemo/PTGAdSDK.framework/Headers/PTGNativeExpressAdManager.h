@@ -12,8 +12,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
-    PTGNativeExpressAdTypeFeed,     // 普通信息流
-    PTGNativeExpressAdTypeDraw      // draw视频信息流
+    PTGNativeExpressAdTypeDraw,        // draw视频信息流
+    PTGNativeExpressAdTypeSelfRender,  // 自渲染
+    PTGNativeExpressAdTypeFeed         // 普通信息流
 } PTGNativeExpressAdType;
 
 
@@ -63,7 +64,13 @@ typedef enum : NSUInteger {
 
 @interface PTGNativeExpressAdManager : NSObject
 
+/// 此参数由初始化方法传入 只提供访问 不要在初始化更改此值
+@property(nonatomic,assign,readonly)PTGNativeExpressAdType type;
+
 @property(nonatomic,weak)id<PTGNativeExpressAdDelegate> delegate;
+
+/// ubix 添加属性 当前可见的控制器
+@property(nonatomic,weak)UIViewController *controller;
 
 
 /// 禁止使用此方法来初始化
@@ -77,6 +84,7 @@ typedef enum : NSUInteger {
 /// @param type 广告type
 /// @param adSize 广告尺寸,PTGNativeExpressAdTypeFeed 类型根据宽度自适应，可将高度直接设置为0 PTGNativeExpressAdTypeDraw类型传入屏幕的宽高
 - (instancetype)initWithPlacementId:(nonnull NSString *)placementId type:(PTGNativeExpressAdType)type adSize:(CGSize)adSize NS_DESIGNATED_INITIALIZER;
+
 
 /// 加载广告
 - (void)loadAd;

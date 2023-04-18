@@ -28,6 +28,10 @@ NS_ASSUME_NONNULL_BEGIN
 ///  开屏广告将要展示
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd;
 
+///  ubix 广告可能展示失败，展示失败调用
+- (void)ptg_splashAdVisible:(PTGSplashAd *)splashAd error:(NSError * _Nullable)error;
+
+
 @end
 
 @interface PTGSplashAd : NSObject

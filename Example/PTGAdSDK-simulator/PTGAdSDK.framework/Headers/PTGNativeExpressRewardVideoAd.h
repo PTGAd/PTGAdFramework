@@ -34,6 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 激励广告播放完成
 - (void)ptg_rewardVideoAdDidPlayFinish:(PTGNativeExpressRewardVideoAd *)rewardVideoAd;
 
+/// 激励广告点击跳过
+- (void)ptg_rewardVideoAdDidSkip:(PTGNativeExpressRewardVideoAd *)rewardVideoAd;
+
 /// 达到激励条件
 - (void)ptg_rewardVideoAdDidRewardEffective:(PTGNativeExpressRewardVideoAd *)rewardedVideoAd;
 
