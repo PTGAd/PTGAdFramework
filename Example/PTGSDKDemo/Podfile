@@ -11,4 +11,5 @@ target 'PTGSDKExample' do
   pod 'PTGJAdSDK','1.2.0'                # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持 #
   pod 'Masonry'
   pod 'CocoaDebug'
+	pod 'YYWebImage'
 end
