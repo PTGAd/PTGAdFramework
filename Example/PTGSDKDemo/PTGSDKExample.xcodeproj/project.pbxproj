@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,7 @@
 		84C24FB925CD40BF00398052 /* PTGSDKDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C24FB825CD40BF00398052 /* PTGSDKDemoUITests.m */; };
 		84C2501525CD45AC00398052 /* PTGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C2501425CD45AC00398052 /* PTGViewController.m */; };
 		9E7BE0012667802000B2AB8F /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E7BE0002667802000B2AB8F /* PTGAdSDK.framework */; };
+		9EA145E729EE2E290094D94C /* PTGFeedRenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA145E629EE2E290094D94C /* PTGFeedRenderCell.m */; };
 		9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +81,8 @@
 		84C2505C25CD555E00398052 /* PTGAdSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C7ED657FFBD418DFC72A92 /* Pods-PTGSDKExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKExample.release.xcconfig"; path = "Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample.release.xcconfig"; sourceTree = "<group>"; };
 		9E7BE0002667802000B2AB8F /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = "<group>"; };
+		9EA145E529EE2E290094D94C /* PTGFeedRenderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGFeedRenderCell.h; sourceTree = "<group>"; };
+		9EA145E629EE2E290094D94C /* PTGFeedRenderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGFeedRenderCell.m; sourceTree = "<group>"; };
 		9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGOpenURLViewController.h; sourceTree = "<group>"; };
 		9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGOpenURLViewController.m; sourceTree = "<group>"; };
 		E0F0E99CFD47BC49FECAE2AE /* Pods-PTGSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 		847563E625CF968400AECEA7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9EA145E529EE2E290094D94C /* PTGFeedRenderCell.h */,
+				9EA145E629EE2E290094D94C /* PTGFeedRenderCell.m */,
 				9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */,
 				9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */,
 				84C2501325CD45AC00398052 /* PTGViewController.h */,
@@ -381,6 +386,7 @@
 				84C24FA425CD40BE00398052 /* main.m in Sources */,
 				8475645325CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m in Sources */,
 				8475643D25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m in Sources */,
+				9EA145E729EE2E290094D94C /* PTGFeedRenderCell.m in Sources */,
 				84282B9525DE330E00D8F7A3 /* File.swift in Sources */,
 				8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */,
 			);
