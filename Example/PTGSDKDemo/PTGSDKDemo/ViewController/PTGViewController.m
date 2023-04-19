@@ -42,7 +42,7 @@ UITableViewDataSource
     self.manager = [[CLLocationManager alloc] init];
     [self.manager requestAlwaysAuthorization];
     [self.manager requestWhenInUseAuthorization];
-    self.items = @[@"开屏",@"信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"文字链上下滚动",@"文字链左右滚动",@"浮窗",@"互动",@"全屏视频",@"openURL"];
+    self.items = @[@"开屏",@"信息流",@"自渲染信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"文字链上下滚动",@"文字链左右滚动",@"浮窗",@"互动",@"全屏视频",@"openURL"];
     [self addChildViewsAndLayout];
 }
 
@@ -178,23 +178,29 @@ UITableViewDataSource
     if (indexPath.row == 0) {
         [self.splashAd loadAd];
     } else if(indexPath.row == 1) {
-        viewController = [[PTGNativeExpressFeedViewController alloc] init];
+        PTGNativeExpressFeedViewController *vc = [[PTGNativeExpressFeedViewController alloc] init];
+        vc.type = PTGNativeExpressAdTypeFeed;
+        viewController = vc;
     } else if(indexPath.row == 2) {
-        viewController = [[PTGNativeExpressDrawViewController alloc] init];
+        PTGNativeExpressFeedViewController *vc = [[PTGNativeExpressFeedViewController alloc] init];
+        vc.type = PTGNativeExpressAdTypeSelfRender;
+        viewController = vc;
     } else if(indexPath.row == 3) {
-        viewController = [[PTGNativeExpressBannerViewController alloc] init];
+        viewController = [[PTGNativeExpressDrawViewController alloc] init];
     } else if(indexPath.row == 4) {
+        viewController = [[PTGNativeExpressBannerViewController alloc] init];
+    } else if(indexPath.row == 5) {
         viewController = [[PTGNativeExpressInterstitialAdViewController alloc] init];
-    } else if (indexPath.row == 5) {
+    } else if (indexPath.row == 6) {
         viewController = [[PTGNativeExpressRewardVideoAdViewController alloc] init];
-    } else if (indexPath.row == 6 || indexPath.row == 7 || indexPath.row == 8) {
+    } else if (indexPath.row == 7 || indexPath.row == 8 || indexPath.row == 9) {
         PTGNativeViewController *vc = [[PTGNativeViewController alloc] init];
         vc.type = indexPath.row;
         viewController = vc;
-    } else if (indexPath.row == 9){
+    } else if (indexPath.row == 10){
         // 互动广告打开广告场景
         [self.interactiveAd openAdPage];
-    } else if (indexPath.row == 10) {
+    } else if (indexPath.row == 11) {
         [self.fullscreenVideoAd loadAd];
     } else {
         viewController = [[PTGOpenURLViewController alloc] init];

@@ -1,4 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources.sh
+${PODS_ROOT}/Ads-CN-Beta/SDK/LICENSE
+${PODS_ROOT}/Ads-CN-Beta/SDK/CSJAdSDK.bundle
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z.png
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z@2x.png

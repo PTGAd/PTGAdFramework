@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,6 @@
 		8475644325CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475644225CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m */; };
 		8475645325CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475645225CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m */; };
 		8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475645825CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m */; };
-		8488F9F625F4BA08002BFA68 /* PTGAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8488F9F525F4BA08002BFA68 /* PTGAdSDK.bundle */; };
 		84C24F9325CD40BB00398052 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C24F9225CD40BB00398052 /* AppDelegate.m */; };
 		84C24F9E25CD40BE00398052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84C24F9D25CD40BE00398052 /* Assets.xcassets */; };
 		84C24FA125CD40BE00398052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C24F9F25CD40BE00398052 /* LaunchScreen.storyboard */; };
@@ -25,6 +24,7 @@
 		84C2501525CD45AC00398052 /* PTGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C2501425CD45AC00398052 /* PTGViewController.m */; };
 		9E7BE0012667802000B2AB8F /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E7BE0002667802000B2AB8F /* PTGAdSDK.framework */; };
 		9EA145E729EE2E290094D94C /* PTGFeedRenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA145E629EE2E290094D94C /* PTGFeedRenderCell.m */; };
+		9EA145E929EE33710094D94C /* PTGAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9EA145E829EE33710094D94C /* PTGAdSDK.bundle */; };
 		9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +62,6 @@
 		8475645725CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressRewardVideoAdViewController.h; sourceTree = "<group>"; };
 		8475645825CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressRewardVideoAdViewController.m; sourceTree = "<group>"; };
 		8488F9DA25F4AB2B002BFA68 /* libresolv.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.9.tbd; path = usr/lib/libresolv.9.tbd; sourceTree = SDKROOT; };
-		8488F9F525F4BA08002BFA68 /* PTGAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PTGAdSDK.bundle; sourceTree = "<group>"; };
 		84C24F8E25CD40BB00398052 /* PTGSDKExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PTGSDKExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C24F9125CD40BB00398052 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		84C24F9225CD40BB00398052 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		9E7BE0002667802000B2AB8F /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = "<group>"; };
 		9EA145E529EE2E290094D94C /* PTGFeedRenderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGFeedRenderCell.h; sourceTree = "<group>"; };
 		9EA145E629EE2E290094D94C /* PTGFeedRenderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGFeedRenderCell.m; sourceTree = "<group>"; };
+		9EA145E829EE33710094D94C /* PTGAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PTGAdSDK.bundle; sourceTree = "<group>"; };
 		9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGOpenURLViewController.h; sourceTree = "<group>"; };
 		9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGOpenURLViewController.m; sourceTree = "<group>"; };
 		E0F0E99CFD47BC49FECAE2AE /* Pods-PTGSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,8 +177,8 @@
 		84C24F9025CD40BB00398052 /* PTGSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9EA145E829EE33710094D94C /* PTGAdSDK.bundle */,
 				9E7BE0002667802000B2AB8F /* PTGAdSDK.framework */,
-				8488F9F525F4BA08002BFA68 /* PTGAdSDK.bundle */,
 				84282B9925DE335D00D8F7A3 /* PTGSDKDemo-Bridging-Header.h */,
 				84C24F9125CD40BB00398052 /* AppDelegate.h */,
 				84C24F9225CD40BB00398052 /* AppDelegate.m */,
@@ -232,6 +232,8 @@
 				84C24F8A25CD40BB00398052 /* Sources */,
 				84C24F8B25CD40BB00398052 /* Frameworks */,
 				84C24F8C25CD40BB00398052 /* Resources */,
+				5230976F4578EA5C976121A5 /* [CP] Embed Pods Frameworks */,
+				CEE3D27B43A9CC37833C32EA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,7 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C24FA125CD40BE00398052 /* LaunchScreen.storyboard in Resources */,
-				8488F9F625F4BA08002BFA68 /* PTGAdSDK.bundle in Resources */,
+				9EA145E929EE33710094D94C /* PTGAdSDK.bundle in Resources */,
 				84C24F9E25CD40BE00398052 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +350,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5230976F4578EA5C976121A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7A5D07972555F823F1F30379 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,6 +387,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEE3D27B43A9CC37833C32EA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

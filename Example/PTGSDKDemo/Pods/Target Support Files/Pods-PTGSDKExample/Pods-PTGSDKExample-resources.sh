@@ -97,6 +97,8 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/Ads-CN-Beta/SDK/LICENSE"
+  install_resource "${PODS_ROOT}/Ads-CN-Beta/SDK/CSJAdSDK.bundle"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z.png"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z@2x.png"
@@ -276,6 +278,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/FancyAd/Frameworks/FancyAdSDK.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/Ads-CN-Beta/SDK/LICENSE"
+  install_resource "${PODS_ROOT}/Ads-CN-Beta/SDK/CSJAdSDK.bundle"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z.png"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z@2x.png"

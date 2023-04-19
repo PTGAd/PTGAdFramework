@@ -163,8 +163,8 @@
 #pragma mark - get -
 - (PTGNativeExpressAdManager *)manager {
     if (!_manager) { //  457 900000231
-        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000260"
-                                                                     type:PTGNativeExpressAdTypeSelfRender
+        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000399"
+                                                                     type:self.type
                                                                    adSize:CGSizeMake(self.view.bounds.size.width, 56)];
         _manager.controller = self;
         _manager.delegate = self;
