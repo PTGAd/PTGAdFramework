@@ -52,6 +52,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 消耗方类型
 @property(nonatomic,assign)PTGAdSourceType sourceType;
 
+/// ecpm 单位分
+@property(nonatomic,assign,readonly)NSInteger ecpm;
+
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
 

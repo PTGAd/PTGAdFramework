@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置广告的origin
 @property(nonatomic,assign)CGPoint origin;
 
+/// 价格 单位分
+@property(nonatomic,assign)NSInteger price;
+
 /// 消耗方类型
 @property(nonatomic,assign)PTGAdSourceType sourceType;
 
@@ -43,33 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (CGFloat)adHeight;
 
 - (void)darwUnregisterView;
-
-
-/// ===== 适配自渲染广告 =======
-
-/** 设置可以点击和关闭的图层 */
-- (void)setContainer:(UIView *)containerView clickableView:(UIView *)clickableView;
-
-/// 媒体视图  用于视屏广告，使用此属性更改 视图的frame
-@property(nonatomic,strong,readonly)UIView *mediaView;
-/// 标题
-@property (nonatomic, copy) NSString *title;
-/// 副标题
-@property (nonatomic, copy) NSString *body;
-
-/// icon图片下载链接
-@property (nonatomic, copy) NSString *iconUrl;
-
-/// 点击按钮文案
-@property (nonatomic, copy) NSString *callToAction;
-
-/// App Store评分
-@property (nonatomic, assign) double rating;
-
-/// 素材地址
-@property (nonatomic, strong) NSArray <NSString *> *imageUrls;
-
-@property (nonatomic, assign) BOOL rendering;
 
 
 @end
