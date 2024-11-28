@@ -11,13 +11,98 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.0.6'
+pod 'PTGAdFramework', '2.0.7'
 pod 'Ads-CN-Beta', '4.8.0.3'                  # 需要使用穿山甲广告能力的添加此项
 pod 'GDTMobSDK', '4.14.10'  				  # 需要使用广点通广告能力的添加此项
-pod 'FancyAd','1.1.1'       				  # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持 
+pod 'FancyAd','1.1.2'       				  # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持 
 pod 'KSAdSDK', '3.3.13'     				  # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
 pod 'PTGJAdSDK','1.2.0'      				  # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持
 ```
+
+## Topon支持
+SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，开屏，横幅），可在Topon后台配置广告请求的适配器，具体可联系Fancy 商务配置,技术接入需导入
+AnyThinkPTGAdSDKAdapter 依赖的Topon版本是AnyThinkiOS 6.4.11版本，具体的请求可参照 Demo中Topon文件夹中相关的代码
+```shell
+# Topon竞价请求目前支持的消耗方是FancyAd与美约
+# 这个命令导入了Topon 主程序，PTGAdFramework 主程序, FancyAd 消耗方，美约的支持请参考消耗方导入方法
+pod 'AnyThinkPTGAdSDKAdapter', :git => 'https://github.com/PTGAd/AnyThinkPTGAdSDKAdapter.git'
+```
+
+
+## 美约广告消耗方支持
+由于美约广告SDK不支持cocoapods导入，需将项目中依赖的MeiYueSDK文件复制引用到工程中,并在cocoapods中导入依赖的第三方
+```shell
+  pod 'SDWebImage'
+  pod 'WechatOpenSDK'
+  pod 'CocoaAsyncSocket'
+  ```
+
+1.将SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
+<key>SKAdNetworkItems</key>
+  <array>
+    <dict>
+      <key>SKAdNetworkIdentifier</key>
+      <string>238da6jt44.skadnetwork</string>
+    </dict>
+    <dict>
+      <key>SKAdNetworkIdentifier</key>
+      <string>22mmun2rn5.skadnetwork</string>
+    </dict>
+  </array>
+
+2.将LSApplicationQueriesSchemes 添加到 info.plist 中，以保证精准投放
+<key>LSApplicationQueriesSchemes</key>
+   <array>
+       <string>tbopen</string>
+       <string>tmall</string>
+       <string>wireless1688</string>
+       <string>alipays</string>
+       <string>taobaoliveshare</string>
+       <string>youku</string>
+       <string>eleme</string>
+       <string>fleamarket</string>
+       <string>dingtalk</string>
+       <string>taobaotravel</string>
+       <string>dydeeplink</string>
+       <string>changba</string>
+       <string>mogujie</string>
+       <string>snssdk143</string>
+       <string>snssdk1128</string>
+       <string>snssdk2329</string>
+       <string>snssdk8663</string>
+       <string>snssdk32</string>
+       <string>dragon1967</string>
+       <string>jdmobile</string>
+       <string>openjd</string>
+       <string>vipshop</string>
+       <string>imeituan</string>
+       <string>dianping</string>
+       <string>meituanwaimai</string>
+       <string>ksnebula</string>
+       <string>baiduboxapp</string>
+       <string>baiduboxlite</string>
+       <string>iqiyi</string>
+       <string>yanxuan</string>
+       <string>orpheus</string>
+       <string>onetravel</string>
+       <string>kfhxzdriver</string>
+       <string>wbmain</string>
+       <string>wbganji</string>
+       <string>sinaweibo</string>
+       <string>autohome</string>
+       <string>ctrip</string>
+       <string>bilibili</string>
+       <string>iting</string>
+       <string>soul</string>
+       <string>zhihu</string>
+       <string>xhsdiscover</string>
+       <string>dewuapp</string>
+       <string>smzdm</string>
+       <string>taoumaimai</string>
+       <string>sohunews</string>
+       <string>sohuvideo</string>
+       <string>pinduoduo</string>
+   </array>
 
 ## 全局配置
 

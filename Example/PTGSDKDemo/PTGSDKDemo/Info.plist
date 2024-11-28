@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>使用定位服务</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>使用定位服务</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -20,14 +16,6 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>alipays</string>
-		<string>ctrip</string>
-		<string>dianping</string>
-		<string>eleme</string>
-		<string>taobao</string>
-	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -41,6 +29,14 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>alipays</string>
+		<string>ctrip</string>
+		<string>dianping</string>
+		<string>eleme</string>
+		<string>taobao</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -48,6 +44,10 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>使用定位服务</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>使用定位服务</string>
 	<key>NSUserTrackingUsageDescription</key>
 	<string>“花花test”需要您允许访问广告标识符权限，以便于追踪广告和信息的推送</string>
 	<key>SKAdNetworkItems</key>

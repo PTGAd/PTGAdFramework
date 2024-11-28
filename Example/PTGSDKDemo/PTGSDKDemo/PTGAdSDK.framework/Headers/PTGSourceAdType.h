@@ -2,7 +2,7 @@
 //  PTGSourceAdType.h
 //  Pods
 //
-//  Created by 陶永久 on 2023/1/29.
+//  Created byttt on 2023/1/29.
 //
 
 #ifndef PTGSourceAdType_h
@@ -14,8 +14,8 @@ typedef enum : NSUInteger {
     PTGAdGDT,               // 广点通
     PTGAdKS,                // 快手
     PTGAdFancy,             // FancyAPI
-    PTGAdJD,                 // 京东
-    PTGUBIX    // ubix
+    PTGAdJD,                // 京东
+    PTGADMY                 // 美约
 } PTGAdSourceType;
 
 
