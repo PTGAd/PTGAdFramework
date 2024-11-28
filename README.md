@@ -38,7 +38,7 @@ pod 'AnyThinkPTGAdSDKAdapter', :git => 'https://github.com/PTGAd/AnyThinkPTGAdSD
   ```
 
 1.将SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
-xml
+```xml
 <key>SKAdNetworkItems</key>
   <array>
     <dict>
@@ -50,9 +50,10 @@ xml
       <string>22mmun2rn5.skadnetwork</string>
     </dict>
   </array>
+```
 
 2.将LSApplicationQueriesSchemes 添加到 info.plist 中，以保证精准投放
-xml
+```xml
 <key>LSApplicationQueriesSchemes</key>
    <array>
        <string>tbopen</string>
@@ -105,6 +106,7 @@ xml
        <string>sohuvideo</string>
        <string>pinduoduo</string>
    </array>
+```
 
 ## 全局配置
 
