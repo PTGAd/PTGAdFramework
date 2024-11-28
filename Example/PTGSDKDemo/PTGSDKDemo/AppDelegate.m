@@ -10,6 +10,7 @@
 #import <PTGAdSDK/PTGAdSDK.h>
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 #import <AdSupport/AdSupport.h>
+#import "TopOnAdManager.h"
 
 @interface AppDelegate ()<PTGSplashAdDelegate>
 
@@ -21,7 +22,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    [[TopOnAdManager sharedManager] initTopOnSDK];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.backgroundColor = [UIColor whiteColor];

@@ -8,7 +8,7 @@
 #import "PTGNativeExpressFeedViewController.h"
 #import <Masonry/Masonry.h>
 #import <PTGAdSDK/PTGAdSDK.h>
-@interface PTGNativeExpressFeedViewController ()<PTGNativeExpressAdDelegate,UITableViewDelegate,UITableViewDataSource,PTGFeedRenderCellDelegate>
+@interface PTGNativeExpressFeedViewController ()<PTGNativeExpressAdDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)PTGNativeExpressAdManager *manager;
 @property(nonatomic,strong)UIButton *loadButton;
@@ -51,7 +51,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = isSelfRender ? NSStringFromClass(PTGFeedRenderCell.class) : NSStringFromClass(UITableViewCell.class);
+    NSString *identifier = NSStringFromClass(UITableViewCell.class);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -60,15 +60,6 @@
     return cell;
 }
 
-#pragma  mark - PTGFeedRenderCellDelegate -
-- (void)renderAdView:(PTGFeedRenderCell *)cell clickClose:(PTGNativeExpressAd *)ad {
-    NSMutableArray *arrM = self.ads.mutableCopy;
-    [arrM containsObject:ad] ? [arrM removeObject:ad] : nil;
-    self.ads = arrM.copy;
-    [self.tableView reloadData];
-    NSLog(@"信息流广告将要被关闭");
-
-}
 
 
 #pragma mark - UITableViewDelegate -

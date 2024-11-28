@@ -1,5 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources.sh
-${PODS_ROOT}/AnyThinkiOS/core/AnyThinkSDK.bundle
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z.png
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z@2x.png
@@ -176,6 +175,3 @@ ${PODS_ROOT}/CocoaDebug/Sources/Resources/Logs.storyboard
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/Manager.storyboard
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/Network.storyboard
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/NetworkCell.xib
-${PODS_ROOT}/FancyAd/Frameworks/FancyAdSDK.bundle
-${PODS_ROOT}/PTGAdFramework/Frameworks/PTGAdSDK.bundle
-${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle

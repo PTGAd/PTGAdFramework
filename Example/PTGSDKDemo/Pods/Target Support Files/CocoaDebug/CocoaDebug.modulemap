@@ -1,0 +1,6 @@
+module CocoaDebug {
+  umbrella header "CocoaDebug-umbrella.h"
+
+  export *
+  module * { export * }
+}

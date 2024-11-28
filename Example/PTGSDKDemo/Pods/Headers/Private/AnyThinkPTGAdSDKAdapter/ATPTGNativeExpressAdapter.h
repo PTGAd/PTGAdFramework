@@ -1,1 +1,0 @@
-../../../AnyThinkPTGAdSDKAdapter/Classes/Native/ATPTGNativeExpressAdapter.h

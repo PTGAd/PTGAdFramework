@@ -1,1 +1,0 @@
-../../../AnyThinkPTGAdSDKAdapter/Classes/Banner/ATPTGBannerExpressCustomEvent.h

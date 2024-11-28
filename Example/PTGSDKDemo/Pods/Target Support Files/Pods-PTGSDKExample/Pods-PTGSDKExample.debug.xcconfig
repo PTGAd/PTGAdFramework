@@ -1,8 +1,16 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/CocoaDebug" "${PODS_ROOT}/Headers/Public/Masonry" "${PODS_ROOT}/Headers/Public/YYCache" "${PODS_ROOT}/Headers/Public/YYImage" "${PODS_ROOT}/Headers/Public/YYWebImage"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaDebug" "${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "${PODS_CONFIGURATION_BUILD_DIR}/YYCache" "${PODS_CONFIGURATION_BUILD_DIR}/YYImage" "${PODS_CONFIGURATION_BUILD_DIR}/YYWebImage" "${TOOLCHAIN_DIR}/usr/lib/swift/${PLATFORM_NAME}" /usr/lib/swift
+OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/CocoaDebug/CocoaDebug.modulemap"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"CocoaDebug" -l"Masonry" -l"YYCache" -l"YYImage" -l"YYWebImage" -l"sqlite3" -l"z" -framework "Accelerate" -framework "AssetsLibrary" -framework "CoreFoundation" -framework "Foundation" -framework "ImageIO" -framework "JavaScriptCore" -framework "MobileCoreServices" -framework "QuartzCore" -framework "QuickLook" -framework "UIKit"
+OTHER_MODULE_VERIFIER_FLAGS = $(inherited) "-F${PODS_CONFIGURATION_BUILD_DIR}/CocoaDebug" "-F${PODS_CONFIGURATION_BUILD_DIR}/Masonry" "-F${PODS_CONFIGURATION_BUILD_DIR}/YYCache" "-F${PODS_CONFIGURATION_BUILD_DIR}/YYImage" "-F${PODS_CONFIGURATION_BUILD_DIR}/YYWebImage"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/CocoaDebug/CocoaDebug.modulemap"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
 PODS_XCFRAMEWORKS_BUILD_DIR = $(PODS_CONFIGURATION_BUILD_DIR)/XCFrameworkIntermediates
+SWIFT_INCLUDE_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaDebug"
 USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES
