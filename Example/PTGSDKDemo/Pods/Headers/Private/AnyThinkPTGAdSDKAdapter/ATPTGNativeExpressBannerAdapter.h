@@ -1,0 +1,1 @@
+../../../AnyThinkPTGAdSDKAdapter/Classes/Banner/ATPTGNativeExpressBannerAdapter.h

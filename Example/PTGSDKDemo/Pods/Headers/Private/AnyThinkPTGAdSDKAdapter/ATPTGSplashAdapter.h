@@ -1,0 +1,1 @@
+../../../AnyThinkPTGAdSDKAdapter/Classes/Splash/ATPTGSplashAdapter.h

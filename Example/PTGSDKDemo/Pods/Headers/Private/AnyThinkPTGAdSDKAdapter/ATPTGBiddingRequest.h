@@ -1,0 +1,1 @@
+../../../AnyThinkPTGAdSDKAdapter/Classes/Bid/ATPTGBiddingRequest.h

@@ -1,0 +1,1 @@
+../../../AnyThinkPTGAdSDKAdapter/Classes/Native/ATPTGNativeRenderer.h

@@ -1,1 +1,0 @@
-../../../CocoaDebug/Sources/Protobuf/_Struct.pbobjc.h

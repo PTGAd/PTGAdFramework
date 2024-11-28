@@ -8,7 +8,6 @@
 #import "PTGNativeExpressFeedViewController.h"
 #import <Masonry/Masonry.h>
 #import <PTGAdSDK/PTGAdSDK.h>
-#import "PTGFeedRenderCell.h"
 @interface PTGNativeExpressFeedViewController ()<PTGNativeExpressAdDelegate,UITableViewDelegate,UITableViewDataSource,PTGFeedRenderCellDelegate>
 
 @property(nonatomic,strong)PTGNativeExpressAdManager *manager;
@@ -52,20 +51,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL isSelfRender = self.manager.type == PTGNativeExpressAdTypeSelfRender;
     NSString *identifier = isSelfRender ? NSStringFromClass(PTGFeedRenderCell.class) : NSStringFromClass(UITableViewCell.class);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     PTGNativeExpressAd *ad = self.ads[indexPath.row];
     [ad displayAdToView:cell.contentView];
-    
-    if (isSelfRender && [cell isKindOfClass:PTGFeedRenderCell.self]) {
-        PTGFeedRenderCell *renderCell = (PTGFeedRenderCell *)cell;
-        [renderCell setAd:ad];
-        renderCell.delegate = self;
-        [ad setContainer:renderCell.adView clickableView:renderCell.adView];
-    }
     return cell;
 }
 
@@ -166,7 +157,7 @@
         _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000399"
                                                                      type:self.type
                                                                    adSize:CGSizeMake(self.view.bounds.size.width, 56)];
-        _manager.controller = self;
+        _manager.currentViewController = self;
         _manager.delegate = self;
     }
     return _manager;
@@ -191,7 +182,6 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor lightGrayColor];
         [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:NSStringFromClass(UITableViewCell.class)];
-        [_tableView registerClass:PTGFeedRenderCell.class forCellReuseIdentifier:NSStringFromClass(PTGFeedRenderCell.class)];
     }
     return _tableView;
 }
