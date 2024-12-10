@@ -2,7 +2,7 @@
 platform :ios, '13.0'
 
 target 'PTGSDKExample' do
-  pod 'PTGAdFramework', '2.0.7'  # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持
+#  pod 'PTGAdFramework', '2.0.7'   需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持
   pod 'FancyAd','1.1.2'
   # 支持topon 需要导入
   #  use_frameworks! :linkage => :static # 单独设置静态库 PTGAdFramework SDK 2.0.7版本支持

@@ -29,6 +29,9 @@
 		9E265F722CF81C6400D6758A /* TopOnAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E265F6C2CF81C6400D6758A /* TopOnAdManager.m */; };
 		9E265F732CF81C6400D6758A /* ATPTGSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E265F6A2CF81C6400D6758A /* ATPTGSplashViewController.m */; };
 		9E265F752CF81C6400D6758A /* ATPTGNativeExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E265F682CF81C6400D6758A /* ATPTGNativeExpressViewController.m */; };
+		9E830F482D082CF0001F02A4 /* PTGFeedRenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E830F472D082CF0001F02A4 /* PTGFeedRenderCell.m */; };
+		9E830F4A2D082D39001F02A4 /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E830F492D082D39001F02A4 /* PTGAdSDK.framework */; };
+		9E830F4C2D082D49001F02A4 /* PTGAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E830F4B2D082D49001F02A4 /* PTGAdSDK.bundle */; };
 		9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +97,10 @@
 		9E265F6A2CF81C6400D6758A /* ATPTGSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGSplashViewController.m; sourceTree = "<group>"; };
 		9E265F6B2CF81C6400D6758A /* TopOnAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopOnAdManager.h; sourceTree = "<group>"; };
 		9E265F6C2CF81C6400D6758A /* TopOnAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopOnAdManager.m; sourceTree = "<group>"; };
+		9E830F462D082CF0001F02A4 /* PTGFeedRenderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGFeedRenderCell.h; sourceTree = "<group>"; };
+		9E830F472D082CF0001F02A4 /* PTGFeedRenderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGFeedRenderCell.m; sourceTree = "<group>"; };
+		9E830F492D082D39001F02A4 /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = "<group>"; };
+		9E830F4B2D082D49001F02A4 /* PTGAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PTGAdSDK.bundle; sourceTree = "<group>"; };
 		9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGOpenURLViewController.h; sourceTree = "<group>"; };
 		9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGOpenURLViewController.m; sourceTree = "<group>"; };
 		E0F0E99CFD47BC49FECAE2AE /* Pods-PTGSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E265F6E2CF81C6400D6758A /* EdiMobSDK.framework in Frameworks */,
+				9E830F4A2D082D39001F02A4 /* PTGAdSDK.framework in Frameworks */,
 				26D7FCFC3166AC1B777D56ED /* libPods-PTGSDKExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +149,8 @@
 		847563E625CF968400AECEA7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9E830F462D082CF0001F02A4 /* PTGFeedRenderCell.h */,
+				9E830F472D082CF0001F02A4 /* PTGFeedRenderCell.m */,
 				9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */,
 				9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */,
 				84C2501325CD45AC00398052 /* PTGViewController.h */,
@@ -186,6 +196,8 @@
 		84C24F9025CD40BB00398052 /* PTGSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9E830F4B2D082D49001F02A4 /* PTGAdSDK.bundle */,
+				9E830F492D082D39001F02A4 /* PTGAdSDK.framework */,
 				9E265F632CF81C6400D6758A /* MeiYueSDK */,
 				9E265F6D2CF81C6400D6758A /* TopOn */,
 				84282B9925DE335D00D8F7A3 /* PTGSDKDemo-Bridging-Header.h */,
@@ -360,6 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E830F4C2D082D49001F02A4 /* PTGAdSDK.bundle in Resources */,
 				84C24FA125CD40BE00398052 /* LaunchScreen.storyboard in Resources */,
 				9E265F6F2CF81C6400D6758A /* MYAdsBundle.bundle in Resources */,
 				9E265F702CF81C6400D6758A /* EMAdSDK.bundle in Resources */,
@@ -443,6 +456,7 @@
 				84C24FA425CD40BE00398052 /* main.m in Sources */,
 				8475645325CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m in Sources */,
 				8475643D25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m in Sources */,
+				9E830F482D082CF0001F02A4 /* PTGFeedRenderCell.m in Sources */,
 				84282B9525DE330E00D8F7A3 /* File.swift in Sources */,
 				8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */,
 			);

@@ -31,23 +31,7 @@
 
 - (void)setAd:(PTGNativeExpressAd *)ad {
     _ad = ad;
-    
-    UIView* mediaView = [self.contentView viewWithTag:12212];
-    if (mediaView) {
-        [mediaView removeFromSuperview];
-    }
-    if (ad.isVideoAd) {
-        /// 视频使用 mediaView 来播放，媒体自定义布局
-        mediaView = ad.mediaView;
-        mediaView.tag = 12212;
-        mediaView.backgroundColor = [UIColor whiteColor];
-        [self.adView insertSubview:mediaView atIndex:0];
-        
-        [self.adView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.top.equalTo(self.adView).offset(8);
-            make.size.mas_equalTo(CGSizeMake(40, 40));
-        }];
-    }
+
     
     self.titleLabel.text = ad.title;
     self.bodyLabel.text = ad.body;

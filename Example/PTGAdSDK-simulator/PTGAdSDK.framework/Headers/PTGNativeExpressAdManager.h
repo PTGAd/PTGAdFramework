@@ -12,8 +12,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef enum : NSUInteger {
-    PTGNativeExpressAdTypeFeed,     // 普通信息流
-    PTGNativeExpressAdTypeDraw      // draw视频信息流
+    PTGNativeExpressAdTypeDraw,  // draw视频信息流
+    PTGNativeExpressAdTypeSelfRender, // 自渲染
+    PTGNativeExpressAdTypeFeed,  // 普通模板信息流
 } PTGNativeExpressAdType;
 
 
@@ -66,6 +67,8 @@ typedef enum : NSUInteger {
 @property(nonatomic,weak)id<PTGNativeExpressAdDelegate> delegate;
 
 @property(nonatomic,weak)UIViewController *currentViewController;
+
+@property(nonatomic,assign,readonly)PTGNativeExpressAdType type;
 
 
 /// 禁止使用此方法来初始化

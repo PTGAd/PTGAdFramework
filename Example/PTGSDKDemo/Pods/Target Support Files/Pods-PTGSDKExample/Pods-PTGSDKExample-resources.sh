@@ -97,6 +97,7 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/AnyThinkiOS/core/AnyThinkSDK.bundle"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z.png"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z@2x.png"
@@ -273,8 +274,12 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/Manager.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/Network.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/NetworkCell.xib"
+  install_resource "${PODS_ROOT}/FancyAd/Frameworks/FancyAdSDK.bundle"
+  install_resource "${PODS_ROOT}/PTGAdFramework/Frameworks/PTGAdSDK.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/AnyThinkiOS/core/AnyThinkSDK.bundle"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z.png"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z@2x.png"
@@ -451,6 +456,9 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/Manager.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/Network.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/NetworkCell.xib"
+  install_resource "${PODS_ROOT}/FancyAd/Frameworks/FancyAdSDK.bundle"
+  install_resource "${PODS_ROOT}/PTGAdFramework/Frameworks/PTGAdSDK.bundle"
+  install_resource "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
