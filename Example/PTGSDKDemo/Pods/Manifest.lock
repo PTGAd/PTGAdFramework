@@ -4,33 +4,26 @@ PODS:
   - AnyThinkiOS/AnyThinkSDK (6.4.11)
   - AnyThinkPTGAdSDKAdapter (6.4.11):
     - AnyThinkiOS (= 6.4.11)
-    - PTGAdFramework (= 2.0.7)
+    - PTGAdFramework
   - CocoaAsyncSocket (7.6.5)
   - CocoaDebug (1.7.7)
-  - FancyAd (1.1.2)
+  - FancyAd (1.1.3)
   - Masonry (1.1.0)
-  - PTGAdFramework (2.0.7)
+  - PTGAdFramework (2.0.8)
   - SDWebImage (5.20.0):
     - SDWebImage/Core (= 5.20.0)
   - SDWebImage/Core (5.20.0)
   - WechatOpenSDK (2.0.4)
-  - YYCache (1.0.4)
-  - YYImage (1.0.4):
-    - YYImage/Core (= 1.0.4)
-  - YYImage/Core (1.0.4)
-  - YYWebImage (1.0.5):
-    - YYCache
-    - YYImage
 
 DEPENDENCIES:
   - AnyThinkPTGAdSDKAdapter (from `https://github.com/PTGAd/AnyThinkPTGAdSDKAdapter.git`)
   - CocoaAsyncSocket
   - CocoaDebug
-  - FancyAd (= 1.1.2)
+  - FancyAd (= 1.1.3)
   - Masonry
+  - PTGAdFramework (= 2.0.8)
   - SDWebImage
   - WechatOpenSDK
-  - YYWebImage
 
 SPEC REPOS:
   trunk:
@@ -42,9 +35,6 @@ SPEC REPOS:
     - PTGAdFramework
     - SDWebImage
     - WechatOpenSDK
-    - YYCache
-    - YYImage
-    - YYWebImage
 
 EXTERNAL SOURCES:
   AnyThinkPTGAdSDKAdapter:
@@ -52,23 +42,20 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   AnyThinkPTGAdSDKAdapter:
-    :commit: 56ca1fc5580561950dc8e43270647804433e4078
+    :commit: eea07d0e7888a86c252af6102b89f6df14846d09
     :git: https://github.com/PTGAd/AnyThinkPTGAdSDKAdapter.git
 
 SPEC CHECKSUMS:
   AnyThinkiOS: b2509930bcfb7b366272d07570406e0ba563349a
-  AnyThinkPTGAdSDKAdapter: 46eb42f51a81bed1cdf54b6933ad3ac6e0e09162
+  AnyThinkPTGAdSDKAdapter: 628e38a051505eb3513a1ed3fb0db12bcbe853f1
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaDebug: b38d31464b91a9775928f8667d114db07b136565
-  FancyAd: bdc9baf03fbe1eb2ab36cf4cf4067aeb142b5371
+  FancyAd: c6e2e531751c7a32b403866245703f8dcd0ca373
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  PTGAdFramework: dd02d7cc87f6de671afd286ca6b4e43e71af469a
+  PTGAdFramework: b72a28794728fdd534946336cbd89e518280cb27
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
   WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
-  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
-  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
-  YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: ba412d5780ceca8f1d04424fea45ba9dac758048
+PODFILE CHECKSUM: b52dc77170d84580a54df2f9352702e47edaa9a6
 
 COCOAPODS: 1.16.2

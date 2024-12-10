@@ -8,6 +8,7 @@
 #import "PTGNativeExpressFeedViewController.h"
 #import <Masonry/Masonry.h>
 #import <PTGAdSDK/PTGAdSDK.h>
+#import "PTGFeedRenderCell.h"
 @interface PTGNativeExpressFeedViewController ()<PTGNativeExpressAdDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)PTGNativeExpressAdManager *manager;
@@ -51,16 +52,32 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = NSStringFromClass(UITableViewCell.class);
+    BOOL isSelfRender = self.manager.type == PTGNativeExpressAdTypeSelfRender;
+    NSString *identifier = isSelfRender ? NSStringFromClass(PTGFeedRenderCell.class) : NSStringFromClass(UITableViewCell.class);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
     cell.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     PTGNativeExpressAd *ad = self.ads[indexPath.row];
     [ad displayAdToView:cell.contentView];
+    
+    if (isSelfRender && [cell isKindOfClass:PTGFeedRenderCell.self]) {
+        PTGFeedRenderCell *renderCell = (PTGFeedRenderCell *)cell;
+        [renderCell setAd:ad];
+        renderCell.delegate = self;
+        [ad setContainer:renderCell.adView clickableView:renderCell.adView];
+    }
     return cell;
 }
 
+#pragma  mark - PTGFeedRenderCellDelegate -
+- (void)renderAdView:(PTGFeedRenderCell *)cell clickClose:(PTGNativeExpressAd *)ad {
+    NSMutableArray *arrM = self.ads.mutableCopy;
+    [arrM containsObject:ad] ? [arrM removeObject:ad] : nil;
+    self.ads = arrM.copy;
+    [self.tableView reloadData];
+    NSLog(@"信息流广告将要被关闭");
 
+}
 
 #pragma mark - UITableViewDelegate -
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -147,7 +164,7 @@
     if (!_manager) { //  457 900000231
         _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000399"
                                                                      type:self.type
-                                                                   adSize:CGSizeMake(self.view.bounds.size.width, 56)];
+                                                                   adSize:CGSizeMake(self.view.bounds.size.width, 80)];
         _manager.currentViewController = self;
         _manager.delegate = self;
     }
@@ -173,7 +190,9 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor lightGrayColor];
         [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:NSStringFromClass(UITableViewCell.class)];
+        [_tableView registerClass:PTGFeedRenderCell.class forCellReuseIdentifier:NSStringFromClass(PTGFeedRenderCell.class)];
     }
+    
     return _tableView;
 }
 

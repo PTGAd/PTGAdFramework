@@ -7,7 +7,7 @@
 
 #import "PTGFeedRenderCell.h"
 #import <Masonry/Masonry.h>
-#import "YYwebImage.h"
+#import <SDWebImage/SDWebImage.h>
 
 @interface PTGFeedRenderCell()
 
@@ -31,17 +31,11 @@
 
 - (void)setAd:(PTGNativeExpressAd *)ad {
     _ad = ad;
-
     
     self.titleLabel.text = ad.title;
     self.bodyLabel.text = ad.body;
     NSURL *url = [NSURL URLWithString:ad.imageUrls.firstObject];
-    [self.iv setYy_imageURL:url];
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    self.ad.mediaView.frame = self.bounds;
+    [self.iv sd_setImageWithURL:url];
 }
 
 - (void)addChildViews {
@@ -59,7 +53,7 @@
     
     [self.iv mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(self.adView).offset(8);
-        make.size.mas_equalTo(CGSizeMake(40, 40));
+        make.size.mas_equalTo(CGSizeMake(60, 60));
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -75,8 +69,9 @@
     }];
     
     [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.right.equalTo(self.adView);
-        make.size.mas_equalTo(CGSizeMake(10, 10));
+        make.top.equalTo(self.iv);
+        make.right.equalTo(self).offset(-8);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
 }
 
