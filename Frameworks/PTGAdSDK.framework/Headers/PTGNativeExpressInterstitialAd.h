@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 为避免渲染过程产生广告视图形变，插屏广告的请求尺寸务必和媒体平台配置相同尺寸
 @property(nonatomic,assign)CGSize adSize;
 
+/// 单位分
+@property(nonatomic,assign)NSInteger ecpm;
+
 /// 广告id
 @property(nonatomic,copy,readonly)NSString *placementId;
 
