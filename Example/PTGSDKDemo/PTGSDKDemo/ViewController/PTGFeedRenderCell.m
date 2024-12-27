@@ -34,8 +34,11 @@
     
     self.titleLabel.text = ad.title;
     self.bodyLabel.text = ad.body;
-    NSURL *url = [NSURL URLWithString:ad.imageUrls.firstObject];
+    PTGMediaInfo *info = ad.imageUrls.firstObject;
+    NSURL *url = [NSURL URLWithString:info.url];
     [self.iv sd_setImageWithURL:url];
+    
+    NSLog(@"素材宽高 %d ,%d",info.width,info.height);
 }
 
 - (void)addChildViews {

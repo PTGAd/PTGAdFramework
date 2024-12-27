@@ -41,7 +41,7 @@
 
 #pragma mark - PTGNativeExpressInterstitialAdDelegate -
 - (void)ptg_nativeExpresInterstitialAdDidLoad:(PTGNativeExpressInterstitialAd *)interstitialAd {
-    NSLog(@"插屏广告加载成功%@",interstitialAd);
+    NSLog(@"插屏广告加载成功%@ ECPM = %d",interstitialAd,interstitialAd.ecpm);
     [interstitialAd showAdFromRootViewController:self];
 }
 
