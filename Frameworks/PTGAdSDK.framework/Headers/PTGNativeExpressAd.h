@@ -10,6 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface PTGMediaInfo: NSObject
+/// 素材宽
+@property (nonatomic, assign, readonly) int width;
+/// 素材高
+@property (nonatomic, assign, readonly) int height;
+/// 图片素材地址
+@property (nonatomic, copy, readonly) NSString* url;
+
+@end
+
+
 @interface PTGNativeExpressAd : NSObject
 
 /// 是否渲染完毕
@@ -70,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) double rating;
 
 /// 素材地址
-@property (nonatomic, strong) NSArray <NSString *> *imageUrls;
+@property (nonatomic, strong) NSArray <PTGMediaInfo *> *imageUrls;
 
 @property (nonatomic, assign) BOOL rendering;
 
