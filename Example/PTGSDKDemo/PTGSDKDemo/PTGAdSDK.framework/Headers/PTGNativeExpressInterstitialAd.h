@@ -63,6 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param controller 控制器 一般为当前控制器 或者栈顶控制器
 - (void)showAdFromRootViewController:(UIViewController *)controller;
 
+/// 主动关闭插屏 当前只支持fancy 消耗方
+- (void)closureInterstitialAd;
+
 @end
 
 NS_ASSUME_NONNULL_END
