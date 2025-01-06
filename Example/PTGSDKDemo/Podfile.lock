@@ -1,61 +1,54 @@
 PODS:
-  - AnyThinkiOS (6.4.11):
-    - AnyThinkiOS/AnyThinkSDK (= 6.4.11)
-  - AnyThinkiOS/AnyThinkSDK (6.4.11)
-  - AnyThinkPTGAdSDKAdapter (6.4.11):
-    - AnyThinkiOS (= 6.4.11)
-    - PTGAdFramework
+  - AnyThinkiOS (6.4.27):
+    - AnyThinkiOS/AnyThinkSDK (= 6.4.27)
+  - AnyThinkiOS/AnyThinkSDK (6.4.27)
+  - AnyThinkPTGAdSDKAdapter (1.0.1):
+    - AnyThinkiOS (= 6.4.27)
+    - PTGAdFramework (= 2.1.0)
   - CocoaAsyncSocket (7.6.5)
   - CocoaDebug (1.7.7)
-  - FancyAd (1.1.6)
+  - FancyAd (1.1.7)
   - Masonry (1.1.0)
-  - PTGAdFramework (2.0.9)
+  - PTGAdFramework (2.1.0)
   - SDWebImage (5.20.0):
     - SDWebImage/Core (= 5.20.0)
   - SDWebImage/Core (5.20.0)
   - WechatOpenSDK (2.0.4)
 
 DEPENDENCIES:
-  - AnyThinkPTGAdSDKAdapter (from `https://github.com/PTGAd/AnyThinkPTGAdSDKAdapter.git`)
+  - AnyThinkPTGAdSDKAdapter (= 1.0.1)
   - CocoaAsyncSocket
   - CocoaDebug
-  - FancyAd (= 1.1.6)
+  - FancyAd (= 1.1.7)
   - Masonry
-  - PTGAdFramework (= 2.0.9)
+  - PTGAdFramework (= 2.1.0)
   - SDWebImage
   - WechatOpenSDK
 
 SPEC REPOS:
-  trunk:
+  https://github.com/CocoaPods/Specs.git:
     - AnyThinkiOS
+    - AnyThinkPTGAdSDKAdapter
+    - PTGAdFramework
+  trunk:
     - CocoaAsyncSocket
     - CocoaDebug
     - FancyAd
     - Masonry
-    - PTGAdFramework
     - SDWebImage
     - WechatOpenSDK
 
-EXTERNAL SOURCES:
-  AnyThinkPTGAdSDKAdapter:
-    :git: https://github.com/PTGAd/AnyThinkPTGAdSDKAdapter.git
-
-CHECKOUT OPTIONS:
-  AnyThinkPTGAdSDKAdapter:
-    :commit: eea07d0e7888a86c252af6102b89f6df14846d09
-    :git: https://github.com/PTGAd/AnyThinkPTGAdSDKAdapter.git
-
 SPEC CHECKSUMS:
-  AnyThinkiOS: b2509930bcfb7b366272d07570406e0ba563349a
-  AnyThinkPTGAdSDKAdapter: 628e38a051505eb3513a1ed3fb0db12bcbe853f1
+  AnyThinkiOS: 60fa75f56e1bd1243c0873306cf8d500024f72d3
+  AnyThinkPTGAdSDKAdapter: b76d3715ea77d37af2e0b87aaf7cb9f175e18ed0
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaDebug: b38d31464b91a9775928f8667d114db07b136565
-  FancyAd: 5b300633db6b4b3d14c77e867357785b5ecdcde4
+  FancyAd: 83de2bda5855fe19ef74078c866970c01dbd0437
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  PTGAdFramework: fbdd62cabe0a74be66e21c8325fffce9b9e5d80f
+  PTGAdFramework: c2c80fa2391433b0e35f6551a701f295e81990a7
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
   WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
 
-PODFILE CHECKSUM: 4b37066d24b53565533b1901331b61aa567b9795
+PODFILE CHECKSUM: 46f33bc7ac9b85268c2ee5af27cfc572b795a6e5
 
 COCOAPODS: 1.16.2
