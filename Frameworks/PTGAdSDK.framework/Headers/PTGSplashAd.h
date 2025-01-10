@@ -6,7 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PTGSourceAdType.h"
+#import <PTGAdSDK/PTGSourceAdType.h>
+#import <PTGAdSDK/PTGBidReason.h>
 @class PTGSplashAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -24,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 开屏广告关闭了
 - (void)ptg_splashAdDidClose:(PTGSplashAd *)splashAd;
+
+/// 开屏广告详情页关闭 落地页关闭
+- (void)ptg_splashAdDetailDidClose:(PTGSplashAd *)splashAd;
  
 ///  开屏广告将要展示
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd;
@@ -68,6 +72,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 展示广告
 - (void)showAdWithViewController:(UIViewController *)viewController;
+
+/// 通知广告平台的广告竞胜
+///  @param costPrice 竞胜价格
+///  @param secondPrice 二价
+- (void)notifyBidWin:(double)costPrice secondPrice:(double)secondPrice;
+/// 通知广告平台的广告竞败
+/// @param bidLossReason 竞败原因
+- (void)notifyBidLoss:(PTGBidReason *)bidLossReason;
 
 @end
 

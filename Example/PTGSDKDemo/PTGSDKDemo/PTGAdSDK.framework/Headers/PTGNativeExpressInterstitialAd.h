@@ -6,7 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PTGSourceAdType.h"
+#import <PTGAdSDK/PTGSourceAdType.h>
+#import <PTGAdSDK/PTGBidReason.h>
 @class PTGNativeExpressInterstitialAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -65,6 +66,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 主动关闭插屏 当前只支持fancy 消耗方
 - (void)closureInterstitialAd;
+
+/// 通知广告平台的广告竞胜
+///  @param costPrice 竞胜价格
+///  @param secondPrice 二价
+- (void)notifyBidWin:(double)costPrice secondPrice:(double)secondPrice;
+/// 通知广告平台的广告竞败
+/// @param bidLossReason 竞败原因
+- (void)notifyBidLoss:(PTGBidReason *)bidLossReason;
 
 @end
 

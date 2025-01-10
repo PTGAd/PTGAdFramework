@@ -6,7 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PTGSourceAdType.h"
+#import <PTGAdSDK/PTGSourceAdType.h>
+#import <PTGAdSDK/PTGBidReason.h>
 @class PTGNativeExpressFullscreenVideoAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -62,6 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 消耗方类型
 @property(nonatomic,assign)PTGAdSourceType sourceType;
 
+/// 广告ecpm  单位分
+@property(nonatomic,assign)NSInteger ecpm;
+
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
 
@@ -78,6 +82,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 展示广告稿】
 /// @param rootViewController 当前控制器
 - (BOOL)showAdFromRootViewController:(UIViewController *)rootViewController;
+
+/// 通知广告平台的广告竞胜
+///  @param costPrice 竞胜价格
+///  @param secondPrice 二价
+- (void)notifyBidWin:(double)costPrice secondPrice:(double)secondPrice;
+/// 通知广告平台的广告竞败
+/// @param bidLossReason 竞败原因
+- (void)notifyBidLoss:(PTGBidReason *)bidLossReason;
 
 @end
 

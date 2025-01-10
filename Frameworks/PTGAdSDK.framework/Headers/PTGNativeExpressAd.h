@@ -17,9 +17,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) int height;
 /// 图片素材地址
 @property (nonatomic, copy, readonly) NSString* url;
+/// 视频地址
+@property (nonatomic, copy, readonly) NSString *videoUrl;
+/// 封面图地址
+@property (nonatomic, copy, readonly) NSString *coverImageUrl;
+/// 视频时长(s)
+@property (nonatomic, assign, readonly) float duration;
 
 @end
-
 
 @interface PTGNativeExpressAd : NSObject
 
@@ -63,27 +68,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 设置可以点击和关闭的图层 */
 - (void)setContainer:(UIView *)containerView clickableView:(UIView *)clickableView;
-
-/// 媒体视图  用于视屏广告，使用此属性更改 视图的frame
-@property(nonatomic,strong,readonly)UIView *mediaView;
+/// 视频广告调用
+- (UIView *)getVideoAdView;
+/// 视频广告是否静音
+@property (nonatomic, assign) BOOL muted;
 /// 标题
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy,readonly) NSString *title;
 /// 副标题
-@property (nonatomic, copy) NSString *body;
+@property (nonatomic, copy,readonly) NSString *body;
 
 /// icon图片下载链接
-@property (nonatomic, copy) NSString *iconUrl;
+@property (nonatomic, copy,readonly) NSString *iconUrl;
 
 /// 点击按钮文案
-@property (nonatomic, copy) NSString *callToAction;
+@property (nonatomic, copy,readonly) NSString *callToAction;
 
 /// App Store评分
-@property (nonatomic, assign) double rating;
+@property (nonatomic, assign,readonly) double rating;
 
 /// 素材地址
 @property (nonatomic, strong) NSArray <PTGMediaInfo *> *imageUrls;
 
-@property (nonatomic, assign) BOOL rendering;
+@property (nonatomic, assign,readonly) BOOL rendering;
+/// 视频类素材描述
+@property(nonatomic,strong,readonly)PTGMediaInfo *videoAdInfo;
+
 
 @end
 

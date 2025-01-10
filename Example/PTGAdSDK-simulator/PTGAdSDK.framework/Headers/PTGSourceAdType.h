@@ -15,7 +15,8 @@ typedef enum : NSUInteger {
     PTGAdKS,                // 快手
     PTGAdFancy,             // FancyAPI
     PTGAdJD,                // 京东
-    PTGADMY                 // 美约
+    PTGADMY,                // 美约
+    PTGAdUbixMerak          // ubix 自有预算
 } PTGAdSourceType;
 
 

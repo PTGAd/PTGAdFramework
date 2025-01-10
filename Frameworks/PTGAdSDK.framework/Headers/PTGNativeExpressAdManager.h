@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PTGNativeExpressAd.h"
+#import <PTGAdSDK/PTGBidReason.h>
 @class PTGNativeExpressAdManager;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -85,6 +86,14 @@ typedef enum : NSUInteger {
 
 /// 加载广告
 - (void)loadAd;
+
+/// 通知广告平台的广告竞胜
+///  @param costPrice 竞胜价格
+///  @param secondPrice 二价
+- (void)notifyBidWin:(double)costPrice secondPrice:(double)secondPrice;
+/// 通知广告平台的广告竞败
+/// @param bidLossReason 竞败原因
+- (void)notifyBidLoss:(PTGBidReason *)bidLossReason;
 
 @end
 

@@ -6,7 +6,8 @@
 //
 
 #import <UIKit/UIkit.h>
-#import "PTGSourceAdType.h"
+#import <PTGAdSDK/PTGSourceAdType.h>
+#import <PTGAdSDK/PTGBidReason.h>
 @class PTGNativeExpressRewardVideoAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -50,6 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 消耗方类型
 @property(nonatomic,assign)PTGAdSourceType sourceType;
 
+/// 广告ecpm 单位分
+@property(nonatomic,assign)NSInteger ecpm;
+
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
 
@@ -66,6 +70,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 展示激励广告
 /// @param controller 控制器 一般为当前控制器 或者栈顶控制器
 - (void)showAdFromRootViewController:(UIViewController *)controller;
+
+/// 通知广告平台的广告竞胜
+///  @param costPrice 竞胜价格
+///  @param secondPrice 二价
+- (void)notifyBidWin:(double)costPrice secondPrice:(double)secondPrice;
+/// 通知广告平台的广告竞败
+/// @param bidLossReason 竞败原因
+- (void)notifyBidLoss:(PTGBidReason *)bidLossReason;
 
 @end
 

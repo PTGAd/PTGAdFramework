@@ -1,1 +1,0 @@
-../../../CocoaDebug/Sources/Monitor/_DebugConsoleLabel.h

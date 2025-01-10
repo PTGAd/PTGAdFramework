@@ -6,7 +6,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PTGSourceAdType.h"
+#import <PTGAdSDK/PTGSourceAdType.h>
+#import <PTGAdSDK/PTGBidReason.h>
 @class PTGNativeExpressBannerAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -72,6 +73,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 展示广告 此处传入的frame 此处frame的size 应该与初始化时传入的size一致
 - (void)showAdFromView:(UIView *)view frame:(CGRect)frame;
 
+/// 通知广告平台的广告竞胜
+///  @param costPrice 竞胜价格
+///  @param secondPrice 二价
+- (void)notifyBidWin:(double)costPrice secondPrice:(double)secondPrice;
+/// 通知广告平台的广告竞败
+/// @param bidLossReason 竞败原因
+- (void)notifyBidLoss:(PTGBidReason *)bidLossReason;
 
 @end
 
