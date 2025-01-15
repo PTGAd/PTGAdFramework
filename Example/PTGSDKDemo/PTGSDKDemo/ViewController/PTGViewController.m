@@ -16,9 +16,9 @@
 #import "PTGNativeViewController.h"
 #import "PTGOpenURLViewController.h"
 #import <CoreLocation/CoreLocation.h>
-//#import "ATPTGSplashViewController.h"
-//#import "ATPTGNativeExpressViewController.h"
-//#import "ATPTGBannerExpressViewController.h"
+#import "ATPTGSplashViewController.h"
+#import "ATPTGNativeExpressViewController.h"
+#import "ATPTGBannerExpressViewController.h"
 
 
 @interface PTGViewController ()
@@ -46,7 +46,7 @@ UITableViewDataSource
     self.manager = [[CLLocationManager alloc] init];
     [self.manager requestAlwaysAuthorization];
     [self.manager requestWhenInUseAuthorization];
-    self.items = @[@"开屏",@"信息流",@"自渲染信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"topon开屏",@"topon信息流",@"topon横幅",@"互动",@"全屏视频",@"openURL"];
+    self.items = @[@"开屏",@"信息流",@"自渲染信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"topon开屏",@"topon信息流",@"topon横幅",@"互动",@"全屏视频"];
     [self addChildViewsAndLayout];
 }
 
@@ -198,22 +198,22 @@ UITableViewDataSource
     } else if (indexPath.row == 6) {
         viewController = [[PTGNativeExpressRewardVideoAdViewController alloc] init];
     } else if (indexPath.row == 7) {
-//        ATPTGSplashViewController *vc = [[ATPTGSplashViewController alloc] init];
-//        viewController = vc;
+        ATPTGSplashViewController *vc = [[ATPTGSplashViewController alloc] init];
+        viewController = vc;
     } else if (indexPath.row == 8) {
-//        ATPTGNativeExpressViewController *vc = [[ATPTGNativeExpressViewController alloc] init];
-//        viewController = vc;
+        ATPTGNativeExpressViewController *vc = [[ATPTGNativeExpressViewController alloc] init];
+        viewController = vc;
     } else if (indexPath.row == 9) {
-//        ATPTGBannerExpressViewController *vc = [[ATPTGBannerExpressViewController alloc] init];
-//        viewController = vc;
+        ATPTGBannerExpressViewController *vc = [[ATPTGBannerExpressViewController alloc] init];
+        viewController = vc;
     } else if (indexPath.row == 10){
         // 互动广告打开广告场景
         [self.interactiveAd openAdPage];
     } else if (indexPath.row == 11) {
         [self.fullscreenVideoAd loadAd];
     } else {
-//        [self.nativeExpressSplashView loadAdData];
-        viewController = [[PTGOpenURLViewController alloc] init];
+////        [self.nativeExpressSplashView loadAdData];
+//        viewController = [[PTGOpenURLViewController alloc] init];
     }
     viewController ? [self.navigationController pushViewController:viewController animated:YES] : nil;
 }
