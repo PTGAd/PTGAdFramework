@@ -65,6 +65,8 @@
 }
 
 - (void)initAdSDK {
+    
+    /// 重要 影响广告填充
     [PTGSDKManager setAdIds:@{
         @"idfa":@"your idfa",
         @"caid":@"your caid",
