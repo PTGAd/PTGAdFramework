@@ -1,5 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources.sh
-${PODS_ROOT}/AnyThinkiOS/core/AnyThinkSDK.bundle
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z.png
 ${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z@2x.png

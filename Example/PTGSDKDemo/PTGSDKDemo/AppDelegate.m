@@ -10,7 +10,7 @@
 #import <PTGAdSDK/PTGAdSDK.h>
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 #import <AdSupport/AdSupport.h>
-#import "TopOnAdManager.h"
+//#import "TopOnAdManager.h"
 
 @interface AppDelegate ()<PTGSplashAdDelegate>
 
@@ -22,12 +22,54 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[TopOnAdManager sharedManager] initTopOnSDK];
+//    [[TopOnAdManager sharedManager] initTopOnSDK];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:PTGViewController.new];
     [self.window makeKeyAndVisible];
+    
+  
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            switch (status) {
+                case ATTrackingManagerAuthorizationStatusAuthorized:
+                {
+                    NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self initAdSDK];
+                    });
+                }
+                    break;
+//                case ATTrackingManagerAuthorizationStatusDenied:
+//                    NSLog(@"用户拒绝了跟踪请求");
+//                    break;
+//                case ATTrackingManagerAuthorizationStatusRestricted:
+//                    NSLog(@"跟踪权限受限");
+//                    break;
+//                case ATTrackingManagerAuthorizationStatusNotDetermined:
+//                    NSLog(@"用户尚未选择");
+//                    break;
+                default:
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self initAdSDK];
+                    });
+                    break;
+            }
+        }];
+    } else {
+        [self initAdSDK];
+    }
+
+    return YES;
+}
+
+- (void)initAdSDK {
+    [PTGSDKManager setAdIds:@{
+        @"idfa":@"your idfa",
+        @"caid":@"your caid",
+        @"ali_aaid": @"your ali_aaid",
+    }];
     
     /// appKey  Ptg后台创建的媒体⼴告位ID
     /// appSecret Ptg后台创建的媒体⼴告位密钥
@@ -37,26 +79,7 @@
             [self.splashAd loadAd];
         }
     }];
-    
-    if (@available(iOS 14, *)) {
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            
-            if ([[ASIdentifierManager sharedManager] isAdvertisingTrackingEnabled]) {
-                NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-                NSLog(@"开启了%@",idfa);
-            } else {
-                NSString *idfa = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-                NSLog(@"关闭了%@",idfa);
-            }
-        }];
-    } else {
-        // Fallback on earlier versions
-    }
- 
-
-    return YES;
 }
-
 #pragma mark - PTGSplashAdDelegate -
 /// 开屏加载成功
 - (void)ptg_splashAdDidLoad:(PTGSplashAd *)splashAd {

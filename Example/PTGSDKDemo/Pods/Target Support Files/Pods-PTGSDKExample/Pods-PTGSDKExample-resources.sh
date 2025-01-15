@@ -97,7 +97,6 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/AnyThinkiOS/core/AnyThinkSDK.bundle"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z.png"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z@2x.png"
@@ -279,7 +278,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/AnyThinkiOS/core/AnyThinkSDK.bundle"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/App.storyboard"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z.png"
   install_resource "${PODS_ROOT}/CocoaDebug/Sources/Resources/FileType/icon_file_type_7z@2x.png"

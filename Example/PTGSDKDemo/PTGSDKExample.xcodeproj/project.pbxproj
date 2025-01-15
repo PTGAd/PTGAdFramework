@@ -25,10 +25,6 @@
 		9E265F6E2CF81C6400D6758A /* EdiMobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E265F602CF81C6400D6758A /* EdiMobSDK.framework */; };
 		9E265F6F2CF81C6400D6758A /* MYAdsBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E265F622CF81C6400D6758A /* MYAdsBundle.bundle */; };
 		9E265F702CF81C6400D6758A /* EMAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E265F612CF81C6400D6758A /* EMAdSDK.bundle */; };
-		9E265F712CF81C6400D6758A /* ATPTGBannerExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E265F652CF81C6400D6758A /* ATPTGBannerExpressViewController.m */; };
-		9E265F722CF81C6400D6758A /* TopOnAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E265F6C2CF81C6400D6758A /* TopOnAdManager.m */; };
-		9E265F732CF81C6400D6758A /* ATPTGSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E265F6A2CF81C6400D6758A /* ATPTGSplashViewController.m */; };
-		9E265F752CF81C6400D6758A /* ATPTGNativeExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E265F682CF81C6400D6758A /* ATPTGNativeExpressViewController.m */; };
 		9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */; };
 		9EE518352D0835A500F501B0 /* PTGFeedRenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE518342D0835A500F501B0 /* PTGFeedRenderCell.m */; };
 /* End PBXBuildFile section */
@@ -87,14 +83,6 @@
 		9E265F602CF81C6400D6758A /* EdiMobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EdiMobSDK.framework; sourceTree = "<group>"; };
 		9E265F612CF81C6400D6758A /* EMAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EMAdSDK.bundle; sourceTree = "<group>"; };
 		9E265F622CF81C6400D6758A /* MYAdsBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MYAdsBundle.bundle; sourceTree = "<group>"; };
-		9E265F642CF81C6400D6758A /* ATPTGBannerExpressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGBannerExpressViewController.h; sourceTree = "<group>"; };
-		9E265F652CF81C6400D6758A /* ATPTGBannerExpressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGBannerExpressViewController.m; sourceTree = "<group>"; };
-		9E265F672CF81C6400D6758A /* ATPTGNativeExpressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGNativeExpressViewController.h; sourceTree = "<group>"; };
-		9E265F682CF81C6400D6758A /* ATPTGNativeExpressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGNativeExpressViewController.m; sourceTree = "<group>"; };
-		9E265F692CF81C6400D6758A /* ATPTGSplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGSplashViewController.h; sourceTree = "<group>"; };
-		9E265F6A2CF81C6400D6758A /* ATPTGSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGSplashViewController.m; sourceTree = "<group>"; };
-		9E265F6B2CF81C6400D6758A /* TopOnAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopOnAdManager.h; sourceTree = "<group>"; };
-		9E265F6C2CF81C6400D6758A /* TopOnAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopOnAdManager.m; sourceTree = "<group>"; };
 		9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGOpenURLViewController.h; sourceTree = "<group>"; };
 		9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGOpenURLViewController.m; sourceTree = "<group>"; };
 		9EE518332D0835A500F501B0 /* PTGFeedRenderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGFeedRenderCell.h; sourceTree = "<group>"; };
@@ -192,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				9E265F632CF81C6400D6758A /* MeiYueSDK */,
-				9E265F6D2CF81C6400D6758A /* TopOn */,
 				84282B9925DE335D00D8F7A3 /* PTGSDKDemo-Bridging-Header.h */,
 				84C24F9125CD40BB00398052 /* AppDelegate.h */,
 				84C24F9225CD40BB00398052 /* AppDelegate.m */,
@@ -245,21 +232,6 @@
 			path = MeiYueSDK;
 			sourceTree = "<group>";
 		};
-		9E265F6D2CF81C6400D6758A /* TopOn */ = {
-			isa = PBXGroup;
-			children = (
-				9E265F642CF81C6400D6758A /* ATPTGBannerExpressViewController.h */,
-				9E265F652CF81C6400D6758A /* ATPTGBannerExpressViewController.m */,
-				9E265F672CF81C6400D6758A /* ATPTGNativeExpressViewController.h */,
-				9E265F682CF81C6400D6758A /* ATPTGNativeExpressViewController.m */,
-				9E265F692CF81C6400D6758A /* ATPTGSplashViewController.h */,
-				9E265F6A2CF81C6400D6758A /* ATPTGSplashViewController.m */,
-				9E265F6B2CF81C6400D6758A /* TopOnAdManager.h */,
-				9E265F6C2CF81C6400D6758A /* TopOnAdManager.m */,
-			);
-			path = TopOn;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,6 +243,7 @@
 				84C24F8A25CD40BB00398052 /* Sources */,
 				84C24F8B25CD40BB00398052 /* Frameworks */,
 				84C24F8C25CD40BB00398052 /* Resources */,
+				FF678A7F0F0C1C4ABFEEF27E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -410,6 +383,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FF678A7F0F0C1C4ABFEEF27E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -420,10 +410,6 @@
 				9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */,
 				847563DF25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m in Sources */,
 				84C2501525CD45AC00398052 /* PTGViewController.m in Sources */,
-				9E265F712CF81C6400D6758A /* ATPTGBannerExpressViewController.m in Sources */,
-				9E265F722CF81C6400D6758A /* TopOnAdManager.m in Sources */,
-				9E265F732CF81C6400D6758A /* ATPTGSplashViewController.m in Sources */,
-				9E265F752CF81C6400D6758A /* ATPTGNativeExpressViewController.m in Sources */,
 				8468F74925DE589800EE0BA6 /* PTGNativeViewController.m in Sources */,
 				8475644325CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m in Sources */,
 				84C24F9325CD40BB00398052 /* AppDelegate.m in Sources */,
