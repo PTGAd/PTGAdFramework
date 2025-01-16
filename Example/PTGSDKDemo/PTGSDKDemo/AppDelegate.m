@@ -28,47 +28,16 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:PTGViewController.new];
     [self.window makeKeyAndVisible];
-    
-  
-    if (@available(iOS 14, *)) {
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            switch (status) {
-                case ATTrackingManagerAuthorizationStatusAuthorized:
-                {
-                    NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self initAdSDK];
-                    });
-                }
-                    break;
-//                case ATTrackingManagerAuthorizationStatusDenied:
-//                    NSLog(@"用户拒绝了跟踪请求");
-//                    break;
-//                case ATTrackingManagerAuthorizationStatusRestricted:
-//                    NSLog(@"跟踪权限受限");
-//                    break;
-//                case ATTrackingManagerAuthorizationStatusNotDetermined:
-//                    NSLog(@"用户尚未选择");
-//                    break;
-                default:
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self initAdSDK];
-                    });
-                    break;
-            }
-        }];
-    } else {
-        [self initAdSDK];
-    }
+    [self initAdSDK];
 
     return YES;
 }
 
 - (void)initAdSDK {
-    
+    NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
     /// 重要 影响广告填充
     [PTGSDKManager setAdIds:@{
-        @"idfa":@"your idfa",
+        @"idfa":idfa,
         @"caid":@"your caid",
         @"ali_aaid": @"your ali_aaid",
     }];

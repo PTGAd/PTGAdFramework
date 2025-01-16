@@ -19,7 +19,8 @@
 #import "ATPTGSplashViewController.h"
 #import "ATPTGNativeExpressViewController.h"
 #import "ATPTGBannerExpressViewController.h"
-
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <AdSupport/AdSupport.h>
 
 @interface PTGViewController ()
 <
@@ -48,6 +49,43 @@ UITableViewDataSource
     [self.manager requestWhenInUseAuthorization];
     self.items = @[@"开屏",@"信息流",@"自渲染信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"topon开屏",@"topon信息流",@"topon横幅",@"互动",@"全屏视频"];
     [self addChildViewsAndLayout];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            switch (status) {
+                case ATTrackingManagerAuthorizationStatusAuthorized:
+                {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
+                        /// 重要 影响广告填充
+                        [PTGSDKManager setAdIds:@{
+                            @"idfa":idfa,
+                            @"caid":@"your caid",
+                            @"ali_aaid": @"your ali_aaid",
+                        }];
+                    });
+                }
+                    break;
+//                case ATTrackingManagerAuthorizationStatusDenied:
+//                    NSLog(@"用户拒绝了跟踪请求");
+//                    break;
+//                case ATTrackingManagerAuthorizationStatusRestricted:
+//                    NSLog(@"跟踪权限受限");
+//                    break;
+//                case ATTrackingManagerAuthorizationStatusNotDetermined:
+//                    NSLog(@"用户尚未选择");
+//                    break;
+                default:
+                    dispatch_async(dispatch_get_main_queue(), ^{
+//                        [self initAdSDK];
+                    });
+                    break;
+            }
+        }];
+    }
 }
 
 - (void)addChildViewsAndLayout {
