@@ -39,6 +39,7 @@
     [PTGSDKManager setAdIds:@{
         @"idfa":idfa,
         @"caid":@"your caid",
+        @"caid_version": @"your caid version",
         @"ali_aaid": @"your ali_aaid",
     }];
     
