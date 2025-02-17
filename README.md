@@ -11,8 +11,8 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.2.10'
-pod 'FancyAd','1.1.90'       				  # fancy 消耗方 可选
+pod 'PTGAdFramework', '2.2.20'
+pod 'FancyAd','1.2.0'       				  # fancy 消耗方 可选
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix 消耗方 可选
 
 pod 'KSAdSDK', '3.3.13'     				  # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
@@ -23,11 +23,11 @@ pod 'GDTMobSDK', '4.14.10'                    # 需要使用广点通广告能�
 
 ## Topon支持
 SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，开屏，横幅），可在Topon后台配置广告请求的适配器，具体可联系Fancy 商务配置,技术接入需导入
-AnyThinkPTGAdSDKAdapter 依赖的Topon版本是AnyThinkiOS 6.4.11版本，具体的请求可参照 Demo中Topon文件夹中相关的代码
+AnyThinkPTGAdSDKAdapter 依赖的Topon版本是AnyThinkiOS 6.4.27版本，具体的请求可参照 Demo中Topon文件夹中相关的代码
 ```shell
 # Topon竞价请求目前支持的消耗方是FancyAd与美约
 # 这个命令导入了Topon 主程序，PTGAdFramework 主程序, FancyAd 消耗方，美约的支持请参考消耗方导入方法
-pod 'AnyThinkPTGAdSDKAdapter','1.0.4'
+pod 'AnyThinkPTGAdSDKAdapter','1.0.5'
 ```
 
 
@@ -196,10 +196,11 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
 		NSString *sdkVersion = [PTGAdSDKManager getSDKVersion];
   
     /// 配置跟踪id
-    /// 建议配置 影响广告填充
+    /// 重要 影响广告填充
     [PTGSDKManager setAdIds:@{
-        @"idfa":@"your idfa",
+        @"idfa":idfa,
         @"caid":@"your caid",
+        @"caid_version": @"your caid version",
         @"ali_aaid": @"your ali_aaid",
     }];
 		
