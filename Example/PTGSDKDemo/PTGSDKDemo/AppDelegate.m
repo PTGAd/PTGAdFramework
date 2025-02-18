@@ -28,7 +28,29 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:PTGViewController.new];
     [self.window makeKeyAndVisible];
-    [self initAdSDK];
+    
+    if (@available(iOS 14, *)) {
+        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+            switch (status) {
+                case ATTrackingManagerAuthorizationStatusAuthorized:
+                {
+                    NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self initAdSDK];
+                    });
+                }
+                    break;
+                default:
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self initAdSDK];
+                    });
+                    break;
+            }
+        }];
+    } else {
+        
+        [self initAdSDK];
+    }
 
     return YES;
 }

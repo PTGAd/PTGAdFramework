@@ -7,7 +7,7 @@ PODS:
     - PTGAdFramework (= 2.2.20)
   - CocoaAsyncSocket (7.6.5)
   - CocoaDebug (1.7.2)
-  - FancyAd (1.2.0)
+  - FancyAd (1.2.01)
   - Masonry (1.1.0)
   - PTGAdFramework (2.2.20)
   - SDWebImage (5.20.0):
@@ -22,7 +22,7 @@ DEPENDENCIES:
   - AnyThinkPTGAdSDKAdapter (= 1.0.5)
   - CocoaAsyncSocket
   - CocoaDebug
-  - FancyAd (= 1.2.0)
+  - FancyAd (= 1.2.01)
   - Masonry
   - PTGAdFramework (= 2.2.20)
   - SDWebImage
@@ -48,7 +48,7 @@ SPEC CHECKSUMS:
   AnyThinkPTGAdSDKAdapter: b90581824575522f8d68d10bae1d40a79c9f30c7
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
-  FancyAd: c4206fefe51a5d41be723f92d748e6881b1350da
+  FancyAd: 1bca185f17e25f89614bec6cd97d52b1fc3182f7
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   PTGAdFramework: b85c70125fb102d84d9c049ff2f5b54d68d5c8a0
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
@@ -56,6 +56,6 @@ SPEC CHECKSUMS:
   UBiXMerakSDK: de4e8ae99a3553d626fd3e5fe267a0fe09e06359
   WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
 
-PODFILE CHECKSUM: fd89c5bef77a3872e8050f312dc40c1eb3d7ef28
+PODFILE CHECKSUM: 9981e263d1b15223bb2e4efb396f476acecc1547
 
 COCOAPODS: 1.16.2
