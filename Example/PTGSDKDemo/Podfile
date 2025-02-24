@@ -3,12 +3,12 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '11.0'
 
 target 'PTGSDKExample' do
-  pod 'PTGAdFramework', '2.2.20'   # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持
-  pod 'FancyAd','1.2.01'
-  pod 'UBiXMerakSDK','2.5.0.0002' # ubix 消耗方支持，可选
+  pod 'PTGAdFramework', '2.2.30'   # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持
+  pod 'FancyAd','1.2.10'
+#  pod 'UBiXMerakSDK','2.5.0.0002' # ubix 消耗方支持，可选
   # 支持topon 需要导入
   #  use_frameworks! :linkage => :static # 单独设置静态库 PTGAdFramework SDK 2.0.7版本支持
-  pod 'AnyThinkPTGAdSDKAdapter', '1.0.5'
+  pod 'AnyThinkPTGAdSDKAdapter', '1.0.6'
   
   # 美约SDK依赖的三方库
   pod 'SDWebImage'
