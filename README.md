@@ -12,8 +12,8 @@
 
 ```shell
 pod 'PTGAdFramework', '2.2.30'
-pod 'FancyAd','1.2.10'       	              # fancy 必须消耗方
-pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方 可选
+pod 'FancyAd','1.2.10'       	              # fancy 消耗方
+pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
 
 pod 'KSAdSDK', '3.3.13'     		      # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
 pod 'PTGJAdSDK','1.2.0'      		      # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持
