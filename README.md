@@ -11,8 +11,8 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.2.30'
-pod 'FancyAd','1.2.10'       	              # fancy 消耗方
+pod 'PTGAdFramework', '2.2.40'
+pod 'FancyAd','1.2.20'       	              # fancy 消耗方
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
 
 pod 'KSAdSDK', '3.3.13'     		      # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
@@ -27,7 +27,7 @@ AnyThinkPTGAdSDKAdapter 依赖的Topon版本是AnyThinkiOS 6.4.27版本，具体
 ```shell
 # Topon竞价请求目前支持的消耗方是FancyAd与美约
 # 这个命令导入了Topon 主程序，PTGAdFramework 主程序, FancyAd 消耗方，美约的支持请参考消耗方导入方法
-pod 'AnyThinkPTGAdSDKAdapter','1.0.7'
+pod 'AnyThinkPTGAdSDKAdapter','1.0.8'
 ```
 
 
