@@ -48,6 +48,8 @@ typedef enum : NSUInteger {
 @property(nonatomic,strong)NSDictionary<NSString *,NSString *> *extra;
 
 
+@property(nonatomic,strong,readonly)NSDictionary<NSString *,NSString *> *lossParams;
+
 
 @end
 
