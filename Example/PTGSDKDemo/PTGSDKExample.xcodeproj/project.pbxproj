@@ -30,6 +30,7 @@
 		9E86969A2D37BF3F0011E023 /* ATPTGSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8696942D37BF3F0011E023 /* ATPTGSplashViewController.m */; };
 		9E86969B2D37BF3F0011E023 /* TopOnAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8696962D37BF3F0011E023 /* TopOnAdManager.m */; };
 		9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */; };
+		9EC203902D714C5C0086F431 /* ATPTGInterstitialAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC2038F2D714C5C0086F431 /* ATPTGInterstitialAdViewController.m */; };
 		9EE518352D0835A500F501B0 /* PTGFeedRenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE518342D0835A500F501B0 /* PTGFeedRenderCell.m */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,8 @@
 		9E8696962D37BF3F0011E023 /* TopOnAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopOnAdManager.m; sourceTree = "<group>"; };
 		9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGOpenURLViewController.h; sourceTree = "<group>"; };
 		9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGOpenURLViewController.m; sourceTree = "<group>"; };
+		9EC2038E2D714C5C0086F431 /* ATPTGInterstitialAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGInterstitialAdViewController.h; sourceTree = "<group>"; };
+		9EC2038F2D714C5C0086F431 /* ATPTGInterstitialAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGInterstitialAdViewController.m; sourceTree = "<group>"; };
 		9EE518332D0835A500F501B0 /* PTGFeedRenderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGFeedRenderCell.h; sourceTree = "<group>"; };
 		9EE518342D0835A500F501B0 /* PTGFeedRenderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGFeedRenderCell.m; sourceTree = "<group>"; };
 		E0F0E99CFD47BC49FECAE2AE /* Pods-PTGSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +251,8 @@
 		9E8696972D37BF3F0011E023 /* TopOn */ = {
 			isa = PBXGroup;
 			children = (
+				9EC2038E2D714C5C0086F431 /* ATPTGInterstitialAdViewController.h */,
+				9EC2038F2D714C5C0086F431 /* ATPTGInterstitialAdViewController.m */,
 				9E86968F2D37BF3F0011E023 /* ATPTGBannerExpressViewController.h */,
 				9E8696902D37BF3F0011E023 /* ATPTGBannerExpressViewController.m */,
 				9E8696912D37BF3F0011E023 /* ATPTGNativeExpressViewController.h */,
@@ -448,6 +453,7 @@
 				84C24FA425CD40BE00398052 /* main.m in Sources */,
 				8475645325CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m in Sources */,
 				8475643D25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m in Sources */,
+				9EC203902D714C5C0086F431 /* ATPTGInterstitialAdViewController.m in Sources */,
 				9EE518352D0835A500F501B0 /* PTGFeedRenderCell.m in Sources */,
 				84282B9525DE330E00D8F7A3 /* File.swift in Sources */,
 				8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */,
