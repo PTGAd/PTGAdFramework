@@ -11,8 +11,8 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.2.40'
-pod 'FancyAd','1.2.20'       	              # fancy 消耗方
+pod 'PTGAdFramework', '2.2.50'
+pod 'FancyAd','1.2.30'       	              # fancy 消耗方
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
 
 pod 'KSAdSDK', '3.3.13'     		      # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
