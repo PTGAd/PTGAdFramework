@@ -16,6 +16,7 @@ typedef enum : NSUInteger {
     PTGNativeExpressAdTypeDraw,  // draw视频信息流
     PTGNativeExpressAdTypeSelfRender, // 自渲染
     PTGNativeExpressAdTypeFeed,  // 普通模板信息流
+    PTGNativeExpressAdTypeSelfRenderSplash // 自渲染开屏
 } PTGNativeExpressAdType;
 
 

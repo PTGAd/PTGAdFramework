@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PTGSourceAdType.h"
+@class PTGNativeExpressAd;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -65,8 +66,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// ===== 适配自渲染广告 =======
+/// 开屏自渲染使用这个方法 开屏一定要使用这个方法
+/// 确保 setContainer 及 clickableView 不为空 为空时广告事件异常
+- (void)setSplashContainer:(UIView *)containerView clickableViews:(NSArray<UIView *> *)clickableViews;
 
-/** 设置可以点击和关闭的图层 */
+/** 其他广告位置设置可以点击和关闭的图层 */
 /// 确保 setContainer 及 clickableView 不为空 为空时广告事件异常
 - (void)setContainer:(UIView *)containerView clickableView:(UIView *)clickableView;
 /// 视频广告调用
@@ -94,7 +98,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 视频类素材描述
 @property(nonatomic,strong,readonly)PTGMediaInfo *videoAdInfo;
 
-
+/// 是否响应摇一摇 开屏自渲染使用 用于媒体实现摇一摇UI
+@property(nonatomic,assign,readonly)BOOL isShakeAd;
 @end
 
 NS_ASSUME_NONNULL_END
