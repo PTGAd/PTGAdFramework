@@ -22,6 +22,8 @@
 		84C24FAE25CD40BF00398052 /* PTGSDKDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C24FAD25CD40BF00398052 /* PTGSDKDemoTests.m */; };
 		84C24FB925CD40BF00398052 /* PTGSDKDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C24FB825CD40BF00398052 /* PTGSDKDemoUITests.m */; };
 		84C2501525CD45AC00398052 /* PTGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84C2501425CD45AC00398052 /* PTGViewController.m */; };
+		9E1898D92D7AA8110069D1A6 /* PTGSplashSelfRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1898D62D7AA8110069D1A6 /* PTGSplashSelfRenderView.m */; };
+		9E1898DA2D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E1898D82D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.m */; };
 		9E265F6E2CF81C6400D6758A /* EdiMobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E265F602CF81C6400D6758A /* EdiMobSDK.framework */; };
 		9E265F6F2CF81C6400D6758A /* MYAdsBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E265F622CF81C6400D6758A /* MYAdsBundle.bundle */; };
 		9E265F702CF81C6400D6758A /* EMAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E265F612CF81C6400D6758A /* EMAdSDK.bundle */; };
@@ -85,6 +87,10 @@
 		84C2501425CD45AC00398052 /* PTGViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGViewController.m; sourceTree = "<group>"; };
 		84C2505C25CD555E00398052 /* PTGAdSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88C7ED657FFBD418DFC72A92 /* Pods-PTGSDKExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKExample.release.xcconfig"; path = "Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample.release.xcconfig"; sourceTree = "<group>"; };
+		9E1898D52D7AA8110069D1A6 /* PTGSplashSelfRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGSplashSelfRenderView.h; sourceTree = "<group>"; };
+		9E1898D62D7AA8110069D1A6 /* PTGSplashSelfRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGSplashSelfRenderView.m; sourceTree = "<group>"; };
+		9E1898D72D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGSplashSelfRenderViewController.h; sourceTree = "<group>"; };
+		9E1898D82D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGSplashSelfRenderViewController.m; sourceTree = "<group>"; };
 		9E265F602CF81C6400D6758A /* EdiMobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EdiMobSDK.framework; sourceTree = "<group>"; };
 		9E265F612CF81C6400D6758A /* EMAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EMAdSDK.bundle; sourceTree = "<group>"; };
 		9E265F622CF81C6400D6758A /* MYAdsBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MYAdsBundle.bundle; sourceTree = "<group>"; };
@@ -165,6 +171,10 @@
 				8475645825CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m */,
 				8468F74725DE589700EE0BA6 /* PTGNativeViewController.h */,
 				8468F74825DE589800EE0BA6 /* PTGNativeViewController.m */,
+				9E1898D52D7AA8110069D1A6 /* PTGSplashSelfRenderView.h */,
+				9E1898D62D7AA8110069D1A6 /* PTGSplashSelfRenderView.m */,
+				9E1898D72D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.h */,
+				9E1898D82D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -442,6 +452,8 @@
 			files = (
 				9E8696982D37BF3F0011E023 /* ATPTGNativeExpressViewController.m in Sources */,
 				9E8696992D37BF3F0011E023 /* ATPTGBannerExpressViewController.m in Sources */,
+				9E1898D92D7AA8110069D1A6 /* PTGSplashSelfRenderView.m in Sources */,
+				9E1898DA2D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.m in Sources */,
 				9E86969A2D37BF3F0011E023 /* ATPTGSplashViewController.m in Sources */,
 				9E86969B2D37BF3F0011E023 /* TopOnAdManager.m in Sources */,
 				9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */,

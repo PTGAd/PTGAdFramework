@@ -22,6 +22,7 @@
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 #import <AdSupport/AdSupport.h>
 #import "ATPTGInterstitialAdViewController.h"
+#import "PTGSplashSelfRenderViewController.h"
 
 @interface PTGViewController ()
 <
@@ -48,7 +49,7 @@ UITableViewDataSource
     self.manager = [[CLLocationManager alloc] init];
     [self.manager requestAlwaysAuthorization];
     [self.manager requestWhenInUseAuthorization];
-    self.items = @[@"开屏",@"信息流",@"自渲染信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"topon开屏",@"topon信息流",@"topon横幅",@"topon插屏",@"互动",@"全屏视频"];
+    self.items = @[@"开屏",@"开屏自渲染",@"信息流",@"自渲染信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"topon开屏",@"topon信息流",@"topon横幅",@"topon插屏",@"互动",@"全屏视频"];
     [self addChildViewsAndLayout];
 }
 
@@ -220,38 +221,42 @@ UITableViewDataSource
     UIViewController *viewController = nil;
     if (indexPath.row == 0) {
         [self.splashAd loadAd];
-    } else if(indexPath.row == 1) {
-        PTGNativeExpressFeedViewController *vc = [[PTGNativeExpressFeedViewController alloc] init];
-        vc.type = PTGNativeExpressAdTypeFeed;
+    }
+    else if(indexPath.row == 1) {
+        PTGSplashSelfRenderViewController *vc = [[PTGSplashSelfRenderViewController alloc] init];
         viewController = vc;
     } else if(indexPath.row == 2) {
         PTGNativeExpressFeedViewController *vc = [[PTGNativeExpressFeedViewController alloc] init];
-        vc.type = PTGNativeExpressAdTypeSelfRender;
+        vc.type = PTGNativeExpressAdTypeFeed;
         viewController = vc;
     } else if(indexPath.row == 3) {
-        viewController = [[PTGNativeExpressDrawViewController alloc] init];
+        PTGNativeExpressFeedViewController *vc = [[PTGNativeExpressFeedViewController alloc] init];
+        vc.type = PTGNativeExpressAdTypeSelfRender;
+        viewController = vc;
     } else if(indexPath.row == 4) {
-        viewController = [[PTGNativeExpressBannerViewController alloc] init];
+        viewController = [[PTGNativeExpressDrawViewController alloc] init];
     } else if(indexPath.row == 5) {
+        viewController = [[PTGNativeExpressBannerViewController alloc] init];
+    } else if(indexPath.row == 6) {
         viewController = [[PTGNativeExpressInterstitialAdViewController alloc] init];
-    } else if (indexPath.row == 6) {
-        viewController = [[PTGNativeExpressRewardVideoAdViewController alloc] init];
     } else if (indexPath.row == 7) {
+        viewController = [[PTGNativeExpressRewardVideoAdViewController alloc] init];
+    } else if (indexPath.row == 8) {
         ATPTGSplashViewController *vc = [[ATPTGSplashViewController alloc] init];
         viewController = vc;
-    } else if (indexPath.row == 8) {
-        ATPTGNativeExpressViewController *vc = [[ATPTGNativeExpressViewController alloc] init];
-        viewController = vc;
     } else if (indexPath.row == 9) {
+//        ATPTGNativeExpressViewController *vc = [[ATPTGNativeExpressViewController alloc] init];
+//        viewController = vc;
+    } else if (indexPath.row == 10) {
         ATPTGBannerExpressViewController *vc = [[ATPTGBannerExpressViewController alloc] init];
         viewController = vc;
-    } else if (indexPath.row == 10) {
+    } else if (indexPath.row == 11) {
         ATPTGInterstitialAdViewController *vc = [[ATPTGInterstitialAdViewController alloc] init];
         viewController = vc;
-    }  else if (indexPath.row == 11){
+    }  else if (indexPath.row == 12){
         // 互动广告打开广告场景
         [self.interactiveAd openAdPage];
-    } else if (indexPath.row == 12) {
+    } else if (indexPath.row == 13) {
         [self.fullscreenVideoAd loadAd];
     } else {
 ////        [self.nativeExpressSplashView loadAdData];
