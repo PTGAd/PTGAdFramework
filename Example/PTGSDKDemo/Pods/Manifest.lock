@@ -2,6 +2,9 @@ PODS:
   - AnyThinkiOS (6.4.42):
     - AnyThinkiOS/AnyThinkSDK (= 6.4.42)
   - AnyThinkiOS/AnyThinkSDK (6.4.42)
+  - AnyThinkPTGAdSDKAdapter (1.1.0):
+    - AnyThinkiOS (= 6.4.42)
+    - PTGAdFramework (~> 2.2.40)
   - CocoaAsyncSocket (7.6.5)
   - CocoaDebug (1.7.2)
   - FancyAd (1.2.30)
@@ -14,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - AnyThinkiOS (= 6.4.42)
+  - AnyThinkPTGAdSDKAdapter (= 1.1.0)
   - CocoaAsyncSocket
   - CocoaDebug
   - FancyAd (= 1.2.30)
@@ -25,6 +29,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AnyThinkiOS
+    - AnyThinkPTGAdSDKAdapter
     - CocoaAsyncSocket
     - CocoaDebug
     - FancyAd
@@ -35,6 +40,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AnyThinkiOS: 31c85fdde3b0aff79d9e6f7b9910714429d162d9
+  AnyThinkPTGAdSDKAdapter: 183578dae2f0fe84af37e05f1507577578ea186e
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
   FancyAd: 56c7fefbf3fc10da0de0b18a625fa02c7b8a0a61
@@ -43,6 +49,6 @@ SPEC CHECKSUMS:
   SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
   WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
 
-PODFILE CHECKSUM: d596ad7a5360354def2f75257cb0adb81524e1c4
+PODFILE CHECKSUM: 01032e506fe087e66354f30bd2dee9956307e514
 
 COCOAPODS: 1.16.2
