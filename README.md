@@ -27,7 +27,7 @@ AnyThinkPTGAdSDKAdapter 依赖的Topon版本是AnyThinkiOS 6.4.27版本，具体
 ```shell
 # Topon竞价请求目前支持的消耗方是FancyAd与美约
 # 这个命令导入了Topon 主程序，PTGAdFramework 主程序, FancyAd 消耗方，美约的支持请参考消耗方导入方法
-pod 'AnyThinkPTGAdSDKAdapter','1.0.9'
+pod 'AnyThinkPTGAdSDKAdapter','1.1.0'
 
 # topon 适配器
 插屏  ATPTGInterstitialAdapter
