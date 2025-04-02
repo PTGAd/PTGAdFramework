@@ -58,11 +58,16 @@
 - (void)initAdSDK {
     NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
     /// 重要 影响广告填充
+    /// 配置跟踪id
+    /// 重要 影响广告填充
+    /// 避免代码中明文出现caid ali_id等字符 审核相关
     [PTGSDKManager setAdIds:@{
         @"idfa":idfa,
-        @"caid":@"your caid",
-        @"caid_version": @"your caid version",
-        @"ali_aaid": @"your ali_aaid",
+        @"one_id":caid,
+        @"one_id_version": caidVersion,
+        @"last_id": lastCaid,
+        @"last_id_version": lastCaidVersion,
+        @"one_ali_id": ali_aaid
     }];
     
     /// appKey  Ptg后台创建的媒体⼴告位ID
