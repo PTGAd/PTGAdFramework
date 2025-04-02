@@ -11,8 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.2.50'
-pod 'FancyAd','1.2.32'       	              # fancy 消耗方
+pod 'PTGAdFramework', '2.2.60'
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
 
 pod 'KSAdSDK', '3.3.13'     		      # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
@@ -203,11 +202,14 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
   
     /// 配置跟踪id
     /// 重要 影响广告填充
+    /// 避免代码中明文出现caid ali_id等字符 审核相关
     [PTGSDKManager setAdIds:@{
         @"idfa":idfa,
-        @"caid":@"your caid",
-        @"caid_version": @"your caid version",
-        @"ali_aaid": @"your ali_aaid",
+        @"one_id":caid,
+        @"one_id_version": caidVersion,
+        @"last_id": lastCaid,
+        @"last_id_version": lastCaidVersion,
+        @"one_ali_id": ali_aaid
     }];
 		
     /// appKey  Ptg后台创建的媒体⼴告位ID
