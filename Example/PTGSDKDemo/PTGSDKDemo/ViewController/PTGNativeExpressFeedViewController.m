@@ -64,7 +64,7 @@
         PTGFeedRenderCell *renderCell = (PTGFeedRenderCell *)cell;
         [renderCell setAd:ad];
         renderCell.delegate = self;
-        [ad setContainer:renderCell.adView clickableView:renderCell.adView];
+        [ad setContainer:renderCell.adView clickableViews:@[renderCell.adView]];
     }
     return cell;
 }

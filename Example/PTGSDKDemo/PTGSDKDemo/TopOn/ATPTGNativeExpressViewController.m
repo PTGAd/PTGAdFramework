@@ -248,7 +248,7 @@
     [self.iv sd_setImageWithURL:url];
     
     NSLog(@"当前素材宽 = %d 高 = %d",info.width,info.height);
-    [ad setContainer:self.adView clickableView:self];
+    [ad setContainer:self.adView clickableViews:@[self]];
 }
 
 
