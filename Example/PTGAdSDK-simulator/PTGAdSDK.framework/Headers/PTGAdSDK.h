@@ -20,6 +20,7 @@
 #import "PTGNativeAdViewDelegate.h"
 #import "PTGNativeExpressFullscreenVideoAd.h"
 #import "PTGSourceAdType.h"
+#import "PTGBidReason.h"
 
 
 //! Project version number for PTGAdSDK.

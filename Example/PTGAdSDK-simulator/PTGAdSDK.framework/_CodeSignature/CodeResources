@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/PTGAdSDK.h</key>
 		<data>
-		b+dzUtFpI8YwqJ9lxxgFjhhdgX4=
+		x9ns4AKRNQWtRpms8u1V5Q3q6yQ=
 		</data>
 		<key>Headers/PTGBidReason.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/PTGNativeExpressAd.h</key>
 		<data>
-		Y3ux/zYGFknHk9AwIOg6ZC8NjiA=
+		3uVQiFCOyvqNj3kqneUn5PJeixk=
 		</data>
 		<key>Headers/PTGNativeExpressAdManager.h</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Headers/PTGSDKManager.h</key>
 		<data>
-		cce1/Sbd70tCqB0D9VBaLBZSn8w=
+		aNOVNjpAFuQUGaFntR4reWVuNRc=
 		</data>
 		<key>Headers/PTGSourceAdType.h</key>
 		<data>
-		LpTbYpAq/dsIVETPFqoP/ilQ6AU=
+		/MfmOpRTdnn/2kUJKks5RFIIRl8=
 		</data>
 		<key>Headers/PTGSplashAd.h</key>
 		<data>
@@ -72,6 +72,10 @@
 		<data>
 		rrJbX8NRUP4dvDf4OHV35/oIO4U=
 		</data>
+		<key>PrivacyInfo.xcprivacy</key>
+		<data>
+		hglqmgODCwG+c3BhPZ52Q8pamC4=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -79,11 +83,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b+dzUtFpI8YwqJ9lxxgFjhhdgX4=
+			x9ns4AKRNQWtRpms8u1V5Q3q6yQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			W808Qv4o4/yzNganCSYUov6+len+hXIJXTaFnIMePMU=
+			JxoghmhZoH6OOVm2MzNflT/giSldaMhluQomMvt6Y68=
 			</data>
 		</dict>
 		<key>Headers/PTGBidReason.h</key>
@@ -145,11 +149,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y3ux/zYGFknHk9AwIOg6ZC8NjiA=
+			3uVQiFCOyvqNj3kqneUn5PJeixk=
 			</data>
 			<key>hash2</key>
 			<data>
-			Z5ClHpRhSrHWbVDrStZgnBX/acRsX7yGhyp0ol+dFi8=
+			Y1cv5E8SvpbbTc9QYAf1zy1tuMJ1OYc6MwLVkRP/IqA=
 			</data>
 		</dict>
 		<key>Headers/PTGNativeExpressAdManager.h</key>
@@ -211,22 +215,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			cce1/Sbd70tCqB0D9VBaLBZSn8w=
+			aNOVNjpAFuQUGaFntR4reWVuNRc=
 			</data>
 			<key>hash2</key>
 			<data>
-			IZBGZMZ7P5dbPNCmWGLfJ6y2oD6s79m6GKTIziKzVo4=
+			I6fsSE1a838JR632nExiJpsjcUysB7/nEqWqgUYlmpg=
 			</data>
 		</dict>
 		<key>Headers/PTGSourceAdType.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			LpTbYpAq/dsIVETPFqoP/ilQ6AU=
+			/MfmOpRTdnn/2kUJKks5RFIIRl8=
 			</data>
 			<key>hash2</key>
 			<data>
-			zeS052QF3Xiiq620beudQuog7X/6COVyjYVNqbLzmiw=
+			L/TEdWR6lBteQRQ4gFvcop22G62rFOOclZWoquERA0g=
 			</data>
 		</dict>
 		<key>Headers/PTGSplashAd.h</key>
@@ -249,6 +253,17 @@
 			<key>hash2</key>
 			<data>
 			VTYDMsG3xqTAN8niluOzltTaVIpW0C+b9vq131akybI=
+			</data>
+		</dict>
+		<key>PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			hglqmgODCwG+c3BhPZ52Q8pamC4=
+			</data>
+			<key>hash2</key>
+			<data>
+			mVWJlD5wcUV7iiOnlhhkIotcYlyXAUlSXV6klvSmtgE=
 			</data>
 		</dict>
 	</dict>

@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 其他广告位置设置可以点击和关闭的图层 */
 /// 确保 setContainer 及 clickableView 不为空 为空时广告事件异常
-- (void)setContainer:(UIView *)containerView clickableView:(UIView *)clickableView;
+- (void)setContainer:(UIView *)containerView clickableViews:(NSArray<UIView *> *)clickableViews;
 /// 视频广告调用
 - (UIView *)getVideoAdView;
 /// 视频广告是否静音

@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)getDeviceIdentifier;
 
-/// 广告标识ids  只接受key 为 caid，idfa，ali_aaid的值，有建议传递，对广告填充有影响
+///广告标识ids
 + (void)setAdIds:(NSDictionary<NSString *,NSString *> *)adIds;
-/// 获取传入的adids
+
 + (NSDictionary<NSString *,NSString *> *)adIds;
 
 /// 请求广告前必须调用此方法设置appKey appSecret
