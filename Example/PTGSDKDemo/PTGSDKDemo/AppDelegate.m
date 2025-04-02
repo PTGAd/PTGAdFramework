@@ -62,12 +62,12 @@
     /// 重要 影响广告填充
     /// 避免代码中明文出现caid ali_id等字符 审核相关
     [PTGSDKManager setAdIds:@{
-        @"idfa":idfa,
-        @"one_id":caid,
-        @"one_id_version": caidVersion,
-        @"last_id": lastCaid,
-        @"last_id_version": lastCaidVersion,
-        @"one_ali_id": ali_aaid
+        @"idfa":@"idfa",
+        @"one_id":@"caid",
+        @"one_id_version": @"caidVersion",
+        @"last_id": @"lastCaid",
+        @"last_id_version": @"lastCaidVersion",
+        @"one_ali_id": @"ali_aaid"
     }];
     
     /// appKey  Ptg后台创建的媒体⼴告位ID
