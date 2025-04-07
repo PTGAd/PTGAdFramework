@@ -29,28 +29,31 @@
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:PTGViewController.new];
     [self.window makeKeyAndVisible];
     
-    if (@available(iOS 14, *)) {
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            switch (status) {
-                case ATTrackingManagerAuthorizationStatusAuthorized:
-                {
-                    NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self initAdSDK];
-                    });
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (@available(iOS 14, *)) {
+            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+                switch (status) {
+                    case ATTrackingManagerAuthorizationStatusAuthorized:
+                    {
+                        NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self initAdSDK];
+                        });
+                    }
+                        break;
+                    default:
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self initAdSDK];
+                        });
+                        break;
                 }
-                    break;
-                default:
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        [self initAdSDK];
-                    });
-                    break;
-            }
-        }];
-    } else {
-        
-        [self initAdSDK];
-    }
+            }];
+        } else {
+            
+            [self initAdSDK];
+        }
+    });
+
 
     return YES;
 }
@@ -62,7 +65,7 @@
     /// 重要 影响广告填充
     /// 避免代码中明文出现caid ali_id等字符 审核相关
     [PTGSDKManager setAdIds:@{
-        @"idfa":@"idfa",
+        @"idfa":idfa,
         @"one_id":@"caid",
         @"one_id_version": @"caidVersion",
         @"last_id": @"lastCaid",
