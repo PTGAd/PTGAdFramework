@@ -248,7 +248,7 @@
     [self.iv sd_setImageWithURL:url];
     
     NSLog(@"当前素材宽 = %d 高 = %d",info.width,info.height);
-    [ad setContainer:self.adView clickableViews:@[self]];
+    [ad setContainer:self clickableViews:@[self]];
 }
 
 
@@ -326,14 +326,6 @@
         [_closeButton addTarget:self action:@selector(closeButtonDidClicked) forControlEvents:UIControlEventTouchUpInside];
     }
     return _closeButton;
-}
-
-- (UIView *)adView {
-    if (!_adView) {
-        _adView = [[UIView alloc] init];
-        _adView.backgroundColor = [UIColor clearColor];
-    }
-    return _adView;
 }
 
 @end

@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UILabel *bodyLabel;
 @property(nonatomic,strong)UIImageView *iv;
 @property(nonatomic,strong)UIButton *closeButton;
-@property(nonatomic,strong)UIView *adView;
 @property(nonatomic,strong)UIView *videoView;
 
 @property(nonatomic,weak)id<ATPSelfRenderActionDelegate> delegate;
