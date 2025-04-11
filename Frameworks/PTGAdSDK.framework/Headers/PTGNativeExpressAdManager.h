@@ -72,6 +72,9 @@ typedef enum : NSUInteger {
 
 @property(nonatomic,assign,readonly)PTGNativeExpressAdType type;
 
+/// 最新的一条广告的ecpm
+@property(nonatomic,assign,readonly)NSInteger ecpm;
+
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;

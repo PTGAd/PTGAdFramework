@@ -1,31 +1,27 @@
 PODS:
-  - AnyThinkiOS (6.4.42):
-    - AnyThinkiOS/AnyThinkSDK (= 6.4.42)
-  - AnyThinkiOS/AnyThinkSDK (6.4.42)
-  - AnyThinkPTGAdSDKAdapter (1.1.0):
-    - AnyThinkiOS (= 6.4.42)
-    - PTGAdFramework (~> 2.2.40)
+  - AnyThinkiOS (6.4.44):
+    - AnyThinkiOS/AnyThinkSDK (= 6.4.44)
+  - AnyThinkiOS/AnyThinkSDK (6.4.44)
+  - AnyThinkPTGAdSDKAdapter (1.1.1):
+    - AnyThinkiOS (~> 6.4.42)
+    - PTGAdFramework (~> 2.2.62)
   - CocoaAsyncSocket (7.6.5)
   - CocoaDebug (1.7.2)
   - Masonry (1.1.0)
-  - PTGAdFramework (2.2.60)
+  - PTGAdFramework (2.2.62)
   - SDWebImage (5.21.0):
     - SDWebImage/Core (= 5.21.0)
   - SDWebImage/Core (5.21.0)
-  - UBiXDaq (2.3.1)
-  - UBiXMerakSDK (2.5.0.0002):
-    - UBiXDaq (~> 2.3.1)
   - WechatOpenSDK (2.0.4)
 
 DEPENDENCIES:
-  - AnyThinkiOS (= 6.4.42)
-  - AnyThinkPTGAdSDKAdapter (= 1.1.0)
+  - AnyThinkiOS (= 6.4.44)
+  - AnyThinkPTGAdSDKAdapter (= 1.1.1)
   - CocoaAsyncSocket
   - CocoaDebug
   - Masonry
-  - PTGAdFramework (= 2.2.60)
+  - PTGAdFramework (= 2.2.62)
   - SDWebImage
-  - UBiXMerakSDK (= 2.5.0.0002)
   - WechatOpenSDK
 
 SPEC REPOS:
@@ -37,22 +33,18 @@ SPEC REPOS:
     - Masonry
     - PTGAdFramework
     - SDWebImage
-    - UBiXDaq
-    - UBiXMerakSDK
     - WechatOpenSDK
 
 SPEC CHECKSUMS:
-  AnyThinkiOS: 31c85fdde3b0aff79d9e6f7b9910714429d162d9
-  AnyThinkPTGAdSDKAdapter: 183578dae2f0fe84af37e05f1507577578ea186e
+  AnyThinkiOS: b30aa2753dc5f81ae6f631f6e3cc95abc7348a00
+  AnyThinkPTGAdSDKAdapter: bbb368e0e888be8f6d574d5b261e57f889346ee6
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  PTGAdFramework: 83b13d7caaf14ba19416a33ff7f2c20991579688
+  PTGAdFramework: dda046fcb94fa300e5d5a15e859c221677edb5c2
   SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
-  UBiXDaq: ad9dd2af2dc4cff6d9380b3f5881276b70f7d751
-  UBiXMerakSDK: de4e8ae99a3553d626fd3e5fe267a0fe09e06359
   WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
 
-PODFILE CHECKSUM: b449b8b74a5cf695c4b8f7742b7078cbe0a275f9
+PODFILE CHECKSUM: 1d65c4b407889ce416caaadee9787ac708c0388e
 
 COCOAPODS: 1.16.2

@@ -245,8 +245,8 @@ UITableViewDataSource
         ATPTGSplashViewController *vc = [[ATPTGSplashViewController alloc] init];
         viewController = vc;
     } else if (indexPath.row == 9) {
-//        ATPTGNativeExpressViewController *vc = [[ATPTGNativeExpressViewController alloc] init];
-//        viewController = vc;
+        ATPTGNativeExpressViewController *vc = [[ATPTGNativeExpressViewController alloc] init];
+        viewController = vc;
     } else if (indexPath.row == 10) {
         ATPTGBannerExpressViewController *vc = [[ATPTGBannerExpressViewController alloc] init];
         viewController = vc;

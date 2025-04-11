@@ -22,7 +22,7 @@ typedef enum : NSUInteger {
     BidLossCodeOther = 1005,
 } PTGBidLossCode;
 
-typedef enum : NSUInteger {
+typedef enum : NSInteger {
     PTGADNIDCSJ = 101,        // 穿山甲
     PTGADNIDYLH = 102,        // 优量汇
     PTGADNIDBD = 103,         // 百度
