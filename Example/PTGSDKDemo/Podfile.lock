@@ -2,13 +2,13 @@ PODS:
   - AnyThinkiOS (6.4.44):
     - AnyThinkiOS/AnyThinkSDK (= 6.4.44)
   - AnyThinkiOS/AnyThinkSDK (6.4.44)
-  - AnyThinkPTGAdSDKAdapter (1.1.1):
+  - AnyThinkPTGAdSDKAdapter (1.1.2):
     - AnyThinkiOS (~> 6.4.42)
     - PTGAdFramework (~> 2.2.62)
   - CocoaAsyncSocket (7.6.5)
   - CocoaDebug (1.7.2)
   - Masonry (1.1.0)
-  - PTGAdFramework (2.2.62)
+  - PTGAdFramework (2.2.63)
   - SDWebImage (5.21.0):
     - SDWebImage/Core (= 5.21.0)
   - SDWebImage/Core (5.21.0)
@@ -16,11 +16,11 @@ PODS:
 
 DEPENDENCIES:
   - AnyThinkiOS (= 6.4.44)
-  - AnyThinkPTGAdSDKAdapter (= 1.1.1)
+  - AnyThinkPTGAdSDKAdapter (= 1.1.2)
   - CocoaAsyncSocket
   - CocoaDebug
   - Masonry
-  - PTGAdFramework (= 2.2.62)
+  - PTGAdFramework (= 2.2.63)
   - SDWebImage
   - WechatOpenSDK
 
@@ -37,14 +37,14 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AnyThinkiOS: b30aa2753dc5f81ae6f631f6e3cc95abc7348a00
-  AnyThinkPTGAdSDKAdapter: bbb368e0e888be8f6d574d5b261e57f889346ee6
+  AnyThinkPTGAdSDKAdapter: 3cc032add57b41a0e23b309cac4a9cc836382d72
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  PTGAdFramework: dda046fcb94fa300e5d5a15e859c221677edb5c2
+  PTGAdFramework: b2f9671b6f1559654d4ea747d2405d1980612666
   SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
   WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
 
-PODFILE CHECKSUM: 1d65c4b407889ce416caaadee9787ac708c0388e
+PODFILE CHECKSUM: 3951702f74204d7463da4e177d7da8e32ec768b3
 
 COCOAPODS: 1.16.2
