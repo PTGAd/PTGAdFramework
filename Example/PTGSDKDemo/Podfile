@@ -3,7 +3,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '11.0'
 
 target 'PTGSDKExample' do
-  pod 'PTGAdFramework', '2.2.63'   # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持
+  pod 'PTGAdFramework', '2.2.64'   # 需要使用Fancy广告能力的添加此项  PTGAdFramework SDK 1.5.1版本支持
 #  pod 'UBiXMerakSDK','2.5.0.0002'  # ubix 消耗方支持
   # 支持topon 需要导入
   pod 'AnyThinkPTGAdSDKAdapter', '1.1.2'
