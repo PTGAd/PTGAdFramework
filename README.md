@@ -11,11 +11,12 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.2.64'
+pod 'PTGAdFramework', '2.2.70'
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
+pod 'PTGOneAdSDK','1.0.9'                     # 优酷   消耗方
 
-pod 'KSAdSDK', '3.3.13'                   # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
-pod 'PTGJAdSDK','1.2.0'                    # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持
+pod 'KSAdSDK', '3.3.13'                       # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
+pod 'PTGJAdSDK','1.2.0'                       # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持
 pod 'Ads-CN-Beta', '4.8.0.3'                  # 需要使用穿山甲广告能力的添加此项
 pod 'GDTMobSDK', '4.14.10'                    # 需要使用广点通广告能力的添加此项
 ```

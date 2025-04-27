@@ -34,6 +34,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PTGOneAdSDK.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PTGSDKExample.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -45,6 +50,16 @@
 			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UBiXDaq.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>UBiXMerakSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
