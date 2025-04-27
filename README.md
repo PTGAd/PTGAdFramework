@@ -4,7 +4,7 @@
 
 * 推荐Xcode 12及以上版本
 
-* 支持iOS 9.0或更高版本
+* 支持iOS 11.0或更高版本
 
 ## 导入 SDK
 
@@ -14,8 +14,8 @@
 pod 'PTGAdFramework', '2.2.64'
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
 
-pod 'KSAdSDK', '3.3.13'     		      # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
-pod 'PTGJAdSDK','1.2.0'      		      # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持
+pod 'KSAdSDK', '3.3.13'                   # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
+pod 'PTGJAdSDK','1.2.0'                    # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持
 pod 'Ads-CN-Beta', '4.8.0.3'                  # 需要使用穿山甲广告能力的添加此项
 pod 'GDTMobSDK', '4.14.10'                    # 需要使用广点通广告能力的添加此项
 ```
@@ -35,6 +35,11 @@ pod 'AnyThinkPTGAdSDKAdapter','1.1.2'
 开屏  ATPTGSplashAdapter
 ```
 
+## GroMore适配器支持
+在 2.2.64版本支持GroMore聚合广告，接入方式参照[github链接](https://github.com/PTGAd/PTGGroMoreAdapter) 
+
+## ToBid适配器
+在 2.2.64版本支持ToBid聚合广告，接入方式参照[github链接](https://github.com/PTGAd/PTGToBidAdapter) 
 
 ## 美约广告消耗方支持
 由于美约广告SDK不支持cocoapods导入，需将项目中依赖的MeiYueSDK文件复制引用到工程中,并在cocoapods中导入依赖的第三方
@@ -198,7 +203,7 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /// 获取PTGAdSDK版本号
-		NSString *sdkVersion = [PTGAdSDKManager getSDKVersion];
+        NSString *sdkVersion = [PTGAdSDKManager getSDKVersion];
   
     /// 配置跟踪id
     /// 重要 影响广告填充
@@ -211,13 +216,13 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
         @"last_id_version": lastCaidVersion,
         @"one_ali_id": ali_aaid
     }];
-		
+        
     /// appKey  Ptg后台创建的媒体⼴告位ID
     /// appSecret Ptg后台创建的媒体⼴告位密钥
     [PTGSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp" 
     completion:^(BOOL result,NSError *error) {
         if (result) {
-						/// 初始化成功后，进行开屏广告的加载
+                        /// 初始化成功后，进行开屏广告的加载
         }
     }];
     return YES;
@@ -290,7 +295,7 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
 设置开屏广告的delegate，delegate遵守并实现PTGSplashAdDelegate，可以监听广告的生命周期事件。
 
 ```objective-c
-	#pragma mark - PTGSplashAdDelegate -
+    #pragma mark - PTGSplashAdDelegate -
 /// 开屏加载成功
 - (void)ptg_splashAdDidLoad:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
@@ -757,7 +762,7 @@ banner广告加载示例：
     adView.delegate = self;
     [adView render];
     [self.view addSubview:adView];
-		
+        
     adView.frame = CGRectMake(100, 100, 200, 20);
     NSLog(@"个性化模板广告加载成功，%s",__func__);
 }
@@ -900,7 +905,7 @@ banner广告加载示例：
   
 - (void)viewDidLoad {
     [super viewDidLoad];
-		[self.fullscreenVideoAd loadAd];
+        [self.fullscreenVideoAd loadAd];
 }
   
 - (PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd  {
@@ -992,3 +997,5 @@ NSString *urlString = @"fancympsdk://loadAd?slotId=900000245&type=1";
 urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 ```
+
+
