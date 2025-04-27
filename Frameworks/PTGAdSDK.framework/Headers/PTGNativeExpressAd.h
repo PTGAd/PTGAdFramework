@@ -81,6 +81,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy,readonly) NSString *title;
 /// 副标题
 @property (nonatomic, copy,readonly) NSString *body;
+/// 广告主名称
+@property (nonatomic, copy, readonly) NSString *advertiserName;
+/// 广告主logo
+@property (nonatomic, copy, readonly) NSString *advertiserLogo;
 
 /// icon图片下载链接
 @property (nonatomic, copy,readonly) NSString *iconUrl;
