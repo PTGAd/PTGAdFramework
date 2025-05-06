@@ -30,7 +30,7 @@ pod 'AnyThinkPTGAdSDKAdapter','1.1.3'
 # topon 适配器
 插屏  ATPTGInterstitialAdapter
 横幅  ATPTGNativeExpressBannerAdapter
-原生  ATPTGNativeExpressAdapter       #支持自渲染需要在topon后台配置参数 self_render,值等于1时，为自渲染，其他为模板渲染
+原生  ATPTGNativeExpressAdapter       #支持自渲染需要在topon后台配置参数 self_render,值等于1时，为自渲染，等于0为模板渲染，默认模板渲染
 开屏  ATPTGSplashAdapter
 ```
 
