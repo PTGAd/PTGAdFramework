@@ -23,16 +23,14 @@ pod 'GDTMobSDK', '4.14.10'                    # 需要使用广点通广告能�
 
 ## Topon支持
 SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，开屏，横幅），可在Topon后台配置广告请求的适配器，具体可联系Fancy 商务配置,技术接入需导入
-AnyThinkPTGAdSDKAdapter 依赖的Topon版本是AnyThinkiOS 6.4.27版本，具体的请求可参照 Demo中Topon文件夹中相关的代码
+AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码
 ```shell
-# Topon竞价请求目前支持的消耗方是FancyAd与美约
-# 这个命令导入了Topon 主程序，PTGAdFramework 主程序, FancyAd 消耗方，美约的支持请参考消耗方导入方法
-pod 'AnyThinkPTGAdSDKAdapter','1.1.2'
+pod 'AnyThinkPTGAdSDKAdapter','1.1.3'
 
 # topon 适配器
 插屏  ATPTGInterstitialAdapter
 横幅  ATPTGNativeExpressBannerAdapter
-原生  ATPTGNativeExpressAdapter
+原生  ATPTGNativeExpressAdapter       #支持自渲染需要在topon后台配置参数 self_render,值等于1时，为自渲染，其他为模板渲染
 开屏  ATPTGSplashAdapter
 ```
 
