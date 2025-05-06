@@ -5,17 +5,27 @@
 //  Created byttt on 2024/11/11.
 //
 #define kScreenW ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown ? UIScreen.mainScreen.bounds.size.width : UIScreen.mainScreen.bounds.size.height)
+#define kNavigationBarHeight ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown ? ([[UIApplication sharedApplication]statusBarFrame].size.height + 44) : ([[UIApplication sharedApplication]statusBarFrame].size.height - 4))
+
+//#define kScreenH UIScreen.mainScreen.bounds.size.height
+#define kScreenH ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown ? UIScreen.mainScreen.bounds.size.height : UIScreen.mainScreen.bounds.size.width)
+
+//#define kScreenW UIScreen.mainScreen.bounds.size.width
+#define kScreenW ([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown ? UIScreen.mainScreen.bounds.size.width : UIScreen.mainScreen.bounds.size.height)
+
+//#define kScaleW(x) UIScreen.mainScreen.bounds.size.width / 750 * x
+#define kScaleW(x) (([[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortrait || [[UIApplication sharedApplication] statusBarOrientation] == UIInterfaceOrientationPortraitUpsideDown) ? (UIScreen.mainScreen.bounds.size.width / 750 * x) : (UIScreen.mainScreen.bounds.size.height / 750 * x))
 
 #import "ATPTGNativeExpressViewController.h"
 #import <AnyThinkNative/AnyThinkNative.h>
 #import <SDWebImage/SDWebImage.h>
 #import <Masonry/Masonry.h>
+#import "ATNativeRenderView.h"
 
 @interface ATPTGNativeExpressViewController ()<ATNativeADDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray<ATNativeADView *> *ads;
-@property(nonatomic,strong)UISwitch *renderSwitch;
 @end
 
 @implementation ATPTGNativeExpressViewController
@@ -43,34 +53,14 @@
     [button addTarget:self action:@selector(loadAd) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"是否开启自渲染";
-    label.font = [UIFont systemFontOfSize:16];
-    label.textColor = [UIColor blackColor];
-    [self.view addSubview:label];
-    [label sizeToFit];
-    label.frame = CGRectMake(20, 100, label.bounds.size.width, label.bounds.size.height);
-    
-    UISwitch *renderSwitch = [[UISwitch alloc] init];
-    [self.view addSubview:renderSwitch];
-    [renderSwitch sizeToFit];
-    renderSwitch.frame = CGRectMake(180, 95, renderSwitch.bounds.size.width, renderSwitch.bounds.size.height);
-    self.renderSwitch = renderSwitch;
-    
 }
 
 - (void)loadAd{
     NSLog(@"%s", __FUNCTION__);
     NSValue *size = [NSValue valueWithCGSize:CGSizeMake(UIScreen.mainScreen.bounds.size.width, 200)];
     NSMutableDictionary *extra = @{
-        kATExtraInfoNativeAdSizeKey: size,
-        kATExtraInfoRootViewControllerKey: self,
-        kATExtraInfoNativeAdTypeKey: @(ATGDTNativeAdTypeTemplate)
+        kATExtraInfoNativeAdSizeKey: size
     }.mutableCopy;  ///b67b7e8d47ce7f。 //
-    
-    if (self.renderSwitch.isOn) {
-        extra[kATExtraInfoNativeAdTypeKey] =  @(ATGDTNativeAdTypeSelfRendering);
-    }
     [[ATAdManager sharedManager] loadADWithPlacementID:@"b6728481ee50a5" extra:extra delegate:self];
 }
 
@@ -78,15 +68,12 @@
     ATNativeADConfiguration *config = [[ATNativeADConfiguration alloc] init];
     config.delegate = self;
     config.rootViewController = self;
+    config.sizeToFit = YES;
     return config;
 }
 
 - (ATNativeADView *)getNativeADView:(NSString *)placementID nativeAdOffer:(ATNativeAdOffer *)offer {
     ATNativeADConfiguration *config = [self getNativeADConfiguration];
-    if (self.renderSwitch.isOn) {
-        /// 一定实现ATPSelfRenderDelegate协议
-        config.renderingViewClass = [ATPTGSelfNativeView class];
-    }
     ATNativeADView *nativeADView = [[ATNativeADView alloc]initWithConfiguration:config currentOffer:offer placementID:placementID];
     [offer rendererWithConfiguration:config selfRenderView:nil nativeADView:nativeADView];
     return nativeADView;
@@ -96,10 +83,23 @@
 - (void)didFinishLoadingADWithPlacementID:(NSString *)placementID {
     NSLog(@"topon信息流加载成功");
     ATNativeAdOffer *offer = [[ATAdManager sharedManager] getNativeAdOfferWithPlacementID:placementID];
-    ATNativeADView *adView = [self getNativeADView:placementID nativeAdOffer:offer];
-    if (adView) {
+    ATNativeADConfiguration *config = [[ATNativeADConfiguration alloc] init];
+    config.mediaViewFrame = CGRectZero;
+    config.delegate = self;
+    config.rootViewController = self;
+    config.sizeToFit = YES;
+    if (offer.nativeAd.isExpressAd) {
+        ATNativeADView *adView = [self getNativeADView:placementID nativeAdOffer:offer];
+        [offer rendererWithConfiguration:config selfRenderView:nil nativeADView:adView];
         [self.ads addObject:adView];
-        NSLog(@"ad count = %d",self.ads.count);
+        [self.tableView reloadData];
+    } else {
+        ATNativeRenderView *nativeADView = [[ATNativeRenderView alloc]initWithConfiguration:config currentOffer:offer placementID:@"b6728481ee50a5"];
+        [nativeADView registerClickableViewArray:@[nativeADView]];
+        nativeADView.frame = CGRectMake(0, 0, kScreenW, [ATNativeRenderView heightWithOffer:offer.nativeAd]);
+        [nativeADView updateAdViewConfiguration:config currentOffer:offer placementID:@"b6728481ee50a5"];
+        [offer rendererWithConfiguration:config selfRenderView:nil nativeADView:nativeADView];
+        [self.ads addObject:nativeADView];
         [self.tableView reloadData];
     }
 }
@@ -182,7 +182,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"ad count = %d",self.ads.count);
+    NSLog(@"ad count = %ld",self.ads.count);
     return self.ads.count;
 }
 
@@ -222,112 +222,12 @@
         }
     }];
     [self.contentView addSubview:adView];
+    
+    if (!adView.nativeAd.isExpressAd) {
+        /// topon 会渲染一个ATNetworkNativeTemplateView
+        [adView.selfRenderView removeFromSuperview];
+    }
 }
 
 @end
-
-
-@implementation ATPTGSelfNativeView
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self addChildViews];
-        [self layoutChildViews];
-    }
-    return self;
-}
-
-- (void)renderAd:(PTGNativeExpressAd *)ad {
-    [ad darwUnregisterView];
-    self.titleLabel.text = ad.title;
-    self.bodyLabel.text = ad.body;
-    PTGMediaInfo *info = ad.imageUrls.firstObject;
-    NSURL *url = [NSURL URLWithString:info.url];
-    [self.iv sd_setImageWithURL:url];
-    
-    NSLog(@"当前素材宽 = %d 高 = %d",info.width,info.height);
-    [ad setContainer:self clickableViews:@[self]];
-}
-
-
-- (void)addChildViews {
-    [self addSubview:self.titleLabel];
-    [self addSubview:self.iv];
-    [self addSubview:self.bodyLabel];
-    [self addSubview:self.closeButton];
-}
-
-- (void)layoutChildViews {
-    
-    [self.iv mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.bodyLabel.mas_bottom).offset(4);
-        make.centerX.equalTo(self);
-        make.bottom.equalTo(self).offset(-8);
-        make.width.equalTo(self).offset(-16);
-    }];
-    
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).offset(8);
-        make.left.equalTo(self).offset(8);
-        make.right.equalTo(self).offset(-8);
-    }];
-    
-    [self.bodyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(4);
-        make.left.right.equalTo(self.titleLabel);
-    }];
-    
-    [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(40, 40));
-        make.bottom.right.equalTo(self.iv);
-    }];
-}
-
-
-
-- (void)closeButtonDidClicked {
-    if ([self.delegate respondsToSelector:@selector(trackNativeAdClosed)]) {
-        [self.delegate trackNativeAdClosed];
-    }
-}
-
-- (UIImageView *)iv {
-    if(!_iv) {
-        _iv = [UIImageView new];
-        _iv.layer.masksToBounds = true;
-        _iv.contentMode = UIViewContentModeScaleAspectFill;
-    }
-    return _iv;
-}
-
-- (UILabel *)titleLabel {
-    if(!_titleLabel) {
-        _titleLabel = [UILabel new];
-        _titleLabel.numberOfLines = 2;
-        _titleLabel.font = [UIFont systemFontOfSize:18];
-    }
-    return _titleLabel;
-}
-
-- (UILabel *)bodyLabel {
-    if (!_bodyLabel) {
-        _bodyLabel = [UILabel new];
-        _bodyLabel.font = [UIFont systemFontOfSize:12];
-    }
-    return _bodyLabel;
-}
-
-- (UIButton *)closeButton {
-    if (!_closeButton) {
-        _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_closeButton setImage:[UIImage imageNamed:@"closed"] forState:UIControlStateNormal];
-        [_closeButton addTarget:self action:@selector(closeButtonDidClicked) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _closeButton;
-}
-
-@end
-
 

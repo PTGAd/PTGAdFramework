@@ -31,6 +31,8 @@
 		9E8696992D37BF3F0011E023 /* ATPTGBannerExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8696902D37BF3F0011E023 /* ATPTGBannerExpressViewController.m */; };
 		9E86969A2D37BF3F0011E023 /* ATPTGSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8696942D37BF3F0011E023 /* ATPTGSplashViewController.m */; };
 		9E86969B2D37BF3F0011E023 /* TopOnAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8696962D37BF3F0011E023 /* TopOnAdManager.m */; };
+		9E9F87BD2DC9B77A0023F31E /* ATNativeRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F87BC2DC9B77A0023F31E /* ATNativeRenderView.m */; };
+		9E9F87C02DC9B78D0023F31E /* ATAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F87BF2DC9B78D0023F31E /* ATAutoLayout.m */; };
 		9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */; };
 		9EC203902D714C5C0086F431 /* ATPTGInterstitialAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC2038F2D714C5C0086F431 /* ATPTGInterstitialAdViewController.m */; };
 		9EE518352D0835A500F501B0 /* PTGFeedRenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE518342D0835A500F501B0 /* PTGFeedRenderCell.m */; };
@@ -102,6 +104,10 @@
 		9E8696942D37BF3F0011E023 /* ATPTGSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGSplashViewController.m; sourceTree = "<group>"; };
 		9E8696952D37BF3F0011E023 /* TopOnAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopOnAdManager.h; sourceTree = "<group>"; };
 		9E8696962D37BF3F0011E023 /* TopOnAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopOnAdManager.m; sourceTree = "<group>"; };
+		9E9F87BB2DC9B77A0023F31E /* ATNativeRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATNativeRenderView.h; sourceTree = "<group>"; };
+		9E9F87BC2DC9B77A0023F31E /* ATNativeRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATNativeRenderView.m; sourceTree = "<group>"; };
+		9E9F87BE2DC9B78D0023F31E /* ATAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATAutoLayout.h; sourceTree = "<group>"; };
+		9E9F87BF2DC9B78D0023F31E /* ATAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATAutoLayout.m; sourceTree = "<group>"; };
 		9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGOpenURLViewController.h; sourceTree = "<group>"; };
 		9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGOpenURLViewController.m; sourceTree = "<group>"; };
 		9EC2038E2D714C5C0086F431 /* ATPTGInterstitialAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGInterstitialAdViewController.h; sourceTree = "<group>"; };
@@ -261,6 +267,10 @@
 		9E8696972D37BF3F0011E023 /* TopOn */ = {
 			isa = PBXGroup;
 			children = (
+				9E9F87BE2DC9B78D0023F31E /* ATAutoLayout.h */,
+				9E9F87BF2DC9B78D0023F31E /* ATAutoLayout.m */,
+				9E9F87BB2DC9B77A0023F31E /* ATNativeRenderView.h */,
+				9E9F87BC2DC9B77A0023F31E /* ATNativeRenderView.m */,
 				9EC2038E2D714C5C0086F431 /* ATPTGInterstitialAdViewController.h */,
 				9EC2038F2D714C5C0086F431 /* ATPTGInterstitialAdViewController.m */,
 				9E86968F2D37BF3F0011E023 /* ATPTGBannerExpressViewController.h */,
@@ -286,7 +296,6 @@
 				84C24F8A25CD40BB00398052 /* Sources */,
 				84C24F8B25CD40BB00398052 /* Frameworks */,
 				84C24F8C25CD40BB00398052 /* Resources */,
-				F8CE065307E5D198D8E05E59 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -426,23 +435,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F8CE065307E5D198D8E05E59 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -456,6 +448,7 @@
 				9E1898DA2D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.m in Sources */,
 				9E86969A2D37BF3F0011E023 /* ATPTGSplashViewController.m in Sources */,
 				9E86969B2D37BF3F0011E023 /* TopOnAdManager.m in Sources */,
+				9E9F87BD2DC9B77A0023F31E /* ATNativeRenderView.m in Sources */,
 				9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */,
 				847563DF25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m in Sources */,
 				84C2501525CD45AC00398052 /* PTGViewController.m in Sources */,
@@ -468,6 +461,7 @@
 				9EC203902D714C5C0086F431 /* ATPTGInterstitialAdViewController.m in Sources */,
 				9EE518352D0835A500F501B0 /* PTGFeedRenderCell.m in Sources */,
 				84282B9525DE330E00D8F7A3 /* File.swift in Sources */,
+				9E9F87C02DC9B78D0023F31E /* ATAutoLayout.m in Sources */,
 				8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

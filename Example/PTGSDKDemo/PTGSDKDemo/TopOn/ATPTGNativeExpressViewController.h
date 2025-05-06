@@ -7,21 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import <AnyThinkNative/AnyThinkNative.h>
-#import <AnyThinkPTGAdSDKAdapter/ATPSelfRenderDelegate.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface ATPTGSelfNativeView: UIView<ATPSelfRenderDelegate>
-
-@property(nonatomic,strong)UILabel *titleLabel;
-@property(nonatomic,strong)UILabel *bodyLabel;
-@property(nonatomic,strong)UIImageView *iv;
-@property(nonatomic,strong)UIButton *closeButton;
-@property(nonatomic,strong)UIView *videoView;
-
-@property(nonatomic,weak)id<ATPSelfRenderActionDelegate> delegate;
-
-@end
 
 @interface ATPTGNativeExpressViewController : UIViewController
 
