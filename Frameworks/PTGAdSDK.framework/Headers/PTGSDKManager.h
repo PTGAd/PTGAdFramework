@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setAdIds:(NSDictionary<NSString *,NSString *> *)adIds;
 
 + (NSDictionary<NSString *,NSString *> *)adIds;
+
+///设置广告logo（Fancy支持）
++ (void)setAdLogo:(UIImage *)adLogo;
 
 /// 请求广告前必须调用此方法设置appKey appSecret
 /// @param appKey 平台上申请的appKey
