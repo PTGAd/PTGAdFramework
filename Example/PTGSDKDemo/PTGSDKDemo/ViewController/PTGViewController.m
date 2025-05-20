@@ -17,7 +17,7 @@
 #import "PTGOpenURLViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "ATPTGSplashViewController.h"
-#import "ATPTGNativeExpressViewController.h"
+#import "TGNativeAdController.h"
 #import "ATPTGBannerExpressViewController.h"
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 #import <AdSupport/AdSupport.h>
@@ -245,7 +245,7 @@ UITableViewDataSource
         ATPTGSplashViewController *vc = [[ATPTGSplashViewController alloc] init];
         viewController = vc;
     } else if (indexPath.row == 9) {
-        ATPTGNativeExpressViewController *vc = [[ATPTGNativeExpressViewController alloc] init];
+        TGNativeAdController *vc = [[TGNativeAdController alloc] init];
         viewController = vc;
     } else if (indexPath.row == 10) {
         ATPTGBannerExpressViewController *vc = [[ATPTGBannerExpressViewController alloc] init];

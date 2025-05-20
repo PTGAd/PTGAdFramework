@@ -7,7 +7,7 @@ target 'PTGSDKExample' do
   pod 'UBiXMerakSDK','2.5.0.0002'  # ubix 消耗方支持
 #  pod 'PTGOneAdSDK','1.0.9'        # 优酷 消耗方支持
   # 支持topon 需要导入
-  pod 'AnyThinkPTGAdSDKAdapter', '1.1.4'
+  pod 'AnyThinkPTGAdSDKAdapter', '1.1.5'
   pod 'AnyThinkiOS','6.4.76'
   
   # 美约SDK依赖的三方库
@@ -17,7 +17,7 @@ target 'PTGSDKExample' do
   
   pod 'Masonry'
   pod 'CocoaDebug'
-	pod 'SDWebImage'
+  pod 'YYCategories'
   
   #
   #  pod 'Ads-CN-Beta', '4.8.0.3'                  # 需要使用穿山甲广告能力的添加此项

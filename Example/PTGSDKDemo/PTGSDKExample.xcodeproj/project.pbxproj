@@ -27,14 +27,21 @@
 		9E265F6E2CF81C6400D6758A /* EdiMobSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E265F602CF81C6400D6758A /* EdiMobSDK.framework */; };
 		9E265F6F2CF81C6400D6758A /* MYAdsBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E265F622CF81C6400D6758A /* MYAdsBundle.bundle */; };
 		9E265F702CF81C6400D6758A /* EMAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E265F612CF81C6400D6758A /* EMAdSDK.bundle */; };
-		9E8696982D37BF3F0011E023 /* ATPTGNativeExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8696922D37BF3F0011E023 /* ATPTGNativeExpressViewController.m */; };
-		9E8696992D37BF3F0011E023 /* ATPTGBannerExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8696902D37BF3F0011E023 /* ATPTGBannerExpressViewController.m */; };
-		9E86969A2D37BF3F0011E023 /* ATPTGSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8696942D37BF3F0011E023 /* ATPTGSplashViewController.m */; };
-		9E86969B2D37BF3F0011E023 /* TopOnAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8696962D37BF3F0011E023 /* TopOnAdManager.m */; };
-		9E9F87BD2DC9B77A0023F31E /* ATNativeRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F87BC2DC9B77A0023F31E /* ATNativeRenderView.m */; };
-		9E9F87C02DC9B78D0023F31E /* ATAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F87BF2DC9B78D0023F31E /* ATAutoLayout.m */; };
+		9E7EF2CA2DDC51780068D0DE /* UIImage+TGCustomImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2B12DDC51780068D0DE /* UIImage+TGCustomImage.m */; };
+		9E7EF2CB2DDC51780068D0DE /* ATPTGBannerExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2A72DDC51780068D0DE /* ATPTGBannerExpressViewController.m */; };
+		9E7EF2CC2DDC51780068D0DE /* ATPTGInterstitialAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2AA2DDC51780068D0DE /* ATPTGInterstitialAdViewController.m */; };
+		9E7EF2CD2DDC51780068D0DE /* TGOrientationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2BD2DDC51780068D0DE /* TGOrientationTool.m */; };
+		9E7EF2CE2DDC51780068D0DE /* NSString+TGCustomString.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2AD2DDC51780068D0DE /* NSString+TGCustomString.m */; };
+		9E7EF2D02DDC51780068D0DE /* TGToponSelfRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2C12DDC51780068D0DE /* TGToponSelfRenderView.m */; };
+		9E7EF2D12DDC51780068D0DE /* UIColor+TGCustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2AF2DDC51780068D0DE /* UIColor+TGCustomColor.m */; };
+		9E7EF2D22DDC51780068D0DE /* UIView+TGExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2B32DDC51780068D0DE /* UIView+TGExtension.m */; };
+		9E7EF2D32DDC51780068D0DE /* TGBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2B62DDC51780068D0DE /* TGBaseViewController.m */; };
+		9E7EF2D42DDC51780068D0DE /* TGNativeDislikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2BB2DDC51780068D0DE /* TGNativeDislikeButton.m */; };
+		9E7EF2D52DDC51780068D0DE /* TGNativeAdController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2B92DDC51780068D0DE /* TGNativeAdController.m */; };
+		9E7EF2D62DDC51780068D0DE /* ATPTGSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2C42DDC51780068D0DE /* ATPTGSplashViewController.m */; };
+		9E7EF2D72DDC51780068D0DE /* TopOnAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2C82DDC51780068D0DE /* TopOnAdManager.m */; };
+		9E7EF2D82DDC51780068D0DE /* TGToponNativeAdTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2BF2DDC51780068D0DE /* TGToponNativeAdTool.m */; };
 		9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */; };
-		9EC203902D714C5C0086F431 /* ATPTGInterstitialAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC2038F2D714C5C0086F431 /* ATPTGInterstitialAdViewController.m */; };
 		9EE518352D0835A500F501B0 /* PTGFeedRenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE518342D0835A500F501B0 /* PTGFeedRenderCell.m */; };
 /* End PBXBuildFile section */
 
@@ -96,22 +103,37 @@
 		9E265F602CF81C6400D6758A /* EdiMobSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EdiMobSDK.framework; sourceTree = "<group>"; };
 		9E265F612CF81C6400D6758A /* EMAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = EMAdSDK.bundle; sourceTree = "<group>"; };
 		9E265F622CF81C6400D6758A /* MYAdsBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MYAdsBundle.bundle; sourceTree = "<group>"; };
-		9E86968F2D37BF3F0011E023 /* ATPTGBannerExpressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGBannerExpressViewController.h; sourceTree = "<group>"; };
-		9E8696902D37BF3F0011E023 /* ATPTGBannerExpressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGBannerExpressViewController.m; sourceTree = "<group>"; };
-		9E8696912D37BF3F0011E023 /* ATPTGNativeExpressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGNativeExpressViewController.h; sourceTree = "<group>"; };
-		9E8696922D37BF3F0011E023 /* ATPTGNativeExpressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGNativeExpressViewController.m; sourceTree = "<group>"; };
-		9E8696932D37BF3F0011E023 /* ATPTGSplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGSplashViewController.h; sourceTree = "<group>"; };
-		9E8696942D37BF3F0011E023 /* ATPTGSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGSplashViewController.m; sourceTree = "<group>"; };
-		9E8696952D37BF3F0011E023 /* TopOnAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopOnAdManager.h; sourceTree = "<group>"; };
-		9E8696962D37BF3F0011E023 /* TopOnAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopOnAdManager.m; sourceTree = "<group>"; };
-		9E9F87BB2DC9B77A0023F31E /* ATNativeRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATNativeRenderView.h; sourceTree = "<group>"; };
-		9E9F87BC2DC9B77A0023F31E /* ATNativeRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATNativeRenderView.m; sourceTree = "<group>"; };
-		9E9F87BE2DC9B78D0023F31E /* ATAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATAutoLayout.h; sourceTree = "<group>"; };
-		9E9F87BF2DC9B78D0023F31E /* ATAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATAutoLayout.m; sourceTree = "<group>"; };
+		9E7EF2A62DDC51780068D0DE /* ATPTGBannerExpressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGBannerExpressViewController.h; sourceTree = "<group>"; };
+		9E7EF2A72DDC51780068D0DE /* ATPTGBannerExpressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGBannerExpressViewController.m; sourceTree = "<group>"; };
+		9E7EF2A92DDC51780068D0DE /* ATPTGInterstitialAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGInterstitialAdViewController.h; sourceTree = "<group>"; };
+		9E7EF2AA2DDC51780068D0DE /* ATPTGInterstitialAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGInterstitialAdViewController.m; sourceTree = "<group>"; };
+		9E7EF2AC2DDC51780068D0DE /* NSString+TGCustomString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TGCustomString.h"; sourceTree = "<group>"; };
+		9E7EF2AD2DDC51780068D0DE /* NSString+TGCustomString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+TGCustomString.m"; sourceTree = "<group>"; };
+		9E7EF2AE2DDC51780068D0DE /* UIColor+TGCustomColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+TGCustomColor.h"; sourceTree = "<group>"; };
+		9E7EF2AF2DDC51780068D0DE /* UIColor+TGCustomColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TGCustomColor.m"; sourceTree = "<group>"; };
+		9E7EF2B02DDC51780068D0DE /* UIImage+TGCustomImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+TGCustomImage.h"; sourceTree = "<group>"; };
+		9E7EF2B12DDC51780068D0DE /* UIImage+TGCustomImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TGCustomImage.m"; sourceTree = "<group>"; };
+		9E7EF2B22DDC51780068D0DE /* UIView+TGExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TGExtension.h"; sourceTree = "<group>"; };
+		9E7EF2B32DDC51780068D0DE /* UIView+TGExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+TGExtension.m"; sourceTree = "<group>"; };
+		9E7EF2B52DDC51780068D0DE /* TGBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGBaseViewController.h; sourceTree = "<group>"; };
+		9E7EF2B62DDC51780068D0DE /* TGBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGBaseViewController.m; sourceTree = "<group>"; };
+		9E7EF2B72DDC51780068D0DE /* TGCustomDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGCustomDefine.h; sourceTree = "<group>"; };
+		9E7EF2B82DDC51780068D0DE /* TGNativeAdController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGNativeAdController.h; sourceTree = "<group>"; };
+		9E7EF2B92DDC51780068D0DE /* TGNativeAdController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGNativeAdController.m; sourceTree = "<group>"; };
+		9E7EF2BA2DDC51780068D0DE /* TGNativeDislikeButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGNativeDislikeButton.h; sourceTree = "<group>"; };
+		9E7EF2BB2DDC51780068D0DE /* TGNativeDislikeButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGNativeDislikeButton.m; sourceTree = "<group>"; };
+		9E7EF2BC2DDC51780068D0DE /* TGOrientationTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGOrientationTool.h; sourceTree = "<group>"; };
+		9E7EF2BD2DDC51780068D0DE /* TGOrientationTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGOrientationTool.m; sourceTree = "<group>"; };
+		9E7EF2BE2DDC51780068D0DE /* TGToponNativeAdTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGToponNativeAdTool.h; sourceTree = "<group>"; };
+		9E7EF2BF2DDC51780068D0DE /* TGToponNativeAdTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGToponNativeAdTool.m; sourceTree = "<group>"; };
+		9E7EF2C02DDC51780068D0DE /* TGToponSelfRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TGToponSelfRenderView.h; sourceTree = "<group>"; };
+		9E7EF2C12DDC51780068D0DE /* TGToponSelfRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TGToponSelfRenderView.m; sourceTree = "<group>"; };
+		9E7EF2C32DDC51780068D0DE /* ATPTGSplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGSplashViewController.h; sourceTree = "<group>"; };
+		9E7EF2C42DDC51780068D0DE /* ATPTGSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGSplashViewController.m; sourceTree = "<group>"; };
+		9E7EF2C72DDC51780068D0DE /* TopOnAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopOnAdManager.h; sourceTree = "<group>"; };
+		9E7EF2C82DDC51780068D0DE /* TopOnAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopOnAdManager.m; sourceTree = "<group>"; };
 		9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGOpenURLViewController.h; sourceTree = "<group>"; };
 		9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGOpenURLViewController.m; sourceTree = "<group>"; };
-		9EC2038E2D714C5C0086F431 /* ATPTGInterstitialAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGInterstitialAdViewController.h; sourceTree = "<group>"; };
-		9EC2038F2D714C5C0086F431 /* ATPTGInterstitialAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGInterstitialAdViewController.m; sourceTree = "<group>"; };
 		9EE518332D0835A500F501B0 /* PTGFeedRenderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGFeedRenderCell.h; sourceTree = "<group>"; };
 		9EE518342D0835A500F501B0 /* PTGFeedRenderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGFeedRenderCell.m; sourceTree = "<group>"; };
 		E0F0E99CFD47BC49FECAE2AE /* Pods-PTGSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,7 +232,7 @@
 		84C24F9025CD40BB00398052 /* PTGSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
-				9E8696972D37BF3F0011E023 /* TopOn */,
+				9E7EF2C92DDC51780068D0DE /* TopOn */,
 				9E265F632CF81C6400D6758A /* MeiYueSDK */,
 				84282B9925DE335D00D8F7A3 /* PTGSDKDemo-Bridging-Header.h */,
 				84C24F9125CD40BB00398052 /* AppDelegate.h */,
@@ -264,23 +286,78 @@
 			path = MeiYueSDK;
 			sourceTree = "<group>";
 		};
-		9E8696972D37BF3F0011E023 /* TopOn */ = {
+		9E7EF2A82DDC51780068D0DE /* Banner */ = {
 			isa = PBXGroup;
 			children = (
-				9E9F87BE2DC9B78D0023F31E /* ATAutoLayout.h */,
-				9E9F87BF2DC9B78D0023F31E /* ATAutoLayout.m */,
-				9E9F87BB2DC9B77A0023F31E /* ATNativeRenderView.h */,
-				9E9F87BC2DC9B77A0023F31E /* ATNativeRenderView.m */,
-				9EC2038E2D714C5C0086F431 /* ATPTGInterstitialAdViewController.h */,
-				9EC2038F2D714C5C0086F431 /* ATPTGInterstitialAdViewController.m */,
-				9E86968F2D37BF3F0011E023 /* ATPTGBannerExpressViewController.h */,
-				9E8696902D37BF3F0011E023 /* ATPTGBannerExpressViewController.m */,
-				9E8696912D37BF3F0011E023 /* ATPTGNativeExpressViewController.h */,
-				9E8696922D37BF3F0011E023 /* ATPTGNativeExpressViewController.m */,
-				9E8696932D37BF3F0011E023 /* ATPTGSplashViewController.h */,
-				9E8696942D37BF3F0011E023 /* ATPTGSplashViewController.m */,
-				9E8696952D37BF3F0011E023 /* TopOnAdManager.h */,
-				9E8696962D37BF3F0011E023 /* TopOnAdManager.m */,
+				9E7EF2A62DDC51780068D0DE /* ATPTGBannerExpressViewController.h */,
+				9E7EF2A72DDC51780068D0DE /* ATPTGBannerExpressViewController.m */,
+			);
+			path = Banner;
+			sourceTree = "<group>";
+		};
+		9E7EF2AB2DDC51780068D0DE /* Interstitial */ = {
+			isa = PBXGroup;
+			children = (
+				9E7EF2A92DDC51780068D0DE /* ATPTGInterstitialAdViewController.h */,
+				9E7EF2AA2DDC51780068D0DE /* ATPTGInterstitialAdViewController.m */,
+			);
+			path = Interstitial;
+			sourceTree = "<group>";
+		};
+		9E7EF2B42DDC51780068D0DE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				9E7EF2AC2DDC51780068D0DE /* NSString+TGCustomString.h */,
+				9E7EF2AD2DDC51780068D0DE /* NSString+TGCustomString.m */,
+				9E7EF2AE2DDC51780068D0DE /* UIColor+TGCustomColor.h */,
+				9E7EF2AF2DDC51780068D0DE /* UIColor+TGCustomColor.m */,
+				9E7EF2B02DDC51780068D0DE /* UIImage+TGCustomImage.h */,
+				9E7EF2B12DDC51780068D0DE /* UIImage+TGCustomImage.m */,
+				9E7EF2B22DDC51780068D0DE /* UIView+TGExtension.h */,
+				9E7EF2B32DDC51780068D0DE /* UIView+TGExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		9E7EF2C22DDC51780068D0DE /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				9E7EF2B42DDC51780068D0DE /* Category */,
+				9E7EF2B52DDC51780068D0DE /* TGBaseViewController.h */,
+				9E7EF2B62DDC51780068D0DE /* TGBaseViewController.m */,
+				9E7EF2B72DDC51780068D0DE /* TGCustomDefine.h */,
+				9E7EF2B82DDC51780068D0DE /* TGNativeAdController.h */,
+				9E7EF2B92DDC51780068D0DE /* TGNativeAdController.m */,
+				9E7EF2BA2DDC51780068D0DE /* TGNativeDislikeButton.h */,
+				9E7EF2BB2DDC51780068D0DE /* TGNativeDislikeButton.m */,
+				9E7EF2BC2DDC51780068D0DE /* TGOrientationTool.h */,
+				9E7EF2BD2DDC51780068D0DE /* TGOrientationTool.m */,
+				9E7EF2BE2DDC51780068D0DE /* TGToponNativeAdTool.h */,
+				9E7EF2BF2DDC51780068D0DE /* TGToponNativeAdTool.m */,
+				9E7EF2C02DDC51780068D0DE /* TGToponSelfRenderView.h */,
+				9E7EF2C12DDC51780068D0DE /* TGToponSelfRenderView.m */,
+			);
+			path = Native;
+			sourceTree = "<group>";
+		};
+		9E7EF2C52DDC51780068D0DE /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				9E7EF2C32DDC51780068D0DE /* ATPTGSplashViewController.h */,
+				9E7EF2C42DDC51780068D0DE /* ATPTGSplashViewController.m */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		9E7EF2C92DDC51780068D0DE /* TopOn */ = {
+			isa = PBXGroup;
+			children = (
+				9E7EF2A82DDC51780068D0DE /* Banner */,
+				9E7EF2AB2DDC51780068D0DE /* Interstitial */,
+				9E7EF2C22DDC51780068D0DE /* Native */,
+				9E7EF2C52DDC51780068D0DE /* Splash */,
+				9E7EF2C72DDC51780068D0DE /* TopOnAdManager.h */,
+				9E7EF2C82DDC51780068D0DE /* TopOnAdManager.m */,
 			);
 			path = TopOn;
 			sourceTree = "<group>";
@@ -296,6 +373,7 @@
 				84C24F8A25CD40BB00398052 /* Sources */,
 				84C24F8B25CD40BB00398052 /* Frameworks */,
 				84C24F8C25CD40BB00398052 /* Resources */,
+				49E65F8DACDEA35A12541AFE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -413,6 +491,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		49E65F8DACDEA35A12541AFE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7A5D07972555F823F1F30379 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,26 +537,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E8696982D37BF3F0011E023 /* ATPTGNativeExpressViewController.m in Sources */,
-				9E8696992D37BF3F0011E023 /* ATPTGBannerExpressViewController.m in Sources */,
 				9E1898D92D7AA8110069D1A6 /* PTGSplashSelfRenderView.m in Sources */,
 				9E1898DA2D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.m in Sources */,
-				9E86969A2D37BF3F0011E023 /* ATPTGSplashViewController.m in Sources */,
-				9E86969B2D37BF3F0011E023 /* TopOnAdManager.m in Sources */,
-				9E9F87BD2DC9B77A0023F31E /* ATNativeRenderView.m in Sources */,
 				9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */,
 				847563DF25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m in Sources */,
 				84C2501525CD45AC00398052 /* PTGViewController.m in Sources */,
 				8468F74925DE589800EE0BA6 /* PTGNativeViewController.m in Sources */,
+				9E7EF2CA2DDC51780068D0DE /* UIImage+TGCustomImage.m in Sources */,
+				9E7EF2CB2DDC51780068D0DE /* ATPTGBannerExpressViewController.m in Sources */,
+				9E7EF2CC2DDC51780068D0DE /* ATPTGInterstitialAdViewController.m in Sources */,
+				9E7EF2CD2DDC51780068D0DE /* TGOrientationTool.m in Sources */,
+				9E7EF2CE2DDC51780068D0DE /* NSString+TGCustomString.m in Sources */,
+				9E7EF2D02DDC51780068D0DE /* TGToponSelfRenderView.m in Sources */,
+				9E7EF2D12DDC51780068D0DE /* UIColor+TGCustomColor.m in Sources */,
+				9E7EF2D22DDC51780068D0DE /* UIView+TGExtension.m in Sources */,
+				9E7EF2D32DDC51780068D0DE /* TGBaseViewController.m in Sources */,
+				9E7EF2D42DDC51780068D0DE /* TGNativeDislikeButton.m in Sources */,
+				9E7EF2D52DDC51780068D0DE /* TGNativeAdController.m in Sources */,
+				9E7EF2D62DDC51780068D0DE /* ATPTGSplashViewController.m in Sources */,
+				9E7EF2D72DDC51780068D0DE /* TopOnAdManager.m in Sources */,
+				9E7EF2D82DDC51780068D0DE /* TGToponNativeAdTool.m in Sources */,
 				8475644325CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m in Sources */,
 				84C24F9325CD40BB00398052 /* AppDelegate.m in Sources */,
 				84C24FA425CD40BE00398052 /* main.m in Sources */,
 				8475645325CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m in Sources */,
 				8475643D25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m in Sources */,
-				9EC203902D714C5C0086F431 /* ATPTGInterstitialAdViewController.m in Sources */,
 				9EE518352D0835A500F501B0 /* PTGFeedRenderCell.m in Sources */,
 				84282B9525DE330E00D8F7A3 /* File.swift in Sources */,
-				9E9F87C02DC9B78D0023F31E /* ATAutoLayout.m in Sources */,
 				8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,7 +7,7 @@
 
 #import "ATPTGSplashViewController.h"
 #import <AnyThinkSplash/AnyThinkSplash.h>
-
+#import <AnyThinkInterstitial/AnyThinkInterstitial.h>
 
 #define kSCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define kSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -35,6 +35,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupUI];
+    
+//    __weak typeof(self) weakSelf = self;
+//    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:NSOperationQueue.mainQueue usingBlock:^(NSNotification * _Nonnull notification) {
+//        [weakSelf loadAd];
+//        [weakSelf loadInterstitialAd];
+//    }];
+//    
+//    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:NSOperationQueue.mainQueue usingBlock:^(NSNotification * _Nonnull notification) {
+//        [weakSelf showAd];
+//        [weakSelf showInterstitialAd:@"b67bfccd4c2323"];
+//    }];
     
 }
 
@@ -68,6 +79,7 @@
     logo.accessibilityIdentifier = @"splash_logo";
     logo.frame = CGRectMake(0, 0, 311, 47);
     logo.center = bottomView.center;
+    logo.contentMode = UIViewContentModeScaleAspectFit;
     [bottomView addSubview:logo];
     
     [[ATAdManager sharedManager] loadADWithPlacementID:@"b672847ed0c1a2" extra:@{} delegate:self containerView:bottomView];
@@ -87,6 +99,25 @@
     }
     
     [[ATAdManager sharedManager] showSplashWithPlacementID:@"b672847ed0c1a2" config:[ATShowConfig new] window:mainWindow inViewController:self extra:nil delegate:self];
+//    [[ATAdManager sharedManager] showSplashWithPlacementID:PlacementID scene:@"" window:mainWindow extra:nil delegate:self];
+}
+
+- (void)loadInterstitialAd {
+    NSValue *size = [NSValue valueWithCGSize:CGSizeMake(UIScreen.mainScreen.bounds.size.width, 200)];
+    NSMutableDictionary *extra = @{
+        kATExtraInfoAdSizeKey: size,
+        kATExtraInfoRootViewControllerKey: self,
+
+    }.mutableCopy;  ///b67b7e8d47ce7f。 //
+    
+    [[ATAdManager sharedManager] loadADWithPlacementID:@"b67bfccd4c2323" extra:extra delegate:self];
+}
+
+-(void)showInterstitialAd:(NSString *)placementID {
+    if (![[ATAdManager sharedManager] interstitialReadyForPlacementID:placementID]) {
+        return;
+    }
+    [[ATAdManager sharedManager] showInterstitialWithPlacementID:placementID inViewController:self delegate:self];
 //    [[ATAdManager sharedManager] showSplashWithPlacementID:PlacementID scene:@"" window:mainWindow extra:nil delegate:self];
 }
 
@@ -140,6 +171,15 @@
 - (void)splashDidCloseForPlacementID:(NSString *)placementID
                                extra:(NSDictionary *)extra{
     NSLog(@"topon 开屏关闭 placementID = %@",placementID);
+}
+
+- (void)splashDetailDidClosedForPlacementID:(NSString *)placementID
+                                      extra:(NSDictionary *)extra {
+    NSLog(@"topon 开屏详情页关闭 placementID = %@",placementID);
+}
+
+- (void)dealloc {
+    NSLog(@"释放了，%s",__FUNCTION__);
 }
 
 @end

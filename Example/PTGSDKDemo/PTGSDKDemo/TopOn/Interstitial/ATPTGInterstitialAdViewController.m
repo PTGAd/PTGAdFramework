@@ -39,7 +39,7 @@
         kATExtraInfoAdSizeKey: size,
         kATExtraInfoRootViewControllerKey: self,
 
-    }.mutableCopy;  ///b67b7e8d47ce7f。 //
+    }.mutableCopy; 
     
     [[ATAdManager sharedManager] loadADWithPlacementID:@"b67bfccd4c2323" extra:extra delegate:self];
 }
@@ -132,4 +132,7 @@
     NSLog(@"插屏广告关闭");
 }
 
+- (void)dealloc {
+    NSLog(@"释放了，%s",__FUNCTION__);
+}
 @end

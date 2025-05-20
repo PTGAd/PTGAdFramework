@@ -109,5 +109,11 @@
 
 }
 
+- (void)bannerView:(ATBannerView *)bannerView didLPCloseForPlacementID:(NSString *)placementID extra:(NSDictionary *)extra {
+    NSLog(@"topon 横幅广告详情页关闭,  placementID = %@",placementID);
+}
 
+- (void)dealloc {
+    NSLog(@"释放了，%s",__FUNCTION__);
+}
 @end
