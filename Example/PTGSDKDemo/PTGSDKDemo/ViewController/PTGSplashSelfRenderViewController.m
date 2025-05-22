@@ -60,6 +60,13 @@
 
 - (void)showAdAction:(UIButton *)sender {
     if (self.nativeAd == nil) { return; }
+    
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (!self.nativeAd.isReady) {
+        self.statusLabel.text = @"广告已过期";
+        return;
+    }
     PTGSplashSelfRenderView *renderView = [[PTGSplashSelfRenderView alloc] initWithFrame:UIScreen.mainScreen.bounds];
     renderView.delegate = self;
     [renderView updateUI:self.nativeAd];
@@ -136,6 +143,17 @@
     NSLog(@"信息流广告曝光");
 }
 
+/// 广告显示失败，广告资源过期（媒体缓存广告，广告展示时，广告资源已过期）
+/// @param nativeExpressAd 展示失败的广告
+/// 展示失败后，请移除广告，如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+- (void)ptg_nativeExpressAdShowFail:(PTGNativeExpressAd *)nativeExpressAd error:(NSError *)error {
+    NSLog(@"信息流广告展示失败 error = %@",error);
+    self.nativeAd = nil;
+    self.statusLabel.text = @"广告待加载";
+    [self.renderView removeFromSuperview];
+    self.renderView = nil;
+}
+
 /// 原生模板将被点击了
 /// @param nativeExpressAd  被点击的模板广告
 - (void)ptg_nativeExpressAdDidClick:(PTGNativeExpressAd *)nativeExpressAd {
@@ -149,12 +167,17 @@
     self.nativeAd = nil;
     self.statusLabel.text = @"广告待加载";
     [self.renderView removeFromSuperview];
+    self.renderView = nil;
 }
 
 /// 原生模板广告将要关闭详情页
 /// @param nativeExpressAd 广告
 - (void)ptg_nativeExpressAdVDidCloseOtherController:(PTGNativeExpressAd *)nativeExpressAd {
     NSLog(@"信息流广告详情页被关闭");
+}
+
+- (void)dealloc {
+    NSLog(@"释放了 %s",__FUNCTION__);
 }
 
 

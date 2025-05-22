@@ -12,7 +12,8 @@
 @interface PTGNativeExpressInterstitialAdViewController ()<PTGNativeExpressInterstitialAdDelegate>
 
 @property(nonatomic,strong)PTGNativeExpressInterstitialAd *interstitialAd;
-@property(nonatomic,strong)UIButton *loadButton;
+@property(nonatomic,strong)UITextField *numberTextField;
+@property(nonatomic,strong)UILabel *statusLabel;
 
 @end
 
@@ -21,44 +22,87 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
+    self.textField.text = @"900000398";
+    self.numberTextField.text = @"3";
     [self addChildViewsAndLayout];
 }
 
 - (void)addChildViewsAndLayout {
-    [self.view addSubview:self.loadButton];
-  
-    [self.loadButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(100, 40));
-        make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-40);
+    [self.view addSubview:self.textField];
+    [self.view addSubview:self.numberTextField];
+    
+    [self.numberTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo(self.view);
+            make.size.mas_equalTo(CGSizeMake(300, 40));
+        make.top.equalTo(self.textField.mas_bottom).offset(20);
     }];
+    
+    
+    self.statusLabel.frame = CGRectMake(0, CGRectGetMinY(self.showButton.frame) - 40, UIScreen.mainScreen.bounds.size.width, 30);
+    [self.view addSubview:self.statusLabel];
+
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:true];
 }
 
 #pragma mark - action -
-- (void)buttonClicked:(UIButton *)sender {
+- (void)loadAd:(UIButton *)sender {
+    self.statusLabel.text = @"广告加载中";
+    if ([self.interstitialAd.placementId isEqualToString:self.textField.text]) {
+        [self.interstitialAd loadAd];
+        return;
+    }
+    NSString *placementId = self.textField.text.length == 0 ? @"900000398" : self.textField.text;
+    self.interstitialAd = [[PTGNativeExpressInterstitialAd alloc] initWithPlacementId:placementId];
+    self.interstitialAd.adSize = CGSizeMake(200, 300);
+    self.interstitialAd.delegate = self;
     [self.interstitialAd loadAd];
+    NSLog(@"interstitialAd = %@",self.interstitialAd);
+}
+
+- (void)showAd:(UIButton *)sender {
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (self.interstitialAd.isReady) {
+        [self.interstitialAd showAdFromRootViewController:self];
+        self.statusLabel.text = @"广告展示中";
+    } else {
+        self.statusLabel.text = @"广告已过期";
+    }
 }
 
 #pragma mark - PTGNativeExpressInterstitialAdDelegate -
 - (void)ptg_nativeExpresInterstitialAdDidLoad:(PTGNativeExpressInterstitialAd *)interstitialAd {
-    NSLog(@"插屏广告加载成功%@ ECPM = %d",interstitialAd,interstitialAd.ecpm);
-    [interstitialAd showAdFromRootViewController:self];
+    NSLog(@"插屏广告加载成功%@",interstitialAd);
+    self.statusLabel.text = @"广告加载成功";
 }
 
 - (void)ptg_nativeExpresInterstitialAd:(PTGNativeExpressInterstitialAd *)interstitialAd didFailWithError:(NSError * __nullable)error {
     NSLog(@"插屏广告加载失败%@",error);
+    self.statusLabel.text = @"广告加载失败";
 }
 
 - (void)ptg_nativeExpresInterstitialAdWillVisible:(PTGNativeExpressInterstitialAd *)interstitialAd {
     NSLog(@"插屏广告曝光%@",interstitialAd);
 }
 
+- (void)ptg_nativeExpresInterstitialAdVisibleFail:(PTGNativeExpressInterstitialAd *)interstitialAd error:(NSError *)error {
+    NSLog(@"插屏广告展示失败 error = %@",error);
+    self.statusLabel.text = @"广告展示失败";
+}
+
 - (void)ptg_nativeExpresInterstitialAdDidClick:(PTGNativeExpressInterstitialAd *)interstitialAd {
     NSLog(@"插屏广告被点击%@",interstitialAd);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [interstitialAd closureInterstitialAd];
+    });
 }
 
 - (void)ptg_nativeExpresInterstitialAdDidClose:(PTGNativeExpressInterstitialAd *)interstitialAd {
     NSLog(@"插屏广告被关闭%@",interstitialAd);
+    self.statusLabel.text = @"广告待加载";
 }
 
 - (void)ptg_nativeExpresInterstitialAdDidCloseOtherController:(PTGNativeExpressInterstitialAd *)interstitialAd {
@@ -66,28 +110,26 @@
 }
 
 - (void)ptg_nativeExpresInterstitialAdDisplayFail:(PTGNativeExpressInterstitialAd *)interstitialAd error:(NSError *)error {
-    NSLog(@"插屏广告展示失败%@",interstitialAd);
+    NSLog(@"插屏广告展示失败%@ error = %@",interstitialAd,error);
 }
 
-#pragma mark - get -
-- (PTGNativeExpressInterstitialAd *)interstitialAd {
-    if (!_interstitialAd) {
-        _interstitialAd = [[PTGNativeExpressInterstitialAd alloc] initWithPlacementId:@"900000398"];
-        _interstitialAd.adSize = CGSizeMake(200, 300);
-        _interstitialAd.delegate = self;
+- (UITextField *)numberTextField {
+    if (!_numberTextField) {
+        _numberTextField = [[UITextField alloc] init];;
+        _numberTextField.borderStyle = UITextBorderStyleRoundedRect;
+        _numberTextField.keyboardType = UIKeyboardTypeNumberPad;
     }
-    return _interstitialAd;
+    return _numberTextField;
 }
 
-- (UIButton *)loadButton {
-    if (!_loadButton) {
-        _loadButton= [UIButton buttonWithType:UIButtonTypeCustom];
-        [_loadButton setTitle:@"加载广告" forState:UIControlStateNormal];
-        [_loadButton setBackgroundColor:UIColor.lightGrayColor];
-        _loadButton.titleLabel.font = [UIFont systemFontOfSize:15];
-        [_loadButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+- (UILabel *)statusLabel {
+    if (!_statusLabel) {
+        _statusLabel = [[UILabel alloc] init];
+        _statusLabel.text = @"广告待加载";
+        _statusLabel.textColor = [UIColor blackColor];
+        _statusLabel.textAlignment = NSTextAlignmentCenter;
     }
-    return _loadButton;
+    return _statusLabel;
 }
 
 - (void)dealloc {

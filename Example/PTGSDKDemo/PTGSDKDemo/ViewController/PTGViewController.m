@@ -8,7 +8,7 @@
 #import "PTGViewController.h"
 #import <Masonry/Masonry.h>
 #import <PTGAdSDK/PTGAdSDK.h>
-#import "PTGNativeExpressFeedViewController.h"
+#import "PTGFeedViewController.h"
 #import "PTGNativeExpressDrawViewController.h"
 #import "PTGNativeExpressBannerViewController.h"
 #import "PTGNativeExpressInterstitialAdViewController.h"
@@ -16,13 +16,13 @@
 #import "PTGNativeViewController.h"
 #import "PTGOpenURLViewController.h"
 #import <CoreLocation/CoreLocation.h>
+#import "AdConfigViewController.h"
+#import "PTGSplashViewController.h"
 #import "ATPTGSplashViewController.h"
-#import "TGNativeAdController.h"
 #import "ATPTGBannerExpressViewController.h"
-#import <AppTrackingTransparency/AppTrackingTransparency.h>
-#import <AdSupport/AdSupport.h>
 #import "ATPTGInterstitialAdViewController.h"
 #import "PTGSplashSelfRenderViewController.h"
+#import "TGNativeAdController.h"
 
 @interface PTGViewController ()
 <
@@ -39,6 +39,7 @@ UITableViewDataSource
 @property(nonatomic,strong)PTGNativeExpressFullscreenVideoAd *fullscreenVideoAd;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)CLLocationManager *manager;
+//@property(nonatomic,strong)BUNativeExpressSplashView *nativeExpressSplashView;
 
 @end
 
@@ -49,46 +50,35 @@ UITableViewDataSource
     self.manager = [[CLLocationManager alloc] init];
     [self.manager requestAlwaysAuthorization];
     [self.manager requestWhenInUseAuthorization];
-    self.items = @[@"开屏",@"开屏自渲染",@"信息流",@"自渲染信息流",@"draw信息流",@"横幅",@"插屏",@"激励",@"topon开屏",@"topon信息流",@"topon横幅",@"topon插屏",@"互动",@"全屏视频"];
+    self.items = @[
+        @"开屏",
+        @"开屏自渲染",
+        @"信息流",
+        @"横幅",
+        @"插屏",
+        @"激励",
+        @"topon开屏",
+        @"topon信息流",
+        @"topon横幅",
+        @"topon插屏",
+        @"互动",
+        @"全屏视频"
+    ];
     [self addChildViewsAndLayout];
+    
+    [self configAdSDK];
+    
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (@available(iOS 14, *)) {
-        [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-            switch (status) {
-                case ATTrackingManagerAuthorizationStatusAuthorized:
-                {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                        NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-                        /// 重要 影响广告填充
-                        [PTGSDKManager setAdIds:@{
-                            @"idfa":idfa,
-                            @"caid":@"your caid",
-                            @"ali_aaid": @"your ali_aaid",
-                        }];
-                    });
-                }
-                    break;
-//                case ATTrackingManagerAuthorizationStatusDenied:
-//                    NSLog(@"用户拒绝了跟踪请求");
-//                    break;
-//                case ATTrackingManagerAuthorizationStatusRestricted:
-//                    NSLog(@"跟踪权限受限");
-//                    break;
-//                case ATTrackingManagerAuthorizationStatusNotDetermined:
-//                    NSLog(@"用户尚未选择");
-//                    break;
-                default:
-                    dispatch_async(dispatch_get_main_queue(), ^{
-//                        [self initAdSDK];
-                    });
-                    break;
-            }
-        }];
-    }
+- (void)configAdSDK {
+    AdConfigViewController *vc = [AdConfigViewController new];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    
+    [self presentViewController:vc animated:true completion:^{
+        
+    }];
 }
+
 
 - (void)addChildViewsAndLayout {
     
@@ -103,7 +93,11 @@ UITableViewDataSource
 /// 开屏加载成功
 - (void)ptg_splashAdDidLoad:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
-    [splashAd showAdWithViewController:self];
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (splashAd.isReady) {
+        [splashAd showAdWithViewController:self];
+    }
 }
 
 /// 开屏加载失败
@@ -220,48 +214,41 @@ UITableViewDataSource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController *viewController = nil;
     if (indexPath.row == 0) {
-        [self.splashAd loadAd];
-    }
-    else if(indexPath.row == 1) {
+        viewController = [[PTGSplashViewController alloc] init];
+    } else if(indexPath.row == 1) {
         PTGSplashSelfRenderViewController *vc = [[PTGSplashSelfRenderViewController alloc] init];
         viewController = vc;
     } else if(indexPath.row == 2) {
-        PTGNativeExpressFeedViewController *vc = [[PTGNativeExpressFeedViewController alloc] init];
-        vc.type = PTGNativeExpressAdTypeFeed;
+        PTGFeedViewController *vc = [[PTGFeedViewController alloc] init];
         viewController = vc;
     } else if(indexPath.row == 3) {
-        PTGNativeExpressFeedViewController *vc = [[PTGNativeExpressFeedViewController alloc] init];
-        vc.type = PTGNativeExpressAdTypeSelfRender;
-        viewController = vc;
-    } else if(indexPath.row == 4) {
-        viewController = [[PTGNativeExpressDrawViewController alloc] init];
-    } else if(indexPath.row == 5) {
         viewController = [[PTGNativeExpressBannerViewController alloc] init];
-    } else if(indexPath.row == 6) {
+    } else if(indexPath.row == 4) {
         viewController = [[PTGNativeExpressInterstitialAdViewController alloc] init];
-    } else if (indexPath.row == 7) {
+    } else if (indexPath.row == 5) {
         viewController = [[PTGNativeExpressRewardVideoAdViewController alloc] init];
-    } else if (indexPath.row == 8) {
+    } else if (indexPath.row == 6) {
         ATPTGSplashViewController *vc = [[ATPTGSplashViewController alloc] init];
         viewController = vc;
-    } else if (indexPath.row == 9) {
+    } else if (indexPath.row == 7) {
         TGNativeAdController *vc = [[TGNativeAdController alloc] init];
         viewController = vc;
-    } else if (indexPath.row == 10) {
+    } else if (indexPath.row == 8) {
         ATPTGBannerExpressViewController *vc = [[ATPTGBannerExpressViewController alloc] init];
         viewController = vc;
-    } else if (indexPath.row == 11) {
+    } else if (indexPath.row == 9) {
         ATPTGInterstitialAdViewController *vc = [[ATPTGInterstitialAdViewController alloc] init];
         viewController = vc;
-    }  else if (indexPath.row == 12){
+    } else if (indexPath.row == 10){
         // 互动广告打开广告场景
         [self.interactiveAd openAdPage];
-    } else if (indexPath.row == 13) {
-        [self.fullscreenVideoAd loadAd];
     } else {
-////        [self.nativeExpressSplashView loadAdData];
-//        viewController = [[PTGOpenURLViewController alloc] init];
+        [self.fullscreenVideoAd loadAd];
     }
+//    else {
+//        [self.nativeExpressSplashView loadAdData];
+//        viewController = [[PTGOpenURLViewController alloc] init];
+//    }
     viewController ? [self.navigationController pushViewController:viewController animated:YES] : nil;
 }
 
@@ -278,7 +265,6 @@ UITableViewDataSource
         
         _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900000397"];
         _splashAd.delegate = self;
-        _splashAd.rootViewController = self;
         _splashAd.bottomView = bottomView;
     }
     return _splashAd;
@@ -314,5 +300,94 @@ UITableViewDataSource
     return _tableView;
 }
 
+//- (BUNativeExpressSplashView *)nativeExpressSplashView {
+//    if (!_nativeExpressSplashView) {
+//        BUAdSlot *slot = [[BUAdSlot alloc] init];
+//        slot.ID = @"887494331";
+//        slot.splashButtonType = BUSplashButtonType_DownloadBar;
+//        _nativeExpressSplashView = [[BUNativeExpressSplashView alloc] initWithSlot:slot adSize:self.view.bounds.size rootViewController:self];
+//        _nativeExpressSplashView.delegate = self;
+//    }
+//    return _nativeExpressSplashView;
+//}
+//
+///**
+// This method is called when splash ad material loaded successfully.
+// */
+//- (void)nativeExpressSplashViewDidLoad:(BUNativeExpressSplashView *)splashAdView {
+//
+//}
+//
+///**
+// This method is called when splash ad material failed to load.
+// @param error : the reason of error
+// */
+//- (void)nativeExpressSplashView:(BUNativeExpressSplashView *)splashAdView didFailWithError:(NSError * _Nullable)error {
+//
+//}
+//
+///**
+// This method is called when rendering a nativeExpressAdView successed.
+// */
+//- (void)nativeExpressSplashViewRenderSuccess:(BUNativeExpressSplashView *)splashAdView {
+//    [self.view addSubview:splashAdView];
+//}
+//
+///**
+// This method is called when a nativeExpressAdView failed to render.
+// @param error : the reason of error
+// */
+//- (void)nativeExpressSplashViewRenderFail:(BUNativeExpressSplashView *)splashAdView error:(NSError * __nullable)error {
+//
+//}
+//
+///**
+// This method is called when nativeExpressSplashAdView will be showing.
+// */
+//- (void)nativeExpressSplashViewWillVisible:(BUNativeExpressSplashView *)splashAdView {
+//
+//}
+//
+///**
+// This method is called when nativeExpressSplashAdView is clicked.
+// */
+//- (void)nativeExpressSplashViewDidClick:(BUNativeExpressSplashView *)splashAdView {
+//
+//}
+//
+///**
+// This method is called when nativeExpressSplashAdView's skip button is clicked.
+// */
+//- (void)nativeExpressSplashViewDidClickSkip:(BUNativeExpressSplashView *)splashAdView {
+//
+//}
+///**
+// This method is called when nativeExpressSplashAdView countdown equals to zero
+// */
+//- (void)nativeExpressSplashViewCountdownToZero:(BUNativeExpressSplashView *)splashAdView {
+//
+//}
+//
+///**
+// This method is called when nativeExpressSplashAdView closed.
+// */
+//- (void)nativeExpressSplashViewDidClose:(BUNativeExpressSplashView *)splashAdView {
+//
+//}
+//
+///**
+// This method is called when when video ad play completed or an error occurred.
+// */
+//- (void)nativeExpressSplashViewFinishPlayDidPlayFinish:(BUNativeExpressSplashView *)splashView didFailWithError:(NSError *)error {
+//
+//}
+//
+///**
+// This method is called when another controller has been closed.
+// @param interactionType : open appstore in app or open the webpage or view video ad details page.
+// */
+//- (void)nativeExpressSplashViewDidCloseOtherController:(BUNativeExpressSplashView *)splashView interactionType:(BUInteractionType)interactionType {
+//
+//}
 
 @end

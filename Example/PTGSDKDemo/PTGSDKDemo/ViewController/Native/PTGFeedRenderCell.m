@@ -16,6 +16,8 @@
 @property(nonatomic,strong)UIImageView *iv;
 @property(nonatomic,strong)UIButton *closeButton;
 @property(nonatomic,strong)UIView *adView;
+@property(nonatomic,strong)UIView *videoView;
+@property(nonatomic,strong)PTGNativeExpressAd *ad;
 @end
 
 @implementation PTGFeedRenderCell
@@ -29,17 +31,30 @@
     return self;
 }
 
-- (void)setAd:(PTGNativeExpressAd *)ad {
+- (void)renderAd:(PTGNativeExpressAd *)ad {
     _ad = ad;
-    
+    [ad darwUnregisterView];
     self.titleLabel.text = ad.title;
     self.bodyLabel.text = ad.body;
     PTGMediaInfo *info = ad.imageUrls.firstObject;
     NSURL *url = [NSURL URLWithString:info.url];
     [self.iv sd_setImageWithURL:url];
     
-    NSLog(@"素材宽高 %d ,%d",info.width,info.height);
+    NSLog(@"当前素材宽 = %d 高 = %d",info.width,info.height);
+    self.iv.hidden = ad.isVideoAd;
+    if (ad.isVideoAd) {
+        [self.videoView removeFromSuperview];
+        [self.adView addSubview:self.videoView];
+        [self.videoView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.iv);
+        }];
+    } else {
+        NSURL *url = [NSURL URLWithString:ad.imageUrls.firstObject.url];
+        [self.iv sd_setImageWithURL:url];
+    }
+    [ad setContainer:self.adView clickableViews:@[self.adView]];
 }
+
 
 - (void)addChildViews {
     [self.contentView addSubview:self.adView];
@@ -55,28 +70,29 @@
     }];
     
     [self.iv mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(self.adView).offset(8);
-        make.size.mas_equalTo(CGSizeMake(60, 60));
+        make.top.equalTo(self.bodyLabel.mas_bottom).offset(4);
+        make.centerX.equalTo(self.adView);
+        make.bottom.equalTo(self.adView).offset(-8);
+        make.width.equalTo(self.adView).offset(-16);
     }];
     
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.iv);
-        make.left.equalTo(self.iv.mas_right).offset(8);
+        make.top.equalTo(self.adView).offset(8);
+        make.left.equalTo(self.adView).offset(8);
         make.right.equalTo(self.adView).offset(-8);
     }];
     
     [self.bodyLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.iv);
-        make.left.equalTo(self.iv.mas_right).offset(8);
-        make.right.equalTo(self.adView).offset(-8);
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(4);
+        make.left.right.equalTo(self.titleLabel);
     }];
     
     [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.iv);
-        make.right.equalTo(self).offset(-8);
         make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.bottom.right.equalTo(self.iv);
     }];
 }
+
 
 
 - (void)closeButtonDidClicked {

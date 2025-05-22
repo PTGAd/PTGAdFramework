@@ -10,8 +10,6 @@
 		26D7FCFC3166AC1B777D56ED /* libPods-PTGSDKExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D5CDFD2D64C2E7E9193E1B7 /* libPods-PTGSDKExample.a */; };
 		84282B9525DE330E00D8F7A3 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84282B9425DE330E00D8F7A3 /* File.swift */; };
 		8468F74925DE589800EE0BA6 /* PTGNativeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8468F74825DE589800EE0BA6 /* PTGNativeViewController.m */; };
-		847563DF25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847563DE25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m */; };
-		8475643D25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475643C25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m */; };
 		8475644325CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475644225CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m */; };
 		8475645325CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475645225CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m */; };
 		8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8475645825CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m */; };
@@ -41,8 +39,15 @@
 		9E7EF2D62DDC51780068D0DE /* ATPTGSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2C42DDC51780068D0DE /* ATPTGSplashViewController.m */; };
 		9E7EF2D72DDC51780068D0DE /* TopOnAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2C82DDC51780068D0DE /* TopOnAdManager.m */; };
 		9E7EF2D82DDC51780068D0DE /* TGToponNativeAdTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2BF2DDC51780068D0DE /* TGToponNativeAdTool.m */; };
+		9E7EF3A72DDEB8A30068D0DE /* AdConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF3992DDEB8A30068D0DE /* AdConfigViewController.m */; };
+		9E7EF3A82DDEB8A30068D0DE /* PTGFeedDelayDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF39D2DDEB8A30068D0DE /* PTGFeedDelayDisplayViewController.m */; };
+		9E7EF3A92DDEB8A30068D0DE /* PTGNativeExpressFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF3A52DDEB8A30068D0DE /* PTGNativeExpressFeedViewController.m */; };
+		9E7EF3AA2DDEB8A30068D0DE /* PTGFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF3A12DDEB8A30068D0DE /* PTGFeedViewController.m */; };
+		9E7EF3AB2DDEB8A30068D0DE /* BaseAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF39B2DDEB8A30068D0DE /* BaseAdViewController.m */; };
+		9E7EF3AC2DDEB8A30068D0DE /* PTGNativeExpressDrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF3A32DDEB8A30068D0DE /* PTGNativeExpressDrawViewController.m */; };
+		9E7EF3AD2DDEB8A30068D0DE /* PTGFeedRenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF39F2DDEB8A30068D0DE /* PTGFeedRenderCell.m */; };
+		9E7EF3B02DDEB8C00068D0DE /* PTGSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF3AF2DDEB8C00068D0DE /* PTGSplashViewController.m */; };
 		9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */; };
-		9EE518352D0835A500F501B0 /* PTGFeedRenderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EE518342D0835A500F501B0 /* PTGFeedRenderCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,10 +73,6 @@
 		84282B9925DE335D00D8F7A3 /* PTGSDKDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PTGSDKDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		8468F74725DE589700EE0BA6 /* PTGNativeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeViewController.h; sourceTree = "<group>"; };
 		8468F74825DE589800EE0BA6 /* PTGNativeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeViewController.m; sourceTree = "<group>"; };
-		847563DD25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressFeedViewController.h; sourceTree = "<group>"; };
-		847563DE25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressFeedViewController.m; sourceTree = "<group>"; };
-		8475643B25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressDrawViewController.h; sourceTree = "<group>"; };
-		8475643C25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressDrawViewController.m; sourceTree = "<group>"; };
 		8475644125CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressBannerViewController.h; sourceTree = "<group>"; };
 		8475644225CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressBannerViewController.m; sourceTree = "<group>"; };
 		8475645125CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressInterstitialAdViewController.h; sourceTree = "<group>"; };
@@ -132,10 +133,24 @@
 		9E7EF2C42DDC51780068D0DE /* ATPTGSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGSplashViewController.m; sourceTree = "<group>"; };
 		9E7EF2C72DDC51780068D0DE /* TopOnAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TopOnAdManager.h; sourceTree = "<group>"; };
 		9E7EF2C82DDC51780068D0DE /* TopOnAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopOnAdManager.m; sourceTree = "<group>"; };
+		9E7EF3982DDEB8A30068D0DE /* AdConfigViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdConfigViewController.h; sourceTree = "<group>"; };
+		9E7EF3992DDEB8A30068D0DE /* AdConfigViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdConfigViewController.m; sourceTree = "<group>"; };
+		9E7EF39A2DDEB8A30068D0DE /* BaseAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseAdViewController.h; sourceTree = "<group>"; };
+		9E7EF39B2DDEB8A30068D0DE /* BaseAdViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseAdViewController.m; sourceTree = "<group>"; };
+		9E7EF39C2DDEB8A30068D0DE /* PTGFeedDelayDisplayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGFeedDelayDisplayViewController.h; sourceTree = "<group>"; };
+		9E7EF39D2DDEB8A30068D0DE /* PTGFeedDelayDisplayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGFeedDelayDisplayViewController.m; sourceTree = "<group>"; };
+		9E7EF39E2DDEB8A30068D0DE /* PTGFeedRenderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGFeedRenderCell.h; sourceTree = "<group>"; };
+		9E7EF39F2DDEB8A30068D0DE /* PTGFeedRenderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGFeedRenderCell.m; sourceTree = "<group>"; };
+		9E7EF3A02DDEB8A30068D0DE /* PTGFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGFeedViewController.h; sourceTree = "<group>"; };
+		9E7EF3A12DDEB8A30068D0DE /* PTGFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGFeedViewController.m; sourceTree = "<group>"; };
+		9E7EF3A22DDEB8A30068D0DE /* PTGNativeExpressDrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressDrawViewController.h; sourceTree = "<group>"; };
+		9E7EF3A32DDEB8A30068D0DE /* PTGNativeExpressDrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressDrawViewController.m; sourceTree = "<group>"; };
+		9E7EF3A42DDEB8A30068D0DE /* PTGNativeExpressFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGNativeExpressFeedViewController.h; sourceTree = "<group>"; };
+		9E7EF3A52DDEB8A30068D0DE /* PTGNativeExpressFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGNativeExpressFeedViewController.m; sourceTree = "<group>"; };
+		9E7EF3AE2DDEB8C00068D0DE /* PTGSplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGSplashViewController.h; sourceTree = "<group>"; };
+		9E7EF3AF2DDEB8C00068D0DE /* PTGSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGSplashViewController.m; sourceTree = "<group>"; };
 		9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PTGOpenURLViewController.h; sourceTree = "<group>"; };
 		9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PTGOpenURLViewController.m; sourceTree = "<group>"; };
-		9EE518332D0835A500F501B0 /* PTGFeedRenderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGFeedRenderCell.h; sourceTree = "<group>"; };
-		9EE518342D0835A500F501B0 /* PTGFeedRenderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGFeedRenderCell.m; sourceTree = "<group>"; };
 		E0F0E99CFD47BC49FECAE2AE /* Pods-PTGSDKDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKDemo.debug.xcconfig"; path = "Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		E11500246BC28529989B0B32 /* Pods-PTGSDKExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKExample.debug.xcconfig"; path = "Target Support Files/Pods-PTGSDKExample/Pods-PTGSDKExample.debug.xcconfig"; sourceTree = "<group>"; };
 		ECCFCEB100DECED7864ED883 /* Pods-PTGSDKDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PTGSDKDemo.release.xcconfig"; path = "Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,16 +196,17 @@
 		847563E625CF968400AECEA7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9EE518332D0835A500F501B0 /* PTGFeedRenderCell.h */,
-				9EE518342D0835A500F501B0 /* PTGFeedRenderCell.m */,
+				9E7EF3AE2DDEB8C00068D0DE /* PTGSplashViewController.h */,
+				9E7EF3AF2DDEB8C00068D0DE /* PTGSplashViewController.m */,
+				9E7EF3982DDEB8A30068D0DE /* AdConfigViewController.h */,
+				9E7EF3992DDEB8A30068D0DE /* AdConfigViewController.m */,
+				9E7EF39A2DDEB8A30068D0DE /* BaseAdViewController.h */,
+				9E7EF39B2DDEB8A30068D0DE /* BaseAdViewController.m */,
+				9E7EF3A62DDEB8A30068D0DE /* Native */,
 				9EB24B442643A10900D02B6B /* PTGOpenURLViewController.h */,
 				9EB24B452643A10900D02B6B /* PTGOpenURLViewController.m */,
 				84C2501325CD45AC00398052 /* PTGViewController.h */,
 				84C2501425CD45AC00398052 /* PTGViewController.m */,
-				847563DD25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.h */,
-				847563DE25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m */,
-				8475643B25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.h */,
-				8475643C25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m */,
 				8475644125CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.h */,
 				8475644225CFC72E00AECEA7 /* PTGNativeExpressBannerViewController.m */,
 				8475645125CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.h */,
@@ -360,6 +376,23 @@
 				9E7EF2C82DDC51780068D0DE /* TopOnAdManager.m */,
 			);
 			path = TopOn;
+			sourceTree = "<group>";
+		};
+		9E7EF3A62DDEB8A30068D0DE /* Native */ = {
+			isa = PBXGroup;
+			children = (
+				9E7EF39C2DDEB8A30068D0DE /* PTGFeedDelayDisplayViewController.h */,
+				9E7EF39D2DDEB8A30068D0DE /* PTGFeedDelayDisplayViewController.m */,
+				9E7EF39E2DDEB8A30068D0DE /* PTGFeedRenderCell.h */,
+				9E7EF39F2DDEB8A30068D0DE /* PTGFeedRenderCell.m */,
+				9E7EF3A02DDEB8A30068D0DE /* PTGFeedViewController.h */,
+				9E7EF3A12DDEB8A30068D0DE /* PTGFeedViewController.m */,
+				9E7EF3A22DDEB8A30068D0DE /* PTGNativeExpressDrawViewController.h */,
+				9E7EF3A32DDEB8A30068D0DE /* PTGNativeExpressDrawViewController.m */,
+				9E7EF3A42DDEB8A30068D0DE /* PTGNativeExpressFeedViewController.h */,
+				9E7EF3A52DDEB8A30068D0DE /* PTGNativeExpressFeedViewController.m */,
+			);
+			path = Native;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -540,8 +573,8 @@
 				9E1898D92D7AA8110069D1A6 /* PTGSplashSelfRenderView.m in Sources */,
 				9E1898DA2D7AA8110069D1A6 /* PTGSplashSelfRenderViewController.m in Sources */,
 				9EB24B462643A10900D02B6B /* PTGOpenURLViewController.m in Sources */,
-				847563DF25CF95E600AECEA7 /* PTGNativeExpressFeedViewController.m in Sources */,
 				84C2501525CD45AC00398052 /* PTGViewController.m in Sources */,
+				9E7EF3B02DDEB8C00068D0DE /* PTGSplashViewController.m in Sources */,
 				8468F74925DE589800EE0BA6 /* PTGNativeViewController.m in Sources */,
 				9E7EF2CA2DDC51780068D0DE /* UIImage+TGCustomImage.m in Sources */,
 				9E7EF2CB2DDC51780068D0DE /* ATPTGBannerExpressViewController.m in Sources */,
@@ -553,6 +586,13 @@
 				9E7EF2D22DDC51780068D0DE /* UIView+TGExtension.m in Sources */,
 				9E7EF2D32DDC51780068D0DE /* TGBaseViewController.m in Sources */,
 				9E7EF2D42DDC51780068D0DE /* TGNativeDislikeButton.m in Sources */,
+				9E7EF3A72DDEB8A30068D0DE /* AdConfigViewController.m in Sources */,
+				9E7EF3A82DDEB8A30068D0DE /* PTGFeedDelayDisplayViewController.m in Sources */,
+				9E7EF3A92DDEB8A30068D0DE /* PTGNativeExpressFeedViewController.m in Sources */,
+				9E7EF3AA2DDEB8A30068D0DE /* PTGFeedViewController.m in Sources */,
+				9E7EF3AB2DDEB8A30068D0DE /* BaseAdViewController.m in Sources */,
+				9E7EF3AC2DDEB8A30068D0DE /* PTGNativeExpressDrawViewController.m in Sources */,
+				9E7EF3AD2DDEB8A30068D0DE /* PTGFeedRenderCell.m in Sources */,
 				9E7EF2D52DDC51780068D0DE /* TGNativeAdController.m in Sources */,
 				9E7EF2D62DDC51780068D0DE /* ATPTGSplashViewController.m in Sources */,
 				9E7EF2D72DDC51780068D0DE /* TopOnAdManager.m in Sources */,
@@ -561,8 +601,6 @@
 				84C24F9325CD40BB00398052 /* AppDelegate.m in Sources */,
 				84C24FA425CD40BE00398052 /* main.m in Sources */,
 				8475645325CFCE1200AECEA7 /* PTGNativeExpressInterstitialAdViewController.m in Sources */,
-				8475643D25CFC4D100AECEA7 /* PTGNativeExpressDrawViewController.m in Sources */,
-				9EE518352D0835A500F501B0 /* PTGFeedRenderCell.m in Sources */,
 				84282B9525DE330E00D8F7A3 /* File.swift in Sources */,
 				8475645925CFD17B00AECEA7 /* PTGNativeExpressRewardVideoAdViewController.m in Sources */,
 			);

@@ -147,4 +147,8 @@
     return _shakeLabel;
 }
 
+- (void)dealloc {
+    NSLog(@"释放了 %s",__FUNCTION__);
+}
+
 @end

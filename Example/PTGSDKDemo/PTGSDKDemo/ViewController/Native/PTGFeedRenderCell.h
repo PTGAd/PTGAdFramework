@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PTGFeedRenderCell : UITableViewCell
 
-@property(nonatomic,strong)PTGNativeExpressAd *ad;
+- (void)renderAd:(PTGNativeExpressAd *)ad;
 
 @property(nonatomic,weak) id<PTGFeedRenderCellDelegate> delegate;
 

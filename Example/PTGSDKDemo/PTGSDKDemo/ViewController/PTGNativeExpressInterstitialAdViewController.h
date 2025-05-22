@@ -6,10 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseAdViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PTGNativeExpressInterstitialAdViewController : UIViewController
+@interface PTGNativeExpressInterstitialAdViewController : BaseAdViewController
 
 @end
 
