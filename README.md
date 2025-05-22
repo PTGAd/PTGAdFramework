@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.2.71'
+pod 'PTGAdFramework', '2.2.72'
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
 pod 'PTGOneAdSDK','1.0.9'                     # 优酷   消耗方
 
@@ -298,7 +298,14 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
 /// 开屏加载成功
 - (void)ptg_splashAdDidLoad:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
-    [splashAd showAdWithViewController:@"当前的栈顶控制器"];
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (splashAd.isReady) {
+        [splashAd showAdWithViewController:@"当前的栈顶控制器"];
+    } else {
+        NSLog(@"广告已过期");
+    }
+
 }
 
 /// 开屏加载失败
@@ -424,6 +431,14 @@ draw信息流：
 /// @param nativeExpressAd 渲染成功的模板广告
 - (void)ptg_nativeExpressAdRenderSuccess:(PTGNativeExpressAd *)nativeExpressAd {
     NSLog(@"信息流广告渲染成功，%@",nativeExpressAd);
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (!nativeExpressAd.isReady) {
+        NSLog(@"信息流广告已过期，%@",nativeExpressAd);
+        NSMutableArray *ads = [self.ads mutableCopy];
+        [ads removeObject:nativeExpressAd];
+        self.ads = ads;
+    }
     [self.collectionView reloadData];
 }
 
@@ -517,7 +532,13 @@ banner广告加载示例：
 ///  在此方法中调用 showAdFromView:frame 方法
 - (void)ptg_nativeExpressBannerAdDidLoad:(PTGNativeExpressBannerAd *)bannerAd {
     NSLog(@"横幅广告加载成功%@,",bannerAd);
-    [bannerAd showAdFromView:self.view frame:(CGRect){{0,200},bannerAd.realSize}];
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (bannerAd.isReady) {
+        [bannerAd showAdFromView:self.view frame:(CGRect){{0,200},self.bannerAd.realSize}];
+    } else {
+        NSLog(@"广告已过期");
+    }
 }
 
 /// 广告加载失败
@@ -593,10 +614,14 @@ banner广告加载示例：
 #pragma mark - PTGNativeExpressInterstitialAdDelegate -
 - (void)ptg_nativeExpresInterstitialAdDidLoad:(PTGNativeExpressInterstitialAd *)interstitialAd {
     NSLog(@"插屏广告加载成功%@",interstitialAd);
-    [interstitialAd showAdFromRootViewController:self];
-    
-    // 提供给媒体调用主动关闭插屏
-    // [interstitialAd closureInterstitialAd]; 关闭插屏广告
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (interstitialAd.isReady) {
+        [interstitialAd showAdFromRootViewController:self];
+        NSLog(@"广告展示中");
+    } else {
+        NSLog(@"广告已过期");
+    }
 }
 
 - (void)ptg_nativeExpresInterstitialAd:(PTGNativeExpressInterstitialAd *)interstitialAd didFailWithError:(NSError * __nullable)error {

@@ -188,8 +188,6 @@
 /// @param nativeExpressAd 渲染成功的模板广告
 - (void)ptg_nativeExpressAdRenderSuccess:(PTGNativeExpressAd *)nativeExpressAd {
     NSLog(@"信息流广告渲染成功，%@",nativeExpressAd);
-    
-    
     /// 广告是否有效（展示前请务必判断）
     /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
     if (!nativeExpressAd.isReady) {
