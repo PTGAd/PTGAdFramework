@@ -46,6 +46,10 @@ typedef enum : NSUInteger {
 /// @param nativeExpressAd 要显示的模板广告
 - (void)ptg_nativeExpressAdWillShow:(PTGNativeExpressAd *)nativeExpressAd;
 
+/// 广告显示失败
+/// @param nativeExpressAd 要显示的广告
+- (void)ptg_nativeExpressAdShowFail:(PTGNativeExpressAd *)nativeExpressAd error:(NSError *_Nullable)error;
+
 /// 原生模板将被点击了
 /// @param nativeExpressAd  被点击的模板广告
 - (void)ptg_nativeExpressAdDidClick:(PTGNativeExpressAd *)nativeExpressAd;

@@ -32,6 +32,9 @@ NS_ASSUME_NONNULL_BEGIN
 ///  开屏广告将要展示
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd;
 
+///  开屏广告展示失败
+- (void)ptg_splashAdVisibleError:(PTGSplashAd *)splashAd error:(NSError * _Nullable)error;
+
 @end
 
 @interface PTGSplashAd : NSObject
@@ -53,6 +56,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 消耗方类型
 @property(nonatomic,assign)PTGAdSourceType sourceType;
+
+/// 广告是否有效（展示前请务必判断）
+/// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+@property(nonatomic,assign,readonly)BOOL isReady;
 
 /// 广告ecpm 单位分
 @property(nonatomic,assign,readonly)NSInteger ecpm;

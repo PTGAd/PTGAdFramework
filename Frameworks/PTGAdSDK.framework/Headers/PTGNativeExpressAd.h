@@ -29,8 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PTGNativeExpressAd : NSObject
 
-/// 是否渲染完毕
-@property(nonatomic, assign, readonly)BOOL isReady;
+/// 广告是否有效（展示前请务必判断）
+/// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+@property(nonatomic,assign,readonly)BOOL isReady;
 
 /// 是否是视频模板广告
 @property(nonatomic, assign, readonly)BOOL isVideoAd;

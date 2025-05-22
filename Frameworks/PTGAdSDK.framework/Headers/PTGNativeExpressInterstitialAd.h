@@ -47,6 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 消耗方类型
 @property(nonatomic,assign)PTGAdSourceType sourceType;
 
+/// 广告是否有效（展示前请务必判断）
+/// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+@property(nonatomic,assign,readonly)BOOL isReady;
+
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
 

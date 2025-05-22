@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 广告将要曝光
 - (void)ptg_nativeExpressBannerAdWillBecomVisible:(PTGNativeExpressBannerAd *)bannerAd;
 
+/// 广告曝光失败
+- (void)ptg_nativeExpressBannerAdBecomVisibleFail:(PTGNativeExpressBannerAd *)bannerAd error:(NSError *_Nullable)error;
+
 /// 广告被点击
 - (void)ptg_nativeExpressBannerAdDidClick:(PTGNativeExpressBannerAd *)bannerAd;
  
@@ -55,6 +58,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// ecpm 单位分
 @property(nonatomic,assign,readonly)NSInteger ecpm;
+
+/// 广告是否有效（展示前请务必判断）
+/// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+@property(nonatomic,assign,readonly)BOOL isReady;
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
