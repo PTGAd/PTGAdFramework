@@ -36,10 +36,13 @@ pod 'PTGAdFramework', '2.2.72'
 ```
 
 ## GroMore适配器支持
-在 2.2.64版本支持GroMore聚合广告，接入方式参照[github链接](https://github.com/PTGAd/PTGGroMoreAdapter) 
+在 2.2.64版本之后支持GroMore聚合广告，接入方式参照[github链接](https://github.com/PTGAd/PTGGroMoreAdapter) 
 
 ## ToBid适配器
-在 2.2.64版本支持ToBid聚合广告，接入方式参照[github链接](https://github.com/PTGAd/PTGToBidAdapter) 
+在 2.2.64版本之后支持ToBid聚合广告，接入方式参照[github链接](https://github.com/PTGAd/PTGToBidAdapter)
+
+## 极光适配器
+在 2.2.72版本之后支持极光聚合广告，接入方式参照[github链接](https://github.com/PTGAd/ADJGPTGAdapter) 
 
 ## 美约广告消耗方支持
 由于美约广告SDK不支持cocoapods导入，需将项目中依赖的MeiYueSDK文件复制引用到工程中,并在cocoapods中导入依赖的第三方
