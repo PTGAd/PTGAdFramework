@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.2.72'
+pod 'PTGAdFramework', '2.2.73'
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
 pod 'PTGOneAdSDK','1.0.9'                     # 优酷   消耗方
 
