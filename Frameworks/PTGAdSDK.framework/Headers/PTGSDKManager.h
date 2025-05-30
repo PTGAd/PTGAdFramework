@@ -24,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 ///设置广告logo（Fancy支持）
 + (void)setAdLogo:(UIImage *)adLogo;
 
+/// 同步设置 appKey appSecret 2.2.74版本之后支持 建议使用同步方法
+/// @param appKey 平台上申请的appKey
+/// @param appSecret 平台上申请的appSecret
++ (BOOL)syncSetAppKey:(NSString *)appKey appSecret:(NSString *)appSecret;
+
 /// 请求广告前必须调用此方法设置appKey appSecret
 /// @param appKey 平台上申请的appKey
 /// @param appSecret 平台上申请的appSecret
