@@ -776,6 +776,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PTGSDKDemo",
 					"$(PROJECT_DIR)/PTGSDKDemo/MeiYueSDK",
+					"$(PROJECT_DIR)/PTGSDKDemo/Frameworks",
 				);
 				INFOPLIST_FILE = PTGSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -807,6 +808,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PTGSDKDemo",
 					"$(PROJECT_DIR)/PTGSDKDemo/MeiYueSDK",
+					"$(PROJECT_DIR)/PTGSDKDemo/Frameworks",
 				);
 				INFOPLIST_FILE = PTGSDKDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
