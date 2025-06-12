@@ -8,6 +8,7 @@
 #import <UIKit/UIkit.h>
 #import <PTGAdSDK/PTGSourceAdType.h>
 #import <PTGAdSDK/PTGBidReason.h>
+#import "PTGRewardedVideoModel.h"
 @class PTGNativeExpressRewardVideoAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 激励广告曝光
 - (void)ptg_rewardVideoAdDidExposed:(PTGNativeExpressRewardVideoAd *)rewardVideoAd;
 
+/// 激励广告曝光失败
+- (void)ptg_rewardVideoAdExposedFail:(PTGNativeExpressRewardVideoAd *)rewardVideoAd error:(NSError *)error;;
+
 /// 激励广告关闭
 - (void)ptg_rewardVideoAdDidClose:(PTGNativeExpressRewardVideoAd *)rewardVideoAd;
 
@@ -36,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)ptg_rewardVideoAdDidPlayFinish:(PTGNativeExpressRewardVideoAd *)rewardVideoAd;
 
 /// 达到激励条件
-- (void)ptg_rewardVideoAdDidRewardEffective:(PTGNativeExpressRewardVideoAd *)rewardedVideoAd;
+- (void)ptg_rewardVideoAdDidRewardEffective:(PTGNativeExpressRewardVideoAd *)rewardedVideoAd isVerify:(BOOL)isVerify;
 
 @end
 
@@ -52,7 +56,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)PTGAdSourceType sourceType;
 
 /// 广告ecpm 单位分
-@property(nonatomic,assign)NSInteger ecpm;
+@property(nonatomic,assign,readonly)NSInteger ecpm;
+
+@property(nonatomic,assign,readonly)BOOL isReady;
+
+@property(nonatomic,strong,readonly)PTGRewardedVideoModel *rewardedVideoModel;
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
@@ -60,9 +68,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 禁止使用此方法来初始化
 - (instancetype)init NS_UNAVAILABLE;
 
+
 ///  初始化 
 /// @param placementId 广告id
-- (instancetype)initWithPlacementId:(nonnull NSString *)placementId NS_DESIGNATED_INITIALIZER;
+/// @param model rewarded video model. 可传空 
+- (instancetype)initWithPlacementId:(nonnull NSString *)placementId rewardedVideoModel:(nullable PTGRewardedVideoModel *)model NS_DESIGNATED_INITIALIZER;
 
 /// 加载广告
 - (void)loadAd;

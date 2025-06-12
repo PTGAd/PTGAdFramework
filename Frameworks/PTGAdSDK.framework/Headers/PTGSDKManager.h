@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param appKey 平台上申请的appKey
 /// @param appSecret 平台上申请的appSecret
 /// @param completion 设置完成后的回调
+/// 新版本建议使用同步方法初始化
 + (void)setAppKey:(NSString *)appKey appSecret:(NSString *)appSecret completion:(void(^)(BOOL result,NSError * error))completion;
 
 @end
