@@ -14,6 +14,8 @@
 @property(nonatomic,strong)PTGNativeExpressInterstitialAd *interstitialAd;
 @property(nonatomic,strong)UITextField *numberTextField;
 @property(nonatomic,strong)UILabel *statusLabel;
+@property(nonatomic,strong)UISwitch *on;
+@property(nonatomic,strong)UILabel *onLabel;
 
 @end
 
@@ -30,6 +32,9 @@
 - (void)addChildViewsAndLayout {
     [self.view addSubview:self.textField];
     [self.view addSubview:self.numberTextField];
+    [self.view addSubview:self.on];
+    [self.view addSubview:self.onLabel];
+    self.shakeTextFiled.hidden = true;
     
     [self.numberTextField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.view);
@@ -37,10 +42,24 @@
         make.top.equalTo(self.textField.mas_bottom).offset(20);
     }];
     
+    [self.on mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.numberTextField.mas_bottom).offset(10);
+        make.left.equalTo(self.numberTextField);
+    }];
+    
+    [self.onLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.on);
+        make.left.equalTo(self.on.mas_right).offset(10);
+    }];
+    
     
     self.statusLabel.frame = CGRectMake(0, CGRectGetMinY(self.showButton.frame) - 40, UIScreen.mainScreen.bounds.size.width, 30);
     [self.view addSubview:self.statusLabel];
 
+}
+
+- (void)eventValueChanged:(UISwitch *)sender {
+    self.interstitialAd.closeAfterClick = sender.on;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -58,6 +77,7 @@
     self.interstitialAd = [[PTGNativeExpressInterstitialAd alloc] initWithPlacementId:placementId];
     self.interstitialAd.adSize = CGSizeMake(200, 300);
     self.interstitialAd.delegate = self;
+//    self.interstitialAd.closeAfterClick = YES;
     [self.interstitialAd loadAd];
     NSLog(@"interstitialAd = %@",self.interstitialAd);
 }
@@ -71,6 +91,10 @@
     } else {
         self.statusLabel.text = @"广告已过期";
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.interstitialAd closureInterstitialAd];
+    });
 }
 
 #pragma mark - PTGNativeExpressInterstitialAdDelegate -
@@ -95,9 +119,6 @@
 
 - (void)ptg_nativeExpresInterstitialAdDidClick:(PTGNativeExpressInterstitialAd *)interstitialAd {
     NSLog(@"插屏广告被点击%@",interstitialAd);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [interstitialAd closureInterstitialAd];
-    });
 }
 
 - (void)ptg_nativeExpresInterstitialAdDidClose:(PTGNativeExpressInterstitialAd *)interstitialAd {
@@ -131,6 +152,25 @@
     }
     return _statusLabel;
 }
+
+- (UILabel *)onLabel {
+    if (!_onLabel) {
+        _onLabel = [[UILabel alloc] init];
+        _onLabel.text = @"点击后关闭插屏";
+        _onLabel.textColor = [UIColor blackColor];
+        _onLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _onLabel;
+}
+
+- (UISwitch *)on {
+    if (!_on) {
+        _on = [[UISwitch alloc] init];
+        [_on addTarget:self action:@selector(eventValueChanged:) forControlEvents:UIControlEventValueChanged];
+    }
+    return _on;
+}
+
 
 - (void)dealloc {
     NSLog(@"释放了,%s",__func__);

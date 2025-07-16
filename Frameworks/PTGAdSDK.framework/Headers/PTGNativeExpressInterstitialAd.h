@@ -51,6 +51,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
 @property(nonatomic,assign,readonly)BOOL isReady;
 
+/// 点击后是否关闭广告 fancy 消耗方有效
+@property(nonatomic,assign)BOOL closeAfterClick;
+
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
 
