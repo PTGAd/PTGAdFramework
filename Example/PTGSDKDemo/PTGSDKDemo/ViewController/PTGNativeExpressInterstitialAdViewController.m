@@ -34,7 +34,6 @@
     [self.view addSubview:self.numberTextField];
     [self.view addSubview:self.on];
     [self.view addSubview:self.onLabel];
-    self.shakeTextFiled.hidden = true;
     
     [self.numberTextField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.view);
