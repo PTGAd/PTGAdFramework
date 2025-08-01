@@ -7,17 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4C89EDBE-5D44-4B18-9713-7F8E3DFBA417"
+            uuid = "C3523B0F-FCF0-4FFD-A288-AAEAF8D5AE0D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PTGSDKDemo/AppDelegate.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-initAdSDK"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C3523B0F-FCF0-4FFD-A288-AAEAF8D5AE0D - d8cc7d1cc9758d27"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[AppDelegate initAdSDK]"
+                  moduleName = "PTGSDKExample.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taoyongjiu/work/PTGAdFramework/Example/PTGSDKDemo/PTGSDKDemo/AppDelegate.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79">
+               </Location>
+               <Location
+                  uuid = "C3523B0F-FCF0-4FFD-A288-AAEAF8D5AE0D - c2e683c1e25168c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__24-[AppDelegate initAdSDK]_block_invoke"
+                  moduleName = "PTGSDKExample.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/taoyongjiu/work/PTGAdFramework/Example/PTGSDKDemo/PTGSDKDemo/AppDelegate.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
