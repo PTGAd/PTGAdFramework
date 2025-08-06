@@ -25,7 +25,7 @@ pod 'GDTMobSDK', '4.14.10'                    # 需要使用广点通广告能�
 SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，开屏，横幅），可在Topon后台配置广告请求的适配器，具体可联系Fancy 商务配置,技术接入需导入
 AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码
 ```shell
-pod 'AnyThinkPTGAdSDKAdapter','1.1.6'
+pod 'AnyThinkPTGAdSDKAdapter','1.1.7'
 pod 'PTGAdFramework', '~> 2.2.80'
 
 # topon 适配器
@@ -33,6 +33,7 @@ pod 'PTGAdFramework', '~> 2.2.80'
 横幅  ATPTGNativeExpressBannerAdapter
 原生  ATPTGNativeExpressAdapter       #支持自渲染需要在topon后台配置参数 self_render,值等于1时，为自渲染，等于0为模板渲染，默认模板渲染
 开屏  ATPTGSplashAdapter
+激励  ATPTGRewardedVideoAdapter
 ```
 
 ## GroMore适配器支持
