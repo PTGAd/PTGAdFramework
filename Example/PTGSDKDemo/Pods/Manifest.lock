@@ -8,7 +8,7 @@ PODS:
   - CocoaAsyncSocket (7.6.5)
   - CocoaDebug (1.7.2)
   - Masonry (1.1.0)
-  - PTGAdFramework (2.2.79)
+  - PTGAdFramework (2.2.80)
   - SDWebImage (5.21.0):
     - SDWebImage/Core (= 5.21.0)
   - SDWebImage/Core (5.21.0)
@@ -26,7 +26,7 @@ DEPENDENCIES:
   - CocoaAsyncSocket
   - CocoaDebug
   - Masonry
-  - PTGAdFramework (= 2.2.79)
+  - PTGAdFramework (= 2.2.80)
   - SDWebImage
   - UBiXMerakSDK (= 2.5.0.0002)
   - WechatOpenSDK
@@ -52,13 +52,13 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  PTGAdFramework: 9bc78ebf4668fb67b4df471d78ca101af1a3fef0
+  PTGAdFramework: bc4153b8e204a7f810a910d829735e54acbc040f
   SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
   UBiXDaq: ad9dd2af2dc4cff6d9380b3f5881276b70f7d751
   UBiXMerakSDK: de4e8ae99a3553d626fd3e5fe267a0fe09e06359
   WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: b38463d4bafbe98e95a9049eed18421563430e5b
+PODFILE CHECKSUM: 08d18260ab4a565323ebe544700b6cb087b8fe81
 
 COCOAPODS: 1.16.2
