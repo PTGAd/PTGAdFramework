@@ -3,12 +3,12 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '11.0'
 
 target 'PTGSDKExample' do
-  pod 'PTGAdFramework', '2.2.80'
+  pod 'PTGAdFramework', '2.2.81'
   pod 'UBiXMerakSDK','2.5.0.0002'  # ubix 消耗方支持
 #  pod 'PTGOneAdSDK','1.0.9'        # 优酷 消耗方支持
   # 支持topon 需要导入
-  pod 'AnyThinkPTGAdSDKAdapter', '1.1.6'
-  pod 'AnyThinkiOS','6.4.76'
+  pod 'AnyThinkPTGAdSDKAdapter', '1.1.7'
+  pod 'AnyThinkiOS'
   
   # 美约SDK依赖的三方库
   pod 'SDWebImage'
