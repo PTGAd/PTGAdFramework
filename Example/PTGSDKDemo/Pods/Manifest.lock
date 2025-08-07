@@ -1,14 +1,14 @@
 PODS:
-  - AnyThinkiOS (6.4.76):
-    - AnyThinkiOS/AnyThinkSDK (= 6.4.76)
-  - AnyThinkiOS/AnyThinkSDK (6.4.76)
-  - AnyThinkPTGAdSDKAdapter (1.1.6):
-    - AnyThinkiOS (~> 6.4.76)
-    - PTGAdFramework (~> 2.2.72)
+  - AnyThinkiOS (6.4.87):
+    - AnyThinkiOS/AnyThinkSDK (= 6.4.87)
+  - AnyThinkiOS/AnyThinkSDK (6.4.87)
+  - AnyThinkPTGAdSDKAdapter (1.1.7):
+    - AnyThinkiOS (~> 6.4.87)
+    - PTGAdFramework (~> 2.2.80)
   - CocoaAsyncSocket (7.6.5)
   - CocoaDebug (1.7.2)
   - Masonry (1.1.0)
-  - PTGAdFramework (2.2.80)
+  - PTGAdFramework (2.2.81)
   - SDWebImage (5.21.0):
     - SDWebImage/Core (= 5.21.0)
   - SDWebImage/Core (5.21.0)
@@ -21,12 +21,12 @@ PODS:
   - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
-  - AnyThinkiOS (= 6.4.76)
-  - AnyThinkPTGAdSDKAdapter (= 1.1.6)
+  - AnyThinkiOS (= 6.4.87)
+  - AnyThinkPTGAdSDKAdapter (= 1.1.7)
   - CocoaAsyncSocket
   - CocoaDebug
   - Masonry
-  - PTGAdFramework (= 2.2.80)
+  - PTGAdFramework (= 2.2.81)
   - SDWebImage
   - UBiXMerakSDK (= 2.5.0.0002)
   - WechatOpenSDK
@@ -47,18 +47,18 @@ SPEC REPOS:
     - YYCategories
 
 SPEC CHECKSUMS:
-  AnyThinkiOS: 628392cb255ed455b4cb86a446c596242b625c45
-  AnyThinkPTGAdSDKAdapter: 4b8643d9c7a57cf6bff394bebaf5512614aa08ce
+  AnyThinkiOS: 1f0b005f40ad8d06d548b0e68a0b8bcfeb3ce541
+  AnyThinkPTGAdSDKAdapter: 40ed79770f17769cdc9456da18a690ba872ae35a
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  PTGAdFramework: bc4153b8e204a7f810a910d829735e54acbc040f
+  PTGAdFramework: 2b9f81df87d925f4ebdbf4adda56ea20e92250c0
   SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
   UBiXDaq: ad9dd2af2dc4cff6d9380b3f5881276b70f7d751
   UBiXMerakSDK: de4e8ae99a3553d626fd3e5fe267a0fe09e06359
   WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 08d18260ab4a565323ebe544700b6cb087b8fe81
+PODFILE CHECKSUM: 832e6cc371b623166ea3b8054effd7e32151098d
 
 COCOAPODS: 1.16.2
