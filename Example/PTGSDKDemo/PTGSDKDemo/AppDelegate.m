@@ -34,11 +34,12 @@
 //        @"last_id_version": lastCaidVersion,
 //        @"one_ali_id": ali_aaid
 //    }];
-    [self initAdSDK];
+
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:PTGViewController.new];
     [self.window makeKeyAndVisible];
+    [self initAdSDK];
     
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        if (@available(iOS 14, *)) {
@@ -70,19 +71,19 @@
 }
 
 - (void)initAdSDK {
-    NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
+//    NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
     /// 重要 影响广告填充
     /// 配置跟踪id
     /// 重要 影响广告填充
     /// 避免代码中明文出现caid ali_id等字符 审核相关
-    [PTGSDKManager setAdIds:@{
-        @"idfa":idfa,
-        @"one_id":@"caid",
-        @"one_id_version": @"caidVersion",
-        @"last_id": @"lastCaid",
-        @"last_id_version": @"lastCaidVersion",
-        @"one_ali_id": @"ali_aaid"
-    }];
+//    [PTGSDKManager setAdIds:@{
+//        @"idfa":idfa,
+//        @"one_id":@"caid",
+//        @"one_id_version": @"caidVersion",
+//        @"last_id": @"lastCaid",
+//        @"last_id_version": @"lastCaidVersion",
+//        @"one_ali_id": @"ali_aaid"
+//    }];
     
     /// appKey  Ptg后台创建的媒体⼴告位ID
     /// appSecret Ptg后台创建的媒体⼴告位密钥
