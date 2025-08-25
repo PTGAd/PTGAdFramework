@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSDictionary<NSString *,NSString *> *)adIds;
 
+/// 是否开启摇一摇的监听，默认开启，不开启就不出摇一摇样式广告
++ (void)setSensorStatus:(BOOL)status;
+
 ///设置广告logo（Fancy支持）
 + (void)setAdLogo:(UIImage *)adLogo;
 

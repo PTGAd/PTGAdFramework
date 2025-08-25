@@ -24,35 +24,46 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[TopOnAdManager sharedManager] initTopOnSDK];
     
+    
+    /// 避免代码中明文出现caid ali_id等字符 审核相关
+//    [PTGSDKManager setAdIds:@{
+//        @"idfa":idfa,
+//        @"one_id":caid,
+//        @"one_id_version": caidVersion,
+//        @"last_id": lastCaid,
+//        @"last_id_version": lastCaidVersion,
+//        @"one_ali_id": ali_aaid
+//    }];
+    [self initAdSDK];
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:PTGViewController.new];
     [self.window makeKeyAndVisible];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (@available(iOS 14, *)) {
-            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-                switch (status) {
-                    case ATTrackingManagerAuthorizationStatusAuthorized:
-                    {
-                        NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [self initAdSDK];
-                        });
-                    }
-                        break;
-                    default:
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            [self initAdSDK];
-                        });
-                        break;
-                }
-            }];
-        } else {
-            
-            [self initAdSDK];
-        }
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        if (@available(iOS 14, *)) {
+//            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+//                switch (status) {
+//                    case ATTrackingManagerAuthorizationStatusAuthorized:
+//                    {
+//                        NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            [self initAdSDK];
+//                        });
+//                    }
+//                        break;
+//                    default:
+//                        dispatch_async(dispatch_get_main_queue(), ^{
+//                            [self initAdSDK];
+//                        });
+//                        break;
+//                }
+//            }];
+//        } else {
+//            
+//            [self initAdSDK];
+//        }
+//    });
 
 
     return YES;
@@ -76,11 +87,8 @@
     /// appKey  Ptg后台创建的媒体⼴告位ID
     /// appSecret Ptg后台创建的媒体⼴告位密钥
     //  45227 1r8hOksXStGASHrp com.bmlchina.driver
-    [PTGSDKManager setAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8" completion:^(BOOL result,NSError *error) {
-        if (result) {
-            [self.splashAd loadAd];
-        }
-    }];
+    [PTGSDKManager syncSetAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8"];
+    [self.splashAd loadAd];
 }
 #pragma mark - PTGSplashAdDelegate -
 /// 开屏加载成功
