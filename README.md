@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.2.82'
+pod 'PTGAdFramework', '2.2.83'
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
 pod 'PTGOneAdSDK','1.0.9'                     # 优酷   消耗方
 
@@ -26,7 +26,7 @@ SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，
 AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码
 ```shell
 pod 'AnyThinkPTGAdSDKAdapter','1.1.7'
-pod 'PTGAdFramework', '~> 2.2.82'
+pod 'PTGAdFramework', '~> '2.2.83'
 
 # topon 适配器
 插屏  ATPTGInterstitialAdapter
