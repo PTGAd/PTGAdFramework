@@ -52,8 +52,7 @@ pod 'PTGAdFramework', '~> '2.2.83'
   pod 'WechatOpenSDK'
   pod 'CocoaAsyncSocket'
   ```
-
-1.将SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
+将SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
 ```xml
 <key>SKAdNetworkItems</key>
   <array>
@@ -68,61 +67,54 @@ pod 'PTGAdFramework', '~> '2.2.83'
   </array>
 ```
 
-2.将LSApplicationQueriesSchemes 添加到 info.plist 中，以保证精准投放
+## Info.plist 配置说明
+为了保证 广告投放的精准性，在接入 SDK 时需要在 App 的 Info.plist 中添加
+LSApplicationQueriesSchemes 配置。
+
 ```xml
 <key>LSApplicationQueriesSchemes</key>
-   <array>
-       <string>tbopen</string>
-       <string>tmall</string>
-       <string>wireless1688</string>
-       <string>alipays</string>
-       <string>taobaoliveshare</string>
-       <string>youku</string>
-       <string>eleme</string>
-       <string>fleamarket</string>
-       <string>dingtalk</string>
-       <string>taobaotravel</string>
-       <string>dydeeplink</string>
-       <string>changba</string>
-       <string>mogujie</string>
-       <string>snssdk143</string>
-       <string>snssdk1128</string>
-       <string>snssdk2329</string>
-       <string>snssdk8663</string>
-       <string>snssdk32</string>
-       <string>dragon1967</string>
-       <string>jdmobile</string>
-       <string>openjd</string>
-       <string>vipshop</string>
-       <string>imeituan</string>
-       <string>dianping</string>
-       <string>meituanwaimai</string>
-       <string>ksnebula</string>
-       <string>baiduboxapp</string>
-       <string>baiduboxlite</string>
-       <string>iqiyi</string>
-       <string>yanxuan</string>
-       <string>orpheus</string>
-       <string>onetravel</string>
-       <string>kfhxzdriver</string>
-       <string>wbmain</string>
-       <string>wbganji</string>
-       <string>sinaweibo</string>
-       <string>autohome</string>
-       <string>ctrip</string>
-       <string>bilibili</string>
-       <string>iting</string>
-       <string>soul</string>
-       <string>zhihu</string>
-       <string>xhsdiscover</string>
-       <string>dewuapp</string>
-       <string>smzdm</string>
-       <string>taoumaimai</string>
-       <string>sohunews</string>
-       <string>sohuvideo</string>
-       <string>pinduoduo</string>
-   </array>
+<array>
+    <string>openApp.jdMobile</string>
+    <string>tbopen</string>
+    <string>tmall</string>
+    <string>imeituan</string>
+    <string>OneTravel</string>
+    <string>pinduoduo</string>
+    <string>alipays</string>
+    <string>iosamap</string>
+    <string>kwai</string>
+    <string>ksnebula</string>
+    <string>cainiao</string>
+    <string>youku</string>
+    <string>taobao</string>
+    <string>baiduboxapp</string>
+    <string>baiduboxlite</string>
+    <string>ddxq</string>
+    <string>fleamarket</string>
+    <string>douyu</string>
+    <string>dangdang</string>
+    <string>hellobike</string>
+    <string>zhihu</string>
+    <string>taobaotravel</string>
+    <string>qklink</string>
+    <string>xmly</string>
+    <string>dianping</string>
+    <string>soul</string>
+    <string>sinaweibo</string>
+    <string>jdjr</string>
+    <string>weixin</string>
+    <string>tyc</string>
+    <string>eleme</string>
+    <string>upcommon</string>
+    <string>snssdk1128</string>
+    <string>snssdk2329</string>
+    <string>vipshop</string>
+    <string>autohome</string>
+    <string>qqcar</string>
+    <string>mcdonalds</string>
+</array>
 ```
+
 
 ## 全局配置
 
