@@ -215,7 +215,7 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
         
     /// appKey  Ptg后台创建的媒体⼴告位ID
     /// appSecret Ptg后台创建的媒体⼴告位密钥
-    [PTGSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp" 
+    [PTGSDKManager setAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8" 
     completion:^(BOOL result,NSError *error) {
         if (result) {
                         /// 初始化成功后，进行开屏广告的加载
