@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <PTGAdSDK/PTGSourceAdType.h>
 #import <PTGAdSDK/PTGBidReason.h>
+#import <PTGAdSDK/PTGAdMaterial.h>
 @class PTGNativeExpressInterstitialAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -53,6 +54,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 点击后是否关闭广告 fancy 消耗方有效
 @property(nonatomic,assign)BOOL closeAfterClick;
+
+/// 广告素材 可能为空
+@property(nullable,nonatomic,strong)PTGAdMaterial *adMaterial;
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;

@@ -8,7 +8,8 @@
 #import <UIKit/UIkit.h>
 #import <PTGAdSDK/PTGSourceAdType.h>
 #import <PTGAdSDK/PTGBidReason.h>
-#import "PTGRewardedVideoModel.h"
+#import <PTGAdSDK/PTGAdMaterial.h>
+#import <PTGAdSDK/PTGRewardedVideoModel.h>
 @class PTGNativeExpressRewardVideoAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -61,6 +62,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign,readonly)BOOL isReady;
 
 @property(nonatomic,strong,readonly)PTGRewardedVideoModel *rewardedVideoModel;
+
+/// 广告素材 可能为空
+@property(nullable,nonatomic,strong)PTGAdMaterial *adMaterial;
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;

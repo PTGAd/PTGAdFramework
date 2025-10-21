@@ -14,13 +14,14 @@
 #import "PTGNativeExpressInterstitialAd.h"
 #import "PTGNativeExpressAdManager.h"
 #import "PTGNativeExpressAd.h"
-#import "PTGNativeAd.h"
-#import "PTGNativeAdView.h"
-#import "PTGInteractiveAd.h"
-#import "PTGNativeAdViewDelegate.h"
 #import "PTGNativeExpressFullscreenVideoAd.h"
 #import "PTGSourceAdType.h"
 #import "PTGBidReason.h"
+#import "PTGNativeAdData.h"
+#import "PTGNativeAdObject.h"
+#import "PTGNativeAdVideoReporter.h"
+#import "PTGNativeAdRelatedView.h"
+#import "PTGAdMaterial.h"
 
 
 //! Project version number for PTGAdSDK.

@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <PTGAdSDK/PTGSourceAdType.h>
 #import <PTGAdSDK/PTGBidReason.h>
+#import <PTGAdSDK/PTGAdMaterial.h>
 @class PTGSplashAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -19,6 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 开屏加载失败
 - (void)ptg_splashAd:(PTGSplashAd *)splashAd didFailWithError:(NSError * _Nullable)error;
+
+/// 开屏素材加载成功
+- (void)ptg_splashAdMaterialDidLoad:(PTGSplashAd *)splashAd;
+
+/// 开屏素材加载失败
+- (void)ptg_splashAdMaterial:(PTGSplashAd *)splashAd didFailWithError:(NSError * _Nullable)error;
 
 /// 开屏广告被点击了
 - (void)ptg_splashAdDidClick:(PTGSplashAd *)splashAd;
@@ -42,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// buttomView  底部视图 可为空
 @property(nonatomic,strong)UIView *bottomView;
 
+/// Fancy 支持跳过时间配置 默认5s  最小值为3s 最大值为15s
+@property(nonatomic,assign)NSInteger skipTime;
+
 /// 是否隐藏跳过按钮 默认NO
 @property(nonatomic,assign)BOOL hideSkipButton;
 
@@ -57,9 +67,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// 消耗方类型
 @property(nonatomic,assign)PTGAdSourceType sourceType;
 
+/// 广告素材 可能为空
+@property(nullable,nonatomic,strong)PTGAdMaterial *adMaterial;
+
 /// 广告是否有效（展示前请务必判断）
 /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
 @property(nonatomic,assign,readonly)BOOL isReady;
+
+///  素材是否加载成功
+@property(nonatomic,assign,readonly)BOOL isMaterialLoaded;
 
 /// 广告ecpm 单位分
 @property(nonatomic,assign,readonly)NSInteger ecpm;

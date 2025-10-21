@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <PTGAdSDK/PTGSourceAdType.h>
 #import <PTGAdSDK/PTGBidReason.h>
+#import <PTGAdSDK/PTGAdMaterial.h>
 @class PTGNativeExpressBannerAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -62,6 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 广告是否有效（展示前请务必判断）
 /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
 @property(nonatomic,assign,readonly)BOOL isReady;
+
+/// 广告素材 可能为空
+@property(nullable,nonatomic,strong)PTGAdMaterial *adMaterial;
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
