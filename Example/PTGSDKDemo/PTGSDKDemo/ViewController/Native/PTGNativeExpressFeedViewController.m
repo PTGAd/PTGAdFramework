@@ -1,5 +1,5 @@
 //
-//  PTGNativeExpessViewController.m
+//  PTGNativeExpressFeedViewController.m
 //  PTGSDKDemo
 //
 //  Created by admin on 2021/2/7.
@@ -9,20 +9,34 @@
 #import <Masonry/Masonry.h>
 #import <PTGAdSDK/PTGAdSDK.h>
 #import "PTGFeedRenderCell.h"
+#import <MJRefresh/MJRefresh.h>
+#import "PTGTableViewHeader.h"
+
+@implementation PTGTableView
+
+- (void)dealloc {
+    NSLog(@"释放了 %s",__func__);
+}
+
+@end
 
 @interface PTGNativeExpressFeedViewController ()<PTGNativeExpressAdDelegate,UITableViewDelegate,UITableViewDataSource,PTGSplashAdDelegate>
 
 @property(nonatomic,strong)PTGNativeExpressAdManager *manager;
-@property(nonatomic,strong)UIButton *loadButton;
-@property(nonatomic,strong)UIButton *loadButton1;
-@property(nonatomic,strong)UIButton *loadButton2;
-@property(nonatomic,strong)UITableView *tableView;
-@property(nonatomic,strong)NSArray<PTGNativeExpressAd *> *ads;
+@property(nonatomic,strong)PTGTableView *tableView;
 @property(nonatomic,strong)UITextField *textField;
-@property(nonatomic,strong)UIView *redView;
 
 @property(nonatomic,strong)PTGSplashAd *splashAd;
 @property(nonatomic,strong)NSTimer *timer;
+
+// 数据相关属性
+@property(nonatomic,strong)NSMutableArray *dataArray; // 普通数据数组
+@property(nonatomic,assign)NSInteger pageSize; // 每页数据条数
+@property(nonatomic,assign)NSInteger currentPage; // 当前页码
+
+@property(nonatomic,strong)PTGTableViewHeader *headerView;
+
+@property(nonatomic,strong)UIView *maskView;
 
 @end
 
@@ -30,48 +44,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.ads = @[];
-    self.view.backgroundColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.2];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.dataArray = [NSMutableArray array];
+    self.pageSize = 20; // 默认每页5条数据
+    self.currentPage = 1;
     [self addChildViewsAndLayout];
-//    
-//    NSString *placementId = @"900000397";
-//    _splashAd = [[PTGSplashAd alloc] initWithPlacementId:placementId];
-//    _splashAd.delegate = self;
-//    [_splashAd loadAd];
+    [self setupRefresh];
+    [self loadData]; // 加载初始数据
+//    self.maskView.hidden = YES;
 }
 
 - (void)addChildViewsAndLayout {
     [self.view addSubview:self.tableView];
-    [self.view addSubview:self.loadButton];
-    [self.view addSubview:self.loadButton1];
-    [self.view addSubview:self.loadButton2];
-    [self.tableView addSubview:self.redView];
-    
+    [self.view addSubview:self.maskView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
     
-    [self.loadButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(300, 40));
-        make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-40);
-    }];
-    
-    [self.loadButton1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(300, 40));
-        make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-100);
-    }];
-    
-    [self.loadButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(300, 40));
-        make.centerX.equalTo(self.view);
-        make.bottom.equalTo(self.view).offset(-160);
-    }];
+    PTGTableViewHeader *headerView = [[PTGTableViewHeader alloc] initWithFrame:CGRectMake(0, 0, 0, 300)];
+    headerView.viewController = self;
+    [headerView loadAd];
+    self.tableView.tableHeaderView = headerView;
     
     UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-    [self.redView addGestureRecognizer:pan];
-    [self.redView setHidden:true];
+    [self.maskView addGestureRecognizer:pan];
 }
 
 - (void)pan:(UIPanGestureRecognizer *)pan {
@@ -89,65 +85,97 @@
 }
 
 #pragma mark - action -
-- (void)buttonClicked:(UIButton *)sender {
-    for (int i = 0; i < 100; i++) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * i * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            NSString *queueName = [NSString stringWithFormat:@"com.example.concurrentQueue%d", i % 20];
-            dispatch_queue_t queue = dispatch_queue_create([queueName UTF8String], DISPATCH_QUEUE_CONCURRENT);
-            dispatch_async(queue, ^{
-                [self.manager loadAd];
-            });
-        });
-    }
-}
-
-- (void)buttonClicked1:(UIButton *)sender {
-    __weak typeof(self) weakSelf = self;
-    for (int i = 0; i < 100; i++) {
-        NSString *queueName = [NSString stringWithFormat:@"com.example.concurrentQueue%d", i % 20];
-        dispatch_queue_t queue = dispatch_queue_create([queueName UTF8String], DISPATCH_QUEUE_CONCURRENT);
-        dispatch_async(queue, ^{
-            [weakSelf.manager loadAd];
-        });
-    }
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakSelf.navigationController popViewControllerAnimated:true];
-    });
-}
-
 - (void)buttonClicked2:(UIButton *)sender {
     [self.manager loadAd];
+}
+
+#pragma mark - 数据加载 -
+- (void)setupRefresh {
+    // 导入头文件 #import <MJRefresh/MJRefresh.h>
+    __weak typeof(self) weakSelf = self;
+    
+    // 下拉刷新
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        // 重置页码和数据
+        weakSelf.currentPage = 1;
+        [weakSelf.dataArray removeAllObjects];
+        [weakSelf loadData];
+    }];
+    header.lastUpdatedTimeLabel.hidden = YES;
+    [header setTitle:@"下拉刷新" forState:MJRefreshStateIdle];
+    [header setTitle:@"松开刷新" forState:MJRefreshStatePulling];
+    [header setTitle:@"正在刷新" forState:MJRefreshStateRefreshing];
+    self.tableView.mj_header = header;
+    
+    // 上拉加载更多
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        // 页码加1
+        weakSelf.currentPage++;
+        [weakSelf loadData];
+    }];
+}
+
+- (void)loadData {
+    [self.manager loadAd];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+//        
+//        // 添加到数据源
+//        [self.dataArray addObjectsFromArray:pageData];
+//        
+//        // 结束刷新
+
+//        
+//    });
 }
 
 
 #pragma mark - UITableViewDataSource -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.ads.count;
+    return self.dataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BOOL isSelfRender = self.manager.type == PTGNativeExpressAdTypeSelfRender;
-    NSString *identifier = isSelfRender ? NSStringFromClass(PTGFeedRenderCell.class) : NSStringFromClass(UITableViewCell.class);
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    PTGNativeExpressAd *ad = self.ads[indexPath.row];
-    if (isSelfRender) {
-        PTGFeedRenderCell *renderCell = (PTGFeedRenderCell *)cell;
-        [renderCell renderAd:ad];
-        renderCell.delegate = self;
-    } else {
-        cell.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [ad displayAdToView:cell.contentView];
+    NSObject *data = [self getDataWithIndexPath:indexPath];
+    
+    if ([data isKindOfClass:PTGNativeExpressAd.class]) {
+        PTGNativeExpressAd *ad = (PTGNativeExpressAd *)data;
+        BOOL isSelfRender = ad.isNativeExpress == NO;
+        NSString *identifier = isSelfRender ? NSStringFromClass(PTGFeedRenderCell.class) : NSStringFromClass(UITableViewCell.class);
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+        if (isSelfRender) {
+            PTGFeedRenderCell *renderCell = (PTGFeedRenderCell *)cell;
+            [renderCell renderAd:ad];
+            renderCell.delegate = self;
+        } else {
+            cell.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [[cell.contentView viewWithTag:12345] removeFromSuperview];
+            ad.nativeExpressAdView.tag = 12345;
+            [cell.contentView addSubview:ad.nativeExpressAdView];
+        }
+        return cell;
     }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DataCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DataCell"];
+        cell.backgroundColor = [UIColor whiteColor];
+    }
+    cell.textLabel.text = [self getDataWithIndexPath:indexPath];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:PTGFeedRenderCell.class]) {
+        return;
+    }
+    [self.navigationController pushViewController:PTGNativeExpressFeedViewController.new animated:YES];
 }
 
 #pragma  mark - PTGFeedRenderCellDelegate -
 - (void)renderAdView:(PTGFeedRenderCell *)cell clickClose:(PTGNativeExpressAd *)ad {
-    NSMutableArray *arrM = self.ads.mutableCopy;
-    [arrM containsObject:ad] ? [arrM removeObject:ad] : nil;
-    self.ads = arrM.copy;
+    [self.dataArray containsObject:ad] ? [self.dataArray removeObject:ad] : nil;
     [self.tableView reloadData];
     NSLog(@"信息流广告将要被关闭");
 
@@ -155,10 +183,22 @@
 
 #pragma mark - UITableViewDelegate -
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.type == PTGNativeExpressAdTypeSelfRender) {
+    NSObject *data = [self getDataWithIndexPath:indexPath];
+    if ([data isKindOfClass:PTGNativeExpressAd.class]) {
+        PTGNativeExpressAd *ad = (PTGNativeExpressAd *)data;
+        if (ad.isNativeExpress) {
+            return ad.nativeExpressAdView.frame.size.height;
+        }
         return 200;
     }
-    return self.ads[indexPath.row].adHeight;
+    return 40;
+}
+
+- (NSObject *)getDataWithIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row < self.dataArray.count) {
+        return self.dataArray[indexPath.row];
+    }
+    return nil;
 }
 
 #pragma mark - PTGNativeExpressAdDelegate -
@@ -167,14 +207,28 @@
 /// @param ads 广告数组 一般只会有一条广告数据 使用数组预留扩展
 - (void)ptg_nativeExpressAdSuccessToLoad:(PTGNativeExpressAdManager *)manager ads:(NSArray<__kindof PTGNativeExpressAd *> *)ads {
     NSLog(@"信息流广告获取成功，%@",ads);
-    [ads enumerateObjectsUsingBlock:^(__kindof PTGNativeExpressAd * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSLog(@"信息流广告价格，%ld",obj.price);
-        [obj render];
-        [obj setController:self];
-    }];
-    NSMutableArray *arrM = self.ads.mutableCopy;
-    [arrM addObjectsFromArray:ads];
-    self.ads = arrM.copy;
+    
+    PTGNativeExpressAd *ad = ads.firstObject;
+    NSLog(@"信息流广告素材 = %@",ads.firstObject.adMaterial);
+    [ad render];
+    [ad setController:self];
+    NSMutableArray *pageData = [NSMutableArray array];
+    for (NSInteger i = 0; i < self.pageSize; i++) {
+        NSString *item = [NSString stringWithFormat:@"第%ld页-第%ld条数据", (long)self.currentPage, (long)i+1];
+        [pageData addObject:item];
+    }
+    [pageData insertObject:ad atIndex:2];
+    NSInteger oldCount = self.dataArray.count;
+    [self.dataArray addObjectsFromArray:pageData];
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    for (NSInteger i = 0; i < pageData.count; i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:oldCount + i inSection:0];
+        [indexPaths addObject:indexPath];
+    }
+    
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+    
 }
 
 /// 原生模版广告获取失败
@@ -182,6 +236,8 @@
 /// @param error 错误信息
 - (void)ptg_nativeExpressAdFailToLoad:(PTGNativeExpressAdManager *)manager error:(NSError *_Nullable)error {
     NSLog(@"信息流广告加载失败，%@",error);
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
 }
 
 /// 原生模版渲染成功
@@ -191,9 +247,9 @@
     /// 广告是否有效（展示前请务必判断）
     /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
     if (!nativeExpressAd.isReady) {
-        NSMutableArray *ads = [self.ads mutableCopy];
-        [ads removeObject:nativeExpressAd];
-        self.ads = ads;
+        NSMutableArray *dataArray = [self.dataArray mutableCopy];
+        [dataArray removeObject:nativeExpressAd];
+        self.dataArray = dataArray;
     }
     [self.tableView reloadData];
 }
@@ -204,16 +260,14 @@
 - (void)ptg_nativeExpressAdRenderFail:(PTGNativeExpressAd *)nativeExpressAd error:(NSError *_Nullable)error {
     NSLog(@"ad = %@",nativeExpressAd);
     NSLog(@"信息流广告渲染失败，%@",error);
-    NSMutableArray *arrM = self.ads.mutableCopy;
-    [arrM removeObject:nativeExpressAd];
-    self.ads = arrM.copy;
+    [self.dataArray removeObject:nativeExpressAd];
     [self.tableView reloadData];
 }
 
 /// 原生模板将要显示
 /// @param nativeExpressAd 要显示的模板广告
 - (void)ptg_nativeExpressAdWillShow:(PTGNativeExpressAd *)nativeExpressAd {
-    NSLog(@"信息流广告曝光");
+    NSLog(@"@@@@信息流广告曝光");
 }
 
 /// 广告显示失败，广告资源过期（媒体缓存广告，广告展示时，广告资源已过期）
@@ -232,9 +286,7 @@
 ///  原生模板广告被关闭了
 /// @param nativeExpressAd 要关闭的模板广告
 - (void)ptg_nativeExpressAdViewClosed:(PTGNativeExpressAd *)nativeExpressAd {
-    NSMutableArray *arrM = self.ads.mutableCopy;
-    [arrM containsObject:nativeExpressAd] ? [arrM removeObject:nativeExpressAd] : nil;
-    self.ads = arrM.copy;
+    [self.dataArray containsObject:nativeExpressAd] ? [self.dataArray removeObject:nativeExpressAd] : nil;
     [self.tableView reloadData];
     NSLog(@"信息流广告将要被关闭");
 }
@@ -256,7 +308,7 @@
 - (PTGNativeExpressAdManager *)manager {
     if (!_manager) { //  457 900000231
         CGSize size = CGSizeMake(self.view.bounds.size.width, self.type == PTGNativeExpressAdTypeSelfRender ? 80 : 200);
-         NSString *placementId = self.type == PTGNativeExpressAdTypeSelfRender ?  @"900002175" : @"900000399";
+         NSString *placementId = self.type == PTGNativeExpressAdTypeSelfRender ?  @"900002888" : @"900003374";
         _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:placementId
                                                                      type:self.type
                                                                    adSize:size];
@@ -266,68 +318,32 @@
     return _manager;
 }
 
-- (UIButton *)loadButton {
-    if (!_loadButton) {
-        _loadButton= [UIButton buttonWithType:UIButtonTypeCustom];
-        [_loadButton setTitle:@"间隔50毫秒，异步请求100次" forState:UIControlStateNormal];
-        [_loadButton setBackgroundColor:UIColor.lightGrayColor];
-        _loadButton.titleLabel.font = [UIFont systemFontOfSize:15];
-        [_loadButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _loadButton;
-}
-
-- (UIButton *)loadButton1 {
-    if (!_loadButton1) {
-        _loadButton1= [UIButton buttonWithType:UIButtonTypeCustom];
-        [_loadButton1 setTitle:@"同时请求100次，500毫秒后，销毁" forState:UIControlStateNormal];
-        [_loadButton1 setBackgroundColor:UIColor.lightGrayColor];
-        _loadButton1.titleLabel.font = [UIFont systemFontOfSize:15];
-        [_loadButton1 addTarget:self action:@selector(buttonClicked1:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _loadButton1;
-}
-
-- (UIButton *)loadButton2 {
-    if (!_loadButton2) {
-        _loadButton2= [UIButton buttonWithType:UIButtonTypeCustom];
-        [_loadButton2 setTitle:@"加载广告" forState:UIControlStateNormal];
-        [_loadButton2 setBackgroundColor:UIColor.lightGrayColor];
-        _loadButton2.titleLabel.font = [UIFont systemFontOfSize:15];
-        [_loadButton2 addTarget:self action:@selector(buttonClicked2:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _loadButton2;
-}
-
-
-- (UITableView *)tableView {
+- (PTGTableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _tableView = [[PTGTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.backgroundColor = [UIColor clearColor];
         [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:NSStringFromClass(UITableViewCell.class)];
         [_tableView registerClass:PTGFeedRenderCell.class forCellReuseIdentifier:NSStringFromClass(PTGFeedRenderCell.class)];
+        [_tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"DataCell"];
     }
     return _tableView;
 }
 
-- (UIView *)redView {
-    if (!_redView) {
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 300)];
-        label.backgroundColor = [UIColor redColor];
-        label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor whiteColor];
-        label.text = @"拖动视图移动";
-        _redView = label;
-        _redView.userInteractionEnabled = true;
+- (UIView *)maskView {
+    if (!_maskView) {
+        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 500)];
+        _maskView.backgroundColor = UIColor.redColor;
+        _maskView.hidden = YES;
     }
-    return _redView;
+    return _maskView;
 }
 
+
 - (void)dealloc {
-    [self.redView removeFromSuperview];
+
 }
 
 #pragma mark - PTGSplashAdDelegate -

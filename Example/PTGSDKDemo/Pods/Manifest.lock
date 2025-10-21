@@ -1,32 +1,30 @@
 PODS:
-  - AnyThinkiOS (6.4.87):
-    - AnyThinkiOS/AnyThinkSDK (= 6.4.87)
-  - AnyThinkiOS/AnyThinkSDK (6.4.87)
-  - AnyThinkPTGAdSDKAdapter (1.1.7):
-    - AnyThinkiOS (~> 6.4.87)
-    - PTGAdFramework (~> 2.2.80)
+  - AnyThinkiOS (6.4.96):
+    - AnyThinkiOS/AnyThinkSDK (= 6.4.96)
+  - AnyThinkiOS/AnyThinkSDK (6.4.96)
   - CocoaAsyncSocket (7.6.5)
-  - CocoaDebug (1.7.2)
+  - CocoaDebug (1.7.7)
   - Masonry (1.1.0)
-  - PTGAdFramework (2.2.81)
-  - SDWebImage (5.21.1):
-    - SDWebImage/Core (= 5.21.1)
-  - SDWebImage/Core (5.21.1)
+  - MJRefresh (3.7.9)
+  - PTGOneAdSDK (1.0.9)
+  - SDWebImage (5.21.3):
+    - SDWebImage/Core (= 5.21.3)
+  - SDWebImage/Core (5.21.3)
   - UBiXDaq (2.3.1)
   - UBiXMerakSDK (2.5.0.0002):
     - UBiXDaq (~> 2.3.1)
-  - WechatOpenSDK (2.0.4)
+  - WechatOpenSDK (2.0.5)
   - YYCategories (1.0.4):
     - YYCategories/no-arc (= 1.0.4)
   - YYCategories/no-arc (1.0.4)
 
 DEPENDENCIES:
-  - AnyThinkiOS (= 6.4.87)
-  - AnyThinkPTGAdSDKAdapter (= 1.1.7)
+  - AnyThinkiOS (~> 6.4.87)
   - CocoaAsyncSocket
-  - CocoaDebug
+  - CocoaDebug (~> 1.7.7)
   - Masonry
-  - PTGAdFramework (= 2.2.81)
+  - MJRefresh
+  - PTGOneAdSDK
   - SDWebImage
   - UBiXMerakSDK (= 2.5.0.0002)
   - WechatOpenSDK
@@ -35,11 +33,11 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AnyThinkiOS
-    - AnyThinkPTGAdSDKAdapter
     - CocoaAsyncSocket
     - CocoaDebug
     - Masonry
-    - PTGAdFramework
+    - MJRefresh
+    - PTGOneAdSDK
     - SDWebImage
     - UBiXDaq
     - UBiXMerakSDK
@@ -47,18 +45,18 @@ SPEC REPOS:
     - YYCategories
 
 SPEC CHECKSUMS:
-  AnyThinkiOS: 1f0b005f40ad8d06d548b0e68a0b8bcfeb3ce541
-  AnyThinkPTGAdSDKAdapter: 40ed79770f17769cdc9456da18a690ba872ae35a
+  AnyThinkiOS: 24de181aa4904283b5af0225bc1f3d27291f0cec
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
-  CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
+  CocoaDebug: b38d31464b91a9775928f8667d114db07b136565
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  PTGAdFramework: 2b9f81df87d925f4ebdbf4adda56ea20e92250c0
-  SDWebImage: f29024626962457f3470184232766516dee8dfea
+  MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
+  PTGOneAdSDK: 41967ddec42778d4b01f97047654aeeb1744b3b1
+  SDWebImage: 16309af6d214ba3f77a7c6f6fdda888cb313a50a
   UBiXDaq: ad9dd2af2dc4cff6d9380b3f5881276b70f7d751
   UBiXMerakSDK: de4e8ae99a3553d626fd3e5fe267a0fe09e06359
-  WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
+  WechatOpenSDK: a363db41205f57abbc05bb6b80bf2d2ed1ea40bf
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: 832e6cc371b623166ea3b8054effd7e32151098d
+PODFILE CHECKSUM: 9f1b8031a5c8022502da832dea56c633d1205bc3
 
 COCOAPODS: 1.16.2

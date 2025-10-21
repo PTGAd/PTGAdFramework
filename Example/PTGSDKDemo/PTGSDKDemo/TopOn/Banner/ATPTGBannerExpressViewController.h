@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <AnyThinkBanner/AnyThinkBanner.h>
+#import <AnyThinkSDK/AnyThinkSDK.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

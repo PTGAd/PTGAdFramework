@@ -24,12 +24,16 @@
 
 - (void)updateUI:(PTGNativeExpressAd *)nativeAd {
     self.nativeAd = nativeAd;
-    NSString *image = nativeAd.imageUrls.firstObject.url;
-    if (image) {
-        [self.imageView sd_setImageWithURL:[NSURL URLWithString:image]];
+    self.imageView.hidden = nativeAd.isVideoAd;
+    if (nativeAd.isVideoAd) {
+        [self insertSubview:nativeAd.adObject.relatedView.videoView aboveSubview:self.imageView];
+    } else {
+        NSString *image = nativeAd.adObject.adData.imageUrls.firstObject.url;
+        if (image) {
+            [self.imageView sd_setImageWithURL:[NSURL URLWithString:image]];
+        }
     }
-//    self.shakeLabel.hidden = nativeAd.;
-    [nativeAd setSplashContainer:self clickableViews:@[self.hotAreaButton]];
+    [nativeAd.adObject setSplashContainer:self clickableViews:@[self.hotAreaButton]];
     
     if ([self.timer isValid]) {
         [self.timer invalidate];
@@ -54,6 +58,11 @@
         [self addChildViewsAndLayout];
     }
     return self;
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.nativeAd.adObject.relatedView.videoView.frame = self.bounds;
 }
 
 - (void)addChildViewsAndLayout {

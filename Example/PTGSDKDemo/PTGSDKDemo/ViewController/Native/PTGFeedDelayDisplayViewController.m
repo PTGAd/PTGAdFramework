@@ -14,6 +14,8 @@
 @property(nonatomic,strong)PTGNativeExpressAd *nativeAd;
 @property(nonatomic,strong)UIView *nativeAdView;
 @property(nonatomic,strong)UILabel *statusLabel;
+@property(nonatomic,strong)UIView *maskView;
+@property(nonatomic,assign)BOOL renderSuccess;
 
 @end
 
@@ -23,8 +25,29 @@
     [super viewDidLoad];
     self.textField.hidden = true;
     self.statusLabel.frame = CGRectMake(0, CGRectGetMinY(self.showButton.frame) - 40, UIScreen.mainScreen.bounds.size.width, 30);
-    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.statusLabel];
+    
+    [self.navigationController.view addSubview:self.maskView];
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self.maskView addGestureRecognizer:pan];
+}
+
+- (void)dealloc {
+    [self.maskView removeFromSuperview];
+}
+
+- (void)pan:(UIPanGestureRecognizer *)pan {
+    // 获取手势在视图中的偏移量
+    CGPoint translation = [pan translationInView:pan.view.superview];
+    
+    // 更新视图位置
+    CGPoint center = pan.view.center;
+    center.x += translation.x;
+    center.y += translation.y;
+    pan.view.center = center;
+    
+    // 重置手势的偏移量，避免累加效果
+    [pan setTranslation:CGPointZero inView:pan.view.superview];
 }
 
 - (void)loadAd:(UIButton *)sender {
@@ -33,6 +56,11 @@
 }
 
 - (void)showAd:(UIButton *)sender {
+    
+    if (!self.renderSuccess) {
+        return;
+    }
+    
     if (self.nativeAd == nil) { return; }
     [self.nativeAdView removeFromSuperview];
     /// 广告是否有效（展示前请务必判断）
@@ -40,8 +68,11 @@
     if (self.nativeAd.isReady) {
         if (self.manager.type == PTGNativeExpressAdTypeFeed) {
             self.nativeAdView = [[UIView alloc] init];
-            self.nativeAdView.frame = CGRectMake(0, 100, UIScreen.mainScreen.bounds.size.width, self.nativeAd.adHeight);
-            [self.nativeAd displayAdToView:self.nativeAdView];
+            self.nativeAdView.frame = CGRectMake(0,
+                                                 100,
+                                                 self.nativeAd.nativeExpressAdView.frame.size.width,
+                                                 self.nativeAd.nativeExpressAdView.frame.size.height);
+            [self.nativeAdView addSubview:self.nativeAd.nativeExpressAdView];
             [self.view addSubview:self.nativeAdView];
         } else {
             PTGFeedRenderCell *cell = [[PTGFeedRenderCell alloc] init];
@@ -78,6 +109,7 @@
 /// @param ads 广告数组 一般只会有一条广告数据 使用数组预留扩展
 - (void)ptg_nativeExpressAdSuccessToLoad:(PTGNativeExpressAdManager *)manager ads:(NSArray<__kindof PTGNativeExpressAd *> *)ads {
     NSLog(@"信息流广告获取成功，%@",ads);
+    self.renderSuccess = NO;
     self.statusLabel.text = @"广告加载成功";
     self.nativeAd = ads.firstObject;
     [self.nativeAd render];
@@ -89,6 +121,7 @@
 /// @param error 错误信息
 - (void)ptg_nativeExpressAdFailToLoad:(PTGNativeExpressAdManager *)manager error:(NSError *_Nullable)error {
     NSLog(@"信息流广告加载失败，%@",error);
+    self.renderSuccess = NO;
     self.statusLabel.text = @"广告加载失败";
 }
 
@@ -96,6 +129,7 @@
 /// @param nativeExpressAd 渲染成功的模板广告
 - (void)ptg_nativeExpressAdRenderSuccess:(PTGNativeExpressAd *)nativeExpressAd {
     NSLog(@"信息流广告渲染成功，%@",nativeExpressAd);
+    self.renderSuccess = YES;
     self.statusLabel.text = @"广告渲染成功";
 }
 
@@ -105,6 +139,7 @@
 - (void)ptg_nativeExpressAdRenderFail:(PTGNativeExpressAd *)nativeExpressAd error:(NSError *_Nullable)error {
     NSLog(@"ad = %@",nativeExpressAd);
     NSLog(@"信息流广告渲染失败，%@",error);
+    self.renderSuccess = NO;
     [self removeAd];
     self.statusLabel.text = @"广告渲染失败";
 //    [self.tableView reloadData];
@@ -155,7 +190,7 @@
     if (!_manager) { //  457 900000231
         PTGNativeExpressAdType type = self.isNativeExpress ? PTGNativeExpressAdTypeFeed : PTGNativeExpressAdTypeSelfRender;
         CGSize size = CGSizeMake(self.view.bounds.size.width, !self.isNativeExpress ? 80 : 200);
-        NSString *placementId = !self.isNativeExpress ?  @"900002175" : @"900000399";
+        NSString *placementId = !self.isNativeExpress ?  @"900002888" : @"900003437";
         _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:placementId
                                                                      type: type
                                                                    adSize:size];
@@ -173,6 +208,14 @@
         _statusLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _statusLabel;
+}
+
+- (UIView *)maskView {
+    if (!_maskView) {
+        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, UIScreen.mainScreen.bounds.size.width, 500)];
+        _maskView.backgroundColor = UIColor.redColor;
+    }
+    return _maskView;
 }
 
 @end

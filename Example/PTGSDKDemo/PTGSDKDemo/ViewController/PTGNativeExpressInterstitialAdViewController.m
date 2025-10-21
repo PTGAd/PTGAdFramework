@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1];
-    self.textField.text = @"900000398";
+    self.textField.text = @"900003418";
     self.numberTextField.text = @"3";
     [self addChildViewsAndLayout];
 }
@@ -91,14 +91,15 @@
         self.statusLabel.text = @"广告已过期";
     }
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.interstitialAd closureInterstitialAd];
-    });
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.interstitialAd closureInterstitialAd];
+//    });
 }
 
 #pragma mark - PTGNativeExpressInterstitialAdDelegate -
 - (void)ptg_nativeExpresInterstitialAdDidLoad:(PTGNativeExpressInterstitialAd *)interstitialAd {
     NSLog(@"插屏广告加载成功%@",interstitialAd);
+    NSLog(@"插屏广告素材 %@",interstitialAd.adMaterial);
     self.statusLabel.text = @"广告加载成功";
 }
 

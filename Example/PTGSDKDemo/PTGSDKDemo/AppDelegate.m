@@ -11,6 +11,15 @@
 #import <AppTrackingTransparency/AppTrackingTransparency.h>
 #import <AdSupport/AdSupport.h>
 #import "TopOnAdManager.h"
+#import <WebKit/WebKit.h>
+#import <OneAdSDK/OneAdSDK.h>
+#import "WXApi.h"
+#import "WXApiManager.h"
+//#import <DoraemonKit/DoraemonManager.h>
+//#if DEBUG
+//#import "FLEXManager.h"
+//#endif
+
 
 @interface AppDelegate ()<PTGSplashAdDelegate>
 
@@ -23,79 +32,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[TopOnAdManager sharedManager] initTopOnSDK];
-    
-    
-    /// 避免代码中明文出现caid ali_id等字符 审核相关
-//    [PTGSDKManager setAdIds:@{
-//        @"idfa":idfa,
-//        @"one_id":caid,
-//        @"one_id_version": caidVersion,
-//        @"last_id": lastCaid,
-//        @"last_id_version": lastCaidVersion,
-//        @"one_ali_id": ali_aaid
-//    }];
-
+    [WXApi registerApp:@"wxd930ea5d5a258f4f" universalLink:@"https://help.wechat.com/sdksample/"];
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:PTGViewController.new];
     [self.window makeKeyAndVisible];
-    [self initAdSDK];
-    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        if (@available(iOS 14, *)) {
-//            [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
-//                switch (status) {
-//                    case ATTrackingManagerAuthorizationStatusAuthorized:
-//                    {
-//                        NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-//                        dispatch_async(dispatch_get_main_queue(), ^{
-//                            [self initAdSDK];
-//                        });
-//                    }
-//                        break;
-//                    default:
-//                        dispatch_async(dispatch_get_main_queue(), ^{
-//                            [self initAdSDK];
-//                        });
-//                        break;
-//                }
-//            }];
-//        } else {
-//            
-//            [self initAdSDK];
-//        }
-//    });
-
-
+    [PTGSDKManager syncSetAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8"];
+    [self.splashAd loadAd];
     return YES;
 }
 
-- (void)initAdSDK {
-//    NSString *idfa = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-    /// 重要 影响广告填充
-    /// 配置跟踪id
-    /// 重要 影响广告填充
-    /// 避免代码中明文出现caid ali_id等字符 审核相关
-//    [PTGSDKManager setAdIds:@{
-//        @"idfa":idfa,
-//        @"one_id":@"caid",
-//        @"one_id_version": @"caidVersion",
-//        @"last_id": @"lastCaid",
-//        @"last_id_version": @"lastCaidVersion",
-//        @"one_ali_id": @"ali_aaid"
-//    }];
-    
-    /// appKey  Ptg后台创建的媒体⼴告位ID
-    /// appSecret Ptg后台创建的媒体⼴告位密钥
-    //  45227 1r8hOksXStGASHrp com.bmlchina.driver
-    [PTGSDKManager syncSetAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8"];
-    [self.splashAd loadAd];
-}
 #pragma mark - PTGSplashAdDelegate -
 /// 开屏加载成功
 - (void)ptg_splashAdDidLoad:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
-    [splashAd showAdWithViewController:self.window.rootViewController];
+    
+}
+
+- (void)ptg_splashAdMaterialDidLoad:(PTGSplashAd *)splashAd {
+    NSLog(@"开屏广告素材加载成功");
+    [splashAd showAdWithViewController:[UIApplication sharedApplication].windows.firstObject.rootViewController];
 }
 
 /// 开屏加载失败
@@ -113,14 +69,23 @@
     NSLog(@"开屏广告%s",__func__);
 }
 
-/// 开屏广告详情页面关闭的回调
-- (void)ptg_splashAdDidCloseOtherController:(PTGSplashAd *)splashAd {
-    NSLog(@"开屏广告%s",__func__);
-}
  
 ///  开屏广告将要展示
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WXApi handleOpenURL:url delegate:[WXApiManager sharedManager]];
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray<id<UIUserActivityRestoring>> * __nullable restorableObjects))restorationHandler
+{
+    return [WXApi handleOpenUniversalLink:userActivity delegate:[WXApiManager sharedManager]];
 }
 
 #pragma mark - get -
@@ -133,15 +98,11 @@
         logo.center = bottomView.center;
         [bottomView addSubview:logo];
         bottomView.backgroundColor = [UIColor whiteColor];
-//        bottomView.backgroundColor = [UIColor whiteColor];
         
-        _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900000397"];
+        _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900002906"];
         _splashAd.delegate = self;
-        _splashAd.rootViewController = [UIApplication sharedApplication].windows.firstObject.rootViewController;
         _splashAd.bottomView = bottomView;
     }
     return _splashAd;
 }
-
-
 @end

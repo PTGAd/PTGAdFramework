@@ -6,7 +6,7 @@
 //
 
 #import "ATPTGInterstitialAdViewController.h"
-#import <AnyThinkInterstitial/AnyThinkInterstitial.h>
+#import <AnyThinkSDK/AnyThinkSDK.h>
 
 @interface ATPTGInterstitialAdViewController ()<ATInterstitialDelegate>
 

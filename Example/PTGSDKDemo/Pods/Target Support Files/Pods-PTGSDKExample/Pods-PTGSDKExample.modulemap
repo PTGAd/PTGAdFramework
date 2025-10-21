@@ -1,6 +1,0 @@
-module Pods_PTGSDKExample {
-  umbrella header "Pods-PTGSDKExample-umbrella.h"
-
-  export *
-  module * { export * }
-}

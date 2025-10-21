@@ -77,7 +77,7 @@
 - (PTGNativeExpressAdManager *)manager {
     if (!_manager) {
         CGSize size = CGSizeMake(self.view.bounds.size.width, 200);
-        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000397"
+        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900002906"
                                                                      type:PTGNativeExpressAdTypeSelfRenderSplash
                                                                    adSize:size];
         _manager.delegate = self;
@@ -127,6 +127,7 @@
 /// @param ads 广告数组 一般只会有一条广告数据 使用数组预留扩展
 - (void)ptg_nativeExpressAdSuccessToLoad:(PTGNativeExpressAdManager *)manager ads:(NSArray<__kindof PTGNativeExpressAd *> *)ads {
     self.statusLabel.text = @"广告加载成功";
+    NSLog(@"开屏素材 = %@",ads.firstObject.adMaterial);
     self.nativeAd = ads.firstObject;
 }
 

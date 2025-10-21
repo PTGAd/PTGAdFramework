@@ -10,7 +10,6 @@
 @interface PTGSplashViewController ()<PTGSplashAdDelegate>
 
 @property(nonatomic,strong)PTGSplashAd *splashAd;
-@property(nonatomic,strong)UILabel *statusLabel;
 
 @end
 
@@ -18,12 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
-    self.textField.placeholder = @"请输入广告id，默认900000397";
-    self.textField.text = @"900000397";
-    [self.view addSubview:self.statusLabel];
-    
-    self.statusLabel.frame = CGRectMake(0, CGRectGetMinY(self.showButton.frame) - 40, UIScreen.mainScreen.bounds.size.width, 30);
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.textField.placeholder = @"请输入广告id，默认900002906";
+    self.textField.text = @"900002906";
 }
 
 
@@ -32,7 +28,7 @@
         [_splashAd loadAd];
         return;
     }
-    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 80)];
+    UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 120)];
     bottomView.backgroundColor = [UIColor whiteColor];
     UIImageView *logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SplashLogo"]];
     logo.accessibilityIdentifier = @"splash_logo";
@@ -40,12 +36,12 @@
     logo.center = bottomView.center;
     [bottomView addSubview:logo];
     
-    NSString *placementId = self.textField.text.length > 0 ? self.textField.text : @"900000397";
+    NSString *placementId = self.textField.text.length > 0 ? self.textField.text : @"900002906";
     _splashAd = [[PTGSplashAd alloc] initWithPlacementId:placementId];
     _splashAd.delegate = self;
     _splashAd.bottomView = bottomView;
     [_splashAd loadAd];
-    self.statusLabel.text = @"广告加载中";
+    
 }
 
 - (void)showAd:(UIButton *)sender {
@@ -53,8 +49,6 @@
     /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
     if (self.splashAd.isReady) {
         [self.splashAd showAdWithViewController:self];
-    } else {
-        self.statusLabel.text = @"广告已过期";
     }
 }
 
@@ -66,13 +60,23 @@
 /// 开屏加载成功
 - (void)ptg_splashAdDidLoad:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
-    self.statusLabel.text = @"广告加载成功";
+    NSLog(@"开屏素材 = %@,",splashAd.adMaterial);
 }
 
 /// 开屏加载失败
 - (void)ptg_splashAd:(PTGSplashAd *)splashAd didFailWithError:(NSError *)error {
     NSLog(@"开屏广告请求失败%@",error);
-    self.statusLabel.text = @"广告加载失败";
+}
+
+
+/// 开屏素材加载成功
+- (void)ptg_splashAdMaterialDidLoad:(PTGSplashAd *)splashAd {
+    NSLog(@"开屏广告素材加载成功");
+}
+
+/// 开屏素材加载失败
+- (void)ptg_splashAdMaterial:(PTGSplashAd *)splashAd didFailWithError:(NSError * _Nullable)error {
+    NSLog(@"开屏广告素材加载失败%@",error);
 }
 
 /// 开屏广告被点击了
@@ -96,17 +100,6 @@
 
 - (void)ptg_splashAdDetailDidClose:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告详情页关闭%s",__func__);
-}
-
-
-- (UILabel *)statusLabel {
-    if (!_statusLabel) {
-        _statusLabel = [[UILabel alloc] init];
-        _statusLabel.text = @"广告待加载";
-        _statusLabel.textColor = [UIColor blackColor];
-        _statusLabel.textAlignment = NSTextAlignmentCenter;
-    }
-    return _statusLabel;
 }
 
 @end

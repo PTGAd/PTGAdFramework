@@ -8,7 +8,7 @@
 
 #import "TGNativeAdController.h"
 #import <Masonry/Masonry.h>
-#import <AnyThinkNative/AnyThinkNative.h>
+#import <AnyThinkSDK/AnyThinkSDK.h>
 #import "TGToponNativeAdTool.h"
 #import "TGCustomDefine.h"
 

@@ -13,6 +13,7 @@
 @interface AdConfigViewController ()
 
 @property(nonatomic,strong)UIButton *confirmButton;
+@property(nonatomic,strong)UIButton *clearButton;
 @property(nonatomic,strong)UILabel *errorTip;
 @property(nonatomic,strong)UISwitch *on;
 
@@ -33,8 +34,9 @@
     self.lastCaidVersionTextFiled.frame = CGRectMake(x, 400, 300, 30);
     self.aliAaidTextFiled.frame = CGRectMake(x, 450, 300, 30);
     self.confirmButton.frame = CGRectMake(100, 500, 175, 30);
-    self.errorTip.frame = CGRectMake(50, 535, 425, 30);
-    self.on.frame = CGRectMake(50, 575, 30, 50);
+    self.clearButton.frame = CGRectMake(100, 540, 175, 30);
+    self.errorTip.frame = CGRectMake(50, 575, 425, 30);
+    self.on.frame = CGRectMake(50, 615, 30, 50);
 
     
     [self.view addSubview:self.appIdTextFiled];
@@ -46,6 +48,7 @@
     [self.view addSubview:self.lastCaidTextFiled];
     [self.view addSubview:self.lastCaidVersionTextFiled];
     [self.view addSubview:self.confirmButton];
+    [self.view addSubview:self.clearButton];
     [self.view addSubview:self.errorTip];
     [self.view addSubview:self.on];
 }
@@ -81,13 +84,28 @@
     if (self.on.isOn) {
         [PTGSDKManager setAdLogo:[UIImage imageNamed:@"at_offer_logo_us"]];
     }
-
+    NSInteger start = CFAbsoluteTimeGetCurrent() * 1000;
     [PTGSDKManager setAppKey:appid appSecret:appSecret completion:^(BOOL result,NSError *error) {
+        NSInteger end = CFAbsoluteTimeGetCurrent() * 1000;
+        NSLog(@"初始化 耗时 %ld ms",end - start);
         self.errorTip.hidden = result;
         if (result) {
             [self dismissViewControllerAnimated:true completion:nil];
         }
     }];
+   
+//    for (int i = 0; i < 20; i++) {
+//        NSString *label = [NSString stringWithFormat:@"queue_%d",i];
+//        dispatch_queue_t queue = dispatch_queue_create(label.UTF8String, DISPATCH_QUEUE_CONCURRENT);
+//        dispatch_async(queue, ^{
+//           
+//        });
+//    }
+}
+
+- (void)clear:(UIButton *)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"keyAdConfigData"];
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -132,6 +150,17 @@
         [_confirmButton addTarget:self action:@selector(confirm:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _confirmButton;
+}
+
+- (UIButton *)clearButton {
+    if (!_clearButton) {
+        _clearButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _clearButton.backgroundColor = [UIColor lightGrayColor];
+        [_clearButton setTitle:@"清除缓存" forState:UIControlStateNormal];
+        [_clearButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_clearButton addTarget:self action:@selector(clear:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _clearButton;
 }
 
 

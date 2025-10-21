@@ -6,8 +6,8 @@
 //
 
 #import "ATPTGSplashViewController.h"
-#import <AnyThinkSplash/AnyThinkSplash.h>
-#import <AnyThinkInterstitial/AnyThinkInterstitial.h>
+#import <AnyThinkSDK/AnyThinkSDK.h>
+#import <AnyThinkSDK/AnyThinkSDK.h>
 
 #define kSCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define kSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)

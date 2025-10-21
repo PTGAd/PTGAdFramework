@@ -9,11 +9,9 @@
 #import <Masonry/Masonry.h>
 #import <PTGAdSDK/PTGAdSDK.h>
 #import "PTGFeedViewController.h"
-#import "PTGNativeExpressDrawViewController.h"
 #import "PTGNativeExpressBannerViewController.h"
 #import "PTGNativeExpressInterstitialAdViewController.h"
 #import "PTGNativeExpressRewardVideoAdViewController.h"
-#import "PTGNativeViewController.h"
 #import "PTGOpenURLViewController.h"
 #import <CoreLocation/CoreLocation.h>
 #import "AdConfigViewController.h"
@@ -23,11 +21,13 @@
 #import "ATPTGInterstitialAdViewController.h"
 #import "PTGSplashSelfRenderViewController.h"
 #import "TGNativeAdController.h"
+#import "ATPTGRewardVideoAdViewController.h"
+#import "YYCategories/YYCategories.h"
+
 
 @interface PTGViewController ()
 <
 PTGSplashAdDelegate,
-PTGInteractiveAdDelegate,
 PTGNativeExpressFullscreenVideoAdDelegate,
 UITableViewDelegate,
 UITableViewDataSource
@@ -35,7 +35,6 @@ UITableViewDataSource
 
 @property(nonatomic,strong)NSArray<NSString *> *items;
 @property(nonatomic,strong)PTGSplashAd *splashAd;
-@property(nonatomic,strong)PTGInteractiveAd *interactiveAd;
 @property(nonatomic,strong)PTGNativeExpressFullscreenVideoAd *fullscreenVideoAd;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)CLLocationManager *manager;
@@ -61,8 +60,9 @@ UITableViewDataSource
         @"topon信息流",
         @"topon横幅",
         @"topon插屏",
-        @"互动",
-        @"全屏视频"
+        @"topon激励",
+        @"启用摇一摇,默认启用",
+        @"禁用摇一摇",
     ];
     [self addChildViewsAndLayout];
     
@@ -118,42 +118,6 @@ UITableViewDataSource
 ///  开屏广告将要展示
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
-}
-
-#pragma mark - PTGInteractiveAdDelegate -
-///  广告加载成功 广告场景内的广告加载成功
-- (void)ptg_interactiveAdDidLoad:(PTGInteractiveAd *)interactiveAd {
-    NSLog(@"互动广告加载成功%s",__func__);
-}
-
-/// 广告加载失败 广告场景内的广告加载失败
-- (void)ptg_interactiveAd:(PTGInteractiveAd *)interactiveAd didLoadFailWithError:(NSError *_Nullable)error {
-    NSLog(@"互动广告加载失败%@",error);
-}
-
-/// 广告将要曝光 广告场景内的广告将要展示
-- (void)ptg_interactiveAdWillBecomVisible:(PTGInteractiveAd *)interactiveAd {
-    NSLog(@"互动广告展示%s",__func__);
-}
-
-/// 广告被点击  广告场景内的广告被点击
-- (void)ptg_interactiveAdDidClick:(PTGInteractiveAd *)interactiveAd {
-    NSLog(@"互动广告被点击%s",__func__);
-}
-
-/// 广告被关闭 广告场景内的广告被关闭
-- (void)ptg_interactiveAdClosed:(PTGInteractiveAd *)interactiveAd {
-    NSLog(@"互动广告被关闭%s",__func__);
-}
-
-/// 广告详情页给关闭 广告场景内的广告详情页被关闭
-- (void)ptg_interactiveAdViewDidCloseOtherController:(PTGInteractiveAd *)interactiveAd {
-    NSLog(@"互动广告详情页被关闭%s",__func__);
-}
-
-///  互动广告页面关闭 广告场景被关闭
-- (void)ptg_interactiveAdClosedAdPage:(PTGInteractiveAd *)interactiveAd  {
-    NSLog(@"互动广告场景被关闭%s",__func__);
 }
 
 #pragma mark - PTGNativeExpressFullscreenVideoAdDelegate -
@@ -239,16 +203,15 @@ UITableViewDataSource
     } else if (indexPath.row == 9) {
         ATPTGInterstitialAdViewController *vc = [[ATPTGInterstitialAdViewController alloc] init];
         viewController = vc;
-    } else if (indexPath.row == 10){
-        // 互动广告打开广告场景
-        [self.interactiveAd openAdPage];
-    } else {
-        [self.fullscreenVideoAd loadAd];
+    } else if (indexPath.row == 10) {
+        ATPTGRewardVideoAdViewController *vc = [[ATPTGRewardVideoAdViewController alloc] init];
+        viewController = vc;
+    } else if (indexPath.row == 11) {
+        [PTGSDKManager setSensorStatus:YES];
+    } else if (indexPath.row == 12) {
+        [PTGSDKManager setSensorStatus:NO];
     }
-//    else {
-//        [self.nativeExpressSplashView loadAdData];
-//        viewController = [[PTGOpenURLViewController alloc] init];
-//    }
+ 
     viewController ? [self.navigationController pushViewController:viewController animated:YES] : nil;
 }
 
@@ -268,15 +231,6 @@ UITableViewDataSource
         _splashAd.bottomView = bottomView;
     }
     return _splashAd;
-}
-
-- (PTGInteractiveAd *)interactiveAd {
-    if (!_interactiveAd) {
-        _interactiveAd = [[PTGInteractiveAd alloc] initWithPlacementId:@"900000405"];
-        _interactiveAd.delegate = self;
-        _interactiveAd.viewController = self;
-    }
-    return _interactiveAd;
 }
 
 - (PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd  {

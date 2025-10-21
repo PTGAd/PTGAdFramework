@@ -102,7 +102,7 @@ typedef NS_ENUM(NSInteger, ATNetworkNativeRenderType) {
     [extraDic TGAd_setDictValue:offer.nativeAd.source key:@"source"];
     [extraDic TGAd_setDictValue:offer.nativeAd.rating key:@"rating"];
     [extraDic TGAd_setDictValue:@(offer.nativeAd.commentNum) key:@"commentNum"];
-    [extraDic TGAd_setDictValue:@(offer.nativeAd.appSize) key:@"appSize"];
+    [extraDic TGAd_setDictValue:offer.nativeAd.appSize key:@"appSize"];
     [extraDic TGAd_setDictValue:offer.nativeAd.appPrice key:@"appPrice"];
     [extraDic TGAd_setDictValue:@(offer.nativeAd.isExpressAd) key:@"isExpressAd"];
     [extraDic TGAd_setDictValue:@(offer.nativeAd.isVideoContents) key:@"isVideoContents"];

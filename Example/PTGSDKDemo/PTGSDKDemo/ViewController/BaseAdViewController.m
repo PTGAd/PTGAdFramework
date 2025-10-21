@@ -6,6 +6,7 @@
 //
 
 #import "BaseAdViewController.h"
+#import <Masonry/Masonry.h>
 
 @interface BaseAdViewController ()
 
@@ -16,14 +17,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGFloat w = UIScreen.mainScreen.bounds.size.width;
-    CGFloat h = UIScreen.mainScreen.bounds.size.height;
-    self.textField.frame = CGRectMake(50, 100, 275, 30);
-    self.loadButton.frame = CGRectMake((w - 150) / 2.0, h - 80, 150, 40);
-    self.showButton.frame = CGRectMake((w - 150) / 2.0, h - 130, 150, 40);
+    self.view.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.textField];
     [self.view addSubview:self.loadButton];
     [self.view addSubview:self.showButton];
+    
+    
+    [self.textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.view).offset(100);
+        make.width.equalTo(@275);
+    }];
+    
+    [self.loadButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.view.mas_bottom).offset(-80);
+        make.width.equalTo(@150);
+    }];
+    
+    [self.showButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.view.mas_bottom).offset(-150);
+        make.width.equalTo(@150);
+    }];
+    
 }
 
 - (UITextField *)textField {

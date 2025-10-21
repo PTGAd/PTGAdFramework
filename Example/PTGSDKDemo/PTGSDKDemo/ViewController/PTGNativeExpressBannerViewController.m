@@ -32,32 +32,32 @@
     [self.view addSubview:self.lossButton];
     [self.view addSubview:self.statusLabel];
   
-    [self.loadButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.loadButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(100, 40));
         make.left.equalTo(self.winButton);
         make.bottom.equalTo(self.view).offset(-40);
     }];
     
-    [self.showButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.showButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(100, 40));
         make.right.equalTo(self.lossButton);
         make.bottom.equalTo(self.view).offset(-40);
     }];
     
     
-    [self.winButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.winButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(150, 40));
         make.right.equalTo(self.view.mas_centerX).offset(-10);
         make.bottom.equalTo(self.view).offset(-100);
     }];
     
-    [self.lossButton mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.lossButton mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(150, 40));
         make.left.equalTo(self.view.mas_centerX).offset(10);
         make.bottom.equalTo(self.view).offset(-100);
     }];
     
-    [self.statusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.statusLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.left.equalTo(self.view);
         make.bottom.equalTo(self.winButton.mas_top).offset(-10);
     }];
@@ -102,6 +102,7 @@
 ///  在此方法中调用 showAdFromView:frame 方法
 - (void)ptg_nativeExpressBannerAdDidLoad:(PTGNativeExpressBannerAd *)bannerAd {
     NSLog(@"横幅广告加载成功%@,",bannerAd);
+    NSLog(@"横幅广告素材 = %@",bannerAd.adMaterial);
     self.statusLabel.text = @"广告加载成功";
 }
 
@@ -139,7 +140,7 @@
 #pragma mark - get -
 - (PTGNativeExpressBannerAd *)bannerAd {
     if (!_bannerAd) {
-        _bannerAd = [[PTGNativeExpressBannerAd alloc] initWithPlacementId:@"900000396" size:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width * 90 / 600.0)];
+        _bannerAd = [[PTGNativeExpressBannerAd alloc] initWithPlacementId:@"900003438" size:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width * 90 / 600.0)];
         _bannerAd.delegate = self;
         _bannerAd.rootViewController = self;
     }

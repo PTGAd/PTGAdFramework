@@ -21,10 +21,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PTGFeedRenderCell : UITableViewCell
 
 - (void)renderAd:(PTGNativeExpressAd *)ad;
+@property(nonatomic,strong,readonly)PTGNativeExpressAd *ad;
 
 @property(nonatomic,weak) id<PTGFeedRenderCellDelegate> delegate;
 
-@property(nonatomic,strong,readonly)UIView *adView;
+- (void)playVideo;
+- (void)pauseVideo;
+
 
 @end
 

@@ -1,0 +1,6 @@
+framework module AnyThinkPTGAdSDKAdapter {
+  umbrella header "AnyThinkPTGAdSDKAdapter.h"
+  export *
+
+  module * { export * }
+}

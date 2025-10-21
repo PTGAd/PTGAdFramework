@@ -2,27 +2,37 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '11.0'
 
-target 'PTGSDKExample' do
-  pod 'PTGAdFramework', '2.2.84'
-  pod 'UBiXMerakSDK','2.5.0.0002'  # ubix 消耗方支持
-#  pod 'PTGOneAdSDK','1.0.9'        # 优酷 消耗方支持
-  # 支持topon 需要导入
-  pod 'AnyThinkPTGAdSDKAdapter', '1.1.7'
-  pod 'AnyThinkiOS','6.4.87'
-  
-  # 美约SDK依赖的三方库
-  pod 'SDWebImage'
+
+def share_pods
+  pod 'Masonry'
   pod 'WechatOpenSDK'
   pod 'CocoaAsyncSocket'
-  
-  pod 'Masonry'
-  pod 'CocoaDebug'
+  pod 'SDWebImage'
+  pod 'UBiXMerakSDK','2.5.0.0002'
+  pod 'PTGOneAdSDK'
   pod 'YYCategories'
+  pod 'MJRefresh'
+  pod 'CocoaDebug','~> 1.7.7'
   
-  #
-  #  pod 'Ads-CN-Beta', '4.8.0.3'                  # 需要使用穿山甲广告能力的添加此项
-  #  pod 'GDTMobSDK', '4.14.10'            # 需要使用广点通广告能力的添加此项
-  #  pod 'KSAdSDK', '3.3.13'               # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
-  #  pod 'PTGJAdSDK','1.2.0'                # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持 #
+end
+
+target 'PTGSDKDemo' do
+  post_install do |installer|
+        installer.generated_projects.each do |project|
+          project.targets.each do |target|
+              target.build_configurations.each do |config|
+                  config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
+               end
+          end
+        end
+      end
+
+  share_pods
+  
+  pod 'AnyThinkiOS','~> 6.4.87'
+
+  target 'PTGSDKDemoTests' do
+    inherit! :search_paths
+  end
   
 end
