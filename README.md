@@ -11,14 +11,10 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.2.84'
+pod 'PTGAdFramework', '2.2.90'
 pod 'UBiXMerakSDK','2.5.0.0002'               # ubix  消耗方
 pod 'PTGOneAdSDK','1.0.9'                     # 优酷   消耗方
 
-pod 'KSAdSDK', '3.3.13'                       # 需要使用快手广告能力的添加此项    PTGAdFramework SDK 1.5.3版本支持
-pod 'PTGJAdSDK','1.2.0'                       # 需要使用京东广告能力的添加此项    PTGAdFramework SDK 1.5.4版本支持
-pod 'Ads-CN-Beta', '4.8.0.3'                  # 需要使用穿山甲广告能力的添加此项
-pod 'GDTMobSDK', '4.14.10'                    # 需要使用广点通广告能力的添加此项
 ```
 
 ## Topon支持
@@ -26,7 +22,7 @@ SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，
 AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码
 ```shell
 pod 'AnyThinkPTGAdSDKAdapter','1.1.9'
-pod 'PTGAdFramework', '~> '2.2.83'
+pod 'PTGAdFramework', '2.2.84'
 
 # topon 适配器
 插屏  ATPTGInterstitialAdapter
@@ -337,7 +333,7 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
 
 ### 信息流广告加载
 
-信息流广告有两种类型 draw信息流及普通信息流，draw信息流与普通信息流的广告id不能混用，必须在后台创建对应的广告id，信息流广告通过PTGNativeExpressAdManager对象来加载信息流广告。以下示例演示了如何在 UIViewController 的 viewDidLoad 方法中创建 并请求信息流广告。
+信息流广告通过PTGNativeExpressAdManager对象来加载信息流广告。以下示例演示了如何在 UIViewController 的 viewDidLoad 方法中创建 并请求信息流广告。
 
 普通信息流：
 
@@ -371,34 +367,42 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
 }
 ```
 
-draw信息流：
 
+在2.2.90中,信息流广告对象接口调整，nativeExpressAdView为广告返回的模板视图，渲染成功后，需要将nativeExpressAdView添加到广告容器视图中。
+adObject为自渲染广告对象，自渲染时使用。
+具体接入参考的demo中ViewController/Native文件夹中的示例
 ```objective-c
-#import <PTGAdSDK/PTGAdSDK.h>
+/// 信息流广告对象
+@interface PTGNativeExpressAd : NSObject
 
-@interface PTGNativeExpressDrawViewController ()<PTGNativeExpressAdDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+// 自渲染广告对象，自渲染时使用
+@property(nonatomic,strong) PTGNativeAdObject *adObject;
+// 模板视图 模板广告时使用
+@property(nonatomic,strong,readonly) UIView *nativeExpressAdView;
+/// 是否是模板广告 false 为自渲染
+@property(nonatomic,assign)BOOL isNativeExpress;
+/// 广告是否有效（展示前请务必判断）
+/// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+@property(nonatomic,assign,readonly)BOOL isReady;
+/// 是否是视频广告 只对自渲染视频有效
+@property(nonatomic, assign, readonly)BOOL isVideoAd;
+/// 详解：[必选]开发者需传入用来弹出目标页的ViewController，一般为当前ViewController
+@property(nonatomic, weak)UIViewController *controller;
+/// 价格 单位分
+@property(nonatomic,assign)NSInteger price;
+/// 消耗方类型
+@property(nonatomic,assign)PTGAdSourceType sourceType;
+/// [必选]原生模板广告渲染
+- (void)render;
+/// 移除注册视图
+- (void)darwUnregisterView;
 
-@property(nonatomic,strong)PTGNativeExpressAdManager *manager;
-@property(nonatomic,strong)UIButton *loadButton;
-@property(nonatomic,strong)UICollectionView *collectionView;
-@property(nonatomic,strong)NSArray<PTGNativeExpressAd *> *ads;
+/// 广告素材 可能为空  自渲染时请使用PTGNativeAdObject
+@property(nullable,nonatomic,strong)PTGAdMaterial *adMaterial;
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
-    [self.manager loadAd];
-}
-
-- (PTGNativeExpressAdManager *)manager {
-    if (!_manager) {
-      /// draw 信息流 adSize传入屏幕的size
-        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000233" type:PTGNativeExpressAdTypeDraw adSize:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.height)];
-        _manager.delegate = self;
-    }
-    return _manager;
-}
 @end
 ```
+
 
 ### 信息流广告事件
 
