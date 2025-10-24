@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PTGAdFramework.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>PTGOneAdSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
