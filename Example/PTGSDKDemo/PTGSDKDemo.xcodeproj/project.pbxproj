@@ -80,8 +80,6 @@
 		9E9C50A02E45EA4F001A93CA /* PTGFeedPeriodicRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9C509F2E45EA4F001A93CA /* PTGFeedPeriodicRequestViewController.m */; };
 		9EA6881A2D77D8600029DDF7 /* PTGSplashSelfRenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA688192D77D8600029DDF7 /* PTGSplashSelfRenderViewController.m */; };
 		9EA6881D2D77E0420029DDF7 /* PTGSplashSelfRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6881C2D77E0420029DDF7 /* PTGSplashSelfRenderView.m */; };
-		9EABE9262EAB2A8D008A680E /* PTGAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9EABE9232EAB2A8D008A680E /* PTGAdSDK.bundle */; };
-		9EABE9272EAB2A8D008A680E /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EABE9242EAB2A8D008A680E /* PTGAdSDK.framework */; };
 		9EB406932E25FC940018593C /* PTGVideoControlDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB406922E25FC940018593C /* PTGVideoControlDemoViewController.m */; };
 		9EC203812D6EF6AC0086F431 /* ATPTGInterstitialAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC203802D6EF6AC0086F431 /* ATPTGInterstitialAdViewController.m */; };
 		9EC32F002CE388DE00FC73DA /* ATPTGBannerExpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC32EFF2CE388DE00FC73DA /* ATPTGBannerExpressViewController.m */; };
@@ -240,8 +238,6 @@
 		9EA688192D77D8600029DDF7 /* PTGSplashSelfRenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGSplashSelfRenderViewController.m; sourceTree = "<group>"; };
 		9EA6881B2D77E0420029DDF7 /* PTGSplashSelfRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGSplashSelfRenderView.h; sourceTree = "<group>"; };
 		9EA6881C2D77E0420029DDF7 /* PTGSplashSelfRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGSplashSelfRenderView.m; sourceTree = "<group>"; };
-		9EABE9232EAB2A8D008A680E /* PTGAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PTGAdSDK.bundle; sourceTree = "<group>"; };
-		9EABE9242EAB2A8D008A680E /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = "<group>"; };
 		9EB406912E25FC940018593C /* PTGVideoControlDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTGVideoControlDemoViewController.h; sourceTree = "<group>"; };
 		9EB406922E25FC940018593C /* PTGVideoControlDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTGVideoControlDemoViewController.m; sourceTree = "<group>"; };
 		9EC2037F2D6EF6AC0086F431 /* ATPTGInterstitialAdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGInterstitialAdViewController.h; sourceTree = "<group>"; };
@@ -310,7 +306,6 @@
 				9E2F0FD728D5B7E2001EB840 /* CoreMotion.framework in Frameworks */,
 				9E2F0FF928D5B943001EB840 /* CoreMedia.framework in Frameworks */,
 				9E2F0FEB28D5B8CD001EB840 /* Security.framework in Frameworks */,
-				9EABE9272EAB2A8D008A680E /* PTGAdSDK.framework in Frameworks */,
 				9E2F0FD928D5B7F2001EB840 /* DeviceCheck.framework in Frameworks */,
 				9E2F101128D5B9C0001EB840 /* UIKit.framework in Frameworks */,
 				9E2F100328D5B971001EB840 /* MapKit.framework in Frameworks */,
@@ -435,7 +430,6 @@
 		84C24F9025CD40BB00398052 /* PTGSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
-				9EABE9252EAB2A8D008A680E /* Frameworks */,
 				9ED9FFC22DA4C18100413BEA /* PTGSDKDemo.entitlements */,
 				9E76B1462CD8CBC30005DA9A /* TopOn */,
 				84282B9925DE335D00D8F7A3 /* PTGSDKDemo-Bridging-Header.h */,
@@ -565,15 +559,6 @@
 				9EC203802D6EF6AC0086F431 /* ATPTGInterstitialAdViewController.m */,
 			);
 			path = Interstitial;
-			sourceTree = "<group>";
-		};
-		9EABE9252EAB2A8D008A680E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9EABE9232EAB2A8D008A680E /* PTGAdSDK.bundle */,
-				9EABE9242EAB2A8D008A680E /* PTGAdSDK.framework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		9ED9449E2DDAFB41000A012A /* Native */ = {
@@ -731,7 +716,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C24FA125CD40BE00398052 /* LaunchScreen.storyboard in Resources */,
-				9EABE9262EAB2A8D008A680E /* PTGAdSDK.bundle in Resources */,
 				84C24F9E25CD40BE00398052 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

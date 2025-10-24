@@ -4,7 +4,7 @@ platform :ios, '11.0'
 
 
 def share_pods
-#  pod 'PTGAdFramework', '2.2.90'
+  pod 'PTGAdFramework', '2.2.91'
   pod 'Masonry'
   pod 'WechatOpenSDK'
   pod 'CocoaAsyncSocket'
@@ -13,7 +13,7 @@ def share_pods
   pod 'PTGOneAdSDK'
   pod 'YYCategories'
   pod 'MJRefresh'
-  pod 'CocoaDebug','~> 1.7.7'
+  pod 'CocoaDebug'
   pod 'AnyThinkiOS','~> 6.4.87'
   
 end

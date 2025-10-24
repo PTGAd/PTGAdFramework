@@ -7,6 +7,7 @@
 
 #import "PTGFeedDelayDisplayViewController.h"
 #import "PTGFeedRenderCell.h"
+#import <Masonry/Masonry.h>
 
 @interface PTGFeedDelayDisplayViewController ()<PTGNativeExpressAdDelegate,PTGFeedRenderCellDelegate>
 
@@ -16,6 +17,8 @@
 @property(nonatomic,strong)UILabel *statusLabel;
 @property(nonatomic,strong)UIView *maskView;
 @property(nonatomic,assign)BOOL renderSuccess;
+@property(nonatomic,strong)UIButton *playButton;
+@property(nonatomic,strong)UIButton *pauseButton;
 
 @end
 
@@ -23,13 +26,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.playButton];
+    [self.view addSubview:self.pauseButton];
     self.textField.hidden = true;
     self.statusLabel.frame = CGRectMake(0, CGRectGetMinY(self.showButton.frame) - 40, UIScreen.mainScreen.bounds.size.width, 30);
     [self.view addSubview:self.statusLabel];
     
-    [self.navigationController.view addSubview:self.maskView];
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-    [self.maskView addGestureRecognizer:pan];
+//    [self.navigationController.view addSubview:self.maskView];
+//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+//    [self.maskView addGestureRecognizer:pan];
+    
+    [self.pauseButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.centerX.equalTo(self.showButton);
+        make.bottom.equalTo(self.showButton.mas_top).offset(-10);
+    }];
+    
+    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.centerX.equalTo(self.showButton);
+        make.bottom.equalTo(self.pauseButton.mas_top).offset(-10);
+    }];
+
 }
 
 - (void)dealloc {
@@ -88,6 +105,14 @@
     }
 }
 
+- (void)play {
+    [self.nativeAd.adObject.relatedView playVideo];
+}
+
+- (void)pause {
+    [self.nativeAd.adObject.relatedView pauseVideo];
+}
+
 - (void)removeAd {
     self.statusLabel.text = @"广告待加载";
     [self.nativeAdView removeFromSuperview];
@@ -111,6 +136,8 @@
     NSLog(@"信息流广告获取成功，%@",ads);
     self.renderSuccess = NO;
     self.statusLabel.text = @"广告加载成功";
+    self.playButton.hidden = ads.firstObject.isNativeExpress;
+    self.pauseButton.hidden = ads.firstObject.isNativeExpress;
     self.nativeAd = ads.firstObject;
     [self.nativeAd render];
     [self.nativeAd setController:self];
@@ -217,5 +244,28 @@
     }
     return _maskView;
 }
+
+- (UIButton *)playButton {
+    if (!_playButton) {
+        _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _playButton.backgroundColor = [UIColor lightGrayColor];
+        [_playButton setTitle:@"播放" forState:UIControlStateNormal];
+        [_playButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_playButton addTarget:self action:@selector(play) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _playButton;
+}
+
+- (UIButton *)pauseButton {
+    if (!_pauseButton) {
+        _pauseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _pauseButton.backgroundColor = [UIColor lightGrayColor];
+        [_pauseButton setTitle:@"暂停" forState:UIControlStateNormal];
+        [_pauseButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_pauseButton addTarget:self action:@selector(pause) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _pauseButton;
+}
+
 
 @end
