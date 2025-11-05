@@ -250,9 +250,9 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
     /// 获取sdk version
     NSString *version = [PTGSDKManager getSDKVersion];
     
-    /// appKey  Ptg后台创建的媒体⼴告位ID
-    /// appSecret Ptg后台创建的媒体⼴告位密钥
-    [PTGSDKManager setAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp"
+    /// appKey  Ptg后台创建的媒体ID
+    /// appSecret Ptg后台创建的媒体密钥
+    [PTGSDKManager setAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8"
     completion:^(BOOL result,NSError *error) {
         if (result) {
             [self.splashAd loadAd];
