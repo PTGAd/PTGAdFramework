@@ -67,6 +67,8 @@
 		9E76B08B2CCFBA710005DA9A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E2F0FEA28D5B8CD001EB840 /* Security.framework */; };
 		9E76B1452CD8CB8F0005DA9A /* TopOnAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E76B1442CD8CB8F0005DA9A /* TopOnAdManager.m */; };
 		9E76B14F2CD8CC560005DA9A /* ATPTGSplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E76B14E2CD8CC560005DA9A /* ATPTGSplashViewController.m */; };
+		9E7851D22ECB04E200B1D15D /* PTGAdSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E7851D02ECB04E200B1D15D /* PTGAdSDK.framework */; };
+		9E7851D32ECB04E200B1D15D /* PTGAdSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9E7851CF2ECB04E200B1D15D /* PTGAdSDK.bundle */; };
 		9E7EF2922DDC29910068D0DE /* TGOrientationTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF28D2DDC29910068D0DE /* TGOrientationTool.m */; };
 		9E7EF2932DDC29910068D0DE /* UIColor+TGCustomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF27F2DDC29910068D0DE /* UIColor+TGCustomColor.m */; };
 		9E7EF2942DDC29910068D0DE /* TGToponSelfRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E7EF2912DDC29910068D0DE /* TGToponSelfRenderView.m */; };
@@ -211,6 +213,8 @@
 		9E76B1442CD8CB8F0005DA9A /* TopOnAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TopOnAdManager.m; sourceTree = "<group>"; };
 		9E76B14D2CD8CC560005DA9A /* ATPTGSplashViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATPTGSplashViewController.h; sourceTree = "<group>"; };
 		9E76B14E2CD8CC560005DA9A /* ATPTGSplashViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ATPTGSplashViewController.m; sourceTree = "<group>"; };
+		9E7851CF2ECB04E200B1D15D /* PTGAdSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PTGAdSDK.bundle; sourceTree = "<group>"; };
+		9E7851D02ECB04E200B1D15D /* PTGAdSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PTGAdSDK.framework; sourceTree = "<group>"; };
 		9E7EF27C2DDC29910068D0DE /* NSString+TGCustomString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TGCustomString.h"; sourceTree = "<group>"; };
 		9E7EF27D2DDC29910068D0DE /* NSString+TGCustomString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+TGCustomString.m"; sourceTree = "<group>"; };
 		9E7EF27E2DDC29910068D0DE /* UIColor+TGCustomColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+TGCustomColor.h"; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				9E2F0FD728D5B7E2001EB840 /* CoreMotion.framework in Frameworks */,
 				9E2F0FF928D5B943001EB840 /* CoreMedia.framework in Frameworks */,
 				9E2F0FEB28D5B8CD001EB840 /* Security.framework in Frameworks */,
+				9E7851D22ECB04E200B1D15D /* PTGAdSDK.framework in Frameworks */,
 				9E2F0FD928D5B7F2001EB840 /* DeviceCheck.framework in Frameworks */,
 				9E2F101128D5B9C0001EB840 /* UIKit.framework in Frameworks */,
 				9E2F100328D5B971001EB840 /* MapKit.framework in Frameworks */,
@@ -430,6 +435,7 @@
 		84C24F9025CD40BB00398052 /* PTGSDKDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9E7851D12ECB04E200B1D15D /* Frameworks */,
 				9ED9FFC22DA4C18100413BEA /* PTGSDKDemo.entitlements */,
 				9E76B1462CD8CBC30005DA9A /* TopOn */,
 				84282B9925DE335D00D8F7A3 /* PTGSDKDemo-Bridging-Header.h */,
@@ -496,6 +502,15 @@
 				9E76B1442CD8CB8F0005DA9A /* TopOnAdManager.m */,
 			);
 			path = TopOn;
+			sourceTree = "<group>";
+		};
+		9E7851D12ECB04E200B1D15D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E7851CF2ECB04E200B1D15D /* PTGAdSDK.bundle */,
+				9E7851D02ECB04E200B1D15D /* PTGAdSDK.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 		9E7EF2842DDC29910068D0DE /* Category */ = {
@@ -616,7 +631,6 @@
 				84C24F8A25CD40BB00398052 /* Sources */,
 				84C24F8B25CD40BB00398052 /* Frameworks */,
 				84C24F8C25CD40BB00398052 /* Resources */,
-				BAD6770864BAD2A5B40D25BE /* [CP] Copy Pods Resources */,
 				9E5F232B2D9D042C008C030B /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -716,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C24FA125CD40BE00398052 /* LaunchScreen.storyboard in Resources */,
+				9E7851D32ECB04E200B1D15D /* PTGAdSDK.bundle in Resources */,
 				84C24F9E25CD40BE00398052 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,23 +794,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BAD6770864BAD2A5B40D25BE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PTGSDKDemo/Pods-PTGSDKDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
