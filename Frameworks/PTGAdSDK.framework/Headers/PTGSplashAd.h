@@ -96,6 +96,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 展示广告
 - (void)showAdWithViewController:(UIViewController *)viewController;
 
+/// 销毁广告
+- (void)destory;
+
 /// 通知广告平台的广告竞胜
 ///  @param costPrice 竞胜价格
 ///  @param secondPrice 二价
