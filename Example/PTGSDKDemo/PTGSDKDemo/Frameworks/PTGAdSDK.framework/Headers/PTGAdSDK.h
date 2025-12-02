@@ -14,7 +14,6 @@
 #import "PTGNativeExpressInterstitialAd.h"
 #import "PTGNativeExpressAdManager.h"
 #import "PTGNativeExpressAd.h"
-#import "PTGNativeExpressFullscreenVideoAd.h"
 #import "PTGSourceAdType.h"
 #import "PTGBidReason.h"
 #import "PTGNativeAdData.h"

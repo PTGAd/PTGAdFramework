@@ -28,14 +28,12 @@
 @interface PTGViewController ()
 <
 PTGSplashAdDelegate,
-PTGNativeExpressFullscreenVideoAdDelegate,
 UITableViewDelegate,
 UITableViewDataSource
 >
 
 @property(nonatomic,strong)NSArray<NSString *> *items;
 @property(nonatomic,strong)PTGSplashAd *splashAd;
-@property(nonatomic,strong)PTGNativeExpressFullscreenVideoAd *fullscreenVideoAd;
 @property(nonatomic,strong)UITableView *tableView;
 @property(nonatomic,strong)CLLocationManager *manager;
 //@property(nonatomic,strong)BUNativeExpressSplashView *nativeExpressSplashView;
@@ -120,50 +118,6 @@ UITableViewDataSource
     NSLog(@"开屏广告%s",__func__);
 }
 
-#pragma mark - PTGNativeExpressFullscreenVideoAdDelegate -
-/// 广告加载成功
-/// @param fullscreenVideoAd 广告实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidLoad:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    [fullscreenVideoAd showAdFromRootViewController:self];
-    NSLog(@"全屏视频广告加载成功");
-}
-
-/// 广告加载实例
-/// @param fullscreenVideoAd 广告实例
-/// @param error 错误
-- (void)ptg_nativeExpressFullscreenVideoAd:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error {
-    NSLog(@"全屏视频广告加载失败,%@",error);
-}
-
-/// 全屏视频广告已经展示
-/// @param fullscreenVideoAd 实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidVisible:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    NSLog(@"全屏视频广告展示");
-}
-
-/// 全屏视频广告点击
-/// @param fullscreenVideoAd 实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidClick:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    NSLog(@"全屏视频广告点击");
-}
-
-///全屏视频广告关闭
-/// @param fullscreenVideoAd 实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidClose:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    NSLog(@"全屏视频广告关闭");
-}
-
-/// 全屏视频广告详情页关闭
-/// @param fullscreenVideoAd 实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidCloseOtherController:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    NSLog(@"全屏视频广告详情页关闭");
-}
-
-///  全屏视频广告播放失败
-- (void)ptg_nativeExpressFullscreenVideoAdDidPlayFinish:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error {
-    NSLog(@"全屏视频广告播放失败");
-}
-
 #pragma mark - UITableViewDelegate,UITableViewDataSourc -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.items.count;;
@@ -231,14 +185,6 @@ UITableViewDataSource
         _splashAd.bottomView = bottomView;
     }
     return _splashAd;
-}
-
-- (PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd  {
-    if (!_fullscreenVideoAd) {
-        _fullscreenVideoAd = [[PTGNativeExpressFullscreenVideoAd alloc] initWithPlacementId:@"900000402"];
-        _fullscreenVideoAd.delegate = self;
-    }
-    return _fullscreenVideoAd;
 }
 
 
