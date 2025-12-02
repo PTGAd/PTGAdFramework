@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AnyThinkPTGAdSDKAdapter.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>AnyThinkiOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,7 +34,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>PTGOneAdSDK.xcscheme</key>
+		<key>PTGAdFramework.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -50,16 +55,6 @@
 			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>UBiXDaq.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>UBiXMerakSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
