@@ -768,88 +768,13 @@ banner广告加载示例：
 ```
 
 
-## 全屏视频广告
-
-全屏视频广告提供了全屏播放的视频广告，在播放广告中 ，用户可以选择退出广告。
-
-### 全屏视频广告加载
+## 其他
+SDK 支持媒体决定是否启用摇一摇广告，默认启用
 
 ```objective-c
-#import "PTGViewController.h"
-#import <PTGAdSDK/PTGAdSDK.h>
-
-@interface PTGViewController ()<PTGNativeExpressFullscreenVideoAdDelegate>
-
-@property(nonatomic,strong)PTGNativeExpressFullscreenVideoAd *fullscreenVideoAd;
-
-@end
-  
-@implementation PTGViewController
-  
-- (void)viewDidLoad {
-    [super viewDidLoad];
-        [self.fullscreenVideoAd loadAd];
-}
-  
-- (PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd  {
-    if (!_fullscreenVideoAd) {
-        _fullscreenVideoAd = [[PTGNativeExpressFullscreenVideoAd alloc] initWithPlacementId:@"900000338"];
-        _fullscreenVideoAd.delegate = self;
-    }
-    return _fullscreenVideoAd;
-}
-@end
-```
-
-### 全屏视频广告事件
-
-设置全屏视频广告的delegate，delegate对象遵守并实现PTGNativeExpressFullscreenVideoAdDelegate，可以监听全屏视频广告的事件。
-
-```objective-c
-#pragma mark - PTGNativeExpressFullscreenVideoAdDelegate -
-/// 广告加载成功
-/// @param fullscreenVideoAd 广告实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidLoad:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    [fullscreenVideoAd showAdFromRootViewController:self];
-}
-
-/// 广告加载实例
-/// @param fullscreenVideoAd 广告实例
-/// @param error 错误
-- (void)ptg_nativeExpressFullscreenVideoAd:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error {
-    
-}
-
-/// 全屏视频广告已经展示
-/// @param fullscreenVideoAd 实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidVisible:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    
-}
-
-/// 全屏视频广告点击
-/// @param fullscreenVideoAd 实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidClick:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    
-}
-
-///全屏视频广告关闭
-/// @param fullscreenVideoAd 实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidClose:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    
-}
-
-/// 全屏视频广告详情页关闭
-/// @param fullscreenVideoAd 实例对象
-- (void)ptg_nativeExpressFullscreenVideoAdDidCloseOtherController:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd {
-    
-}
-
-///  全屏视频广告播放失败
-- (void)ptg_nativeExpressFullscreenVideoAdDidPlayFinish:(PTGNativeExpressFullscreenVideoAd *)fullscreenVideoAd didFailWithError:(NSError *_Nullable)error {
-    
-}
+    /// YES 为启用，默认启用，NO不启用摇一摇广告形式
+    [PTGSDKManager setSensorStatus:YES];
 
 ```
-
 
 
