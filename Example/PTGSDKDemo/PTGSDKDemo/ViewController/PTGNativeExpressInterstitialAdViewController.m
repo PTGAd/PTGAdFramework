@@ -74,7 +74,6 @@
     }
     NSString *placementId = self.textField.text.length == 0 ? @"900000398" : self.textField.text;
     self.interstitialAd = [[PTGNativeExpressInterstitialAd alloc] initWithPlacementId:placementId];
-    self.interstitialAd.adSize = CGSizeMake(200, 300);
     self.interstitialAd.delegate = self;
 //    self.interstitialAd.closeAfterClick = YES;
     [self.interstitialAd loadAd];
