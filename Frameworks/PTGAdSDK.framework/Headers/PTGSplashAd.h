@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 开屏广告详情页关闭 落地页关闭
 - (void)ptg_splashAdDetailDidClose:(PTGSplashAd *)splashAd;
  
+/// 开屏广告详情页展示
+- (void)ptg_splashAdDetailShow:(PTGSplashAd *)splashAd;
+
 ///  开屏广告将要展示
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd;
 
@@ -79,6 +82,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 广告ecpm 单位分
 @property(nonatomic,assign,readonly)NSInteger ecpm;
+
+/// 广告底价，单位分，不会返回低于此底价的广告，底价过高可能会没有广告，兜底返回错误提示：广告价格低于底价！
+@property(nonatomic,assign)NSInteger basePrice;
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;

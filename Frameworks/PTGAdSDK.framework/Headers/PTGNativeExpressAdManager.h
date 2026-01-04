@@ -79,6 +79,9 @@ typedef enum : NSUInteger {
 /// 最新的一条广告的ecpm
 @property(nonatomic,assign,readonly)NSInteger ecpm;
 
+/// 广告底价，单位分，不会返回低于此底价的广告，底价过高可能会没有广告，兜底返回错误提示：广告价格低于底价！
+@property(nonatomic,assign)NSInteger basePrice;
+
 
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
