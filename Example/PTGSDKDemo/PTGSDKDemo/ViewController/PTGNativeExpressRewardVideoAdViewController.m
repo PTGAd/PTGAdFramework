@@ -120,7 +120,7 @@
 //        PTGRewardedVideoModel *model = [PTGRewardedVideoModel new];
 //        model.rewardName = @"奖励名称";
 //        model.rewardAmount = 400;
-        _rewardVideoAd = [[PTGNativeExpressRewardVideoAd alloc] initWithPlacementId:@"900002904" rewardedVideoModel:nil];
+        _rewardVideoAd = [[PTGNativeExpressRewardVideoAd alloc] initWithPlacementId:@"900004472" rewardedVideoModel:nil];
         _rewardVideoAd.delegate = self;
     }
     return _rewardVideoAd;

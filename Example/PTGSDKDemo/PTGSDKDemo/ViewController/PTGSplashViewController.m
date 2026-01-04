@@ -18,8 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
-    self.textField.placeholder = @"请输入广告id，默认900002906";
-    self.textField.text = @"900002906";
+    self.textField.placeholder = @"请输入广告id，默认900004469";
+    self.textField.text = @"900004469";
 }
 
 
@@ -36,7 +36,7 @@
     logo.center = bottomView.center;
     [bottomView addSubview:logo];
     
-    NSString *placementId = self.textField.text.length > 0 ? self.textField.text : @"900002906";
+    NSString *placementId = self.textField.text.length > 0 ? self.textField.text : @"900004469";
     _splashAd = [[PTGSplashAd alloc] initWithPlacementId:placementId];
     _splashAd.delegate = self;
     _splashAd.bottomView = bottomView;

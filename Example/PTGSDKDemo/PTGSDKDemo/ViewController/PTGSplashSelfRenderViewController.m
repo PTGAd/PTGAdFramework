@@ -77,7 +77,7 @@
 - (PTGNativeExpressAdManager *)manager {
     if (!_manager) {
         CGSize size = CGSizeMake(self.view.bounds.size.width, 200);
-        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900002906"
+        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900004469"
                                                                      type:PTGNativeExpressAdTypeSelfRenderSplash
                                                                    adSize:size];
         _manager.delegate = self;

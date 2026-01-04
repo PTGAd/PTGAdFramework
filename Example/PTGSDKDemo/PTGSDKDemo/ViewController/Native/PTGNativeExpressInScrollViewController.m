@@ -194,7 +194,7 @@
     if (!_manager) { //  457 900000231
         PTGNativeExpressAdType type = self.isNativeExpress ? PTGNativeExpressAdTypeFeed : PTGNativeExpressAdTypeSelfRender;
         CGSize size = CGSizeMake(self.view.bounds.size.width, !self.isNativeExpress ? 80 : 200);
-        NSString *placementId = !self.isNativeExpress ?  @"900002888" : @"900003437";
+        NSString *placementId = !self.isNativeExpress ?  @"900004714" : @"900004471";
         _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:placementId
                                                                      type: type
                                                                    adSize:size];

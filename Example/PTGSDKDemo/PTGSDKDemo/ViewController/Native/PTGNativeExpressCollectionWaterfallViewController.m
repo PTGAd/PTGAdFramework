@@ -420,7 +420,7 @@
 - (PTGNativeExpressAdManager *)manager {
     if (!_manager) {
         CGSize size = CGSizeMake((UIScreen.mainScreen.bounds.size.width - 30) / 2.0, self.type == PTGNativeExpressAdTypeSelfRender ? 80 : 200);
-        NSString *placementId = self.type == PTGNativeExpressAdTypeSelfRender ? @"900002888" : @"900003437";
+        NSString *placementId = self.type == PTGNativeExpressAdTypeSelfRender ? @"900004714" : @"900004471";
         _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:placementId
                                                                      type:self.type
                                                                    adSize:size];

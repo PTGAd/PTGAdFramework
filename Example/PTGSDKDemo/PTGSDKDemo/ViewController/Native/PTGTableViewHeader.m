@@ -166,7 +166,7 @@
 - (PTGNativeExpressAdManager *)manager {
     if (!_manager) { //  457 900000231
         PTGNativeExpressAdType type = PTGNativeExpressAdTypeSelfRender;
-        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900002888"
+        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900004714"
                                                                      type: type
                                                                    adSize:CGSizeMake(UIScreen.mainScreen.bounds.size.width, 0)];
         _manager.delegate = self;

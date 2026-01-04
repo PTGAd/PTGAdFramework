@@ -296,7 +296,7 @@
         // 计算实际的item宽度，考虑CollectionView的布局边距
         CGFloat itemWidth = CGRectGetWidth(self.view.bounds) - 30; // 减去左右边距15*2
         CGSize size = CGSizeMake(itemWidth, self.type == PTGNativeExpressAdTypeSelfRender ? 80 : 200);
-        NSString *placementId = self.type == PTGNativeExpressAdTypeSelfRender ? @"900002888" : @"900003437";
+        NSString *placementId = self.type == PTGNativeExpressAdTypeSelfRender ? @"900004714" : @"900004471";
         _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:placementId
                                                                      type:self.type
                                                                    adSize:size];

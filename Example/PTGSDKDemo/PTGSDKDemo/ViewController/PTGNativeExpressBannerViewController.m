@@ -140,7 +140,7 @@
 #pragma mark - get -
 - (PTGNativeExpressBannerAd *)bannerAd {
     if (!_bannerAd) {
-        _bannerAd = [[PTGNativeExpressBannerAd alloc] initWithPlacementId:@"900003438" size:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width * 90 / 600.0)];
+        _bannerAd = [[PTGNativeExpressBannerAd alloc] initWithPlacementId:@"900004468" size:CGSizeMake(self.view.bounds.size.width, self.view.bounds.size.width * 90 / 600.0)];
         _bannerAd.delegate = self;
         _bannerAd.rootViewController = self;
     }

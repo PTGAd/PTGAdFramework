@@ -99,7 +99,7 @@
         [bottomView addSubview:logo];
         bottomView.backgroundColor = [UIColor whiteColor];
         
-        _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900002906"];
+        _splashAd = [[PTGSplashAd alloc] initWithPlacementId:@"900004469"];
         _splashAd.delegate = self;
         _splashAd.bottomView = bottomView;
     }

@@ -72,7 +72,7 @@
         [self.interstitialAd loadAd];
         return;
     }
-    NSString *placementId = self.textField.text.length == 0 ? @"900000398" : self.textField.text;
+    NSString *placementId = self.textField.text.length == 0 ? @"900004470" : self.textField.text;
     self.interstitialAd = [[PTGNativeExpressInterstitialAd alloc] initWithPlacementId:placementId];
     self.interstitialAd.delegate = self;
 //    self.interstitialAd.closeAfterClick = YES;
