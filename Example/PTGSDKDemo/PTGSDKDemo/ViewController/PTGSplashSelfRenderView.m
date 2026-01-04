@@ -25,6 +25,7 @@
 - (void)updateUI:(PTGNativeExpressAd *)nativeAd {
     self.nativeAd = nativeAd;
     self.imageView.hidden = nativeAd.isVideoAd;
+    self.shakeLabel.hidden = !nativeAd.adObject.adData.isShakeAd;
     if (nativeAd.isVideoAd) {
         [self insertSubview:nativeAd.adObject.relatedView.videoView aboveSubview:self.imageView];
     } else {
