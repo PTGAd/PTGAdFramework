@@ -67,6 +67,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 广告素材 可能为空
 @property(nullable,nonatomic,strong)PTGAdMaterial *adMaterial;
 
+/// 广告底价，单位分，不会返回低于此底价的广告，底价过高可能会没有广告，兜底返回错误提示：广告价格低于底价！
+@property(nonatomic,assign)NSInteger basePrice;
+
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
 

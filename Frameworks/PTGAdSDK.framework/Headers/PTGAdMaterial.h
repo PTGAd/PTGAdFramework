@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// icon url
 @property(nonatomic,copy)NSString *iconURL;
 
-/// 是否是摇一摇广告 适用于开屏   true 是支持摇一摇广告，需要开发者自行实现摇一摇UI
+/// 是否是摇一摇广告 自渲染返回，isShakeAd = YES 时需要开发者自行实现摇一摇UI
 @property(nonatomic,assign)BOOL isShakeAd;
 
 @end

@@ -102,6 +102,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 展示广告
 - (void)showAdWithViewController:(UIViewController *)viewController;
 
+/// 展示广告并传入bottomview  传入的bottomiview 会覆盖 bottomView 属性的值
+- (void)showAdWithViewController:(UIViewController *)viewController bottomView:(UIView *)bottomView;
+
 /// 销毁广告
 - (void)destory;
 
