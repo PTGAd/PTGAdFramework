@@ -21,7 +21,7 @@ pod 'PTGOneAdSDK','1.0.9'                     # 优酷   消耗方
 SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，开屏，横幅），可在Topon后台配置广告请求的适配器，具体可联系Fancy 商务配置,技术接入需导入
 AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码
 ```shell
-pod 'AnyThinkPTGAdSDKAdapter','1.2.1'
+pod 'AnyThinkPTGAdSDKAdapter','1.2.2'
 pod 'PTGAdFramework', '2.3.1'
 
 # topon 适配器
