@@ -9,7 +9,7 @@ PODS:
   - CocoaDebug (1.7.2)
   - Masonry (1.1.0)
   - MJRefresh (3.7.6)
-  - PTGAdFramework (2.3.1)
+  - PTGAdFramework (2.3.3)
   - SDWebImage (5.21.3):
     - SDWebImage/Core (= 5.21.3)
   - SDWebImage/Core (5.21.3)
@@ -25,7 +25,7 @@ DEPENDENCIES:
   - CocoaDebug
   - Masonry
   - MJRefresh
-  - PTGAdFramework (= 2.3.1)
+  - PTGAdFramework (= 2.3.3)
   - SDWebImage
   - WechatOpenSDK
   - YYCategories
@@ -50,11 +50,11 @@ SPEC CHECKSUMS:
   CocoaDebug: 61cf93ada6ce8f3407507dc01f9b874d91ac1d5c
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 2fe7fb43a5167ceda20bb7e63f130c04fd1814a5
-  PTGAdFramework: cfa42a8deacbec916e44b38234fffde967a871dd
+  PTGAdFramework: db8b35036d51cb35e9813ec12d29d2dd0341e96b
   SDWebImage: 16309af6d214ba3f77a7c6f6fdda888cb313a50a
   WechatOpenSDK: 290989072e87b79d52225a01bb4e5e58f6f88593
   YYCategories: 6bcd4314c6661a561410dce4a793379ebd306abd
 
-PODFILE CHECKSUM: fdb97ea34e177295bb204b8e5268d1e54d391841
+PODFILE CHECKSUM: 7688a4620ec48d7da2e0f26a21447d97069ef077
 
 COCOAPODS: 1.16.2
