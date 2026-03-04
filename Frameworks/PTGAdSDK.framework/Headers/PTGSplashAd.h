@@ -52,9 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// buttomView  底部视图 可为空
 @property(nonatomic,strong)UIView *bottomView;
 
-/// Fancy 支持跳过时间配置 默认5s  最小值为3s 最大值为15s
-@property(nonatomic,assign)NSInteger skipTime;
-
 /// 是否隐藏跳过按钮 默认NO
 @property(nonatomic,assign)BOOL hideSkipButton;
 
