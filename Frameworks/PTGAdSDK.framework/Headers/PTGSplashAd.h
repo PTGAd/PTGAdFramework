@@ -83,6 +83,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 广告底价，单位分，不会返回低于此底价的广告，底价过高可能会没有广告，兜底返回错误提示：广告价格低于底价！
 @property(nonatomic,assign)NSInteger basePrice;
 
+/// 广告请求ID,不要在loadAd后立即去取。
+@property(nonatomic,copy)NSString *adRequestID;
+
 /// 禁止使用此方法来初始化
 + (instancetype)new NS_UNAVAILABLE;
 
