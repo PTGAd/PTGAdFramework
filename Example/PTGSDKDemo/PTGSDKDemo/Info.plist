@@ -71,6 +71,59 @@
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>weixinULAPI</string>
+        <string>weixin</string>
+        <string>weixinURLParamsAPI</string>
+        <string>openApp.jdMobile</string>
+        <string>tbopen</string>
+        <string>tmall</string>
+        <string>imeituan</string>
+        <string>OneTravel</string>
+        <string>vipshop</string>
+        <string>pinduoduo</string>
+        <string>alipays</string>
+        <string>autohome</string>
+        <string>douyu</string>
+        <string>qqcar</string>
+        <string>sinaweibo</string>
+        <string>taobao</string>
+        <string>jdjr</string>
+        <string>zhihu</string>
+        <string>fleamarket</string>
+        <string>tyc</string>
+        <string>eleme</string>
+        <string>baiduboxapp</string>
+        <string>dianping</string>
+        <string>meituanwaimai</string>
+        <string>kwai</string>
+        <string>pddopen</string>
+        <string>ksnebula</string>
+        <string>soul</string>
+        <string>iosamap</string>
+        <string>xmly</string>
+        <string>qklink</string>
+        <string>snssdk1128</string>
+        <string>snssdk2329</string>
+        <string>snssdk561124</string>
+        <string>iting</string>
+        <string>hunyuan</string>
+        <string>weixin</string>
+        <string>upcommon</string>
+        <string>baiduboxlite</string>
+        <string>youku</string>
+        <string>ddxq</string>
+        <string>dangdang</string>
+        <string>mcdonalds</string>
+        <string>taobaotravel</string>
+        <string>com.icbc.iphoneclient</string>
+        <string>cainiao</string>
+        <string>hellobike</string>
+        <string>taobaoliveshare</string>
+        <string>cn.10086.app</string>
+        <string>tongyi</string>
+    </array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
