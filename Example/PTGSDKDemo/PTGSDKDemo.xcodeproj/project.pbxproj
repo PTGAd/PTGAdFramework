@@ -114,7 +114,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9E5F232B2D9D042C008C030B /* Embed Frameworks */ = {
+		07C9BEE02F7279860087314B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -616,8 +616,8 @@
 				84C24F8A25CD40BB00398052 /* Sources */,
 				84C24F8B25CD40BB00398052 /* Frameworks */,
 				84C24F8C25CD40BB00398052 /* Resources */,
-				9E5F232B2D9D042C008C030B /* Embed Frameworks */,
 				3CA662CD28A7C3A691C0DF61 /* [CP] Copy Pods Resources */,
+				07C9BEE02F7279860087314B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
