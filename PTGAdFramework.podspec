@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "PTGAdFramework"
-  spec.version      = "2.3.8"
+  spec.version      = "2.3.9"
   spec.summary      = "A short description of PTGAdFramework."
 
 
@@ -35,7 +35,7 @@ Pod::Spec.new do |spec|
 
 
   spec.platform     = :ios, "11.0"
-  spec.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'StoreKit', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate', 'CoreGraphics', 'Security'
+  spec.frameworks = 'UIKit', 'MapKit', 'WebKit', 'MediaPlayer', 'AdSupport', 'CoreMedia', 'AVFoundation', 'CoreTelephony', 'SystemConfiguration', 'MobileCoreServices', 'CoreMotion', 'Accelerate', 'CoreGraphics', 'Security'
   spec.libraries = 'c++', 'resolv', 'z', 'sqlite3'
   spec.vendored_frameworks =  'Frameworks/PTGAdSDK.framework'
     
