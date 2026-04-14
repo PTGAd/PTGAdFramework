@@ -5,71 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iOS 广告SDK接入文档</title>
     <style>
-        /* 全局样式重置 */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            line-height: 1.6;
+            color: #333;
             background-color: #f8f9fa;
         }
-        /* 标题样式 */
         h1 {
             font-size: 28px;
+            margin: 20px 0;
             color: #2c3e50;
-            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
             padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
         }
         h2 {
             font-size: 22px;
+            margin: 18px 0;
             color: #34495e;
-            margin: 30px 0 15px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
         }
         h3 {
             font-size: 18px;
-            color: #41586e;
-            margin: 25px 0 10px;
+            margin: 16px 0;
+            color: #4a6583;
         }
-        /* 列表样式 */
+        p {
+            margin: 10px 0;
+        }
         ul {
-            margin: 10px 0 10px 25px;
+            margin: 10px 0 10px 20px;
         }
         li {
             margin: 8px 0;
         }
-        /* 代码块样式 */
-        pre {
-            background-color: #2d2d2d;
-            color: #ccc;
-            padding: 15px;
-            border-radius: 6px;
-            overflow-x: auto;
-            margin: 10px 0;
-            font-family: "Menlo", "Monaco", Consolas, "Courier New", monospace;
-            font-size: 14px;
-        }
         code {
-            background-color: #f5f5f5;
+            font-family: "SF Mono", Monaco, Inconsolata, "Courier New", monospace;
+            background-color: #f1f2f6;
             padding: 2px 6px;
-            border-radius: 3px;
-            font-family: "Menlo", "Monaco", Consolas, "Courier New", monospace;
-            font-size: 14px;
+            border-radius: 4px;
             color: #e74c3c;
         }
-        pre code {
-            background-color: transparent;
-            padding: 0;
-            color: #ccc;
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
         }
-        /* 链接样式 */
+        pre code {
+            background: none;
+            color: #f8f8f2;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
         a {
             color: #3498db;
             text-decoration: none;
@@ -77,41 +99,10 @@
         a:hover {
             text-decoration: underline;
         }
-        /* 表格/段落补充 */
-        p {
-            margin: 10px 0;
-        }
-        /* 标记强调 */
-        strong {
-            color: #2c3e50;
-        }
-        /* 适配移动端 */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            h2 {
-                font-size: 20px;
-            }
-            h3 {
-                font-size: 16px;
-            }
-            pre {
-                font-size: 12px;
-            }
-        }
     </style>
-    <!-- 可选：引入代码高亮库（如果需要更美观的代码高亮） -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
     <script>
-        // 初始化代码高亮
-        document.addEventListener('DOMContentLoaded', () => {
-            hljs.highlightAll();
-        });
+        hljs.highlightAll();
     </script>
 </head>
 <body>
@@ -120,38 +111,126 @@
     <h2>前提条件</h2>
     <ul>
         <li>推荐Xcode 12及以上版本</li>
-        <li>支持iOS 11.0或更高版本</li>
+        <li>支持iOS 13.0或更高版本</li>
     </ul>
 
     <h2>导入 SDK</h2>
     <p>使用CocoaPods导入SDK</p>
-    <pre><code class="language-shell">pod 'PTGAdFramework', '2.3.8'</code></pre>
+    <pre><code class="shell">pod 'PTGAdFramework', '2.3.9'
+</code></pre>
+
+    <h2>Topon支持</h2>
+    <p>SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，开屏，横幅），可在Topon后台配置广告请求的适配器，具体可联系Fancy 商务配置,技术接入需导入 AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码</p>
+    <pre><code class="shell">pod 'AnyThinkPTGAdSDKAdapter','1.2.2'
+pod 'PTGAdFramework', '2.3.9'
+
+# topon 适配器
+插屏  ATPTGInterstitialAdapter
+横幅  ATPTGNativeExpressBannerAdapter
+原生  ATPTGNativeExpressAdapter       #支持自渲染需要在topon后台配置参数 self_render,值等于1时，为自渲染，等于0为模板渲染，默认模板渲染
+开屏  ATPTGSplashAdapter
+激励  ATPTGRewardedVideoAdapter
+</code></pre>
+
+    <h2>GroMore适配器支持</h2>
+    <p>在 2.2.64版本之后支持GroMore聚合广告，接入方式参照<a href="https://github.com/PTGAd/PTGGroMoreAdapter">github链接</a></p>
+
+    <h2>ToBid适配器</h2>
+    <p>在 2.2.64版本之后支持ToBid聚合广告，接入方式参照<a href="https://github.com/PTGAd/PTGToBidAdapter">github链接</a></p>
+
+    <h2>极光适配器</h2>
+    <p>在 2.2.72版本之后支持极光聚合广告，接入方式参照<a href="https://github.com/PTGAd/ADJGPTGAdapter">github链接</a></p>
+
+    <h2>美约广告消耗方支持</h2>
+    <p>由于美约广告SDK不支持cocoapods导入，需将项目中依赖的MeiYueSDK文件复制引用到工程中,并在cocoapods中导入依赖的第三方</p>
+    <pre><code class="shell">  pod 'SDWebImage'
+  pod 'WechatOpenSDK'
+  pod 'CocoaAsyncSocket'
+</code></pre>
+    <p>将SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行</p>
+    <pre><code class="xml">&lt;key&gt;SKAdNetworkItems&lt;/key&gt;
+  &lt;array&gt;
+    &lt;dict&gt;
+      &lt;key&gt;SKAdNetworkIdentifier&lt;/key&gt;
+      &lt;string&gt;238da6jt44.skadnetwork&lt;/string&gt;
+    &lt;/dict&gt;
+    &lt;dict&gt;
+      &lt;key&gt;SKAdNetworkIdentifier&lt;/key&gt;
+      &lt;string&gt;22mmun2rn5.skadnetwork&lt;/string&gt;
+    &lt;/dict&gt;
+  &lt;/array&gt;
+</code></pre>
+
+    <h2>Info.plist 配置说明</h2>
+    <p>为了保证 广告投放的精准性，在接入 SDK 时需要在 App 的 Info.plist 中添加 LSApplicationQueriesSchemes 配置。</p>
+    <pre><code class="xml">&lt;key&gt;LSApplicationQueriesSchemes&lt;/key&gt;
+&lt;array&gt;
+    &lt;string&gt;openApp.jdMobile&lt;/string&gt;
+    &lt;string&gt;tbopen&lt;/string&gt;
+    &lt;string&gt;tmall&lt;/string&gt;
+    &lt;string&gt;imeituan&lt;/string&gt;
+    &lt;string&gt;OneTravel&lt;/string&gt;
+    &lt;string&gt;pinduoduo&lt;/string&gt;
+    &lt;string&gt;alipays&lt;/string&gt;
+    &lt;string&gt;iosamap&lt;/string&gt;
+    &lt;string&gt;kwai&lt;/string&gt;
+    &lt;string&gt;ksnebula&lt;/string&gt;
+    &lt;string&gt;cainiao&lt;/string&gt;
+    &lt;string&gt;youku&lt;/string&gt;
+    &lt;string&gt;taobao&lt;/string&gt;
+    &lt;string&gt;baiduboxapp&lt;/string&gt;
+    &lt;string&gt;baiduboxlite&lt;/string&gt;
+    &lt;string&gt;ddxq&lt;/string&gt;
+    &lt;string&gt;fleamarket&lt;/string&gt;
+    &lt;string&gt;douyu&lt;/string&gt;
+    &lt;string&gt;dangdang&lt;/string&gt;
+    &lt;string&gt;hellobike&lt;/string&gt;
+    &lt;string&gt;zhihu&lt;/string&gt;
+    &lt;string&gt;taobaotravel&lt;/string&gt;
+    &lt;string&gt;qklink&lt;/string&gt;
+    &lt;string&gt;xmly&lt;/string&gt;
+    &lt;string&gt;dianping&lt;/string&gt;
+    &lt;string&gt;soul&lt;/string&gt;
+    &lt;string&gt;sinaweibo&lt;/string&gt;
+    &lt;string&gt;jdjr&lt;/string&gt;
+    &lt;string&gt;weixin&lt;/string&gt;
+    &lt;string&gt;tyc&lt;/string&gt;
+    &lt;string&gt;eleme&lt;/string&gt;
+    &lt;string&gt;upcommon&lt;/string&gt;
+    &lt;string&gt;snssdk1128&lt;/string&gt;
+    &lt;string&gt;snssdk2329&lt;/string&gt;
+    &lt;string&gt;vipshop&lt;/string&gt;
+    &lt;string&gt;autohome&lt;/string&gt;
+    &lt;string&gt;qqcar&lt;/string&gt;
+    &lt;string&gt;mcdonalds&lt;/string&gt;
+&lt;/array&gt;
+</code></pre>
 
     <h2>全局配置</h2>
-    <h3>配置信任app，检测设备是否安装了app</h3>
-    <p>参照以下网址配置<br>
-    <a href="https://www.jianshu.com/p/22bde41f17ae?u_atoken=ed6a1c5b-1cda-4498-8e99-8cb852dc3372&u_asession=01YrfDr70fTcw_Lff4Xr9FguxoQduUw9hB8FTsS6-_0h3-nrjIwFKfbcVNeRF_bodSX0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K9FGNhv9VuloQSO4z1e0Xwe61cRpK6RrRpbRcNX0dn1LmBkFo3NEHBv0PZUm6pbxQU&u_asig=058un4ynxXv3LVdcU4rcDeWEIm7QF3DPSyfsyGUS3vG_3lChsO0zhbxDd9lWe5-mOcaHWao7-WWciRkW96eCkryX09cyttobNwA4Or3LgN6x5L7Izq8lsuurxeNGINXOtoPzThJ7qx8xXF4qiSHll2EaUjdnRFKRXlpb3ha5vaCZ79JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzQGxCqQIwMB3yxlSmh11crRpVGAfz-IFfggjI-db66InFkLEP8FFBW9mXuUlqJJ5YO3h9VXwMyh6PgyDIVSG1W_vHWRO_LSN8NESsKiPwPAkJ-uB5gGpwRzefn5m8oSSyDtPhHsvDkBB8q4UibbeNU3Df-W5R3hFwsiHJF_xSsaqmWspDxyAEEo4kbsryBKb9Q&u_aref=juj0p8q%2Bes5V3vHM%2F5IQLxp8XE4%3D" target="_blank">https://www.jianshu.com/p/22bde41f17ae?u_atoken=ed6a1c5b-1cda-4498-8e99-8cb852dc3372&u_asession=01YrfDr70fTcw_Lff4Xr9FguxoQduUw9hB8FTsS6-_0h3-nrjIwFKfbcVNeRF_bodSX0KNBwm7Lovlpxjd_P_q4JsKWYrT3W_NKPr8w6oU7K9FGNhv9VuloQSO4z1e0Xwe61cRpK6RrRpbRcNX0dn1LmBkFo3NEHBv0PZUm6pbxQU&u_asig=058un4ynxXv3LVdcU4rcDeWEIm7QF3DPSyfsyGUS3vG_3lChsO0zhbxDd9lWe5-mOcaHWao7-WWciRkW96eCkryX09cyttobNwA4Or3LgN6x5L7Izq8lsuurxeNGINXOtoPzThJ7qx8xXF4qiSHll2EaUjdnRFKRXlpb3ha5vaCZ79JS7q8ZD7Xtz2Ly-b0kmuyAKRFSVJkkdwVUnyHAIJzQGxCqQIwMB3yxlSmh11crRpVGAfz-IFfggjI-db66InFkLEP8FFBW9mXuUlqJJ5YO3h9VXwMyh6PgyDIVSG1W_vHWRO_LSN8NESsKiPwPAkJ-uB5gGpwRzefn5m8oSSyDtPhHsvDkBB8q4UibbeNU3Df-W5R3hFwsiHJF_xSsaqmWspDxyAEEo4kbsryBKb9Q&u_aref=juj0p8q%2Bes5V3vHM%2F5IQLxp8XE4%3D</a>
-    </p>
+    <h3>配置ali_aaid</h3>
+    <p>媒体端获取到ali_aaid 通过一下方法设置</p>
+    <pre><code class="objective-c">[PTGSDKManager setAdIdentifier:@"you aaid"]；
+</code></pre>
 
     <h3>应用传输安全</h3>
-    <p>应用传输安全(ATS) 是 iOS 9 中引入的隐私设置功能。默认情况下，系统会为新应用启用该功能，并强制实施安全连接。为确保您的广告不受 ATS 影响，请执行以下操作：<br>
-    在您的应用的 Info.plist 文件中，添加 NSAllowsArbitraryLoads 以停用 ATS 限制。</p>
-    <pre><code class="language-xml">&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
+    <p>应用传输安全(ATS) 是 iOS 9 中引入的隐私设置功能。默认情况下，系统会为新应用启用该功能，并强制实施安全连接。为确保您的广告不受 ATS 影响，请执行以下操作：</p>
+    <p>在您的应用的 Info.plist 文件中，添加 NSAllowsArbitraryLoads 以停用 ATS 限制。</p>
+    <pre><code class="xml">&lt;key&gt;NSAppTransportSecurity&lt;/key&gt;
 &lt;dict&gt;
     &lt;key&gt;NSAllowsArbitraryLoads&lt;/key&gt;
     &lt;true/&gt;
 &lt;/dict&gt;
-    </code></pre>
+</code></pre>
 
     <h3>iOS 14 AppTrackingTransparency</h3>
-    <p>iOS 14 开始，在应用调用 App Tracking Transparency framework 向用户请求应用跟踪权限之前，IDFA 将不可用。如果应用没有向用户发出请求，则 IDFA 将自动清零，这可能会导致广告收入出现重大损失。因为用户必须授权IDFA。<br>
-    应用开发者可以控制请求 App Tracking Transparency 框架来申请跟踪权限的时机。<br>
-    要显示用于访问 IDFA 的 App Tracking Transparency 授权请求，请更新 Info.plist 以添加 NSUserTrackingUsageDescription 键，值为描述应用如何使用 IDFA 的自定义消息。 以下是示例描述文字：</p>
-    <pre><code class="language-xml">&lt;key&gt;NSUserTrackingUsageDescription&lt;/key&gt;
+    <p>iOS 14 开始，在应用调用 App Tracking Transparency framework 向用户请求应用跟踪权限之前，IDFA 将不可用。如果应用没有向用户发出请求，则 IDFA 将自动清零，这可能会导致广告收入出现重大损失。因为用户必须授权IDFA。</p>
+    <p>应用开发者可以控制请求 App Tracking Transparency 框架来申请跟踪权限的时机。</p>
+    <p>要显示用于访问 IDFA 的 App Tracking Transparency 授权请求，请更新 Info.plist 以添加 NSUserTrackingUsageDescription 键，值为描述应用如何使用 IDFA 的自定义消息。 以下是示例描述文字：</p>
+    <pre><code class="xml">&lt;key&gt;NSUserTrackingUsageDescription&lt;/key&gt;
 &lt;string&gt;需要获取您设备的广告标识符，以为您提供更好的广告体验&lt;/string&gt;
-    </code></pre>
-    <p>要显示授权请求对话框，请调用 <a href="https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/3547037-requesttrackingauthorization" target="_blank">requestTrackingAuthorizationWithCompletionHandler:</a>。 我们建议您在授权回调之后再加载广告，以便如果用户允许跟踪权限，则 SDK 可以在广告请求中使用 IDFA，示例代码如下：</p>
-    <pre><code class="language-objective-c">#import &lt;AppTrackingTransparency/AppTrackingTransparency.h&gt;
+</code></pre>
+    <p>要显示授权请求对话框，请调用 <a href="https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/3547037-requesttrackingauthorization">requestTrackingAuthorizationWithCompletionHandler:</a>。 我们建议您在授权回调之后再加载广告，以便如果用户允许跟踪权限，则 SDK 可以在广告请求中使用 IDFA，示例代码如下：</p>
+    <pre><code class="objective-c">#import &lt;AppTrackingTransparency/AppTrackingTransparency.h&gt;
 #import &lt;AdSupport/AdSupport.h&gt;
 - (void)requestIDFA {
        if (@available(iOS 14, *)) {
@@ -164,14 +243,13 @@
         
     }
 }
-    </code></pre>
-
-    <p>SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在保持用户隐私的同时衡量广告活动。 使用 Apple 的 SKAdNetwork 后，即使 IDFA 不可用，广告网络也可以正确获得应用安装的归因结果。 访问 <a href="https://developer.apple.com/documentation/storekit/skadnetwork" target="_blank">https://developer.apple.com/documentation/storekit/skadnetwork</a> 了解更多信息。</p>
+</code></pre>
+    <p>SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在保持用户隐私的同时衡量广告活动。 使用 Apple 的 SKAdNetwork 后，即使 IDFA 不可用，广告网络也可以正确获得应用安装的归因结果。 访问 <a href="https://developer.apple.com/documentation/storekit/skadnetwork">https://developer.apple.com/documentation/storekit/skadnetwork</a> 了解更多信息。</p>
     <ol>
         <li>应用编译环境升级至 <code>Xcode 12.0 及以上版本</code></li>
         <li>将 SKAdNetwork ID 添加到 info.plist 中，以保证 <code>SKAdNetwork</code> 的正确运行</li>
     </ol>
-    <pre><code class="language-xml">&lt;key&gt;SKAdNetworkItems&lt;/key&gt;
+    <pre><code class="xml">&lt;key&gt;SKAdNetworkItems&lt;/key&gt;
   &lt;array&gt;
     &lt;dict&gt;
       &lt;key&gt;SKAdNetworkIdentifier&lt;/key&gt;
@@ -182,34 +260,51 @@
       &lt;string&gt;22mmun2rn5.skadnetwork&lt;/string&gt;
     &lt;/dict&gt;
   &lt;/array&gt;
-    </code></pre>
+</code></pre>
 
     <h2>SDK初始化</h2>
     <p>加载广告之前，请先使用 PTGAdSDK 应用 ID 进行初始化，此操作仅需执行一次，最好是在应用启动时执行。</p>
-    <pre><code class="language-objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
+    <pre><code class="objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /// 获取PTGAdSDK版本号
-		NSString *sdkVersion = [PTGAdSDKManager getSDKVersion];
-		
-    /// appKey  Ptg后台创建的媒体⼴告位ID
-    /// appSecret Ptg后台创建的媒体⼴告位密钥
-    [PTGSDKManager syncSetAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp"];
+        NSString *sdkVersion = [PTGAdSDKManager getSDKVersion];
+  
+    /// 配置跟踪id
+    /// 重要 影响广告填充
+    /// 避免代码中明文出现caid ali_id等字符 审核相关
+    [PTGSDKManager setAdIds:@{
+        @"idfa":idfa,
+        @"one_id":caid,
+        @"one_id_version": caidVersion,
+        @"last_id": lastCaid,
+        @"last_id_version": lastCaidVersion,
+        @"one_ali_id": ali_aaid
+    }];
+        
+    /// appKey  Ptg后台创建的媒体ID
+    /// appSecret Ptg后台创建的媒体密钥
+    [PTGSDKManager setAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8" 
+    completion:^(BOOL result,NSError *error) {
+        if (result) {
+                        /// 初始化成功后，进行开屏广告的加载
+        }
+    }];
     return YES;
 }
 
 @end
-    </code></pre>
+</code></pre>
 
     <h2>开屏广告</h2>
     <p>开屏广告用于当用户进入您的应用展示，一般会展示 5 秒（部分可以跳过），倒计时结束会自动关闭。与插屏广告不同，开屏广告可以轻松地展示应用品牌（Logo 和名称），以便用户了解他们看到广告的环境。</p>
 
     <h3>开屏广告加载</h3>
-    <p>初始化开屏广告对象，使用开屏广告id加载广告。<br>
-    以下示例演示了如何在 AppDelegate 的 application:didFinishLaunchingWithOptions: 方法中创建并请求开屏广告。</p>
-    <pre><code class="language-objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
+    <p>初始化开屏广告对象，使用开屏广告id加载广告。</p>
+    <p>以下示例演示了如何在 AppDelegate 的 application:didFinishLaunchingWithOptions: 方法中创建并请求开屏广告。</p>
+    <pre><code class="objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
 
 @interface AppDelegate () &lt;PTGSplashAdDelegate&gt;
 @property (nonatomic, strong) PTGSplashAd *splashAd;
@@ -225,10 +320,14 @@
     /// 获取sdk version
     NSString *version = [PTGSDKManager getSDKVersion];
     
-    /// appKey  Ptg后台创建的媒体⼴告位ID
-    /// appSecret Ptg后台创建的媒体⼴告位密钥
-    [PTGSDKManager syncSetAppKey:@"45227" appSecret:@"1r8hOksXStGASHrp"];
-    [self.splashAd loadAd];
+    /// appKey  Ptg后台创建的媒体ID
+    /// appSecret Ptg后台创建的媒体密钥
+    [PTGSDKManager setAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8"
+    completion:^(BOOL result,NSError *error) {
+        if (result) {
+            [self.splashAd loadAd];
+        }
+    }];
 
     return YES;
 }
@@ -251,15 +350,22 @@
     return _splashAd;
 }
 @end
-    </code></pre>
+</code></pre>
 
     <h3>开屏广告事件</h3>
     <p>设置开屏广告的delegate，delegate遵守并实现PTGSplashAdDelegate，可以监听广告的生命周期事件。</p>
-    <pre><code class="language-objective-c">	#pragma mark - PTGSplashAdDelegate -
+    <pre><code class="objective-c">    #pragma mark - PTGSplashAdDelegate -
 /// 开屏加载成功
 - (void)ptg_splashAdDidLoad:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
-    [splashAd showAdWithViewController:@"当前的栈顶控制器"];
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (splashAd.isReady) {
+        [splashAd showAdWithViewController:@"当前的栈顶控制器"];
+    } else {
+        NSLog(@"广告已过期");
+    }
+
 }
 
 /// 开屏加载失败
@@ -281,14 +387,20 @@
 - (void)ptg_splashAdWillVisible:(PTGSplashAd *)splashAd {
     NSLog(@"开屏广告%s",__func__);
 }
-    </code></pre>
+
+///  开屏广告展示失败
+- (void)ptg_splashAdVisibleError:(PTGSplashAd *)splashAd error:(NSError *)error {
+    NSLog(@"开屏广告展示失败%s error = %@",__func__,error);
+}
+</code></pre>
 
     <h2>信息流广告</h2>
     <p>信息流广告是通过平台原本就有的界面组件向用户呈现的广告素材资源。这种广告使用您在构建布局时已经采用的同类视图进行展示，而且能以和周围视觉设计相称的形式呈现，让用户有浑然一体的使用体验。从代码编写的角度来说，这意味着当信息流广告加载时，由应用负责展示它们了。 本指南向您介绍如何将信息流广告集成到 iOS 应用中。</p>
 
     <h3>信息流广告加载</h3>
-     <p>普通信息流：</p>
-    <pre><code class="language-objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
+    <p>信息流广告通过PTGNativeExpressAdManager对象来加载信息流广告。以下示例演示了如何在 UIViewController 的 viewDidLoad 方法中创建 并请求信息流广告。</p>
+    <p>普通信息流：</p>
+    <pre><code class="objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
 @interface PTGNativeExpressFeedViewController ()&lt;PTGNativeExpressAdDelegate,UITableViewDelegate,UITableViewDataSource&gt;
 
 @property(nonatomic,strong)PTGNativeExpressAdManager *manager;
@@ -315,12 +427,46 @@
     }
     return _manager;
 }
-    </code></pre>
+</code></pre>
+
+    <p>在2.2.90中,信息流广告对象接口调整，nativeExpressAdView为广告返回的模板视图，渲染成功后，需要将nativeExpressAdView添加到广告容器视图中。
+adObject为自渲染广告对象，自渲染时使用。
+具体接入参考的demo中ViewController/Native文件夹中的示例</p>
+    <pre><code class="objective-c">/// 信息流广告对象
+@interface PTGNativeExpressAd : NSObject
+
+// 自渲染广告对象，自渲染时使用
+@property(nonatomic,strong) PTGNativeAdObject *adObject;
+// 模板视图 模板广告时使用
+@property(nonatomic,strong,readonly) UIView *nativeExpressAdView;
+/// 是否是模板广告 false 为自渲染
+@property(nonatomic,assign)BOOL isNativeExpress;
+/// 广告是否有效（展示前请务必判断）
+/// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+@property(nonatomic,assign,readonly)BOOL isReady;
+/// 是否是视频广告 只对自渲染视频有效
+@property(nonatomic, assign, readonly)BOOL isVideoAd;
+/// 详解：[必选]开发者需传入用来弹出目标页的ViewController，一般为当前ViewController
+@property(nonatomic, weak)UIViewController *controller;
+/// 价格 单位分
+@property(nonatomic,assign)NSInteger price;
+/// 消耗方类型
+@property(nonatomic,assign)PTGAdSourceType sourceType;
+/// [必选]原生模板广告渲染
+- (void)render;
+/// 移除注册视图
+- (void)darwUnregisterView;
+
+/// 广告素材 可能为空  自渲染时请使用PTGNativeAdObject
+@property(nullable,nonatomic,strong)PTGAdMaterial *adMaterial;
+
+@end
+</code></pre>
 
     <h3>信息流广告事件</h3>
-    <p>设置信息流广告的delegate，delegate遵守并实现PTGNativeExpressAdDelegate，可以监听广告的生命周期事件。<br>
-    在信息流广告加载成功后会返回PTGNativeExpressAd的广告对象，调用PTGNativeExpressAd对象的render方法，并设置PTGNativeExpressAd的controller，调用PTGNativeExpressAd的render方法后，在渲染成功的方法中刷新数据，详情见以下示例代码</p>
-    <pre><code class="language-objective-c">#pragma mark - PTGNativeExpressAdDelegate -
+    <p>设置信息流广告的delegate，delegate遵守并实现PTGNativeExpressAdDelegate，可以监听广告的生命周期事件。</p>
+    <p>在信息流广告加载成功后会返回PTGNativeExpressAd的广告对象，调用PTGNativeExpressAd对象的render方法，并设置PTGNativeExpressAd的controller，调用PTGNativeExpressAd的render方法后，在渲染成功的方法中刷新数据，详情见以下示例代码</p>
+    <pre><code class="objective-c">#pragma mark - PTGNativeExpressAdDelegate -
 /// 原生模版广告获取成功
 /// @param manager 广告管理类
 /// @param ads 广告数组 一般只会有一条广告数据 使用数组预留扩展
@@ -346,6 +492,14 @@
 /// @param nativeExpressAd 渲染成功的模板广告
 - (void)ptg_nativeExpressAdRenderSuccess:(PTGNativeExpressAd *)nativeExpressAd {
     NSLog(@"信息流广告渲染成功，%@",nativeExpressAd);
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (!nativeExpressAd.isReady) {
+        NSLog(@"信息流广告已过期，%@",nativeExpressAd);
+        NSMutableArray *ads = [self.ads mutableCopy];
+        [ads removeObject:nativeExpressAd];
+        self.ads = ads;
+    }
     [self.collectionView reloadData];
 }
 
@@ -363,6 +517,14 @@
 /// @param nativeExpressAd 要显示的模板广告
 - (void)ptg_nativeExpressAdWillShow:(PTGNativeExpressAd *)nativeExpressAd {
     NSLog(@"信息流广告曝光");
+}
+
+
+/// 广告显示失败，广告资源过期（媒体缓存广告，广告展示时，广告资源已过期）
+/// @param nativeExpressAd 展示失败的广告
+/// 展示失败后，请移除广告，如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+- (void)ptg_nativeExpressAdShowFail:(PTGNativeExpressAd *)nativeExpressAd error:(NSError *_Nullable)error {
+    NSLog(@"信息流广告曝光失败 error = %@",error);
 }
 
 /// 原生模板将被点击了
@@ -388,14 +550,14 @@
 - (void)ptg_nativeExpressAdVDidCloseOtherController:(PTGNativeExpressAd *)nativeExpressAd {
     NSLog(@"信息流广告详情页被关闭");
 }
-    </code></pre>
+</code></pre>
 
     <h2>banner广告</h2>
     <p>Banner广告：是在内容底部或顶部显示的小条形广告。支持的广告位宽高比：2:1、3:2、6:5、30:13、20:3、4:1、6.4:1、345:194共8个尺寸，开发者按照展示场景进行勾选。创建好的尺寸不支持修改。</p>
 
     <h3>banner广告加载</h3>
     <p>banner广告加载示例：</p>
-    <pre><code class="language-objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
+    <pre><code class="objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
 
 @interface PTGNativeExpressBannerViewController ()&lt;PTGNativeExpressBannerAdDelegate&gt;
 
@@ -420,17 +582,23 @@
 }
 
 @end
-    </code></pre>
+</code></pre>
 
     <h3>Banner广告事件</h3>
-    <p>设置banner广告的delegate，delegate遵守并实现PTGNativeExpressBannerAdDelegate，可以监听广告的生命周期事件。<br>
-    在banner广告加载成功后， 调用PTGNativeExpressBannerAd对象的showAdFromView:(UIView *)view frame:(CGRect)frame方法，传入需要展示广告的视图，以及广告视图的frame，进行banner广告的展示。PTGNativeExpressBannerAd对象的realSize属性，用于设置banner广告的size，代码示例如下:</p>
-    <pre><code class="language-objective-c">#pragma mark - PTGNativeExpressBannerAdDelegate -
+    <p>设置banner广告的delegate，delegate遵守并实现PTGNativeExpressBannerAdDelegate，可以监听广告的生命周期事件。</p>
+    <p>在banner广告加载成功后， 调用PTGNativeExpressBannerAd对象的showAdFromView:(UIView *)view frame:(CGRect)frame方法，传入需要展示广告的视图，以及广告视图的frame，进行banner广告的展示。PTGNativeExpressBannerAd对象的realSize属性，用于设置banner广告的size，代码示例如下:</p>
+    <pre><code class="objective-c">#pragma mark - PTGNativeExpressBannerAdDelegate -
 ///  广告加载成功
 ///  在此方法中调用 showAdFromView:frame 方法
 - (void)ptg_nativeExpressBannerAdDidLoad:(PTGNativeExpressBannerAd *)bannerAd {
     NSLog(@"横幅广告加载成功%@,",bannerAd);
-    [bannerAd showAdFromView:self.view frame:(CGRect){{0,200},bannerAd.realSize}];
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (bannerAd.isReady) {
+        [bannerAd showAdFromView:self.view frame:(CGRect){{0,200},self.bannerAd.realSize}];
+    } else {
+        NSLog(@"广告已过期");
+    }
 }
 
 /// 广告加载失败
@@ -441,6 +609,11 @@
 /// 广告将要曝光
 - (void)ptg_nativeExpressBannerAdWillBecomVisible:(PTGNativeExpressBannerAd *)bannerAd {
     NSLog(@"横幅广告曝光%@,",bannerAd);
+}
+
+/// 广告曝光失败
+- (void)ptg_nativeExpressBannerAdBecomVisibleFail:(PTGNativeExpressBannerAd *)bannerAd error:(NSError *_Nullable)error {
+    NSLog(@"横幅广告曝光失败%@, error = %@",bannerAd,error);
 }
 
 /// 广告被点击
@@ -457,14 +630,14 @@
 - (void)ptg_nativeExpressBannerAdViewDidCloseOtherController:(PTGNativeExpressBannerAd *)bannerAd {
     NSLog(@"横幅广告详情页被关闭%@,",bannerAd);
 }
-    </code></pre>
+</code></pre>
 
     <h2>插屏广告</h2>
     <p>插屏广告是移动广告的一种常见形式，在应用流程中弹出，当应用展示插屏广告时，用户可以选择点击广告，访问其目标网址，也可以将其关闭并返回应用。在应用执行流程的自然停顿点，适合投放这类广告。</p>
 
     <h3>插屏广告加载</h3>
     <p>插屏广告加载示例：</p>
-    <pre><code class="language-objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
+    <pre><code class="objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
 
 @interface PTGNativeExpressInterstitialAdViewController ()&lt;PTGNativeExpressInterstitialAdDelegate&gt;
 
@@ -487,16 +660,23 @@
     return _interstitialAd;
 }
 @end
-    </code></pre>
+</code></pre>
 
     <h3>插屏广告事件</h3>
-    <p>设置插屏广告的delegate，delegate遵守并实现PTGNativeExpressInterstitialAdDelegate，可以监听广告的生命周期事件。<br>
-    在插屏广告加载成功后，调用PTGNativeExpressInterstitialA实例的showAdFromRootViewController方法，展示插屏广告，<br>
-    代码示例如下：</p>
-    <pre><code class="language-objective-c">#pragma mark - PTGNativeExpressInterstitialAdDelegate -
+    <p>设置插屏广告的delegate，delegate遵守并实现PTGNativeExpressInterstitialAdDelegate，可以监听广告的生命周期事件。</p>
+    <p>在插屏广告加载成功后，调用PTGNativeExpressInterstitialA实例的showAdFromRootViewController方法，展示插屏广告，</p>
+    <p>代码示例如下：</p>
+    <pre><code class="objective-c">#pragma mark - PTGNativeExpressInterstitialAdDelegate -
 - (void)ptg_nativeExpresInterstitialAdDidLoad:(PTGNativeExpressInterstitialAd *)interstitialAd {
     NSLog(@"插屏广告加载成功%@",interstitialAd);
-    [interstitialAd showAdFromRootViewController:self];
+    /// 广告是否有效（展示前请务必判断）
+    /// 如不严格按照此方法对接，将导致因曝光延迟时间造成的双方消耗gap过大，请开发人员谨慎对接
+    if (interstitialAd.isReady) {
+        [interstitialAd showAdFromRootViewController:self];
+        NSLog(@"广告展示中");
+    } else {
+        NSLog(@"广告已过期");
+    }
 }
 
 - (void)ptg_nativeExpresInterstitialAd:(PTGNativeExpressInterstitialAd *)interstitialAd didFailWithError:(NSError * __nullable)error {
@@ -505,6 +685,10 @@
 
 - (void)ptg_nativeExpresInterstitialAdWillVisible:(PTGNativeExpressInterstitialAd *)interstitialAd {
     NSLog(@"插屏广告曝光%@",interstitialAd);
+}
+
+- (void)ptg_nativeExpresInterstitialAdVisibleFail:(PTGNativeExpressInterstitialAd *)interstitialAd error:(NSError *)error {
+    NSLog(@"插屏广告展示失败 error = %@",error);
 }
 
 - (void)ptg_nativeExpresInterstitialAdDidClick:(PTGNativeExpressInterstitialAd *)interstitialAd {
@@ -522,14 +706,14 @@
 - (void)ptg_nativeExpresInterstitialAdDisplayFail:(PTGNativeExpressInterstitialAd *)interstitialAd error:(NSError *)error {
     NSLog(@"插屏广告展示失败%@",interstitialAd);
 }
-    </code></pre>
+</code></pre>
 
     <h2>激励广告</h2>
     <p>激励广告将短视频融入到APP场景当中，用户观看短视频广告后可以给予一些应用内奖励。常出现在游戏的复活、任务等位置，或者网服类APP的一些增值服务场景。</p>
 
     <h3>激励广告加载</h3>
     <p>激励广告加载示例：</p>
-    <pre><code class="language-objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
+    <pre><code class="objective-c">#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
 
 @interface PTGNativeExpressRewardVideoAdViewController ()&lt;PTGRewardVideoDelegate&gt;
 
@@ -546,23 +730,27 @@
 
 - (PTGNativeExpressRewardVideoAd *)rewardVideoAd {
     if (!_rewardVideoAd) {
-        _rewardVideoAd = [[PTGNativeExpressRewardVideoAd alloc] initWithPlacementId:@"900000232"];
+        PTGRewardedVideoModel *model = [[PTGRewardedVideoModel alloc] init];
+        model.userId = @"user id";
+        model.rewardName = @"奖励名称";
+        model.rewardAmount = 400;
+        _rewardVideoAd = [[PTGNativeExpressRewardVideoAd alloc] initWithPlacementId:@"900000400" rewardedVideoModel:model];
         _rewardVideoAd.delegate = self;
     }
     return _rewardVideoAd;
 }
+
 @end
-    </code></pre>
+</code></pre>
 
     <h3>激励广告事件</h3>
-    <p>设置激励广告的delegate，delegate遵守并实现PTGRewardVideoDelegate，可以监听广告的生命周期事件。<br>
-    在激励广告加载成功后，调用PTGNativeExpressRewardVideoAd实例的showAdFromRootViewController方法，展示激励广告，</p>
-    <pre><code class="language-objective-c">#pragma makr - PTGRewardVideoDelegate -
+    <p>设置激励广告的delegate，delegate遵守并实现PTGRewardVideoDelegate，可以监听广告的生命周期事件。</p>
+    <p>在激励广告加载成功后，调用PTGNativeExpressRewardVideoAd实例的showAdFromRootViewController方法，展示激励广告，</p>
+    <pre><code class="objective-c">#pragma makr - PTGRewardVideoDelegate -
 /// 激励广告加载成功
 /// 在此方法中调用showAdFromRootViewController 展示激励广告
 - (void)ptg_rewardVideoAdDidLoad:(PTGNativeExpressRewardVideoAd *)rewardVideoAd {
     NSLog(@"激励广告加载成功%@",rewardVideoAd);
-    [rewardVideoAd showAdFromRootViewController:self];
 }
 
 /// 激励广告失败 加载失败 播放失败 渲染失败
@@ -578,6 +766,11 @@
 /// 激励广告曝光
 - (void)ptg_rewardVideoAdDidExposed:(PTGNativeExpressRewardVideoAd *)rewardVideoAd {
     NSLog(@"激励广告曝光%@",rewardVideoAd);
+}
+
+- (void)ptg_rewardVideoAdExposedFail:(PTGNativeExpressRewardVideoAd *)rewardVideoAd error:(NSError *)error {
+    NSLog(@"激励广告曝光失败 error = %@",error);
+
 }
 
 /// 激励广告关闭
@@ -598,92 +791,68 @@
 - (void)ptg_rewardVideoAdDidRewardEffective:(PTGNativeExpressRewardVideoAd *)rewardedVideoAd {
     NSLog(@"激励广告达到激励条件%@",rewardedVideoAd);
 }
-    </code></pre>
+</code></pre>
 
-    <h2>个性化模板广告</h2>
+    <h2>其他</h2>
+    <p>SDK 支持媒体决定是否启用摇一摇广告，默认启用</p>
+    <pre><code class="objective-c">    /// YES 为启用，默认启用，NO不启用摇一摇广告形式
+    [PTGSDKManager setSensorStatus:YES];
+</code></pre>
 
-    <h3>个性化模板广告加载</h3>
-    <p>个性化模板广告的加载示例：</p>
-    <pre><code class="language-objective-c">#import "PTGNativeViewController.h"
-#import &lt;PTGAdSDK/PTGAdSDK.h&gt;
-
-@interface PTGNativeViewController ()&lt;PTGNativeAdDelegate,PTGNativeAdViewDelegate&gt;
-
-@property(nonatomic,strong)PTGNativeAd *nativeAd;
-@property(nonatomic,strong)UIButton *loadButton;
-
-@end
-
-@implementation PTGNativeViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor]; 
-    
-  // 设置个性化模板广告的渲染类型
-  self.nativeAd.type = PTGNativeAdTypeTextFlip;         // 文字上下滚动
-  //  self.nativeAd.type = PTGNativeAdTypeTextScroll;   // 文字左右滚动
-  //  self.nativeAd.type = PTGNativeAdTypeBrandCard;    // 浮窗广告 左图右文
-}
-
-- (PTGNativeAd *)nativeAd {
-    if (!_nativeAd) {
-        _nativeAd = [[PTGNativeAd alloc] initWithPlacementId:@"460"];
-        _nativeAd.delegate = self;
-    }
-    return _nativeAd;
-}
-@end
-    </code></pre>
-
-    <h3>个性化模板广告事件</h3>
-    <p>设置个性化模板广告 的delegate，delegate遵守并实现PTGNativeAdDelegate，可以监听广告的加载事件。<br>
-    在PTGNativeAdDelegate的 ptg_nativeAdDidLoad：view：方法中，将广告添加到需要展示的视图上，并设置PTGNativeAdView实例对象的viewController，delegate对象，调用render 方法。可以监听PTGNativeAdView的广告事件</p>
-    <pre><code class="language-objective-c">#pragma mark - PTGNativeAdDelegate -
-- (void)ptg_nativeAdDidLoad:(PTGNativeAd *)nativeAd view:(PTGNativeAdView *)adView {
-    adView.viewController = self;
-    adView.delegate = self;
-    [adView render];
-    [self.view addSubview:adView];
-		
-    adView.frame = CGRectMake(100, 100, 200, 20);
-    NSLog(@"个性化模板广告加载成功，%s",__func__);
-}
-
-- (void)ptg_nativeAd:(PTGNativeAd *)nativeAd didFailWithError:(NSError *)error {
-    NSLog(@"个性化模板广告加载失败，%s",__func__);
-}
-
-/**
- 广告曝光回调
- 
- */
-- (void)ptg_nativeAdViewWillExpose:(PTGNativeAdView *)adView {
-    NSLog(@"个性化模板广告曝光，%s",__func__);
-}
-
-/**
- 广告点击回调
- */
-- (void)ptg_nativeAdViewDidClick:(PTGNativeAdView *)adView {
-    NSLog(@"个性化模板广告点击，%s",__func__);
-}
-
-
-/**
- 广告详情页关闭回调
- */
-- (void)ptg_nativeAdDetailViewClosed:(PTGNativeAdView *)adView {
-    NSLog(@"个性化模板广告详情页关闭，%s",__func__);
-}
-
-/**
- 广告详情页面即将展示回调
- 
- */
-- (void)ptg_nativeAdDetailViewWillPresentScreen:(PTGNativeAdView *)adView {
-    NSLog(@"个性化模板广告详情页展示，%s",__func__);
-}
-    </code></pre>
+    <table>
+        <thead>
+            <tr>
+                <th>错误码</th>
+                <th>描述</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>10001</td><td>没有广告</td></tr>
+            <tr><td>10002</td><td>广告数据格式异常</td></tr>
+            <tr><td>10003</td><td>无效的配置数据（聚合配置）</td></tr>
+            <tr><td>10004</td><td>广告请求超时</td></tr>
+            <tr><td>10005</td><td>网络错误 / 无网络</td></tr>
+            <tr><td>10006</td><td>初始化失败</td></tr>
+            <tr><td>10007</td><td>未初始化</td></tr>
+            <tr><td>10008</td><td>广告位 ID 为空</td></tr>
+            <tr><td>10009</td><td>广告位 ID 不合法</td></tr>
+            <tr><td>10010</td><td>广告初始化参数不合法，比如 size</td></tr>
+            <tr><td>10011</td><td>广告加载异常，第三方消耗方广告加载失败</td></tr>
+            <tr><td>10012</td><td>没有广告容器</td></tr>
+            <tr><td>10013</td><td>代码中没有对应消耗方，适配器为空</td></tr>
+            <tr><td>10014</td><td>资源加载错误</td></tr>
+            <tr><td>10015</td><td>渲染错误</td></tr>
+            <tr><td>10016</td><td>广告过期</td></tr>
+            <tr><td>10017</td><td>广告展示异常</td></tr>
+            <tr><td>10018</td><td>广告视频播放失败</td></tr>
+            <tr><td>10019</td><td>内部错误</td></tr>
+            <tr><td>10020</td><td>未知错误</td></tr>
+            <tr><td>10021</td><td>不支持的类型</td></tr>
+            <tr><td>10022</td><td>不支持的 DP</td></tr>
+            <tr><td>10023</td><td>缺少请求参数</td></tr>
+            <tr><td>10024</td><td>没有合适的策略</td></tr>
+            <tr><td>10025</td><td>包名校验错误</td></tr>
+            <tr><td>10026</td><td>广告价格低于底价</td></tr>
+            <tr><td>10027</td><td>广告 Style 不合法</td></tr>
+            <tr><td>10028</td><td>广告位 id 所属类型和广告 API 类型不匹配</td></tr>
+            <tr><td>10029</td><td>请求 URL 为空</td></tr>
+            <tr><td>10030</td><td>POST data 为空</td></tr>
+            <tr><td>10031</td><td>AES 密钥为空</td></tr>
+            <tr><td>10032</td><td>URL 格式错误</td></tr>
+            <tr><td>10033</td><td>接口返回数据为空</td></tr>
+            <tr><td>10034</td><td>AES 解密参数为空</td></tr>
+            <tr><td>10035</td><td>请求响应格式错误</td></tr>
+            <tr><td>10036</td><td>AES 解密失败 / 异常</td></tr>
+            <tr><td>10037</td><td>AES 加密参数为空</td></tr>
+            <tr><td>10038</td><td>AES 加密失败 / 异常</td></tr>
+            <tr><td>10039</td><td>序列化异常</td></tr>
+            <tr><td>10040</td><td>广告被策略过滤，不允许展示</td></tr>
+            <tr><td>10041</td><td>Banner PreRenderView 不存在</td></tr>
+            <tr><td>10042</td><td>传入的 VC 不存在</td></tr>
+            <tr><td>10043</td><td>有 presentedViewController 无法展示</td></tr>
+            <tr><td>10044</td><td>不支持的广告形式</td></tr>
+            <tr><td>10045</td><td>下载 apk 超时</td></tr>
+        </tbody>
+    </table>
 </body>
 </html>
