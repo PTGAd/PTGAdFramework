@@ -39,13 +39,7 @@ pod 'PTGAdFramework', '2.3.10'
 ## 极光适配器
 在 2.2.72版本之后支持极光聚合广告，接入方式参照[github链接](https://github.com/PTGAd/ADJGPTGAdapter) 
 
-## 美约广告消耗方支持
-由于美约广告SDK不支持cocoapods导入，需将项目中依赖的MeiYueSDK文件复制引用到工程中,并在cocoapods中导入依赖的第三方
-```shell
-  pod 'SDWebImage'
-  pod 'WechatOpenSDK'
-  pod 'CocoaAsyncSocket'
-  ```
+
 将SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
 ```xml
 <key>SKAdNetworkItems</key>
@@ -363,6 +357,73 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
     }
     return _manager;
 }
+```
+
+自渲染信息流：
+
+```objective-c
+#import <PTGAdSDK/PTGAdSDK.h>
+@interface PTGNativeExpressFeedViewController ()<PTGNativeExpressAdDelegate,UITableViewDelegate,UITableViewDataSource>
+
+@property(nonatomic,strong)PTGNativeExpressAdManager *manager;
+@property(nonatomic,strong)UIButton *loadButton;
+@property(nonatomic,strong)UITableView *tableView;
+@property(nonatomic,strong)NSArray<PTGNativeExpressAd *> *ads;
+
+@end
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor lightGrayColor];
+    [self.manager loadAd];
+}
+
+#pragma mark - get -
+- (PTGNativeExpressAdManager *)manager {
+    if (!_manager) { 
+      /// 普通信息流广告高度设置为0 广告渲染成功后，获取广告视图的实际高度
+        _manager = [[PTGNativeExpressAdManager alloc] initWithPlacementId:@"900000231"
+                                                                     type:PTGNativeExpressAdTypeSelfRender
+                                                                   adSize:CGSizeMake(self.view.bounds.size.width - 40, 0)];
+        _manager.delegate = self;
+    }
+    return _manager;
+}
+
+//自渲染广告对象的渲染方法
+- (void)renderAd:(PTGNativeExpressAd *)ad {
+    _ad = ad;
+    [ad darwUnregisterView];
+    self.titleLabel.text = ad.adObject.adData.title;
+    self.bodyLabel.text = ad.adObject.adData.body;
+    
+    self.iv.hidden = ad.isVideoAd;
+   
+    if (ad.isVideoAd) {
+        if (self.relatedView.videoView.superview == self) {
+            [self.relatedView.videoView removeFromSuperview];
+        }
+        self.relatedView = ad.adObject.relatedView;
+        [self addSubview:self.relatedView.videoView];
+        [self.relatedView.videoView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.iv);
+        }];
+        self.relatedView.videoDelegate = self;
+        PTGMediaInfo *info = ad.adObject.adData.videoAdInfo;
+        NSLog(@"当前素材宽 = %d 高 = %d",info.width,info.height);
+    } else {
+        [self.relatedView.videoView removeFromSuperview];
+        self.relatedView = nil;
+        PTGMediaInfo *info = ad.adObject.adData.imageUrls.firstObject;
+        NSLog(@"当前素材宽 = %d 高 = %d",info.width,info.height);
+        NSURL *url = [NSURL URLWithString:ad.adObject.adData.imageUrls.firstObject.url];
+        [self.iv sd_setImageWithURL:url];
+    }
+    [self addSubview:self.closeButton];
+    [ad.adObject setContainer:self clickableViews:@[self]];
+}
+
+
 ```
 
 
