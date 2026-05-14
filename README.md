@@ -31,10 +31,44 @@ pod 'PTGAdFramework', '2.3.10'
 ```
 
 ## GroMore适配器支持
-在 2.2.64版本之后支持GroMore聚合广告，接入方式参照[github链接](https://github.com/PTGAd/PTGGroMoreAdapter) 
+
+```shell
+需要在GroMore后台添加自定义广告平台
+
+初始化适配器
+PTGGMConfig 
+需要在网络配置中填写AppId AppKey
+开屏
+PTGGMSplashAdapter
+信息流
+PTGGMNativeAdapter 
+信息流 信息流 支持自渲染和模板渲染，在GroMore后台添加广告位下的代码位时，选择渲染类型 自渲染广告选择 开发者自渲染 模板广告 默认
+插屏
+PTGGMInterstitialAdapter
+横幅
+PTGGMBannerAdapter
+激励
+PTGGMRewardedVideoAdapter
+```
 
 ## ToBid适配器
-在 2.2.64版本之后支持ToBid聚合广告，接入方式参照[github链接](https://github.com/PTGAd/PTGToBidAdapter)
+```shell
+初始化
+PTGToBidConfigAdapter 
+需要在添加自定义广告源时，需要添加应用维度参数app_id,app_key参数（fancy广告平台的app_id,app_key)
+开屏
+PTGToBidSplashAdapter
+信息流
+PTGToBidNativeAdapter
+支持模板及自渲染信息流 默认模板，如需支持自渲染需在添加广告源代码位界面时，自定义配置信息中填写 {"self_render": "1"}
+banner
+PTGToBidBannerAdapter
+插屏
+PTGToBidInterstitialAdapter
+插屏默认点击广告后不关闭，如果需要点击后关闭插屏，可以在tobid自定义配置中填写 {"closeAfterClick":"1"}
+激励
+PTGToBidRewardedVideoAdapter
+```
 
 ## 极光适配器
 在 2.2.72版本之后支持极光聚合广告，接入方式参照[github链接](https://github.com/PTGAd/ADJGPTGAdapter) 
