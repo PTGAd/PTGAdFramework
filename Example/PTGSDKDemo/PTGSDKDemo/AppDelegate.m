@@ -12,7 +12,6 @@
 #import <AdSupport/AdSupport.h>
 #import "TopOnAdManager.h"
 #import <WebKit/WebKit.h>
-#import <OneAdSDK/OneAdSDK.h>
 #import "WXApi.h"
 #import "WXApiManager.h"
 //#import <DoraemonKit/DoraemonManager.h>
