@@ -1,6 +1,0 @@
-framework module OneAdSDK {
-  umbrella header "OneAdSDK.h"
-  export *
-
-  module * { export * }
-}

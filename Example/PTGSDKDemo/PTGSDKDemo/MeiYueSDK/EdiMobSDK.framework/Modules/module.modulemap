@@ -1,6 +1,0 @@
-framework module EdiMobSDK {
-  umbrella header "EdiMobSDK.h"
-  export *
-
-  module * { export * }
-}

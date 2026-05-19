@@ -1,6 +1,6 @@
 
 //
-//  UBiXNativeAdVideoReporter.h
+//  .h
 //  PTGAdSDK
 //
 //  Created by yongjiu on 2025/7/16.

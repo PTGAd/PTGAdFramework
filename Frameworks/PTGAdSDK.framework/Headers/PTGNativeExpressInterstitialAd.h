@@ -9,6 +9,8 @@
 #import <PTGAdSDK/PTGSourceAdType.h>
 #import <PTGAdSDK/PTGBidReason.h>
 #import <PTGAdSDK/PTGAdMaterial.h>
+#import <PTGAdSDK/PTGAdSlot.h>
+
 @class PTGNativeExpressInterstitialAd;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -87,6 +89,19 @@ NS_ASSUME_NONNULL_BEGIN
 /// 通知广告平台的广告竞败
 /// @param bidLossReason 竞败原因
 - (void)notifyBidLoss:(PTGBidReason *)bidLossReason;
+
+/// 下面的接口仅用于服务器bidding的初始化
+#pragma mark - service bid -
+/// 初始化
+/// PTGAdSlot 广告id
+- (instancetype)initWithSlot:(PTGAdSlot *)slot NS_DESIGNATED_INITIALIZER;
+
+/// 获取bidging token
+/// 通过initWithSlot方法构造后，获取biddingToken 并请求adx 获取adm
+- (nullable NSString *)biddingToken;
+
+///  获取到adm数据后调用，Adm赋值调⽤后⽆需调⽤load⽅法，直接在相关回调⾥等候响应即可
+- (void)setMopubAdMarkUp:(NSString *)adm;
 
 @end
 
