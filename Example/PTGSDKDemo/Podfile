@@ -4,8 +4,8 @@ platform :ios, '11.0'
 
 
 def share_pods
-  pod 'PTGAdFramework', '2.3.11'
-  pod 'AnyThinkPTGAdSDKAdapter','1.2.2'
+  pod 'PTGAdFramework', '2.3.13'
+  pod 'AnyThinkPTGAdSDKAdapter','1.2.3'
   pod 'Masonry'
   pod 'WechatOpenSDK'
   pod 'CocoaAsyncSocket'

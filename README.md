@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.3.12'
+pod 'PTGAdFramework', '2.3.13'
 
 ```
 
@@ -19,8 +19,8 @@ pod 'PTGAdFramework', '2.3.12'
 SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，开屏，横幅），可在Topon后台配置广告请求的适配器，具体可联系Fancy 商务配置,技术接入需导入
 AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码
 ```shell
-pod 'AnyThinkPTGAdSDKAdapter','1.2.2'
-pod 'PTGAdFramework', '2.3.12'
+pod 'AnyThinkPTGAdSDKAdapter','1.2.3'
+pod 'PTGAdFramework', '2.3.13'
 
 # topon 适配器
 插屏  ATPTGInterstitialAdapter
@@ -237,12 +237,7 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
         
     /// appKey  Ptg后台创建的媒体ID
     /// appSecret Ptg后台创建的媒体密钥
-    [PTGSDKManager setAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8" 
-    completion:^(BOOL result,NSError *error) {
-        if (result) {
-                        /// 初始化成功后，进行开屏广告的加载
-        }
-    }];
+    [PTGSDKManager syncSetAppKey:@"45271" appSecret:@"Y6yyc3zyP3EO9ol8"];
     return YES;
 }
 
