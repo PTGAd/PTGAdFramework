@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否开启摇一摇的监听，默认YES开启，不开启NO 不出摇一摇样式广告
 + (void)setSensorStatus:(BOOL)status;
 
-///设置广告logo（Fancy支持）
+///设置广告logo
 + (void)setAdLogo:(UIImage *)adLogo;
 
 /// 同步设置 appKey appSecret 2.2.74版本之后支持 建议使用同步方法
