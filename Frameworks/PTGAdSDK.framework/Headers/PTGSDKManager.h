@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否开启摇一摇的监听，默认YES开启，不开启NO 不出摇一摇样式广告
 + (void)setSensorStatus:(BOOL)status;
 
+/// 设置是否支持个性化广告，默认YES，设置NO不支持个性化广告
++ (void)setPersonalizedState:(BOOL)status;
+
 ///设置广告logo
 + (void)setAdLogo:(UIImage *)adLogo;
 
