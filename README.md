@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.3.15'
+pod 'PTGAdFramework', '2.3.16'
 
 ```
 
@@ -20,7 +20,7 @@ SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，
 AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码
 ```shell
 pod 'AnyThinkPTGAdSDKAdapter','1.2.3'
-pod 'PTGAdFramework', '2.3.15'
+pod 'PTGAdFramework', '2.3.16'
 
 # topon 适配器
 插屏  ATPTGInterstitialAdapter
@@ -69,10 +69,6 @@ PTGToBidInterstitialAdapter
 激励
 PTGToBidRewardedVideoAdapter
 ```
-
-## 极光适配器
-在 2.2.72版本之后支持极光聚合广告，接入方式参照[github链接](https://github.com/PTGAd/ADJGPTGAdapter) 
-
 
 将SKAdNetwork ID 添加到 info.plist 中，以保证 SKAdNetwork 的正确运行
 ```xml
