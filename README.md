@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '2.3.16'
+pod 'PTGAdFramework', '2.3.17'
 
 ```
 
@@ -20,7 +20,7 @@ SDK 在2.0.7之后的版本支持Topon的聚合请求广告（支持信息流，
 AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码
 ```shell
 pod 'AnyThinkPTGAdSDKAdapter','1.2.3'
-pod 'PTGAdFramework', '2.3.16'
+pod 'PTGAdFramework', '2.3.17'
 
 # topon 适配器
 插屏  ATPTGInterstitialAdapter
@@ -136,11 +136,6 @@ LSApplicationQueriesSchemes 配置。
 
 ## 全局配置
 
-**配置ali_aaid**
-
-媒体端获取到ali_aaid 通过一下方法设置
-
-[PTGSDKManager setAdIdentifier:@"you aaid"]；
 
 **应用传输安全**
 
@@ -227,8 +222,7 @@ SKAdNetwork（SKAN）是 Apple 的归因解决方案，可帮助广告客户在�
         @"one_id":caid,
         @"one_id_version": caidVersion,
         @"last_id": lastCaid,
-        @"last_id_version": lastCaidVersion,
-        @"one_ali_id": ali_aaid
+        @"last_id_version": lastCaidVersion
     }];
         
     /// appKey  Ptg后台创建的媒体ID

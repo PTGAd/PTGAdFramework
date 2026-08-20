@@ -26,6 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setPersonalizedState:(BOOL)status;
 
+/// 设置是否支持HTTP请求，不设置默认YES支持。
++ (void)setSupportHttp:(BOOL)supportHTTP;
+
 ///设置广告logo
 + (void)setAdLogo:(UIImage *)adLogo;
 
