@@ -23,6 +23,7 @@
 #import "TGNativeAdController.h"
 #import "ATPTGRewardVideoAdViewController.h"
 #import "YYCategories/YYCategories.h"
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
 
 
 @interface PTGViewController ()
@@ -74,6 +75,12 @@ UITableViewDataSource
     
     [self presentViewController:vc animated:true completion:^{
         
+    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+
     }];
 }
 
