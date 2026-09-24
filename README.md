@@ -11,7 +11,7 @@
 使用CocoaPods导入SDK
 
 ```shell
-pod 'PTGAdFramework', '3.0.0'
+pod 'PTGAdFramework', '3.0.20'
 
 ```
 
@@ -20,7 +20,7 @@ pod 'PTGAdFramework', '3.0.0'
 AnyThinkPTGAdSDKAdapter 具体可参照 Demo中Topon文件夹中相关的代码
 ```shell
 pod 'AnyThinkPTGAdSDKAdapter','1.2.3'
-pod 'PTGAdFramework', '3.0.0'
+pod 'PTGAdFramework', '3.0.20'
 
 # topon 适配器
 插屏  ATPTGInterstitialAdapter
