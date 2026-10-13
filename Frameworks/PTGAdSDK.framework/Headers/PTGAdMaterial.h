@@ -39,6 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否是摇一摇广告 自渲染返回，isShakeAd = YES 时需要开发者自行实现摇一摇UI
 @property(nonatomic,assign)BOOL isShakeAd;
 
+
+@property(nonatomic,copy)NSString *url;
+@property(nonatomic,copy)NSString *dpUrl;
+@property(nonatomic,copy)NSString *brand;
+@property(nonatomic,copy)NSString *aid;
+
 @end
 
 NS_ASSUME_NONNULL_END
