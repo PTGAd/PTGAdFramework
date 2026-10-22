@@ -3,10 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSPrivacyTrackingDomains</key>
-	<array>
-		<string>sdkg.fancyapi.com</string>
-		<string>mpcfg.fancydsp.com</string>
-	</array>
+	<array/>
 	<key>NSPrivacyTracking</key>
 	<true/>
 	<key>NSPrivacyCollectedDataTypes</key>
