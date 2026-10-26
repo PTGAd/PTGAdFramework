@@ -1,0 +1,6 @@
+framework module PTGAdSDK {
+  umbrella header "PTGAdSDK.h"
+  export *
+
+  module * { export * }
+}
