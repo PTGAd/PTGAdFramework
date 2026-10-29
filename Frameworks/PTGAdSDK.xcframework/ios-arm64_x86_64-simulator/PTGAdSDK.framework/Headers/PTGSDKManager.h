@@ -29,8 +29,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置是否支持HTTP请求，不设置默认YES支持。
 + (void)setSupportHttp:(BOOL)supportHTTP;
 
-///设置广告logo
+///设置新的广告logo
 + (void)setAdLogo:(UIImage *)adLogo;
+
+///获取SDK默认的logo URL
++ (NSString *)getSDKLogoUrl;
 
 /// 同步设置 appKey appSecret 2.2.74版本之后支持 建议使用同步方法
 /// @param appKey 平台上申请的appKey
