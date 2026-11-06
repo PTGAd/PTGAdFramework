@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "PTGAdFramework"
-  spec.version      = "3.0.27"
+  spec.version      = "3.0.28"
   spec.summary      = "A short description of PTGAdFramework."
 
 

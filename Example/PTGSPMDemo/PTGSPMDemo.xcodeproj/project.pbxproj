@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F2DD924A837D2647F051F91 /* PTGAdFramework in Frameworks */ = {isa = PBXBuildFile; productRef = 0387E23009CBF44F7264579E /* PTGAdFramework */; };
 		2734971E192BDCE7AD2E902E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E9B95F747BCCF4E25EE832 /* AppDelegate.swift */; };
 		3978313F19A69457937CAC0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73B3A192BDCA8EE5FA8C5C3 /* ViewController.swift */; };
 		B0FC978EC174B4474309DEDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 717B7129EA50A1ED8DC300FB /* Foundation.framework */; };
@@ -26,7 +25,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0FC978EC174B4474309DEDC /* Foundation.framework in Frameworks */,
-				1F2DD924A837D2647F051F91 /* PTGAdFramework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +53,6 @@
 				80E9B95F747BCCF4E25EE832 /* AppDelegate.swift */,
 				C73B3A192BDCA8EE5FA8C5C3 /* ViewController.swift */,
 			);
-			name = PTGSPMDemo;
 			path = PTGSPMDemo;
 			sourceTree = "<group>";
 		};
@@ -93,7 +90,6 @@
 			);
 			name = PTGSPMDemo;
 			packageProductDependencies = (
-				0387E23009CBF44F7264579E /* PTGAdFramework */,
 			);
 			productName = PTGSPMDemo;
 			productReference = 921678EB798ABAEC0F652898 /* PTGSPMDemo.app */;
@@ -117,11 +113,9 @@
 				Base,
 			);
 			mainGroup = 854D62B3D89DB536BDBD8C6B;
-			minimizedProjectReferenceProxies = 0;
 			packageReferences = (
-				238C8A2829730EA1A828EFB3 /* XCLocalSwiftPackageReference ".." */,
+				BFBC6A063093241C00E4E43C /* XCRemoteSwiftPackageReference "PTGAdFramework" */,
 			);
-			preferredProjectObjectVersion = 100;
 			productRefGroup = 22A7FB4FCA7043648FEECD9D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -166,7 +160,10 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = PTGSPMDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -193,7 +190,10 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = PTGSPMDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -345,19 +345,16 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		238C8A2829730EA1A828EFB3 /* XCLocalSwiftPackageReference ".." */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../..;
+/* Begin XCRemoteSwiftPackageReference section */
+		BFBC6A063093241C00E4E43C /* XCRemoteSwiftPackageReference "PTGAdFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PTGAd/PTGAdFramework.git";
+			requirement = {
+				kind = exactVersion;
+				version = 3.0.27;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0387E23009CBF44F7264579E /* PTGAdFramework */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PTGAdFramework;
-		};
-/* End XCSwiftPackageProductDependency section */
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = FBABBF2E302698D86F5C25C7 /* Project object */;
 }
